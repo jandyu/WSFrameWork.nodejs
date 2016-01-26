@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--menus-->
+  <row><key>m_00000001</key><value>Commodity</value></row>
+  <row><key>m_10000001</key><value>Info</value></row>
+  <row><key>m_10000002</key><value>Price</value></row>
+  <row><key>m_10000003</key><value>Transmit</value></row>
+  <row><key>m_10000004</key><value>Remove</value></row>
+  <row><key>m_10000005</key><value>Department</value></row>
+  <row><key>m_10000006</key><value>Import</value></row>
+  <row><key>m_00000002</key><value>Scales</value></row>
+  <row><key>m_20000001</key><value>Info</value></row>
+  <row><key>m_20000002</key><value>TaskList</value></row>
+  <row><key>m_20000003</key><value>ScaleBackup</value></row>
+  <row><key>m_00000003</key><value>Devices</value></row>
+  <row><key>m_30000001</key><value>Retail</value></row>
+  <row><key>m_30000002</key><value>Network</value></row>
+  <row><key>m_30000003</key><value>Others</value></row>
+  <row><key>m_00000004</key><value>Files</value></row>
+  <row><key>m_40000001</key><value>Password</value></row>
+  <row><key>m_40000002</key><value>Keyboard</value></row>
+  <row><key>m_40000003</key><value>LabelFormat</value></row>
+  <row><key>m_40000004</key><value>H/B Line</value></row>
+  <row><key>m_40000005</key><value>H/B Line Index</value></row>
+  <row><key>m_40000006</key><value>Barcode</value></row>
+  <row><key>m_40000007</key><value>Tracecode</value></row>
+  <row><key>m_40000008</key><value>ExtraText</value></row>
+  <row><key>m_40000009</key><value>UPloadFile</value></row>
+  <row><key>m_00000005</key><value>LOG</value></row>
+  <row><key>m_50000001</key><value>Commodity Import LOG</value></row>
+  <row><key>m_50000002</key><value>Commodity Modify LOG</value></row>
+  <row><key>m_50000003</key><value>System LOG</value></row>
+  <row><key>m_00000006</key><value>System</value></row>
+  <row><key>m_60000001</key><value>Role</value></row>
+  <row><key>m_60000002</key><value>User</value></row>
+  <row><key>m_60000003</key><value>Store</value></row>
+  <row><key>m_60000004</key><value>Database</value></row>
+  <row><key>m_60000005</key><value>Parameter</value></row>
+  <row><key>m_60000006</key><value>Templet</value></row>
+  
+  <!--系统-->
+  <row><key>s_00000001</key><value>Bizerba Scale Management System</value></row>
+  <row><key>s_00000002</key><value>Current Time : </value></row>
+  <row><key>s_00000003</key><value>OnLine : </value></row>
+  <row><key>s_00000004</key><value>Home Page</value></row>
+  <row><key>s_00000005</key><value>Remind</value></row>
+  <row><key>s_00000006</key><value>Sorry,You do not have permission,Please contact administrator!</value></row>
+  <row><key>s_00000007</key><value>Your Session has expired </value></row>
+  <row><key>s_00000008</key><value>Please log on again</value></row>
+  <row><key>s_00000009</key><value>Commodity No</value></row>
+  <row><key>s_00000010</key><value>Price</value></row>
+  <row><key>s_00000011</key><value>Segmentation Mode</value></row>
+  <row><key>s_00000012</key><value>Error</value></row>
+  <row><key>s_00000013</key><value>Import File</value></row>
+  <row><key>s_00000014</key><value>Commodity No</value></row>
+  <row><key>s_00000015</key><value>StartTime</value></row>
+  <row><key>s_00000016</key><value>EndTime</value></row>
+  <row><key>s_00000017</key><value>Commodity No</value></row>
+  <row><key>s_00000018</key><value>UPload File</value></row>
+  <row><key>s_00000019</key><value>Commodity is not exist!</value></row>
+  <row><key>s_00000020</key><value>Commodity is already in the list!</value></row>
+  <row><key>s_00000021</key><value>Please check import file and templet!</value></row>
+  <row><key>s_00000022</key><value>Current store must be only one configured!</value></row>
+  <row><key>s_00000023</key><value>Operating Param must be only one chose!</value></row>
+  <row><key>s_00000024</key><value>Please Select</value></row>
+  <row><key>s_00000025</key><value>This Scale is exist!</value></row>
+  <row><key>s_00000026</key><value>Sorry, the system busy, please try again later!</value></row>
+  <row><key>s_00000027</key><value>Are you sure to send the data?</value></row>
+  <row><key>s_00000028</key><value>Store Name</value></row>
+  <row><key>s_00000029</key><value>UnLogin</value></row>
+  <row><key>s_00000030</key><value>Check All</value></row>
+  <row><key>s_00000031</key><value>Modifed</value></row>
+  <row><key>s_00000032</key><value>Current First Index</value></row>
+  <row><key>s_00000033</key><value>Current Last  Index</value></row>
+  <row><key>s_00000034</key><value>Are you sure to overwrite system?</value></row>
+  <row><key>s_00000035</key><value>Are you sure to use the files to restore?</value></row>
+  <row><key>s_00000036</key><value>Commodity</value></row>
+  <row><key>s_00000037</key><value>ExtraText</value></row>
+  <row><key>s_00000038</key><value>Keyboard</value></row>
+  <row><key>s_00000039</key><value>Barcode</value></row>
+
+
+  <row><key>p_bottom_1</key><value>&#169; Copyright 2011 Bizerba China. All right reserved.</value></row>
+  <row><key>p_bottom_2</key><value></value></row>
+  <row><key>s_wssrv_01</key><value>Data Loading...</value></row>
+  
+  
+  <row><key>log_art_01</key><value>Add</value></row>
+  <row><key>log_art_02</key><value>Edit</value></row>
+  <row><key>log_art_03</key><value>Price</value></row>
+  <row><key>log_edit_01</key><value>Detail</value></row>
+  <row><key>log_edit_02</key><value>Discount Detail</value></row>
+  <row><key>log_edit_03</key><value>Keyboard Detail</value></row>
+  <row><key>log_edit_04</key><value>Import</value></row>
+  <row><key>log_edit_05</key><value>Export</value></row>
+  
+
+  <row><key>import_01</key><value>Select File</value></row>
+  <row><key>import_02</key><value>Import Successfully!</value></row>
+  <row><key>import_03</key><value>Importing Data has been Checked,are you sure to overwrite system?</value></row>
+  
+  <row><key>datas_01</key><value>Database is Backuping...</value></row>
+  <row><key>datas_02</key><value>DataBase Backup is finished!</value></row>
+  <row><key>datas_03</key><value>Are you sure to delete?</value></row>
+  <row><key>datas_04</key><value>Not Used Resource</value></row>
+  <row><key>datas_05</key><value>Log has been deleted!</value></row>
+  <row><key>datas_06</key><value>Log deleting failed!</value></row>
+  <row><key>datas_07</key><value>Not Used Resource</value></row>
+  <row><key>datas_08</key><value>Log has been deleted</value></row>
+  <row><key>datas_09</key><value>Log deleting failed</value></row> 
+  <row><key>datas_11</key><value>Database is restoring,Please wait a minite!</value></row>
+  <row><key>datas_12</key><value>Database has been restored!</value></row>
+  
+  <!--登录界面-->
+  <row><key>login_0001</key><value>LOGIN BIZERBA CHINA</value></row>
+  <row><key>login_0101</key><value>UserName</value></row>
+  <row><key>login_0102</key><value>Please Input user name</value></row>
+  <row><key>login_0201</key><value>Password</value></row>
+  <row><key>login_0202</key><value>Please Input password</value></row>
+  <row><key>login_0301</key><value>Login</value></row>
+  <row><key>login_0302</key><value>Modify Password</value></row>
+  <row><key>login_0303</key><value>New Password</value></row>
+  <row><key>login_0304</key><value>Old Password</value></row>
+  <row><key>login_0305</key><value>Confirm Password</value></row>
+  <row><key>login_0306</key><value>Please Input old password</value></row>
+  <row><key>login_0307</key><value>Please Input new password</value></row>
+  <row><key>login_0308</key><value>Please Input new password again</value></row>
+  <row><key>login_0401</key><value>Exit</value></row>
+  <row><key>login_0402</key><value>StoreName</value></row>
+  
+  <!--表格元素-->
+  <row><key>page_0001</key><value>Pages</value></row>
+  <row><key>page_0002</key><value>Rows</value></row>
+  <row><key>page_0003</key><value>Total:</value></row>
+  <row><key>page_0004</key><value>SubTot :</value></row>
+  <row><key>page_0005</key><value>Total:</value></row>
+  
+    <!--操作标签-->
+  <row><key>control_0001</key><value>View</value></row>
+  <row><key>control_0002</key><value>Search</value></row>
+  <row><key>control_0003</key><value>Edit</value></row>
+  <row><key>control_0004</key><value>Add</value></row>
+  <row><key>control_0005</key><value>Condition</value></row>
+  <row><key>control_0006</key><value>Success</value></row>
+  <row><key>control_0007</key><value>Item is not allowed null!</value></row>
+  <row><key>control_0008</key><value>The data has been already exist or modified by other users, please refresh!</value></row>
+  <row><key>control_0009</key><value>Save failed!</value></row>
+  <row><key>control_0010</key><value>Maximum length exceeded!</value></row>
+  <row><key>control_0011</key><value>The data has been deleted!</value></row>
+  <row><key>control_0012</key><value>The price has been changed!</value></row>
+  <row><key>control_0013</key><value>Tranmission created successfully!</value></row>
+  <row><key>control_0014</key><value>Setting</value></row>
+  <row><key>control_0015</key><value>Layout</value></row>
+  <row><key>control_0016</key><value>The password should be six-digit</value></row>
+  <row><key>control_0017</key><value>Please select data for deleting</value></row>
+  <row><key>control_0018</key><value>The count of deleting data is </value></row>
+  <row><key>control_0019</key><value>?</value></row>
+  <row><key>control_0020</key><value>Sorry,You do not have permission!</value></row>
+  <row><key>control_0021</key><value>You must input digit!</value></row>
+  <row><key>control_0022</key><value>You must input digit(decimal-allow)!</value></row>
+  <row><key>control_0023</key><value>Incorrect time format!</value></row>
+  <row><key>control_0024</key><value>Please select the KeyboardInfo!</value></row>
+
+  
+
+  <!--文本标签-->
+  <row><key>article_0101000000</key><value>Commodity</value></row>
+  <row><key>segregate_0105000000</key><value>Department</value></row>
+  <row><key>scale_0201000000</key><value>Scales</value></row>
+  <row><key>devices_0301000000</key><value>Retail Device</value></row>
+  <row><key>devices_0302000000</key><value>Network Device</value></row>
+  <row><key>devices_0303000000</key><value>Other Device</value></row>
+  <row><key>scalepwd_0401000000</key><value>Password</value></row>
+  <row><key>scalekey_0402000000</key><value>Keyboard</value></row>
+  <row><key>rollinfo_0404000000</key><value>H/B Line</value></row>
+  <row><key>barcod_0406000000</key><value>Barcode</value></row>
+  <row><key>scaletrace_0407000000</key><value>Tracecode</value></row>
+  <row><key>apptext_0408000000</key><value>ExtraText</value></row>
+  <row><key>role_0601000000</key><value>Role</value></row>
+  <row><key>worker_0602000000</key><value>User</value></row>
+  
+  <!--共同字段-->
+  <row><key>common_0000000001</key><value>IID</value></row>
+  
+  <!--商品一览-->
+  <row><key>article_0101000001</key><value>CommodityInfo</value></row>
+  <row><key>article_0101010001</key><value>CommodityNo</value></row>
+  <row><key>article_0101010002</key><value>CommodityName</value></row>
+  <row><key>article_0101010003</key><value>Price</value></row>
+  <row><key>article_0101010004</key><value>WeighUnit</value></row>
+  <row><key>article_0101010005</key><value>SaleMode</value></row>
+  <row><key>article_0101010006</key><value>Tare</value></row>
+  <row><key>article_0101010007</key><value>ShelfLife</value></row>
+  <row><key>article_0101010008</key><value>BarcodeNo</value></row>
+  <row><key>article_0101010009</key><value>InstoreCode</value></row>
+  <row><key>article_0101010010</key><value>Department</value></row>
+  <row><key>article_0101000002</key><value>Discount Detail</value></row>
+  <row><key>article_0101020001</key><value>PriceOverWrite</value></row>
+  <row><key>article_0101020002</key><value>Tracecode</value></row>
+  <row><key>article_0101020003</key><value>ExtraText</value></row>
+  <row><key>article_0101020004</key><value>ModifyDate</value></row>
+  <row><key>article_0101020005</key><value>Remark</value></row>
+  <row><key>article_0101020006</key><value>StartDate</value></row>
+  <row><key>article_0101020007</key><value>EndDate</value></row>
+  <row><key>article_0101020008</key><value>StartTime</value></row>
+  <row><key>article_0101020009</key><value>EndTime</value></row>
+  <row><key>article_0101020010</key><value>Discount Price</value></row>
+  <row><key>article_0101020011</key><value>Old Price</value></row>
+  <row><key>article_0101020012</key><value>New Price</value></row>
+  <row><key>article_0101020013</key><value>Mode</value></row>
+  <row><key>article_0101020014</key><value>ProductionDate</value></row>
+  <row><key>article_0101020015</key><value>PackagingDate</value></row>
+
+  <!--部门管理-->
+  <row><key>segregate_0105000001</key><value>DepartmentInfo</value></row>
+  <row><key>segregate_0105010001</key><value>ID</value></row>
+  <row><key>segregate_0105010002</key><value>Department</value></row>
+  <row><key>segregate_0105010003</key><value>Remark</value></row>
+  
+  <!--商品导入-->
+  <row><key>importarticle_0106000001</key><value>ImportInfo</value></row>
+  <row><key>importarticle_0106010001</key><value>ItemID</value></row>
+  <row><key>importarticle_0106010002</key><value>ItemName</value></row>
+  <row><key>importarticle_0106010003</key><value>ItemLength</value></row>
+  <row><key>importarticle_0106010004</key><value>Alignment</value></row>
+  <row><key>importarticle_0106010005</key><value>ItemIndex</value></row>
+  <row><key>importarticle_0106010006</key><value>DefaultValue</value></row>
+  <row><key>importarticle_0106010007</key><value>StartBit</value></row>
+  <row><key>importarticle_0106010008</key><value>Fixion</value></row>
+  <row><key>importarticle_0106010009</key><value>ExchangeRules</value></row>
+  <row><key>importarticle_0106010010</key><value>Format</value></row>
+  
+  <row><key>import_0106000002</key><value>Import FileList</value></row>
+  <row><key>import_0106020001</key><value>Select Templet</value></row>
+  
+  <!--电子秤管理-->
+  <row><key>scale_0201000001</key><value>ScaleInfo</value></row>
+  <row><key>scale_0201010001</key><value>ID</value></row>
+  <row><key>scale_0201010002</key><value>Mode</value></row>
+  <row><key>scale_0201010003</key><value>Department</value></row>
+  <row><key>scale_0201010004</key><value>Description</value></row>
+  <row><key>scale_0201010005</key><value>UseOfState</value></row>
+  <row><key>scale_0201000002</key><value>OtherInfo</value></row>
+  <row><key>scale_0201020001</key><value>IP</value></row>
+  <row><key>scale_0201020002</key><value>MAC</value></row>
+  <row><key>scale_0201020003</key><value>Version</value></row>
+  <row><key>scale_0201020004</key><value>NetStatus</value></row>
+  <row><key>scale_0201020005</key><value>KeyboardStyle</value></row>
+  <row><key>scale_0201020006</key><value>KeyNum</value></row>
+  
+  <row><key>scale_0201030000</key><value>TaskDetail</value></row>
+  <row><key>scale_0201030001</key><value>Task</value></row>
+  <row><key>scale_0201030002</key><value>Status</value></row>
+  <row><key>scale_0201030003</key><value>Result</value></row>
+  <row><key>scale_0201030004</key><value>Time</value></row>
+  <row><key>scale_0201030005</key><value>ScaleNo</value></row>
+  
+  <row><key>scale_0201040000</key><value>Select Content</value></row>
+  
+  <!--设备管理-->
+  <row><key>devices_0301000001</key><value>BasicInfo</value></row>
+  <row><key>devices_0301010001</key><value>ID</value></row>
+  <row><key>devices_0301010002</key><value>Description</value></row>
+  <row><key>devices_0301010003</key><value>Status</value></row>
+  <row><key>devices_0301010004</key><value>Type</value></row>
+  <row><key>devices_0301010005</key><value>SerialNo</value></row>
+  <row><key>devices_0301000002</key><value>OtherInfo</value></row>
+  <row><key>devices_0301020001</key><value>IP</value></row>
+  <row><key>devices_0301020002</key><value>NetStatus</value></row>
+  <row><key>devices_0301020003</key><value>MAC</value></row>
+  <row><key>devices_0301020004</key><value>Remark</value></row>
+
+  <!--密码文件-->
+  <row><key>scalepwd_0401000001</key><value>PasswordInfo</value></row>
+  <row><key>scalepwd_0401010001</key><value>Password</value></row>
+
+  <!--预设键文件-->
+  <row><key>scalekey_0402000000</key><value>KeyTypeChoose</value></row>
+  <row><key>scalekey_0402000001</key><value>KeyboardInfo</value></row>
+  <row><key>scalekey_0402010001</key><value>ID</value></row>
+  <row><key>scalekey_0402010002</key><value>KeyID1</value></row>
+  <row><key>scalekey_0402010003</key><value>RelationType</value></row>
+  <row><key>scalekey_0402010004</key><value>KeyID2</value></row>
+  <row><key>scalekey_0402010005</key><value>KeyID3</value></row>
+  <row><key>scalekey_0402010006</key><value>ScaleID</value></row>
+  <row><key>scalekey_0402000002</key><value>Keyboard</value></row>
+  <row><key>scalekey_0402000003</key><value>Keyboard</value></row>
+  
+  <row><key>scalekey_0402000004</key><value>KeyboardInfo</value></row>
+  <row><key>scalekey_0402040001</key><value>LayoutName</value></row>
+  <row><key>scalekey_0402040002</key><value>ScaleType</value></row>
+  <!--滚动信息-->
+  <row><key>rollinfo_0404000001</key><value>H/B Line</value></row>
+  <row><key>rollinfo_0404010001</key><value>ID</value></row>
+  <row><key>rollinfo_0404010002</key><value>Content</value></row>
+  
+  <!--自定义条码-->
+  <row><key>barcod_0406000001</key><value>BarcodInfo</value></row>
+  <row><key>barcod_0406010001</key><value>ID</value></row>
+  <row><key>barcod_0406010002</key><value>Rule</value></row>
+  <row><key>barcod_0406010003</key><value>Format</value></row>
+  
+  <!--追溯码文件-->
+  <row><key>scaletrace_0407000001</key><value>TraceInfo</value></row>
+  <row><key>scaletrace_0407010001</key><value>ID</value></row>
+  <row><key>scaletrace_0407010002</key><value>TraceCode</value></row>
+
+  <!--附加文本文件-->
+  <row><key>apptext_0408000001</key><value>ExtraTextInfo</value></row>
+  <row><key>apptext_0408010001</key><value>ID</value></row>
+  <row><key>apptext_0408010002</key><value>Content</value></row>
+  <row><key>apptext_0408010003</key><value>Remark</value></row>
+
+  <!--文件上传-->
+  <row><key>upload_0409000001</key><value>UPload Filelist</value></row>
+  <row><key>upload_0409000002</key><value>UPload</value></row>
+
+  <!--商品导入日志-->
+  <row><key>log_0501000001</key><value>LOGInfo</value></row>
+  <row><key>log_0501010001</key><value>FileName</value></row>
+  <row><key>log_0501010002</key><value>User</value></row>
+  <row><key>log_0501010003</key><value>Result</value></row>
+  <row><key>log_0501010004</key><value>Detail</value></row>
+  <row><key>log_0501010005</key><value>DateTime</value></row>
+  <row><key>log_0501010006</key><value>StartTime</value></row>
+  <row><key>log_0501010007</key><value>EndTime</value></row>
+  
+  <!--商品更改日志-->
+  <row><key>log_0502000001</key><value>LOGInfo</value></row>
+  <row><key>log_0502010001</key><value>DateTime</value></row>
+  <row><key>log_0502010002</key><value>Detail</value></row>
+  <row><key>log_0502010003</key><value>User</value></row>
+  <row><key>log_0502010004</key><value>StartTime</value></row>
+  <row><key>log_0502010005</key><value>EndTime</value></row>
+  
+  <!--访问日志-->
+  <row><key>log_0503000001</key><value>LOGInfo</value></row>
+  <row><key>log_0503010001</key><value>Address</value></row>
+  <row><key>log_0503010002</key><value>UserID</value></row>
+  <row><key>log_0503010003</key><value>Date</value></row>
+  <row><key>log_0503010004</key><value>Description</value></row>
+  <row><key>log_0503010005</key><value>Detail</value></row>
+  <row><key>log_0503010006</key><value>StartTime</value></row>
+  <row><key>log_0503010007</key><value>EndTime</value></row>
+  
+  <!--角色管理-->
+  <row><key>role_0601000001</key><value>RoleInfo</value></row>
+  <row><key>role_0601010001</key><value>ID</value></row>
+  <row><key>role_0601010002</key><value>RoleName</value></row>
+  <row><key>role_0601000002</key><value>OtherInfo</value></row>
+  <row><key>role_0601020001</key><value>Department</value></row>
+  <row><key>role_0601020002</key><value>Authorization</value></row>
+
+  <!--用户管理-->
+  <row><key>worker_0602000001</key><value>LoginInfo</value></row>
+  <row><key>worker_0602010001</key><value>ID</value></row>
+  <row><key>worker_0602010002</key><value>Password</value></row>
+  <row><key>worker_0602010003</key><value>UserName</value></row>
+  <row><key>worker_0602000002</key><value>Detail</value></row>
+  <row><key>worker_0602020001</key><value>Role</value></row>
+  <row><key>worker_0602020002</key><value>Status</value></row>
+  <row><key>worker_0602020003</key><value>Remark</value></row>
+  
+  
+  <!--店铺管理-->
+  <row><key>store_0603000001</key><value>StoreInfo</value></row>
+  <row><key>store_0603010001</key><value>ID</value></row>
+  <row><key>store_0603010002</key><value>StoreName</value></row>
+  <row><key>store_0603010003</key><value>IP</value></row>
+  <row><key>store_0603010004</key><value>Version</value></row>
+  <row><key>store_0603010005</key><value>Address</value></row>
+  <row><key>store_0603010006</key><value>IsCurrent</value></row>
+  
+  <!--数据库管理-->
+  <row><key>data_0604000001</key><value>DatabaseBackup</value></row>
+  <row><key>data_0604010001</key><value>Backup Date</value></row>
+  <row><key>data_0604010002</key><value>Backup FileName</value></row>
+  <row><key>data_0604010003</key><value>Description</value></row>
+  <row><key>data_0604000002</key><value>Transmission LOG</value></row>
+  <row><key>data_0604000003</key><value>Visitation LOG</value></row>
+
+  <!--参数管理-->
+  <row><key>setting_0605000001</key><value>System Param</value></row>
+  <row><key>setting_0605000002</key><value>Scales Param</value></row>
+  <row><key>setting_0605000003</key><value>Device Param</value></row>
+ 
+  <row><key>setting_0605000004</key><value>AutoImport Param</value></row>
+  <row><key>setting_0605000005</key><value>DataBackup Param</value></row>
+  <row><key>setting_0605000006</key><value>SM  Param</value></row>
+  <row><key>setting_0605000007</key><value>LOG Param</value></row>
+  <row><key>setting_0605000008</key><value>RDM Param</value></row>
+  <row><key>setting_0605000009</key><value>IDM Param</value></row>
+  <row><key>setting_0605000010</key><value>ODM Param</value></row>
+  <row><key>setting_0605000011</key><value>Other Param</value></row>
+  
+  <row><key>setting_0605010001</key><value>Directory</value></row>
+  <row><key>setting_0605010002</key><value>Interval(min)</value></row>
+  <row><key>setting_0605010003</key><value>Directory</value></row>
+  <row><key>setting_0605010004</key><value>Interval(Day)</value></row>
+  <row><key>setting_0605010005</key><value>Keep Days</value></row>
+  <row><key>setting_0605010006</key><value>StartTime</value></row>
+  <row><key>setting_0605010007</key><value>StartTime</value></row>
+  <row><key>setting_0605010008</key><value>StartTime</value></row>
+  <row><key>setting_0605010009</key><value>EndTime</value></row>
+  <row><key>setting_0605010010</key><value>StartTime</value></row>
+  <row><key>setting_0605010011</key><value>EndTime</value></row>
+  <row><key>setting_0605010012</key><value>LOG Keep Days</value></row>
+  <row><key>setting_0605010013</key><value>Monitor</value></row>
+  <row><key>setting_0605010014</key><value>Interval(min)</value></row>
+  <row><key>setting_0605010015</key><value>Task Keep Days</value></row>
+  <row><key>setting_0605010016</key><value>Scale Mode</value></row>
+  <row><key>setting_0605010017</key><value>AutoPassword</value></row>
+  <row><key>setting_0605010018</key><value>TaskInterval</value></row>
+  <row><key>setting_0605010019</key><value>OverdueTask</value></row>
+  
+  <row><key>setting_0605000012</key><value>Sys Param</value></row>
+  <row><key>setting_0605120001</key><value>ID</value></row>
+  <row><key>setting_0605120002</key><value>Tital</value></row>
+  <row><key>setting_0605120003</key><value>IsUsed</value></row>
+
+   <!--数据导入样式管理-->
+  <row><key>setting_0606000001</key><value>Templet</value></row>
+  <row><key>setting_0606010001</key><value>Separator</value></row>
+  <row><key>setting_0606010002</key><value>DataError</value></row>
+  <row><key>setting_0606010003</key><value>InitialFile</value></row>
+  <row><key>setting_0606010004</key><value>Title</value></row>
+  <row><key>setting_0606010005</key><value>Description</value></row>
+  <row><key>setting_0606010006</key><value>Type</value></row>
+  <row><key>setting_0606000002</key><value>Templet Detail</value></row>
+  
+  <!--任务-->
+  <row><key>task_0701000001</key><value>TaskInfo</value></row>
+  <row><key>task_0701010001</key><value>TaskName</value></row>
+  <row><key>task_0701010002</key><value>Condition</value></row>
+  <row><key>task_0701010003</key><value>Task</value></row>
+  <row><key>task_0701010004</key><value>Process</value></row>
+  <row><key>task_0701010005</key><value>Status</value></row>
+  <row><key>task_0701010006</key><value>EndTime</value></row>
+  <row><key>task_0701010007</key><value>StartTime</value></row>
+  <row><key>task_0701010008</key><value>EndTime</value></row>
+  
+  <row><key>task_title0001</key><value>SendAll</value></row>
+  <row><key>task_title0002</key><value>SendDelete</value></row>
+  <row><key>task_title0003</key><value>SendPrice</value></row>
+  <row><key>task_title0004</key><value>SendSelectd</value></row>
+  <row><key>task_title0005</key><value>SendTracecode</value></row>
+  <row><key>task_title0006</key><value>SendExtraText</value></row>
+  <row><key>task_title0007</key><value>SendBarcode</value></row>
+  <row><key>task_title0008</key><value>SendKeyboard</value></row>
+  <row><key>task_title0009</key><value>SendPassword</value></row>
+  <row><key>task_title0010</key><value>BackupScale</value></row>
+  
+  
+  <row><key>task_status0001</key><value>Waiting</value></row>
+  <row><key>task_status0002</key><value>DataProcessing</value></row>
+  <row><key>task_status0003</key><value>Transmiting</value></row>
+  <row><key>task_status0004</key><value>TransmissionFinish</value></row>
+  <row><key>task_status0005</key><value>DataError</value></row>
+  
+  <!--结果文字-->
+  <row><key>task_result0000</key><value>Disconnect</value></row>
+  <row><key>task_result0001</key><value>Successful</value></row>
+  <row><key>task_result0002</key><value>NetInterrupt</value></row>
+  <row><key>task_result0003</key><value>DataError</value></row>
+  <row><key>task_result0004</key><value>BackupSuccessful</value></row>
+  <row><key>task_result0005</key><value>BackupFailed</value></row>
+  
+  <!--监控日志-->
+  <row><key>log_0801000000</key><value>MonitorLOG</value></row>
+  <row><key>log_0801000001</key><value>DeviceIP</value></row>
+  <row><key>log_0801000002</key><value>MonitorTime</value></row>
+  <row><key>log_0801000003</key><value>Result</value></row>
+  <row><key>log_0801000004</key><value>DeviceType</value></row>
+  
+  <!--按钮文字-->
+  <row><key>button_000001</key><value>OK</value></row>
+  <row><key>button_000002</key><value>Cancel</value></row>
+  <row><key>button_000003</key><value>Search</value></row>
+  <row><key>button_000004</key><value>Return</value></row>
+  <row><key>button_000005</key><value>Save</value></row>
+  <row><key>button_000006</key><value>Send</value></row>
+  <row><key>button_000007</key><value>Delete</value></row>
+  <row><key>button_000008</key><value>Backup</value></row>
+  <row><key>button_000009</key><value>Import</value></row>
+  <row><key>button_000010</key><value>Rollback</value></row>
+  <row><key>button_000011</key><value>SendAll</value></row>
+  <row><key>button_000012</key><value>UPload</value></row>
+  <row><key>button_000013</key><value>Print</value></row>
+  <row><key>button_000014</key><value>SendSelected</value></row>
+  <row><key>button_000015</key><value>DelSelected</value></row>
+  <row><key>button_000016</key><value>LastItem</value></row>
+  <row><key>button_000017</key><value>NextItem</value></row>
+  <row><key>button_000018</key><value>Export</value></row>
+  <row><key>button_000019</key><value>ExportModify</value></row>
+  <row><key>button_000020</key><value>ExportAll</value></row>
+  <row><key>button_000021</key><value>ExportByDep</value></row>
+    
+    <!--下拉框文字-->
+  <row><key>select_001001</key><value>-Select-</value></row>
+  <row><key>select_001002</key><value>Unavailable</value></row>
+  <row><key>select_001003</key><value>Available</value></row>
+  <row><key>select_001004</key><value>Yes</value></row>
+  <row><key>select_001005</key><value>No</value></row>
+  <row><key>select_001006</key><value></value></row>
+  <row><key>select_001007</key><value>-Select-</value></row>
+  <row><key>select_001008</key><value>Default keyboard</value></row>
+  
+  <row><key>select_002001</key><value>Male</value></row>
+  <row><key>select_002002</key><value>Female</value></row>
+  <row><key>select_003001</key><value>Allow</value></row>
+  <row><key>select_003002</key><value>NotAllow</value></row>
+  <row><key>select_004001</key><value>Able</value></row>
+  <row><key>select_004002</key><value>Enable</value></row>
+  <row><key>select_004003</key><value>Able(No Action)</value></row>
+  <row><key>select_004004</key><value>Abled(Delete)</value></row>
+  <row><key>select_005001</key><value>Weigh</value></row>
+  <row><key>select_005002</key><value>Unweigh</value></row>
+  <row><key>select_006001</key><value>Kg</value></row>
+  <row><key>select_006002</key><value>500g</value></row>
+  <row><key>select_007001</key><value>Commodity Key</value></row>
+  <row><key>select_007002</key><value>TraceCode Key</value></row>
+  <row><key>select_008001</key><value>BCII</value></row>
+  <row><key>select_008002</key><value>SCII</value></row>
+  <row><key>select_009001</key><value>Normal Work</value></row>
+  <row><key>select_009002</key><value>Offline Work</value></row>
+  <row><key>select_009003</key><value>Stop</value></row>
+  <row><key>select_009004</key><value>Repairring</value></row>
+  <row><key>select_009005</key><value>Unusual Offline</value></row>
+  <row><key>select_010001</key><value>Offline</value></row>
+  <row><key>select_010002</key><value>Online</value></row>
+  <row><key>select_011001</key><value>EAN13</value></row>
+  <row><key>select_011002</key><value>COD128</value></row>
+  <row><key>select_012001</key><value>Offline</value></row>
+  <row><key>select_012002</key><value>Online</value></row>
+  <row><key>select_013001</key><value>BC II (54)</value></row>
+  <row><key>select_014001</key><value>Still Save</value></row>
+  <row><key>select_014002</key><value>Give Up Save</value></row>
+  <row><key>select_015001</key><value>PLU Template</value></row>
+  <row><key>select_015002</key><value>Extratext Template</value></row>
+  <row><key>select_015003</key><value>Keyboard Template</value></row>
+  <row><key>select_015004</key><value>Barcode Template</value></row>
+  <row><key>select_015005</key><value>Tracecode Template files</value></row>
+  <row><key>select_016001</key><value>Tab</value></row>
+  <row><key>select_016002</key><value>Noseparate</value></row>
+  <row><key>select_017001</key><value>Success</value></row>
+  <row><key>select_017002</key><value>Resend</value></row>
+  <row><key>select_017003</key><value>Overdue Task</value></row>
+  <row><key>select_017004</key><value>Failure</value></row>
+    
+  <!--20111228-->
+  <row><key>log_0503020001</key><value>Login success</value></row>
+  <row><key>log_0503020002</key><value>Login user name or password mistake</value></row>
+  <row><key>log_0503020003</key><value>User name or password mistake</value></row>
+  <row><key>log_0503020004</key><value>The user has to be disabled</value></row>
+  <row><key>log_0503020005</key><value>Super administrator</value></row>
+  <row><key>log_0503020006</key><value>login</value></row>
+  <row><key>log_0503020007</key><value>Browse</value></row>
+  <row><key>log_0503020008</key><value>Have no jurisdiction</value></row>
+
+  <row><key>add_0101010001</key><value>Result</value></row>
+  <row><key>add_0101010002</key><value>Create Time</value></row>
+  <row><key>add_0101010003</key><value>Old Price</value></row>
+  <row><key>add_0101010004</key><value>Update Time</value></row>
+    
+  <!--20111229-->
+  <row><key>add_0101010005</key><value>Default key layout</value></row>
+    
+  <row><key>add_1229010001</key><value>Memo</value></row>
+  <row><key>add_1229010002</key><value>Plu name</value></row>
+  <row><key>add_1229010003</key><value>Date</value></row>
+  <row><key>add_1229010004</key><value>Shelf life</value></row>
+  <row><key>add_1229010005</key><value>Unit price</value></row>
+  <row><key>add_1229010006</key><value>Tare (g)</value></row>
+  <row><key>add_1229010007</key><value>Promotion price</value></row>
+  <row><key>add_1229010008</key><value>Whether opening back yards (0: not enable, 1: enable)</value></row>
+  <row><key>add_1229010009</key><value>Additional text (additional text shown in the table, the Numbers)</value></row>
+  <row><key>add_1229010010</key><value>Temporary change price mark (0: unallow, 1: allow)</value></row>
+  <row><key>add_1229010011</key><value>For weight piece (0: for weight, 1: piece)</value></row>
+  <row><key>add_1229010012</key><value>Barcode(enabled by default 1 barcode)</value></row>
+  <row><key>add_1229010013</key><value>Shop code</value></row>
+  <row><key>add_1229010014</key><value>Small classification properties</value></row>
+  <row><key>add_1229010015</key><value>Promotion start date</value></row>
+  <row><key>add_1229010016</key><value>Promotion over time</value></row>
+  <row><key>add_1229010017</key><value>Promotion end date</value></row>
+  <row><key>add_1229010018</key><value>Promotion start time</value></row>
+  <row><key>add_1229010019</key><value>Weighing unit(0:Kg,6:500g)</value></row>
+  <row><key>add_1229010020</key><value>Plu number</value></row>
+  <row><key>add_1229010021</key><value>Barcode number</value></row>
+  <row><key>add_1229010022</key><value>Rules</value></row>
+  <row><key>add_1229010023</key><value>Format</value></row>
+  <row><key>add_1229010024</key><value>Scales number</value></row>
+  <row><key>add_1229010025</key><value>Key number</value></row>
+  <row><key>add_1229010026</key><value>Keyboard class definition</value></row>
+  <row><key>add_1229010027</key><value>Default key page 1</value></row>
+  <row><key>add_1229010028</key><value>Default key page 2</value></row>
+  <row><key>add_1229010029</key><value>Default key page 3</value></row>
+  <row><key>add_1229010030</key><value>Tracing code Numbers</value></row>
+  <row><key>add_1229010031</key><value>Back yards reference value</value></row>
+  <row><key>add_1229010032</key><value>Additional text number</value></row>
+  <row><key>add_1229010033</key><value>content</value></row>
+  <row><key>add_1229010034</key><value>Opening date of production</value></row>
+  <row><key>add_1229010035</key><value>Opening date of packaging</value></row>
+  
+  
+  <!--20120111-->
+  <row><key>barcode_0100001</key><value>位数</value></row>
+  <row><key>barcode_0100002</key><value>小数位</value></row>
+  <row><key>barcode_0100003</key><value>请选择</value></row>
+  <row><key>barcode_0100004</key><value>固定值</value></row>
+  <row><key>barcode_0100005</key><value>校验码</value></row>
+  <row><key>barcode_0100006</key><value>第一段</value></row>
+  <row><key>barcode_0100007</key><value>第二段</value></row>
+  <row><key>barcode_0100008</key><value>第三段</value></row>
+  <row><key>barcode_0100009</key><value>第四段</value></row>
+  
+  <row><key>barcode_0200001</key><value>PLU号码</value></row>
+  <row><key>barcode_0200002</key><value>总价</value></row>
+  <row><key>barcode_0200003</key><value>单价</value></row>
+  <row><key>barcode_0200004</key><value>货号</value></row>
+  <row><key>barcode_0200005</key><value>重量/件数</value></row>
+  <row><key>barcode_0200006</key><value>重量</value></row>
+  <row><key>barcode_0200007</key><value>件数</value></row>
+  <row><key>barcode_0200008</key><value>偶校验码</value></row>
+  <row><key>barcode_0200009</key><value>奇校验码</value></row>
+  
+  
+  <row><key>barcode_0300001</key><value>该规则的条码长度不能超过13位!</value></row>
+  <row><key>barcode_0300002</key><value>该规则的条码长度不能超过18位!</value></row>
+  <row><key>barcode_0300003</key><value>当前条码长度为：</value></row>
+  <row><key>barcode_0300004</key><value>位!</value></row>
+</root>

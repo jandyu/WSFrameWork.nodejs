@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><!--菜单-->
+  <row><key>m_00000001</key><value>商品管理</value></row>
+  <row><key>m_10000001</key><value>商品一览</value></row>
+  <row><key>m_10000002</key><value>商品变价</value></row>
+  <row><key>m_10000003</key><value>商品下发</value></row>
+  <row><key>m_10000004</key><value>删除商品</value></row>
+  <row><key>m_10000005</key><value>部门管理</value></row>
+  <row><key>m_10000006</key><value>商品导入</value></row>
+  <row><key>m_00000002</key><value>秤管理</value></row>
+  <row><key>m_20000001</key><value>电子秤管理</value></row>
+  <row><key>m_20000002</key><value>秤下发任务</value></row>
+  <row><key>m_20000003</key><value>秤数据回收</value></row>
+  <row><key>m_00000003</key><value>设备管理</value></row>
+  <row><key>m_30000001</key><value>零售设备</value></row>
+  <row><key>m_30000002</key><value>网络设备</value></row>
+  <row><key>m_30000003</key><value>其他设备</value></row>
+  <row><key>m_00000004</key><value>文件管理</value></row>
+  <row><key>m_40000001</key><value>密码</value></row>
+  <row><key>m_40000002</key><value>快捷键</value></row>
+  <row><key>m_40000003</key><value>标签格式</value></row>
+  <row><key>m_40000004</key><value>滚动信息</value></row>
+  <row><key>m_40000005</key><value>滚动顺序</value></row>
+  <row><key>m_40000006</key><value>自定义条码</value></row>
+  <row><key>m_40000007</key><value>追溯码</value></row>
+  <row><key>m_40000008</key><value>附加文本</value></row>
+  <row><key>m_40000009</key><value>文件上传</value></row>
+  <row><key>m_00000005</key><value>日志管理</value></row>
+  <row><key>m_50000001</key><value>商品导入日志</value></row>
+  <row><key>m_50000002</key><value>商品更改日志</value></row>
+  <row><key>m_50000003</key><value>访问日志</value></row>
+  <row><key>m_00000006</key><value>系统管理</value></row>
+  <row><key>m_60000001</key><value>角色管理</value></row>
+  <row><key>m_60000002</key><value>用户管理</value></row>
+  <row><key>m_60000003</key><value>店铺管理</value></row>
+  <row><key>m_60000004</key><value>数据库管理</value></row>
+  <row><key>m_60000005</key><value>参数管理</value></row>
+  <row><key>m_60000006</key><value>模板管理</value></row>
+  <!--系统-->
+  <row><key>s_00000001</key><value>电子秤管理系统</value></row>
+  <row><key>s_00000002</key><value>当前时间:</value></row>
+  <row><key>s_00000003</key><value>在线:</value></row>
+  <row><key>s_00000004</key><value>首页</value></row>
+  <row><key>s_00000005</key><value>提示</value></row>
+  <row><key>s_00000006</key><value>无此功能权限，请联系管理员！</value></row>
+  <row><key>s_00000007</key><value>登录超时请</value></row>
+  <row><key>s_00000008</key><value>重新登录</value></row>
+  <row><key>s_00000009</key><value>要变价的商品编号</value></row>
+  <row><key>s_00000010</key><value>变价后的价格</value></row>
+  <row><key>s_00000011</key><value>分隔方式</value></row>
+  <row><key>s_00000012</key><value>出错后</value></row>
+  <row><key>s_00000013</key><value>导入文件</value></row>
+  <row><key>s_00000014</key><value>要删除的商品编号</value></row>
+  <row><key>s_00000015</key><value>开始时间</value></row>
+  <row><key>s_00000016</key><value>结束时间</value></row>
+  <row><key>s_00000017</key><value>要下发的商品编号</value></row>
+  <row><key>s_00000018</key><value>上传文件</value></row>
+  <row><key>s_00000019</key><value>不存在该商品！</value></row>
+  <row><key>s_00000020</key><value>该商品已经存在在删除列表中！</value></row>
+  <row><key>s_00000021</key><value>数据格式或者模板格式错误，请检查数据或者模板是否正确！</value></row>
+  <row><key>s_00000022</key><value>当前店铺只能有一个！</value></row>
+  <row><key>s_00000023</key><value>参数只能启用一个！</value></row>
+  <row><key>s_00000024</key><value>请选择</value></row>
+  <row><key>s_00000025</key><value>该秤已存在于列表中！</value></row>
+  <row><key>s_00000026</key><value>系统繁忙，请稍后！</value></row>
+  <row><key>s_00000027</key><value>确认需要传输此数据吗？</value></row>
+  <row><key>s_00000028</key><value>店铺名称</value></row>
+  <row><key>s_00000029</key><value>未登录</value></row>
+  <row><key>s_00000030</key><value>全选</value></row>
+  <row><key>s_00000031</key><value>新品</value></row>
+  <row><key>s_00000032</key><value>当前为第一个！</value></row>
+  <row><key>s_00000033</key><value>当前为最后一个！</value></row>
+  <row><key>s_00000034</key><value>还原操作将会覆盖系统的所有数据，请确认！</value></row>
+  <row><key>s_00000035</key><value>确认使用还原文件</value></row>
+  <row><key>s_00000036</key><value>商品</value></row>
+  <row><key>s_00000037</key><value>附加文本</value></row>
+  <row><key>s_00000038</key><value>快捷键</value></row>
+  <row><key>s_00000039</key><value>条码</value></row>
+
+
+
+
+
+  <row><key>p_bottom_1</key><value>&#169; Copyright 2011 Bizerba China. All right reserved.</value></row>
+  <row><key>p_bottom_2</key><value></value></row>
+  <row><key>s_wssrv_01</key><value>数据加载中...</value></row>
+  
+  <row><key>log_art_01</key><value>新增商品</value></row>
+  <row><key>log_art_02</key><value>修改商品</value></row>
+  <row><key>log_art_03</key><value>商品调价</value></row>
+  <row><key>log_edit_01</key><value>编辑</value></row>
+  <row><key>log_edit_02</key><value>促销信息编辑</value></row>
+  <row><key>log_edit_03</key><value>快捷键布局编辑</value></row>
+  <row><key>log_edit_04</key><value>导入</value></row>
+  <row><key>log_edit_05</key><value>导出</value></row>
+  
+  <row><key>import_01</key><value>请选择文件</value></row>
+  <row><key>import_02</key><value>导入成功</value></row>
+  <row><key>import_03</key><value>导入数据验证已成功,确认将覆盖原有数据,是否覆盖？</value></row>
+  
+  <row><key>datas_01</key><value>正在备份数据库,请稍等</value></row>
+  <row><key>datas_02</key><value>备份数据库成功</value></row>
+  <row><key>datas_03</key><value>确认需要删除</value></row>
+  <row><key>datas_04</key><value>期间的访问日志信息吗？</value></row>
+  <row><key>datas_05</key><value>日志删除成功</value></row>
+  <row><key>datas_06</key><value>日志删除失败</value></row>
+  <row><key>datas_07</key><value>期间的数据通讯日志信息吗？</value></row>
+  <row><key>datas_08</key><value>数据通讯日志删除成功</value></row>
+  <row><key>datas_09</key><value>数据通讯日志删除失败</value></row>
+  
+  <row><key>datas_11</key><value>正在还原数据库,请稍等</value></row>
+  <row><key>datas_12</key><value>还原数据库成功</value></row>
+  
+  <!--登录界面-->
+  <row><key>login_0001</key><value>登录 碧彩中国</value></row>
+  <row><key>login_0101</key><value>用户</value></row>
+  <row><key>login_0102</key><value>请输入用户名</value></row>
+  <row><key>login_0201</key><value>密码</value></row>
+  <row><key>login_0202</key><value>请输入密码</value></row>
+  <row><key>login_0301</key><value>登  录</value></row>
+  <row><key>login_0302</key><value>修改密码</value></row>
+  <row><key>login_0303</key><value>新密码</value></row>
+  <row><key>login_0304</key><value>旧密码</value></row>
+  <row><key>login_0305</key><value>确认新密码</value></row>
+  <row><key>login_0306</key><value>请输入旧密码</value></row>
+  <row><key>login_0307</key><value>请输入新密码</value></row>
+  <row><key>login_0308</key><value>请再一次输入新密码</value></row>
+  <row><key>login_0401</key><value>退出</value></row>
+  <row><key>login_0402</key><value>店铺名称</value></row>
+  
+  <!--表格元素-->
+  <row><key>page_0001</key><value>页</value></row>
+  <row><key>page_0002</key><value>行</value></row>
+  <row><key>page_0003</key><value>共</value></row>
+  <row><key>page_0004</key><value>小计</value></row>
+  <row><key>page_0005</key><value>合计</value></row>
+  
+  <!--操作标签-->
+  <row><key>control_0001</key><value>浏览</value></row>
+  <row><key>control_0002</key><value>查询</value></row>
+  <row><key>control_0003</key><value>编辑</value></row>
+  <row><key>control_0004</key><value>新增</value></row>
+  <row><key>control_0005</key><value>查询条件</value></row>
+  <row><key>control_0006</key><value>保存成功</value></row>
+  <row><key>control_0007</key><value>不能为空！</value></row>
+  <row><key>control_0008</key><value>关键字已经存在或数据已经被其他用户修改，请刷新后重新修改！</value></row>
+  <row><key>control_0009</key><value>保存失败</value></row>
+  <row><key>control_0010</key><value>超过规定长度</value></row>
+  <row><key>control_0011</key><value>删除成功</value></row>
+  <row><key>control_0012</key><value>变价成功</value></row>
+  <row><key>control_0013</key><value>创建发送任务成功。</value></row>
+  <row><key>control_0014</key><value>设置</value></row>
+  <row><key>control_0015</key><value>设计</value></row>
+  <row><key>control_0016</key><value>密码为6位数</value></row>
+  <row><key>control_0017</key><value>请选择你需要删除的数据</value></row>
+  <row><key>control_0018</key><value>确认需要删除选中的</value></row>
+  <row><key>control_0019</key><value>行数据吗？</value></row>
+  <row><key>control_0020</key><value>无使用此功能的权限！</value></row>
+  <row><key>control_0021</key><value>必须输入数字(非字母,如: 123456)</value></row>
+  <row><key>control_0022</key><value>必须输入数字(允许小数，如: 11.32)</value></row>
+  <row><key>control_0023</key><value>输入不符合时间格式(如: 17:32)</value></row>
+  <row><key>control_0024</key><value>未选择快捷键布局信息</value></row>
+  
+
+
+
+  <!--文本标签-->
+  <row><key>article_0101000000</key><value>商品信息</value></row>
+  <row><key>segregate_0105000000</key><value>部门信息</value></row>
+  <row><key>scale_0201000000</key><value>电子秤信息</value></row>
+  <row><key>devices_0301000000</key><value>零售设备信息</value></row>
+  <row><key>devices_0302000000</key><value>网络设备信息</value></row>
+  <row><key>devices_0303000000</key><value>其他设备信息</value></row>
+  <row><key>scalepwd_0401000000</key><value>密码信息</value></row>
+  <row><key>scalekey_0402000000</key><value>快捷键信息</value></row>
+  <row><key>rollinfo_0404000000</key><value>滚动信息</value></row>
+  <row><key>barcod_0406000000</key><value>自定义条码信息</value></row>
+  <row><key>scaletrace_0407000000</key><value>追溯码信息</value></row>
+  <row><key>apptext_0408000000</key><value>附加文本信息</value></row>
+  <row><key>role_0601000000</key><value>角色信息</value></row>
+  <row><key>worker_0602000000</key><value>用户信息</value></row>
+  
+  <!--共同字段-->
+  <row><key>common_0000000001</key><value>编号</value></row>
+  
+  
+  <!--商品一览-->
+  <row><key>article_0101000001</key><value>商品信息</value></row>
+  <row><key>article_0101010001</key><value>商品编号</value></row>
+  <row><key>article_0101010002</key><value>商品名称</value></row>
+  <row><key>article_0101010003</key><value>现价</value></row>
+  <row><key>article_0101010004</key><value>称重单位</value></row>
+  <row><key>article_0101010005</key><value>商品类型</value></row>
+  <row><key>article_0101010006</key><value>皮重</value></row>
+  <row><key>article_0101010007</key><value>保质期</value></row>
+  <row><key>article_0101010008</key><value>条码号</value></row>
+  <row><key>article_0101010009</key><value>店内码</value></row>
+  <row><key>article_0101010010</key><value>部门</value></row>
+  <row><key>article_0101000002</key><value>促销信息</value></row>
+  <row><key>article_0101020001</key><value>临时改价</value></row>
+  <row><key>article_0101020002</key><value>启用追溯码</value></row>
+  <row><key>article_0101020003</key><value>附加文本</value></row>
+  <row><key>article_0101020004</key><value>更新日期</value></row>
+  <row><key>article_0101020005</key><value>备注</value></row>
+  <row><key>article_0101020006</key><value>促销开始日期</value></row>
+  <row><key>article_0101020007</key><value>促销结束日期</value></row>
+  <row><key>article_0101020008</key><value>促销开始时间</value></row>
+  <row><key>article_0101020009</key><value>促销结束时间</value></row>
+  <row><key>article_0101020010</key><value>促销价格</value></row>
+  <row><key>article_0101020011</key><value>原价</value></row>
+  <row><key>article_0101020012</key><value>变价</value></row>
+  <row><key>article_0101020013</key><value>操作类型</value></row>
+  <row><key>article_0101020014</key><value>启用生产日期</value></row>
+  <row><key>article_0101020015</key><value>启用包装日期</value></row>
+
+
+  <!--部门管理-->
+  <row><key>segregate_0105000001</key><value>部门信息</value></row>
+  <row><key>segregate_0105010001</key><value>部门编号</value></row>
+  <row><key>segregate_0105010002</key><value>部门名称</value></row>
+  <row><key>segregate_0105010003</key><value>备注</value></row>
+  
+  <!--商品导入-->
+  <row><key>importarticle_0106000001</key><value>基本信息</value></row>
+  <row><key>importarticle_0106010001</key><value>字段编号</value></row>
+  <row><key>importarticle_0106010002</key><value>字段名称</value></row>
+  <row><key>importarticle_0106010003</key><value>字段长度</value></row>
+  <row><key>importarticle_0106010004</key><value>对齐方式</value></row>
+  <row><key>importarticle_0106010005</key><value>序号</value></row>
+  <row><key>importarticle_0106010006</key><value>默认值</value></row>
+  <row><key>importarticle_0106010007</key><value>起始位</value></row>
+  <row><key>importarticle_0106010008</key><value>前后缀</value></row>
+  <row><key>importarticle_0106010009</key><value>转换规则</value></row>
+  <row><key>importarticle_0106010010</key><value>格式</value></row>
+  
+  <row><key>import_0106000002</key><value>导入文件列表</value></row>
+  <row><key>import_0106020001</key><value>导入模板选择</value></row>
+
+    
+  <!--电子秤管理-->
+  <row><key>scale_0201000001</key><value>电子秤信息</value></row>
+  <row><key>scale_0201010001</key><value>秤编号</value></row>
+  <row><key>scale_0201010002</key><value>秤种类</value></row>
+  <row><key>scale_0201010003</key><value>部门</value></row>
+  <row><key>scale_0201010004</key><value>秤描述</value></row>
+  <row><key>scale_0201010005</key><value>状态</value></row>
+  <row><key>scale_0201000002</key><value>其他信息</value></row>
+  <row><key>scale_0201020001</key><value>IP地址</value></row>
+  <row><key>scale_0201020002</key><value>MAC地址</value></row>
+  <row><key>scale_0201020003</key><value>版本信息</value></row>
+  <row><key>scale_0201020004</key><value>网络状态</value></row>
+  <row><key>scale_0201020005</key><value>快捷键布局</value></row>
+  <row><key>scale_0201020006</key><value>快捷键数量</value></row>
+  
+  <row><key>scale_0201030000</key><value>任务详细信息</value></row>
+  <row><key>scale_0201030001</key><value>任务</value></row>
+  <row><key>scale_0201030002</key><value>任务状态</value></row>
+  <row><key>scale_0201030003</key><value>任务结果</value></row>
+  <row><key>scale_0201030004</key><value>时间</value></row>
+  <row><key>scale_0201030005</key><value>任务编号</value></row>
+
+  <row><key>scale_0201040000</key><value>类型选择</value></row>
+  
+
+  <!--设备管理-->
+  <row><key>devices_0301000001</key><value>基本信息</value></row>
+  <row><key>devices_0301010001</key><value>设备编号</value></row>
+  <row><key>devices_0301010002</key><value>设备描述</value></row>
+  <row><key>devices_0301010003</key><value>设备状态</value></row>
+  <row><key>devices_0301010004</key><value>设备分类</value></row>
+  <row><key>devices_0301010005</key><value>序列号</value></row>
+  <row><key>devices_0301000002</key><value>其他信息</value></row>
+  <row><key>devices_0301020001</key><value>网络地址</value></row>
+  <row><key>devices_0301020002</key><value>网路状态</value></row>
+  <row><key>devices_0301020003</key><value>物理地址</value></row>
+  <row><key>devices_0301020004</key><value>备注</value></row>
+  
+  <!--密码文件-->
+  <row><key>scalepwd_0401000001</key><value>密码信息</value></row>
+  <row><key>scalepwd_0401010001</key><value>密码</value></row>
+  
+  <!--快捷键文件-->
+  <row><key>scalekey_0402000000</key><value>快捷键布局选择</value></row>
+  <row><key>scalekey_0402000001</key><value>快捷键信息</value></row>
+  <row><key>scalekey_0402010001</key><value>快捷键编号</value></row>
+  <row><key>scalekey_0402010002</key><value>快捷键第1页</value></row>
+  <row><key>scalekey_0402010003</key><value>键盘用途</value></row>
+  <row><key>scalekey_0402010004</key><value>快捷键第2页</value></row>
+  <row><key>scalekey_0402010005</key><value>快捷键第3页</value></row>
+  <row><key>scalekey_0402010006</key><value>快捷键布局编号</value></row>
+  <row><key>scalekey_0402000002</key><value>快捷键</value></row>
+  <row><key>scalekey_0402000003</key><value>快捷键布局</value></row>
+  
+  <row><key>scalekey_0402000004</key><value>快捷键布局信息</value></row>
+  <row><key>scalekey_0402040001</key><value>快捷键布局标题</value></row>
+  <row><key>scalekey_0402040002</key><value>快捷键布局名称</value></row>
+  
+  <!--滚动信息-->
+  <row><key>rollinfo_0404000001</key><value>滚动信息</value></row>
+  <row><key>rollinfo_0404010001</key><value>滚动信息编号</value></row>
+  <row><key>rollinfo_0404010002</key><value>滚动信息</value></row>
+  
+  
+  <!--自定义条码-->
+  <row><key>barcod_0406000001</key><value>条码信息</value></row>
+  <row><key>barcod_0406010001</key><value>条码号</value></row>
+  <row><key>barcod_0406010002</key><value>规则</value></row>
+  <row><key>barcod_0406010003</key><value>格式</value></row>
+  
+  <!--追溯码文件-->
+  <row><key>scaletrace_0407000001</key><value>追溯码信息</value></row>
+  <row><key>scaletrace_0407010001</key><value>追溯码编号</value></row>
+  <row><key>scaletrace_0407010002</key><value>追溯码内容</value></row>
+  
+  <!--附加文本文件-->
+  <row><key>apptext_0408000001</key><value>附加文本信息</value></row>
+  <row><key>apptext_0408010001</key><value>文本编号</value></row>
+  <row><key>apptext_0408010002</key><value>文本内容</value></row>
+  <row><key>apptext_0408010003</key><value>备注</value></row>
+  
+  <!--文件上传-->   
+  <row><key>upload_0409000001</key><value>文件上传列表</value></row>
+  <row><key>upload_0409000002</key><value>上传</value></row>
+  
+  
+
+  <!--商品导入日志-->
+  <row><key>log_0501000001</key><value>日志信息</value></row>
+  <row><key>log_0501010001</key><value>导入文件名</value></row>
+  <row><key>log_0501010002</key><value>用户</value></row>
+  <row><key>log_0501010003</key><value>导入结果</value></row>
+  <row><key>log_0501010004</key><value>说明</value></row>
+  <row><key>log_0501010005</key><value>导入时间</value></row>
+  <row><key>log_0501010006</key><value>开始时间</value></row>
+  <row><key>log_0501010007</key><value>结束时间</value></row>
+
+  <!--商品更改日志-->
+  <row><key>log_0502000001</key><value>日志信息</value></row>
+  <row><key>log_0502010001</key><value>操作时间</value></row>
+  <row><key>log_0502010002</key><value>操作</value></row>
+  <row><key>log_0502010003</key><value>操作人</value></row>
+  <row><key>log_0502010004</key><value>开始时间</value></row>
+  <row><key>log_0502010005</key><value>结束时间</value></row>
+
+  <!--访问日志-->
+  <row><key>log_0503000001</key><value>日志信息</value></row>
+  <row><key>log_0503010001</key><value>地址</value></row>
+  <row><key>log_0503010002</key><value>用户编号</value></row>
+  <row><key>log_0503010003</key><value>日期</value></row>
+  <row><key>log_0503010004</key><value>描述</value></row>
+  <row><key>log_0503010005</key><value>动作</value></row>
+  <row><key>log_0503010006</key><value>开始日期</value></row>
+  <row><key>log_0503010007</key><value>结束日期</value></row>
+
+  <!--角色管理-->
+  <row><key>role_0601000001</key><value>角色信息</value></row>
+  <row><key>role_0601010001</key><value>角色编号</value></row>
+  <row><key>role_0601010002</key><value>角色名称</value></row>
+  <row><key>role_0601000002</key><value>其他信息</value></row>
+  <row><key>role_0601020001</key><value>部门</value></row>
+  <row><key>role_0601020002</key><value>权限</value></row>
+    
+  <!--用户管理-->
+  <row><key>worker_0602000001</key><value>登录信息</value></row>
+  <row><key>worker_0602010001</key><value>用户ID</value></row>
+  <row><key>worker_0602010002</key><value>密码</value></row>
+  <row><key>worker_0602010003</key><value>用户名</value></row>
+  <row><key>worker_0602000002</key><value>用户信息</value></row>
+  <row><key>worker_0602020001</key><value>角色</value></row>
+  <row><key>worker_0602020002</key><value>状态</value></row>
+  <row><key>worker_0602020003</key><value>备注</value></row>
+  
+  <!--店铺管理-->
+  <row><key>store_0603000001</key><value>店铺信息</value></row>
+  <row><key>store_0603010001</key><value>店铺编号</value></row>
+  <row><key>store_0603010002</key><value>店铺名称</value></row>
+  <row><key>store_0603010003</key><value>IP地址</value></row>
+  <row><key>store_0603010004</key><value>版本</value></row>
+  <row><key>store_0603010005</key><value>店铺地址</value></row>
+  <row><key>store_0603010006</key><value>是否当前店铺</value></row>
+
+  <!--数据库管理-->
+  <row><key>data_0604000001</key><value>数据库备份</value></row>
+  <row><key>data_0604010001</key><value>备份时间</value></row>
+  <row><key>data_0604010002</key><value>备份文件名</value></row>
+  <row><key>data_0604010003</key><value>说明</value></row>
+  <row><key>data_0604000002</key><value>通讯任务</value></row>
+  <row><key>data_0604000003</key><value>访问日志</value></row>
+
+  <!--参数管理-->
+  <row><key>setting_0605000001</key><value>操作设定</value></row>
+  <row><key>setting_0605000002</key><value>秤参数设定</value></row>
+  <row><key>setting_0605000003</key><value>设备参数设定</value></row>
+  
+  <row><key>setting_0605000004</key><value>自动导入设定</value></row>
+  <row><key>setting_0605000005</key><value>数据备份设定</value></row>
+  <row><key>setting_0605000006</key><value>电子秤监控设定</value></row>
+  <row><key>setting_0605000007</key><value>日志相关设定</value></row>
+  <row><key>setting_0605000008</key><value>零售设备监控设定</value></row>
+  <row><key>setting_0605000009</key><value>网络设备监控设定</value></row>
+  <row><key>setting_0605000010</key><value>其他设备监控设定</value></row>
+  <row><key>setting_0605000011</key><value>其他设定</value></row>
+  
+  <row><key>setting_0605010001</key><value>导入文件目录</value></row>
+  <row><key>setting_0605010002</key><value>导入间隔(分)</value></row>
+  <row><key>setting_0605010003</key><value>备份目录</value></row>
+  <row><key>setting_0605010004</key><value>备份间隔(天)</value></row>
+  <row><key>setting_0605010005</key><value>备份保留天数</value></row>
+  <row><key>setting_0605010006</key><value>第一段开始时间</value></row>
+  <row><key>setting_0605010007</key><value>第二段开始时间</value></row>
+  <row><key>setting_0605010008</key><value>第三段开始时间</value></row>
+  <row><key>setting_0605010009</key><value>结束时间</value></row>
+  <row><key>setting_0605010010</key><value>监控开始时间</value></row>
+  <row><key>setting_0605010011</key><value>监控结束时间</value></row>
+  <row><key>setting_0605010012</key><value>日志保留天数</value></row>
+  <row><key>setting_0605010013</key><value>监控启用</value></row>
+  <row><key>setting_0605010014</key><value>监控间隔(分)</value></row>
+  <row><key>setting_0605010015</key><value>任务保留天数</value></row>
+  <row><key>setting_0605010016</key><value>秤服务器模式</value></row>
+  <row><key>setting_0605010017</key><value>自动下发密码</value></row>
+  <row><key>setting_0605010018</key><value>发送任务间隔</value></row>
+  <row><key>setting_0605010019</key><value>任务过期天数</value></row>
+  <row><key>setting_0605010020</key><value>追溯码过期天数</value></row>
+
+  
+  <row><key>setting_0605000012</key><value>参数信息</value></row>
+  <row><key>setting_0605120001</key><value>参数编号</value></row>
+  <row><key>setting_0605120002</key><value>参数标题</value></row>
+  <row><key>setting_0605120003</key><value>是否启用</value></row>
+  
+   <!--数据导入样式管理-->
+  <row><key>setting_0606000001</key><value>模板维护</value></row>
+  <row><key>setting_0606010001</key><value>分隔符</value></row>
+  <row><key>setting_0606010002</key><value>出错后</value></row>
+  <row><key>setting_0606010003</key><value>默认导入文件</value></row>
+  <row><key>setting_0606010004</key><value>标题</value></row>
+  <row><key>setting_0606010005</key><value>说明</value></row>
+  <row><key>setting_0606010006</key><value>模板类型</value></row>
+  
+  <row><key>setting_0606000002</key><value>模板设置</value></row>
+  
+  <!--任务-->
+  <row><key>task_0701000001</key><value>任务信息</value></row>
+  <row><key>task_0701010001</key><value>任务名称</value></row>
+  <row><key>task_0701010002</key><value>执行条件</value></row>
+  <row><key>task_0701010003</key><value>任务</value></row>
+  <row><key>task_0701010004</key><value>任务进度</value></row>
+  <row><key>task_0701010005</key><value>任务状态</value></row>
+  <row><key>task_0701010006</key><value>通讯完成时间</value></row>
+  <row><key>task_0701010007</key><value>开始时间</value></row>
+  <row><key>task_0701010008</key><value>结束时间</value></row>
+
+
+  <row><key>task_title0001</key><value>发送全部商品</value></row>
+  <row><key>task_title0002</key><value>发送删除商品</value></row>
+  <row><key>task_title0003</key><value>发送商品调价</value></row>
+  <row><key>task_title0004</key><value>发送选择商品</value></row>
+  <row><key>task_title0005</key><value>发送追溯码</value></row>
+  <row><key>task_title0006</key><value>发送文本</value></row>
+  <row><key>task_title0007</key><value>发送条码</value></row>
+  <row><key>task_title0008</key><value>发送快捷键</value></row>
+  <row><key>task_title0009</key><value>发送密码</value></row>
+  <row><key>task_title0010</key><value>回收秤内数据</value></row>
+  
+
+  <row><key>task_status0001</key><value>等待发送</value></row>
+  <row><key>task_status0002</key><value>数据准备中</value></row>
+  <row><key>task_status0003</key><value>数据通讯中</value></row>
+  <row><key>task_status0004</key><value>数据通讯完成</value></row>
+  <row><key>task_status0005</key><value>数据通讯完成，有错误</value></row>
+  
+  <!--结果文字-->
+  <row><key>task_result0000</key><value>连接失败</value></row>
+  <row><key>task_result0001</key><value>数据下发成功</value></row>
+  <row><key>task_result0002</key><value>数据未传完</value></row>
+  <row><key>task_result0003</key><value>传输数据存在问题</value></row>
+  <row><key>task_result0004</key><value>数据备份失败</value></row>
+  <row><key>task_result0005</key><value>数据备份成功</value></row>
+  
+  <!--监控日志-->
+  <row><key>log_0801000000</key><value>监控日志</value></row>
+  <row><key>log_0801000001</key><value>设备IP地址</value></row>
+  <row><key>log_0801000002</key><value>监控时间</value></row>
+  <row><key>log_0801000003</key><value>监控结果</value></row>
+  <row><key>log_0801000004</key><value>设备类型</value></row>
+
+  <!--按钮文字-->
+  <row><key>button_000001</key><value>确定</value></row>
+  <row><key>button_000002</key><value>取消</value></row>
+  <row><key>button_000003</key><value>搜索</value></row>
+  <row><key>button_000004</key><value>返回</value></row>
+  <row><key>button_000005</key><value>保存</value></row>
+  <row><key>button_000006</key><value>发送</value></row>
+  <row><key>button_000007</key><value>删除</value></row>
+  <row><key>button_000008</key><value>备份</value></row>
+  <row><key>button_000009</key><value>导入</value></row>
+  <row><key>button_000010</key><value>恢复</value></row>
+  <row><key>button_000011</key><value>全部发送</value></row>
+  <row><key>button_000012</key><value>上传</value></row>
+  <row><key>button_000013</key><value>打印</value></row>
+  <row><key>button_000014</key><value>选中发送</value></row>
+  <row><key>button_000015</key><value>选中删除</value></row>
+  <row><key>button_000016</key><value>上一个</value></row>
+  <row><key>button_000017</key><value>下一个</value></row>
+  <row><key>button_000018</key><value>导出</value></row>
+  <row><key>button_000019</key><value>变价导出</value></row>
+  <row><key>button_000020</key><value>全部导出</value></row>
+  <row><key>button_000021</key><value>部门导出</value></row>
+    
+    <!--下拉框文字-->
+  <row><key>select_001001</key><value>-请选择-</value></row>
+  <row><key>select_001002</key><value>不可用</value></row>
+  <row><key>select_001003</key><value>可用</value></row>
+  <row><key>select_001004</key><value>是</value></row>
+  <row><key>select_001005</key><value>否</value></row>
+  <row><key>select_001006</key><value></value></row>
+  <row><key>select_001007</key><value>-部门-</value></row>
+  <row><key>select_001008</key><value>默认键盘</value></row>
+  
+  <row><key>select_002001</key><value>男</value></row>
+  <row><key>select_002002</key><value>女</value></row>
+  <row><key>select_003001</key><value>允许</value></row>
+  <row><key>select_003002</key><value>不允许</value></row>
+  <row><key>select_004001</key><value>启用</value></row>
+  <row><key>select_004002</key><value>不启用</value></row>
+  <row><key>select_004003</key><value>启用(无动作)</value></row>
+  <row><key>select_004004</key><value>启用(删除)</value></row>
+  <row><key>select_005001</key><value>计重</value></row>
+  <row><key>select_005002</key><value>计件</value></row>
+  <row><key>select_006001</key><value>千克</value></row>
+  <row><key>select_006002</key><value>500克</value></row>
+  <row><key>select_007001</key><value>商品键</value></row>
+  <row><key>select_007002</key><value>追溯码键</value></row>
+  <row><key>select_008001</key><value>BCII</value></row>
+  <row><key>select_008002</key><value>SCII</value></row>
+  <row><key>select_009001</key><value>正常工作</value></row>
+  <row><key>select_009002</key><value>脱机工作</value></row>
+  <row><key>select_009003</key><value>停机备用</value></row>
+  <row><key>select_009004</key><value>在维修中</value></row>
+  <row><key>select_009005</key><value>异常脱机</value></row>
+  <row><key>select_010001</key><value>脱机</value></row>
+  <row><key>select_010002</key><value>联机</value></row>
+  <row><key>select_011001</key><value>EAN13</value></row>
+  <row><key>select_011002</key><value>COD128</value></row>
+  <row><key>select_012001</key><value>异常</value></row>
+  <row><key>select_012002</key><value>在线</value></row>
+  <row><key>select_013001</key><value>BC II (54)</value></row>
+  <row><key>select_014001</key><value>依然保存</value></row>
+  <row><key>select_014002</key><value>放弃保存</value></row>
+  <row><key>select_015001</key><value>PLU文件模板</value></row>
+  <row><key>select_015002</key><value>附加文本文件模板</value></row>
+  <row><key>select_015003</key><value>预设键文件模板</value></row>
+  <row><key>select_015004</key><value>条码文件模板</value></row>
+  <row><key>select_015005</key><value>追溯码文件模板</value></row>
+  <row><key>select_016001</key><value>Tab键</value></row>
+  <row><key>select_016002</key><value>无分割符</value></row>
+  <row><key>select_017001</key><value>不用重发</value></row>
+  <row><key>select_017002</key><value>需要重发</value></row>
+  <row><key>select_017003</key><value>任务过期</value></row>
+  <row><key>select_017004</key><value>重发失败</value></row>
+    
+    
+   <!--20111228-->
+  <row><key>log_0503020001</key><value>登录成功</value></row>
+  <row><key>log_0503020002</key><value>登录时用户名或密码错误</value></row>
+  <row><key>log_0503020003</key><value>用户名或密码错误</value></row>
+  <row><key>log_0503020004</key><value>用户已经被禁用</value></row>
+  <row><key>log_0503020005</key><value>超级管理员</value></row>
+  <row><key>log_0503020006</key><value>登入</value></row>
+  <row><key>log_0503020007</key><value>进入</value></row>
+  <row><key>log_0503020008</key><value>没有权限</value></row>
+
+  <row><key>add_0101010001</key><value>重发标记</value></row>
+  <row><key>add_0101010002</key><value>创建时间</value></row>
+  <row><key>add_0101010003</key><value>原价</value></row>
+  <row><key>add_0101010004</key><value>更新时间</value></row>
+    
+   <!--20111229-->
+  <row><key>add_0101010005</key><value>预设键布局</value></row>
+  
+  <row><key>add_1229010001</key><value>备注</value></row>
+  <row><key>add_1229010002</key><value>plu名称</value></row>
+  <row><key>add_1229010003</key><value>日期</value></row>
+  <row><key>add_1229010004</key><value>保质期</value></row>
+  <row><key>add_1229010005</key><value>单价</value></row>
+  <row><key>add_1229010006</key><value>皮重(单位为克)</value></row>
+  <row><key>add_1229010007</key><value>促销价格</value></row>
+  <row><key>add_1229010008</key><value>是否启用追溯码(0:不启用,1:启用)</value></row>
+  <row><key>add_1229010009</key><value>附加文本(附加文本表内的编号)</value></row>
+  <row><key>add_1229010010</key><value>临时改价标志(0:不允许,1:允许)</value></row>
+  <row><key>add_1229010011</key><value>计件计重(0:计重,1:计件)</value></row>
+  <row><key>add_1229010012</key><value>条码号(默认启用1号条码)</value></row>
+  <row><key>add_1229010013</key><value>店内码</value></row>
+  <row><key>add_1229010014</key><value>小分类属性</value></row>
+  <row><key>add_1229010015</key><value>促销开始日期</value></row>
+  <row><key>add_1229010016</key><value>促销结束时间</value></row>
+  <row><key>add_1229010017</key><value>促销结束日期</value></row>
+  <row><key>add_1229010018</key><value>促销开始时间</value></row>
+  <row><key>add_1229010019</key><value>称重单位(0:千克,6:500克)</value></row>
+  <row><key>add_1229010020</key><value>plu编号</value></row>
+  <row><key>add_1229010021</key><value>条码编号</value></row>
+  <row><key>add_1229010022</key><value>规则</value></row>
+  <row><key>add_1229010023</key><value>格式</value></row>
+  <row><key>add_1229010024</key><value>电子秤号</value></row>
+  <row><key>add_1229010025</key><value>键编号</value></row>
+  <row><key>add_1229010026</key><value>键盘定义分类</value></row>
+  <row><key>add_1229010027</key><value>预设键第1页</value></row>
+  <row><key>add_1229010028</key><value>预设键第2页</value></row>
+  <row><key>add_1229010029</key><value>预设键第3页</value></row>
+  <row><key>add_1229010030</key><value>追溯码编号</value></row>
+  <row><key>add_1229010031</key><value>追溯码参照值</value></row>
+  <row><key>add_1229010032</key><value>附加文本号</value></row>
+  <row><key>add_1229010033</key><value>内容</value></row>
+  <row><key>add_1229010034</key><value>启用生产日期</value></row>
+  <row><key>add_1229010035</key><value>启用包装日期</value></row>
+  
+  <!--20120111-->
+  <row><key>barcode_0100001</key><value>位数</value></row>
+  <row><key>barcode_0100002</key><value>小数位</value></row>
+  <row><key>barcode_0100003</key><value>请选择</value></row>
+  <row><key>barcode_0100004</key><value>固定值</value></row>
+  <row><key>barcode_0100005</key><value>校验码</value></row>
+  <row><key>barcode_0100006</key><value>第一段</value></row>
+  <row><key>barcode_0100007</key><value>第二段</value></row>
+  <row><key>barcode_0100008</key><value>第三段</value></row>
+  <row><key>barcode_0100009</key><value>第四段</value></row>
+  
+  <row><key>barcode_0200001</key><value>PLU号码</value></row>
+  <row><key>barcode_0200002</key><value>总价</value></row>
+  <row><key>barcode_0200003</key><value>单价</value></row>
+  <row><key>barcode_0200004</key><value>货号</value></row>
+  <row><key>barcode_0200005</key><value>重量/件数</value></row>
+  <row><key>barcode_0200006</key><value>重量</value></row>
+  <row><key>barcode_0200007</key><value>件数</value></row>
+  <row><key>barcode_0200008</key><value>偶校验码</value></row>
+  <row><key>barcode_0200009</key><value>奇校验码</value></row>
+  
+  
+  <row><key>barcode_0300001</key><value>该规则的条码长度必须为13位！</value></row>
+  <row><key>barcode_0300002</key><value>该规则的条码长度必须为18位！</value></row>
+  <row><key>barcode_0300003</key><value>当前条码长度为：</value></row>
+  <row><key>barcode_0300004</key><value>位！</value></row>
+</root>
