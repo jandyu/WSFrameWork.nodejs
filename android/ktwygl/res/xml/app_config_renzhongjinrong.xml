@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app_config>
+    <main_menu logo="http://m.youjish.cn/web/native_pic/logo.png" titleType="title" title="" titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#ffffff">
+        <menu_item name="main_menu_1" url="http://rzapp.youjish.cn/v1/d1.aspx" logo="http://m.youjish.cn/web/native_pic/logo.png1" titleType="string" title="首页"		titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#2A4A47" menuTitle="首页" menuTitleSize="24" menuTitleColor="red" menuIconNormal="renzhongjinrong_menu_icon_m1_1" menuIconDown="renzhongjinrong_menu_icon_m1_2"/>
+	    <menu_item name="main_menu_2" url="http://rzapp.youjish.cn/v1/d2.aspx" logo="http://m.youjish.cn/web/native_pic/logo.png1" titleType="string" title="营销"		titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#2A4A47" menuTitle="主页1" menuTitleSize="24" menuTitleColor="red" menuIconNormal="renzhongjinrong_menu_icon_m2_1" menuIconDown="renzhongjinrong_menu_icon_m2_2"/>
+	    <menu_item name="main_menu_3" url="http://rzapp.youjish.cn/v1/d3.aspx" logo="http://m.youjish.cn/web/native_pic/logo.png1" titleType="string" title="服务"		titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#2A4A47" menuTitle="主页1" menuTitleSize="24" menuTitleColor="red" menuIconNormal="renzhongjinrong_menu_icon_m3_1" menuIconDown="renzhongjinrong_menu_icon_m3_2"/>
+	    <menu_item name="main_menu_4" url="http://rzapp.youjish.cn/v1/d4.aspx" logo="http://m.youjish.cn/web/native_pic/logo.png1" titleType="string" title="论坛"		titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#2A4A47" menuTitle="主页1" menuTitleSize="24" menuTitleColor="red" menuIconNormal="renzhongjinrong_menu_icon_m4_1" menuIconDown="renzhongjinrong_menu_icon_m4_2"/>
+	    <menu_item name="main_menu_5" url="http://rzapp.youjish.cn/v1/d5.aspx" logo="http://m.youjish.cn/web/native_pic/logo.png1" titleType="string" title="个人"	titleSize="18" titleAlign="center" titleColor="#000000" titleBackgroundColor="#ffffff" backgroundColor="#2A4A47" menuTitle="主页1" menuTitleSize="24" menuTitleColor="red" menuIconNormal="renzhongjinrong_menu_icon_m5_1" menuIconDown="renzhongjinrong_menu_icon_m5_2"/>
+    </main_menu>
+    
+    
+    <config name="base_font_size" value="16"/>
+    <config name="start_page_waite_time" value="3000" des="开始页面等待时间，单位：毫秒"/>
+    <config name="app_update_url" value="http://rzapp.youjish.cn/android/release/rzzb.apk"/>
+    <config name="server_main_url" value="http://rzapp.youjish.cn"/>
+    <config name="server_url" value="http://rzapp.youjish.cn/wsdat.wsdat"/>
+    <config name="upload_picture_url" value="http://rzapp.youjish.cn/resource.wsdat"/>
+    <config name="update_defid" value="db_app"/>
+    <config name="update_dstyle" value="xml"/>
+    <config name="upload_picture_max_size" value="200*200"/>
+    <config name="upload_head_photo_max_size" value="120*120"/>
+    <config name="url_protocol" value="ngsj://"/>
+    <config name="user_info_key" value="123456"/>
+    <config name="app_update_version_key" value="app_rzzb_update_version" des="升级包版本号，对应服务端数据库表app_config的键名"/>
+    <config name="timeout_http_normal_post" value="10" des="超时时间普通请求，单位：秒"/>
+    <config name="logpath" value="/mnt/extSdCard/MCMLog/" des="日志保存路径" />
+    
+    <config name="hybridPageString">
+	{
+		DEVICE_UDID:"#_DEVICE_UDID_#",
+		userinfo:JSON.parse(window.nativeInterface.getUserInfo()),
+		create:function(options)
+		{
+			var empty={};
+			var rtn = $.extend(empty,hybridPage,options);
+			rtn.init();
+			return rtn;
+		},
+		platForm:"android",
+		init:function(){},
+		load:function(){},
+		getNextPage:function(){},
+		refreshPage:function()
+		{
+			window.location.reload();
+		}
+	}
+
+	</config>
+    
+</app_config>

@@ -1,0 +1,65 @@
+门店小店整体页面结构和功能
+
+首页 ：http://m.west-soft.com:88/web/index.aspx
+    
+商城：http://m.west-soft.com:88/web/index1.aspx
+
+     右上角设置扫一扫按钮，可以直接扫描商品条码（或二维码），扫描收直接跳转到商品详细页面
+
+     页面样式参考news.html,实际内容为不同的商品的分类，
+          分类点击后显示显示商品明细，页面参考columns.html
+               商品点击后显示商品的详细情况，参考detail.html ,页面上设置加入购物车，收藏按钮，
+               另外设置右上角购物车链接，点击进入购物车页面（同后面购物车）
+
+
+逛附近：http://m.west-soft.com:88/web/index2.aspx
+     
+     定位百度地图，显示附近的门店，点击可以进入到这个门店的商城     
+
+购物车：http://m.west-soft.com:88/web/index3.aspx
+     参考columns.html ,
+          下面加合计，和配送地址选择
+          最后是确认订单按钮
+          确认按钮点击后显示最后的订单信息，样式参考orders.html
+     
+个人：http://m.west-soft.com:88/web/index4.aspx
+
+     页面样式参考member.html,member.html有两种状态
+               1、为注册登录，显示注册登录页面；
+               2、注册后，显示个人信息维护，
+                         我的订单，进入后显示订单列表，样式参考columns.html,单击后显示订单详细页面（同购物车确认后的页面）
+                         我的配送地址，可以维护自己的配送信息
+另外：
+     考虑到ios和android的兼容性，ios8升级后原来通过js向native发送请求的方法是设置window.location.href的值为定义的协议，
+现在ios不支持这个，需要修改为下面的方法，所以这边的页面最后都是用下面的js函数发送消息给natvie
+
+function execNativeFunc(func){
+      var iframe = document.createElement("IFRAME");
+      iframe.setAttribute("src", func);
+      document.documentElement.appendChild(iframe);
+      iframe.parentNode.removeChild(iframe);
+      iframe = null;
+}
+
+
+
+
+
+
+-------------------------------------------------
+原来和著名的程序你检查一下这个情况：
+首次打开系统没有注册或登录，然后到个人中心注册，然后和街买东西，最后确认的时候并没有获取到注册信息，
+（问题可能是，每个界面重新显示的时候，没有判断用户信息是否获取，没获取的情况下要重新获取，然后注入js，同时注意推送的注册）
+
+
+
+jpush和著名的程序应为苹果注册账号更改导致app id修改，所以改了新的应用（和著民），android需要重新配置下，还有推送的服务程序也要重新配置，你到服务器上弄一下
+
+
+门前小店的页面结构你心啊搭起来，用到数据的时候你直接问我，我告诉你那里取数据
+
+
+
+门前小店的页面结构你先搭起来
+
+

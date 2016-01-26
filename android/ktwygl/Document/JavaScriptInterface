@@ -1,0 +1,15 @@
+JavaScript方法：
+	nativeLoaded(jsonBase64String, callBack)//此方法为native中页面加载完成后来调JS的方法，传入当前用户信息，获取页面配置信息。参数1为json字符串经过base64编码后的字符串。参数2为回调函数
+	nativeSet(jsonBase64String, callBack)//此方法为native中用来修改html页面对象值的方法。参数1为json字符串经过base64编码后的字符串。参数2为回调函数
+	nativeGet(jsonBase64String, callBack)//此方法为native中用来获取html页面对象值的方法。参数1为json字符串经过base64编码后的字符串。参数2为回调函数
+	ngsjload(callback)//此方法为native页面加载完成后来调的方法，获取页面配置信息
+	
+	
+	
+native方法：
+	window.nativeInterface.jsPageTo(url) //页面跳转
+	window.nativeInterface.jsBeginWaite('请稍候...');//等待（异步）
+	window.nativeInterface.jsEndWaite();//停止等待（异步）
+	window.nativeInterface.jsMessageBoxToast('提示消息', 1);//提示消息，1长时间，0短时间
+	window.nativeInterface.jsMessageBoxModel('提示标题', '消息内容', messageBoxButtons,messageBoxIcon);//提示框，参数1：按钮（1:OK, 2:OKCancel, 3:YesNo, 4:YesNoCancel）。参数2：图标：（1:Information, 2:Question, 3:Error, 4:Warning）
+	window.nativeInterface.jsNativeBack();//native上一页

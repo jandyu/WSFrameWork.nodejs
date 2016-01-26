@@ -1,0 +1,33 @@
+1、个人中心
+     native模式，登录，注册，注销，绑定，资料修改，推送tag，alias重新注册
+     个人功能的可调整列表
+     协议：ngsj://userInformation:userInformation1:
+
+     关于系统，logo ，版本信息，最新版本
+     协议：ngsj://about:about1:
+
+2、个人信息的获取，hybridPage.js注入userinfo改为userinfo（js）调用native函数返回userinfo的json字符串，字符串添加通过
+         sign签名验证
+      
+      
+============================================================
+
+3、UI参数xml模式配置
+     包括框架的标题头，图标，标题，按钮
+     中间内容区，h5
+     底部导航，个数，图标，文字
+
+
+4、图片上传
+     改为本地保存，显示，实际保存（发帖）时再上传
+     未改，原因：html5无法显示本地的照片
+
+
+5、右上角按钮，弹出菜单或者直接进入内容
+
+	如果menu 不为null 且righttitle不为null或""则显示下接菜单
+	{
+		"rightbtn":"ngsj://url:web1:eyJ1cmwiOiJzZW5kLmFzcHgifQ==",
+		"righttitle":"菜 单"," +
+		"menu:[{"title":"打开百度","protocol":"ngsj://url:web1:eyJ1cmwiOiJzZW5kLmFzcHgifQ=="}]
+	}

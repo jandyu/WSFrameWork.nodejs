@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>wsdata数据使用方法说明及实例</title>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #f9f9f9;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+	height:0px;
+	font-size:1px;
+	overflow:hidden;
+}
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+}
+a:hover,a:active{
+	text-decoration : underline;
+	color: #ff0000;
+}
+/* ----------------------------------- layout -----------------------------------*/
+
+div#wrapper	{
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	width:1024px;
+	text-align: left;
+	border:1px solid #eeeeee;
+	padding:15px;
+	background:#fff;
+}
+div#navsecond{
+	float: left;
+	padding: 0;
+	border: 0;
+	width: 150px;
+	background:#f4f4f4;
+}
+div#maincontent{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 1024px;
+}
+/* ----------------------------------- navfirst -----------------------------------*/
+div#navfirst{
+	height: 40px;
+	padding: 0;
+	border: 0;
+	margin-bottom:20px;
+}
+
+div#navfirst ul#menu{
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+div#navfirst ul#menu li	{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	height: 40px;
+	line-height:40px;
+	padding:0px 80px;
+}
+div#navfirst ul#menu li a,div#navfirst ul#menu li a:visited {
+	text-decoration: none;
+	color:#737373;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+div#navfirst ul#menu li a:hover,div#navfirst ul#menu li.select a,div#navfirst ul#menu li.select a:visited{
+	color:#ae4141;
+	border-bottom:3px solid #ae4141;
+}
+	
+/* ----------------------------------- Typography ----------------------------------- */
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+div#maincontent h1	{
+	margin:10px 0 10px 15px;
+	font-size: 20px;
+	font-family: '微软雅黑';
+}
+div#maincontent h2	{
+	font-size: 14px;
+}
+div#maincontent h3,  div#maincontent h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+}
+div#navsecond h2{
+	font-size: 12px;
+	margin:10px 0 0 12px;
+}
+p{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+}
+
+div#maincontent div p:first-child {
+	margin: 0;
+}
+
+p.note span, p.important span, p.tip span, p.inherited, p.inherited span {
+	font-weight:bold;
+}
+
+p.important span {
+	color:#dd0000;
+}
+	
+p.tip span {
+	color:#ff9955;
+}
+
+p.inherited {
+	color:#ff0000;
+}
+
+p.inherited span {
+	color:#999;
+}
+
+p.chinese span {
+	color:#0000ff;
+}
+
+em{
+	font-style:normal;
+	font-weight:bold;
+}
+
+pre	{
+	margin: 10px 0 0 0;
+	padding: 10px;
+	border: 0;
+	border: 1px dotted #785;
+	background: #f5f5f5;
+	font-family: "Courier New",monospace;
+	font-size: 12px;
+	overflow:auto;
+}
+
+pre code {
+	font-family: "Courier New",monospace;
+	color:#0000ff;
+}
+
+pre span {
+	color:#999;
+}
+
+div#maincontent ul {
+	margin-top:10px;
+	margin-bottom:0;
+}
+
+div#maincontent li {
+	margin-top:3px;
+}
+
+div#navsecond ul, div#navsecond li, div#sidebar ul, div#sidebar li	{
+	margin: 0;
+	padding: 0;
+}
+
+div#navsecond ul{
+	margin-left: 12px;
+}
+
+div#navsecond li{
+	list-style: none;
+}
+img {
+	border:0;
+}
+
+div#maincontent img {
+	margin:25px 0 0 25px;
+}
+
+div#maincontent	div{
+	padding: 20px 0 20px 0;
+	border:0;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+span.i {
+	font-style:italic;
+}
+
+span.deprecated {
+	color:#e80000;
+}
+span.marked {
+	color:#ff0000;
+}
+.tiy {
+	font-weight:bold;
+}
+p.gototop {
+	font-weight:bold;
+	text-align:right;
+}
+/* ----------------------------------- 表格 ----------------------------------- */
+table.dataintable {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:10px;
+	border-collapse:collapse;
+	border:1px solid #888;
+	width:100%;
+}
+
+table.dataintable pre {
+	width:auto;
+	margin:0;
+	padding:0;
+	border:0;
+}
+table.dataintable th {
+	vertical-align:baseline;
+	padding:5px 15px 5px 5px;
+	background-color:#ccc;
+	border:1px solid #888;
+	text-align:left;
+}
+table.dataintable td {
+	vertical-align:text-top;
+	padding:5px 15px 5px 5px;
+	background-color:#efefef;
+	border:1px solid #aaa;
+}
+table.dataintable p {
+	margin:0 0 2px 0;
+}
+table.dataintable td em{
+	color:#0000ff;
+	font-weight:normal;
+}
+table.dataintable .table_value {
+	color:#0F93D2;
+}
+
+table.dataintable ul,table.dataintable li {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+table.dataintable ul.listintable {
+	margin:20px;
+	padding:0;
+}
+table.dataintable ul.listintable  li{
+	list-style-type:disc;
+}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="navfirst">
+			<ul id="menu">
+				<li><a href="one.html" target="_blank">XML说明</a></li>
+				<li><a href="two.html" target="_blank">XSLT模板</a></li>
+				<li><a href="three.html" target="_blank">无datadef的使用说明</a></li>
+				<li><a href="four.html" target="_blank">ctrs.xml说明</a></li>
+				<li class="select"><a href="five.html" target="_blank">wsdata数据接口</a></li>
+				
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="maincontent">
+			<h1>wsdata数据接口使用方法说明及实例</h1>
+			<div>
+			    <h2>1、接口定义</h2>
+				<p>IIS中使用wsdat.wsdat路径作为westsoft.data数据接口</p>
+				<p>站点属性->主目录->配置->添加应用程序扩展</p>
+				
+				<ul>
+				    <li>可执行文件，c:\windows\microsoft.net\framework\v2.0.50727\aspnet_isapi.dll</li>
+				    <li>扩展名，.wsdat</li>
+				    <li>动作，全部动作</li>
+				    <li>脚本引擎，是</li>
+				    <li>确认文件是否存在，<font color=red>否</font></li>
+				</ul>
+				<p>web.config中配置</p>
+				<pre>&lt;httpHandlers&gt;
+		......
+	<code>&lt;add verb="*" path="wsdat.wsdat" type="westsoft.data.srv.XmlDataHandler,westsoft.data.xml" /&gt;</code>
+		......
+&lt;/httpHandlers&gt;</pre>
+				
+			</div>
+			<div>
+			    <h2>2、接口参数</h2>
+				<p>使用westsoft.data数据接口主要需要4个参数。</p>
+				<p>defid,fmtid,strparam,dStyle</p>
+				<ul>
+				    <li>defid,xml定义的文件名称</li>
+				    <li>ftmid,xslt定义的文件名称</li>
+				    <li>strparam,json格式的数据参数</li>
+				    <li>dStyle,返回的数据格式</li>
+				</ul>				
+			</div>
+			<div>
+			    <h2>3、接口ajax调用</h2>
+				<p>通过jquery的ajax方法调用wsdat接口</p>				
+				<pre>
+var qryobj = {common: {currpage: 1,pagesize: 1000,where: []}};
+var pstda  = { defid: defid, fmtid: fmtid, strparam: JSON.stringify(qryobj), dStyle: "pdf" };
+$.ajax({
+    type: "POST",
+    url: this.uurl,
+    data: pstdat,
+    success: function(rrtn) {
+        var ls_rtn = rrtn.substr(1, 4);
+        if (ls_rtn != "erro") {
+            succ(rrtn);
+        }
+        else {				        					
+            alert(rrtn);
+        }                        
+    },
+    error: function(xhr, textStatus, errorThrown) {
+        alert("系统错误" + errorThrown);               
+    }
+});
+				    
+				</pre>			
+			</div>			
+			<div>
+				<h2>4、数据操作</h2>
+				<ul>				    
+				    <li>查询数据</li>
+				    <p>查询数据，主要需要再strparam中设置各种查询使用的条件和约束，完整的strparam格式如下</p>
+				    <pre>
+var qryobj = {
+    common: {
+        currpage: 1,
+        pagesize: 1000,
+        where: [{"col":"1","logic":"=","val":"1","andor":""}]
+    },
+    defobj:{
+                where:[
+                       {"col":"1","logic":"=","val":"1","andor":"and"}
+                       {"col":"( a.aid","logic":"=","val":"b.aid )","andor":"and"},
+                       {"col":"a.segregate","logic":"like","val":"01%","andor":""},
+                   ],                               
+                having:
+                       [
+                           {"col":"( a.aid","logic":"=","val":"b.aid )","andor":""},
+                       ],
+                order:[
+                           {"col":"a.segregate","sort":"desc"},
+                          {"col":"a.aid","sort":"asc"}
+                      ]
+     }
+};
+var pstda  = { defid: defid, fmtid: fmtid, strparam: JSON.stringify(qryobj), dStyle: "pdf" };
+				    </pre>
+				    <p>查询数据的参数分为common和defobj两部分</p>
+				    <ul>
+				        <li>common，包括defid定义的xml查询的通用约束</li>
+				        <p>currpage，查询数据的页</p>
+				        <p>pagesize，查询数据的页大小</p>
+				        <p>where，数组，多个查询条件按的组合，此处的where与defobj中的where为并列有效（即sql中使用and连接)</p>
+				        <ul>
+				        <li>       {"col":"1","logic":"=","val":"1","andor":""}</li>
+				        <li>       每个查询条件包括4个参数</li>		
+				        <ul>		        
+				            <li>col，数据查询where条件的字段名称</li>
+				            <li>logic，查询条件的逻辑条件，如like，=，>等</li>
+				            <li>val，查询的值</li>
+				            <li>andor，后续的逻辑关系，and，or</li>
+				            </ul>
+				        </ul>
+				        <li>defobj，可选，当在defid定义的xml查询为级联多个查询时可以使用多个defobj名字分别指定各自的查询</li>
+				        <ul>
+				            <li>where，defid单独的条件，格式同common的where</li>
+				            <li>having，当sql有group by是可以指定正对group by的having条件过滤，格式同where</li>
+				            <li>order，排序，sql中的order by，分页前的排序,{"col":"a.aid","sort":"asc"}</li>
+				            <ul>
+				                <li>col，排序的列名</li>
+				                <li>sort，排序规则，asc或desc</li>
+				            </ul>
+				            
+				        </ul>
+				    </ul>
+				    <li>返回数据格式</li>
+				    <p>查询数据的数据通过dStyle可以定义多种格式的返回</p>
+				        <ul>
+				            <li>url，返回格式化好的数据文件路径</li>
+				            <li>dat，返回defid的数据xml片段</li>
+				            <li>xml，返回格式化完成的数据片段</li>
+				            <li>pdf，返回转换为pdf文件的路径</li>
+				            
+				        </ul>				    
+				    <li>保存数据</li>
+				    <p>设置<font color="red">fmtid == "update"</font>，表示，strparam中的数据为更新的数据</p>
+				    <ul>
+				        <li>defid，更新使用的数据定义，主要需要使用数据库链接</li>
+				        <li>strparam，更新的数据，格式和功能如下</li>
+				        <ul>
+				            <li>新增数据行</li>
+				            <pre>
+var p = {"tblList":["mis_users"],
+         "mis_users":{
+                        "data":[{<code>"c0":"8"</code>,"NickName":"111","FullName":"111","Sex":"男","Tel":"11","Mobile":"11"}],
+                        "delData":[]
+                        }
+        };
+var pstda = { defid: "mis_users", fmtid: "update", strparam: JSON.stringigy(p), dStyle: "xml" };</pre>
+                            <p>tblList定义所有需要更新的表的数组，后续每个表的数据对象单独定义<br />
+                            <font color=blue>注意其中c0的值为8，表示数据使用insert插入</font>，同时其他数据的key为数据库中的字段名称，<br />
+                            具体的表对应使用mis_users的xml文件中定义property.dbname<br />
+                            <font color=red>当整个strparam为唯一一行数据新增时，接口会返回成功插入后的iid值&lt;succ msg='10'/&gt;</font>,10即为插入后的iid</p>
+				            <li>更新数据行</li>
+				            <pre>
+var p = {"tblList":["mis_users"],
+         "mis_users":{
+                    "data":[{<code>"c0":"9","key_iid":"10"</code>,"NickName":"111","FullName":"222","Sex":"男","Tel":"11","Mobile":"11"}],
+                    "delData":[]
+                    }
+        };
+var pstda = { defid: "mis_users", fmtid: "update", strparam: JSON.stringigy(p), dStyle: "xml" };</pre>
+<p><font color=blue>注意其中c0的值为9，表示数据使用update修改数据，同时修改的条件使用key_XXX表示，XXX为字段名称</font>，其他数据的key为数据库中的字段名称
+                        
+                    </p>
+                            <li>删除数据</li>
+                            <pre>var p ={"tblList":["mis_users"],"mis_users":{"data":[],<code>"delData":["10"]</code>}};
+var pstda = { defid: "mis_users", fmtid: "update", strparam: JSON.stringigy(p), dStyle: "xml" };</pre>  
+                            <p>删除数据时，将要删除的数据的<font color=blue>iid</font>，存放在delData中就可以了
+                            </p>                          
+				            <li>执行存储过程</li>
+				            <pre>var oper = { 'mode': 'parameter',
+            'proc': [{ 'name': opername, 'param': { roleid:'1', moudle_id: $("#frm_moudle_id").val(), right: rolelist }}]
+};
+var pstda = { defid: defid, fmtid: "update", strparam: JSON.stringify(oper), dStyle: "xml" };</pre>
+				            <p>执行存储过程需要设置mode和proc两个参数<br />
+				                mode = parameter,将使用参数模式解析proc定义的处理<br />
+				                proc，定义一些列处理，每个处理分为名称和参数，通过name和param定义
+				            </p>
+				        </ul>
+				    </ul>
+				    <li>执行处理</li>
+				    <p>设置<font color="red">dStyle == "execute"</font>，将调用后台符合<font color="red">westsoft.data.cmd.ICmdExecute</font>接口规范的实体类处理</p>
+				    <pre>var p = [{ name: classname, assembly: assembly, param: { target: ls_emails, body: ls_body, sub: '订单确认提醒' }}];
+var pstda = { defid: "", fmtid: "", strparam: JSON.stringigy(p), dStyle: "execute" };</pre>
+                    
+				    <ul>
+				        <li>defid，fmtid占用格式，无实际意义</li>
+				        <li>strparam，设置执行后台命令的参数，json格式</li>
+				        <ul>
+				            <li>name，系统设置命令实体类</li>
+				            <li>assembly，所在的程序集</li>
+				            <li>param，执行命令的参数，json格式</li>
+				        </ul>
+				    </ul>
+				    <pre>//namespace westsoft.data.cmd				    
+public interface ICmdExecute
+{
+    /// &lt;summary&gt;
+    /// 初始化命令类
+    /// &lt;/summary&gt;
+    /// &lt;param name="strJson"&gt;{"title":"abc","content":"hello"}&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    int InitCmd(string strJson);
+    /// &lt;summary&gt;
+    /// 执行命令类,{"title":"abc","content":"hello"}
+    /// &lt;/summary&gt;
+    /// &lt;param name="strJson"&gt;{"title":"abc","content":"hello"}&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    string Execute(string strJson);
+}</pre>
+                    <p>
+                        实体化类时，需要<font color=red>将InitCmd，Execute均设置为public</font>，以供处理调用
+                    </p>
+				    <li>特殊处理</li>
+				    <p></p>
+				    <ul>
+				        <li><font color=red>strparam =  "xmlfile"</font>，返回defid，fmtid指定的数据文件的名称</li>
+				        <li><font color=red>dStyle.Substring(0, 1) == "."</font>，返回指定文件扩张名称的文件名</li>
+				        <li><font color=red>dStyle == "json"</font>，返回ContentType = "application/json"的json格式数据流，设置callback=?</li>
+				        
+				    </ul>
+				</ul>
+			</div>
+			<div>
+			    <h2>5、嵌入使用配置</h2>
+				<p>直接在配置中使用</p>
+				<p>站点属性->主目录->配置->添加应用程序扩展</p>
+				
+				<ul>
+				    <li>可执行文件，c:\windows\microsoft.net\framework\v2.0.50727\aspnet_isapi.dll</li>
+				    <li>扩展名，.wsdat</li>
+				    <li>动作，全部动作</li>
+				    <li>脚本引擎，是</li>
+				    <li>确认文件是否存在，<font color=red>否</font></li>
+				</ul>
+				<p>web.config中配置</p>
+				<pre>&lt;httpHandlers&gt;
+		......
+	<code>&lt;add verb="*" path="wsdat.wsdat" type="westsoft.data.srv.XmlDataHandler,westsoft.data.xml" /&gt;</code>
+		......
+&lt;/httpHandlers&gt;</pre>
+				
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+</body>
+</html>

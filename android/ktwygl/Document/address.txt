@@ -1,0 +1,18 @@
+﻿http://m.youjish.cn/web/sys/worker.aspx
+http://m.youjish.cn/web/demo/worker.aspx
+http://m.youjish.cn/web/demo/upt.aspx
+
+mstsc youjish.cn administrator/tzl56xstyj
+
+
+数据库：
+youjish.cn,21433
+org/yjsh123*()
+db_app.app_config
+
+
+
+
+
+http://lzlmis.youjish.cn/barcode/bar2dHandler.ashx?t=http%3A%2F%2Fm.youjish.cn%2Fweb%2Fd.aspx&e=M&q=Two&s=12
+http://lzlmis.youjish.cn/barcode/htmlform.htm

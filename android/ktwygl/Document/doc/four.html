@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ctrs.xml的定义和使用方法说明及实例</title>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #f9f9f9;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+	height:0px;
+	font-size:1px;
+	overflow:hidden;
+}
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+}
+a:hover,a:active{
+	text-decoration : underline;
+	color: #ff0000;
+}
+/* ----------------------------------- layout -----------------------------------*/
+
+div#wrapper	{
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	width:1024px;
+	text-align: left;
+	border:1px solid #eeeeee;
+	padding:15px;
+	background:#fff;
+}
+div#navsecond{
+	float: left;
+	padding: 0;
+	border: 0;
+	width: 150px;
+	background:#f4f4f4;
+}
+div#maincontent{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 1024px;
+}
+/* ----------------------------------- navfirst -----------------------------------*/
+div#navfirst{
+	height: 40px;
+	padding: 0;
+	border: 0;
+	margin-bottom:20px;
+}
+
+div#navfirst ul#menu{
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+div#navfirst ul#menu li	{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	height: 40px;
+	line-height:40px;
+	padding:0px 80px;
+}
+div#navfirst ul#menu li a,div#navfirst ul#menu li a:visited {
+	text-decoration: none;
+	color:#737373;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+div#navfirst ul#menu li a:hover,div#navfirst ul#menu li.select a,div#navfirst ul#menu li.select a:visited{
+	color:#ae4141;
+	border-bottom:3px solid #ae4141;
+}
+	
+/* ----------------------------------- Typography ----------------------------------- */
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+div#maincontent h1	{
+	margin:10px 0 10px 15px;
+	font-size: 20px;
+	font-family: '微软雅黑';
+}
+div#maincontent h2	{
+	font-size: 14px;
+}
+div#maincontent h3,  div#maincontent h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+}
+div#navsecond h2{
+	font-size: 12px;
+	margin:10px 0 0 12px;
+}
+p{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+}
+
+div#maincontent div p:first-child {
+	margin: 0;
+}
+
+p.note span, p.important span, p.tip span, p.inherited, p.inherited span {
+	font-weight:bold;
+}
+
+p.important span {
+	color:#dd0000;
+}
+	
+p.tip span {
+	color:#ff9955;
+}
+
+p.inherited {
+	color:#ff0000;
+}
+
+p.inherited span {
+	color:#999;
+}
+
+p.chinese span {
+	color:#0000ff;
+}
+
+em{
+	font-style:normal;
+	font-weight:bold;
+}
+
+pre	{
+	margin: 10px 0 0 0;
+	padding: 10px;
+	border: 0;
+	border: 1px dotted #785;
+	background: #f5f5f5;
+	font-family: "Courier New",monospace;
+	font-size: 12px;
+	overflow:auto;
+}
+
+pre code {
+	font-family: "Courier New",monospace;
+	color:#0000ff;
+}
+
+pre span {
+	color:#999;
+}
+
+div#maincontent ul {
+	margin-top:10px;
+	margin-bottom:0;
+}
+
+div#maincontent li {
+	margin-top:3px;
+}
+
+div#navsecond ul, div#navsecond li, div#sidebar ul, div#sidebar li	{
+	margin: 0;
+	padding: 0;
+}
+
+div#navsecond ul{
+	margin-left: 12px;
+}
+
+div#navsecond li{
+	list-style: none;
+}
+img {
+	border:0;
+}
+
+div#maincontent img {
+	margin:25px 0 0 25px;
+}
+
+div#maincontent	div{
+	padding: 20px 0 20px 0;
+	border:0;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+span.i {
+	font-style:italic;
+}
+
+span.deprecated {
+	color:#e80000;
+}
+span.marked {
+	color:#ff0000;
+}
+.tiy {
+	font-weight:bold;
+}
+p.gototop {
+	font-weight:bold;
+	text-align:right;
+}
+/* ----------------------------------- 表格 ----------------------------------- */
+table.dataintable {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:10px;
+	border-collapse:collapse;
+	border:1px solid #888;
+	width:100%;
+}
+
+table.dataintable pre {
+	width:auto;
+	margin:0;
+	padding:0;
+	border:0;
+}
+table.dataintable th {
+	vertical-align:baseline;
+	padding:5px 15px 5px 5px;
+	background-color:#ccc;
+	border:1px solid #888;
+	text-align:left;
+}
+table.dataintable td {
+	vertical-align:text-top;
+	padding:5px 15px 5px 5px;
+	background-color:#efefef;
+	border:1px solid #aaa;
+}
+table.dataintable p {
+	margin:0 0 2px 0;
+}
+table.dataintable td em{
+	color:#0000ff;
+	font-weight:normal;
+}
+table.dataintable .table_value {
+	color:#0F93D2;
+}
+
+table.dataintable ul,table.dataintable li {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+table.dataintable ul.listintable {
+	margin:20px;
+	padding:0;
+}
+table.dataintable ul.listintable  li{
+	list-style-type:disc;
+}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="navfirst">
+			<ul id="menu">
+				<li><a href="one.html" target="_blank">XML说明</a></li>
+				<li><a href="two.html" target="_blank">XSLT模板</a></li>
+				<li><a href="three.html" target="_blank">无datadef的使用说明</a></li>
+				<li class="select"><a href="four.html" target="_blank">ctrs.xml说明</a></li>
+				<li><a href="five.html" target="_blank">调用说明</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="maincontent">
+			<h1>ctrs.xml的定义和使用方法说明及实例</h1>
+			<div>
+				<p>在xslt模板中我们可以看到一个ws.def.模块名{名/值对}.ws的代码，这个就是通过在ctrs.xml定义的模块将界面上的ws.def.模块名{名/值对}.ws替换成定义好的模块代码。</p>
+				<p>定义的模块，可以是html代码，js代码，甚至可以结合xml和xslt。</p>
+			</div>
+			<div>
+				<h2>1．　目前的ctrs.xml代码（可以自己定义很多个模块）</h2>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;!--=====================================编辑界面=====================================--&gt;
+  &lt;!--label（参数：labeltitle）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.label.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--输入框（参数：title、type、id、value、class、disabled、tabindex、maxlength）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.defaultinput.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;span&gt;
+        &lt;input title="%inj.title%" type="%inj.type%" id="%inj.id%" value="%inj.value%" class="%inj.class%" maxlength="%inj.maxlength%" /&gt;
+      &lt;/span&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--一般输入框.密码输入框（参数：labeltitle、title、type、id、value、class、disabled、tabindex、maxlength）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.input.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      &lt;span&gt;
+        &lt;input title="%inj.title%" type="%inj.type%" id="%inj.id%" value="%inj.value%" class="%inj.class%" maxlength="%inj.maxlength%" /&gt;
+      &lt;/span&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+
+  &lt;!--日期控件（参数：labeltitle、id、class、value）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.dateinput.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      &lt;span&gt;
+        &lt;input value='%inj.value%' id='%inj.id%' class="Wdate %inj.class%" onfocus="WdatePicker()"/&gt;
+      &lt;/span&gt;
+       ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--文本域（参数：labeltitle、id、name、class、title、value）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.textarea.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      &lt;span&gt;
+        &lt;textarea id="%inj.id%" name="%inj.name%" class="%inj.class%" cols="50" rows="9" title="%inj.title%"&gt;%inj.value%&lt;/textarea&gt;
+      &lt;/span&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--下拉框（参数：labeltitle、id、name、title、cate、select、class）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.ddlist.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      &lt;span&gt;
+        &lt;select id="%inj.id%" name="%inj.name%" dir="ltr" title="%inj.title%" class="%inj.class%"&gt;
+            ws.def.getxmldata{"defid":"ctrl_sys_dict_list","fmtid":"ctrl_selectoption","strJson":{'common': { 'currpage': 1, 'pagesize': 100,'where': [{'col':'s.cate','logic':'=','val':'%inj.cate%','andor':'and'},{'col':'s.id','logic':'=','val':'%inj.select%','andor':''}]}}}.ws
+        &lt;/select&gt; 
+      &lt;/span&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--搜索下拉框（参数：labeltitle、id、name、title、cate、select、class）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.searchddlist.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;label&gt;
+        %inj.labeltitle%：
+      &lt;/label&gt;
+      &lt;span class="spanselect"&gt;
+        &lt;select id="%inj.id%" name="%inj.name%" dir="ltr" title="%inj.title%" class="%inj.class%"&gt;
+            ws.def.getxmldata{"defid":"ctrl_sys_dict_list","fmtid":"ctrl_searchselectoption","strJson":{'common': { 'currpage': 1, 'pagesize': 100,'where': [{'col':'s.cate','logic':'=','val':'%inj.cate%','andor':'and'},{'col':'s.id','logic':'=','val':'%inj.select%','andor':''}]}}}.ws          
+        &lt;/select&gt; 
+      &lt;/span&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+
+  &lt;!--只有一个选项的复选框（参数：labeltitle、id、name、value、checked、class）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.onecheckbox.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[
+      &lt;span class="checkbox %inj.class%"&gt;
+        &lt;input type="checkbox" id="%inj.id%" name="%inj.name%" value="%inj.value%" %inj.checked%/&gt;
+      &lt;/span&gt;
+      &lt;label class="checkbox %inj.class%"&gt;
+        %inj.labeltitle%
+      &lt;/label&gt;
+      ]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  &lt;!--=====================================表格界面=====================================--&gt;
+  &lt;!--文本（参数：title）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.text.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[%inj.title%]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+  &lt;!--表格选择（参数：iid）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.choose.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[&lt;input type='checkbox' iid='%inj.iid%'/&gt;]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+
+  &lt;!--选择（参数：cate、select）--&gt;
+  &lt;row&gt;
+    &lt;key&gt;ws.def.select.ws&lt;/key&gt;
+    &lt;value&gt;
+      &lt;![CDATA[ws.def.getxmldata{"defid":"ctrl_sys_dict_list","fmtid":"ctrl_table_select","strJson":{'common': { 'currpage': 1, 'pagesize': 100,'where': [{'col':'s.cate','logic':'=','val':'%inj.cate%','andor':'and'},{'col':'s.id','logic':'=','val':'%inj.select%','andor':''}]}}}.ws]]&gt;
+    &lt;/value&gt;
+  &lt;/row&gt;
+  
+&lt;/root&gt;</pre>
+				<p>从代码上可以看到，每个模块的格式为：</p>
+				<pre>&lt;row&gt;
+   &lt;key&gt;ws.def.模块名.ws&lt;/key&gt;
+   &lt;value&gt;
+      &lt;![CDATA[
+      	内容
+      ]]&gt;
+   &lt;/value&gt;
+&lt;/row&gt;</pre>
+				<p class="tip">在界面上我们通过 <span>ws.def.模块名{名/值对}.ws</span> 调用模块。</p>
+				<p>{名/值对}是参数和参数值的列表，格式为{"labeltitle":"会员卡","title":"会员卡号"......}，每个名/值用,进行分隔。</p>
+				<p>参数在模块中被存储在inj对象中，我们通过 %inj.参数名% 来得到参数值。</p>
+				<p>上述模板有一个特殊模板内容 ws.def.getxmldata{名/值对}.ws ，这个模板通过xml和xslt将数据界面化。</p>
+				<p class="note"><span>这种模板的{名/值对}：</span></p>
+				<pre>{"defid":"xml文件名","fmtid":"xslt文件名","strJson":{'common': { 'currpage': 1, 'pagesize': 100,'where': [where语句条件数组]}}}</pre>
+				<p>where语句条件数组例子：</p>
+				<pre>{'col':'s.cate','logic':'=','val':'%inj.cate%','andor':'and'},{'col':'s.id','logic':'=','val':'%inj.select%','andor':''}</pre>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>

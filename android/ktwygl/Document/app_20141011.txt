@@ -1,0 +1,31 @@
+1、老板标题栏不要
+2、图片资源
+  
+推送结构
+
+多分店实现，分割 融合
+
+app端网站
+mobi，boss
+     关键问题：
+          viewport.js
+     
+          固定屏幕大小下内容滑动js框架：http://iscrolljs.com/ ，http://www.gafish.net/api/iScroll.html
+          
+          hybridpage.js嵌入
+
+
+          字体：
+               font-size: 1.2em;
+          宽度：使用百分比
+          高度：可以使用像素，图片除外
+     待议：
+          缓存的应用
+          app.manifest
+后台
+          图片展示
+          富文本编辑
+          
+
+http://getuikit.com/
+http://ueditor.baidu.com/website/

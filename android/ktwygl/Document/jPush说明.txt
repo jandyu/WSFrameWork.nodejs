@@ -1,0 +1,4 @@
+升级jpush SDK时
+	1、需要替换libs/jpush-sdk-release1.7.1.jar
+	2、需要替换libs/armeabi-v7a/libjpush171.so
+	3、需要替换libs/armeabi/libjpush171.so

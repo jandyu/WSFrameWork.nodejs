@@ -1,0 +1,145 @@
+﻿<html>
+	<head>
+		<script src="Base64.js"></script>
+		<script src="/js/jquery.js"></script>
+	</head>
+	<body>
+		<B>这是第一页</a>
+		<table>
+			<tr><th>URL</th></tr>
+			<tr><td><a href="ngsj://url:web1:eyJ1cmwiOiJodHRwOi8vbS55b3VqaXNoLmNuL3dlYi9wMi5odG1sIn0=" memo="ngsj://url:web1:{'url':'http://m.youjish.cn/web/p2.html'}">ngsj://url:web1:http://m.youjish.cn/web/p2.html</a>新开页，绝对地址</td></tr>
+			<tr><td><a href="ngsj://url:self:eyJ1cmwiOiJodHRwOi8vbS55b3VqaXNoLmNuL3dlYi9wMi5odG1sIn0=" memo="ngsj://url:self:{'url':'http://m.youjish.cn/web/p2.html'}">ngsj://url:self:http://m.youjish.cn/web/p2.html</a>非新开页，绝对地址</td></tr>
+			<tr><td><a href="ngsj://url:web1:eyJ1cmwiOiJwMi5odG1sIn0" memo="ngsj://url:web1:{'url','p2.html?cid=123'}">ngsj://url:web1:p2.html</a>新开页，相对地址</td></tr>
+			<tr><td><a href="ngsj://url:self:eyJ1cmwiOiJwMi5odG1sIn0" memo="ngsj://url:self:{'url','p2.html'}">ngsj://url:self:p2.html</a>非新开页，相对地址</td></tr>
+			<tr><td><a href="ngsj://url:web1:eyJ1cmwiOiIvd2ViL3AyLmh0bWwifQ" memo="ngsj://url:web1:{'url','p2.html'}">ngsj://url:web1:/web/p2.html</a>新开页，域内绝对地址</td></tr>
+			<tr><td><a href="ngsj://url:self:eyJ1cmwiOiIvd2ViL3AyLmh0bWwifQ" memo="ngsj://url:self:{'url','p2.html'}">ngsj://url:self:/web/p2.html</a>非新开页，域内绝对地址</td></tr>
+			<tr><td><a href="http://m.youjish.cn/web/p2.html">http://m.youjish.cn/web/p2.html</a>非新开页，绝对地址</td></tr>
+			<tr><td><a href="p2.html">p2.html</a>非新开页，相对地址</td></tr>
+			<tr><td><a href="/web/p2.html">/web/p2.html</a>非新开页，域内绝对地址</td></tr>
+			<tr><td><a href="ngsj://login:login1:">登录</a></td></tr>
+			<tr><td><a href="ngsj://message:self:eyJ0aXRsZSI6Iuivt+i+k+WFpeaWh+WtlyJ9" memo="ngsj://message:self:{'title':'请输入文字'}">发消息</a></td></tr>
+			<tr><td><a href="ngsj://scan:scan1:eyJyaWQiOiJ0eHRib3gxIn0" memo="ngsj://scan:scan1:{'rid','txtbox1'}">扫描</a></td></tr>
+			<tr><td><a href="ngsj://photo:photo1:">拍照</a></td></tr>
+			
+			<tr><td><input type="button" onclick="jsPageTo('ngsj://photo:photo1:')" value="拍照"/></td></tr>
+			<tr><td><input type="button" onclick="jsPageTo('ngsj://url:web1:eyJ1cmwiOiJodHRwOi8vbS55b3VqaXNoLmNuL3dlYi9wMi5odG1sIn0=')" value="新开页，绝对地址"/></td></tr>
+		</table>
+		
+		<input type="button" onclick="jsWaite();" value="等待"/>
+		<input type="button" onclick="jsMessageBoxToast()" value="提示消息"/>
+		<input type="button" onclick="jsMessageBoxModel()" value="模态消息"/>
+		
+		<input type="text" id="txtbox1" value="123" style="width:80%"/> <button onclick="encodeobj()">编码</button><br/>
+		<input type="text" id="txtbox2" value="123" style="width:80%"/><button onclick="decodeobj()">解码</button><br/>
+		
+		<script>
+			//此方法为native中页面加载完成后。来调JS的方法
+			function nativeLoaded(jsonBase64String, callBack)//参数为json字符串经过base64编码后的字符串
+			{
+				var userInfoJsonObj = decode(jsonBase64String);
+				
+				if(userInfoJsonObj == null)//未登录
+				{
+					//userInfoJsonObj 值结构为 {"device_id":"353867058183588","head_pic":"p.jpg","nick_name":"djd","passwd":"123456","phone_no":"13173990993","sign_name":"djd"}
+				}
+				
+				//用户信息的处理
+				var data = {'title':'首页','menu':{'scan':true}};
+				var jsonBase64StringResponse = encode(data);//json字符串经过base64编码后的字符串
+				
+				eval(callBack + "('" + jsonBase64StringResponse + "')");//回调native函数
+				//window.nativeInterface.nativeLoaded(jsonBase64StringResponse);//回调native函数,(window.nativeInterface是android中注册JS接口的对象)
+			}
+			//此方法为native中用来修改html页面对象值的方法
+			function nativeSet(jsonBase64String, callBack)//参数为json字符串经过base64编码后的字符串
+			{
+				var jsonObj = decode(jsonBase64String);
+				document.getElementById(jsonObj.id).value = jsonObj.value;
+				
+				if(callBack != null && callBack != '')
+				{
+					eval(callBack + "('" + encode({'succ':'1'}) + "')");
+				}
+			}
+			//此方法为native中用来获取html页面对象值的方法
+			function nativeGet(jsonBase64String, callBack)//参数为json字符串经过base64编码后的字符串
+			{
+				var jsonObj = decode(jsonBase64String);
+				var txt = document.getElementById(jsonObj.id);
+				if(txt == null)
+				{
+					var data = {"id":jsonObj.id, "value": jsonObj.default};
+					var jsonBase64StringResponse = encode(data);//json字符串经过base64编码后的字符串
+					eval(callBack + "('" + jsonBase64StringResponse + "')");
+					//window.nativeInterface.nativeGet(jsonBase64StringResponse);//回调native函数,(window.nativeInterface是android中注册JS接口的对象)
+				}
+				else
+				{
+					var data = {"id":jsonObj.id, "value": txt.value};
+					var jsonBase64StringResponse = encode(data);//json字符串经过base64编码后的字符串
+					eval(callBack + "('" + jsonBase64StringResponse + "')");
+					//window.nativeInterface.nativeGet(jsonBase64StringResponse);//回调native函数,(window.nativeInterface是android中注册JS接口的对象)
+				}
+			}
+
+			
+			function encodeobj(){
+				$("#txtbox2").val(Base64.encode($("#txtbox1").val()));
+			}
+			
+			function decodeobj(){
+				$("#txtbox1").val(Base64.decode($("#txtbox2").val()));
+			}
+			function encode(obj)
+			{
+				var jsonData = window.JSON.stringify(obj);
+				return Base64.encode(jsonData);
+			}
+			function decode(base64JsonData)
+			{
+				if(base64JsonData == '')
+					return null;
+					
+				var jsonData = Base64.decode(base64JsonData);
+				return window.JSON.parse(jsonData);
+			}
+			
+			function jsPageTo(url)
+			{
+				window.nativeInterface.jsPageTo(url);
+			}
+			
+			function jsWaite()
+			{
+				window.nativeInterface.jsBeginWaite('请稍候...');
+				window.setTimeout(function()
+				{
+					window.nativeInterface.jsEndWaite();
+				},3000)
+			}
+			
+			function jsMessageBoxToast()
+			{
+				window.nativeInterface.jsMessageBoxToast('提示消息', 1);//1长时间
+				//window.nativeInterface.jsMessageBoxToast('提示消息', 0);//0短时间
+			}
+			
+			function jsMessageBoxModel()
+			{
+				var messageBoxButtons = 1;//1:OK, 2:OKCancel, 3:YesNo, 4:YesNoCancel
+				var messageBoxIcon = 1;//1:Information, 2:Question, 3:Error, 4:Warning
+				var resule = window.nativeInterface.jsMessageBoxModel('提示标题', '消息内容', messageBoxButtons,messageBoxIcon);
+				//resule//1:OK, 2:Yes, 3:No, 4:Cancel, -1:Other
+				alert(resule)
+			}
+			
+			
+			//function pageTo(url)
+			//{
+			//	location.href = url;
+			//}
+			
+			
+		</script>
+	</body>
+</html>

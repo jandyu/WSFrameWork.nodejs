@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingRight="2dp"
+    android:background="@drawable/stroke_style">
+    
+    <ImageView android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        />
+    
+    <TextView android:id="@+id/labMessageTitle"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="18sp"/>
+    
+    <TextView android:id="@+id/labDateTime"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="16sp"/>
+    
+    <TextView android:id="@+id/labMessageText"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_below="@+id/labMessageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="16sp"/>
+    
+
+</RelativeLayout>

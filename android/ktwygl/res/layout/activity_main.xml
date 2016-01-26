@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="apk.activity.MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/mainFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible" >
+        
+	    <apk.customerview.MainViewPager
+	        android:id="@+id/viewPager"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_above="@+id/bottomButtons"
+	        android:layout_gravity="center"
+	        android:flipInterval="60"
+	        android:persistentDrawingCache="animation" />
+	    
+	    <!-- android:layout_weight="1" -->
+	    
+	    <!-- android:background="@drawable/mmfooter_bg" -->
+	    <RelativeLayout
+	        android:id="@+id/bottomButtons"
+	        android:layout_width="match_parent"
+	        android:layout_height="48dp"
+	        android:layout_alignParentBottom="true"
+	        android:background="#ffffff">
+	        <!-- 底部菜单 -->
+		    <RadioGroup
+		        android:id="@+id/tab_rg_menu"
+		        android:layout_width="match_parent"
+		        android:layout_height="48dp"
+		        android:orientation="horizontal"
+		        android:paddingTop="1dp">
+		    </RadioGroup>
+		    
+		    <!-- 底部菜单通知数字 -->
+		    <RelativeLayout android:id="@+id/bottomNumbers"
+		        android:layout_width="match_parent"
+		        android:layout_height="48dp">
+		    </RelativeLayout>
+	    </RelativeLayout>
+	</RelativeLayout>
+	
+    
+    
+    <RelativeLayout
+        android:id="@+id/mainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <TextView
+            android:text="@string/menu_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="#ff0000"/>
+    </RelativeLayout>
+    
+
+</LinearLayout>

@@ -1,0 +1,1023 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>datafmt中xslt的表格模版，编辑界面模版，charts模版，每个的用法、对应样式说明以及实例</title>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #f9f9f9;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+	height:0px;
+	font-size:1px;
+	overflow:hidden;
+}
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+}
+a:hover,a:active{
+	text-decoration : underline;
+	color: #ff0000;
+}
+/* ----------------------------------- layout -----------------------------------*/
+
+div#wrapper	{
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	width:1024px;
+	text-align: left;
+	border:1px solid #eeeeee;
+	padding:15px;
+	background:#fff;
+}
+div#navsecond{
+	float: left;
+	padding: 0;
+	border: 0;
+	width: 150px;
+	background:#f4f4f4;
+}
+div#maincontent{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 1024px;
+}
+/* ----------------------------------- navfirst -----------------------------------*/
+div#navfirst{
+	height: 40px;
+	padding: 0;
+	border: 0;
+	margin-bottom:20px;
+}
+
+div#navfirst ul#menu{
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+div#navfirst ul#menu li	{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	height: 40px;
+	line-height:40px;
+	padding:0px 80px;
+}
+div#navfirst ul#menu li a,div#navfirst ul#menu li a:visited {
+	text-decoration: none;
+	color:#737373;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+div#navfirst ul#menu li a:hover,div#navfirst ul#menu li.select a,div#navfirst ul#menu li.select a:visited{
+	color:#ae4141;
+	border-bottom:3px solid #ae4141;
+}
+	
+/* ----------------------------------- Typography ----------------------------------- */
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+div#maincontent h1	{
+	margin:10px 0 10px 15px;
+	font-size: 20px;
+	font-family: '微软雅黑';
+}
+div#maincontent h2	{
+	font-size: 14px;
+}
+div#maincontent h3,  div#maincontent h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+}
+div#navsecond h2{
+	font-size: 12px;
+	margin:10px 0 0 12px;
+}
+p{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+}
+
+div#maincontent div p:first-child {
+	margin: 0;
+}
+
+p.note span, p.important span, p.tip span, p.inherited, p.inherited span {
+	font-weight:bold;
+}
+
+p.important span {
+	color:#dd0000;
+}
+	
+p.tip span {
+	color:#ff9955;
+}
+
+p.inherited {
+	color:#ff0000;
+}
+
+p.inherited span {
+	color:#999;
+}
+
+p.chinese span {
+	color:#0000ff;
+}
+
+em{
+	font-style:normal;
+	font-weight:bold;
+}
+
+pre	{
+	margin: 10px 0 0 0;
+	padding: 10px;
+	border: 0;
+	border: 1px dotted #785;
+	background: #f5f5f5;
+	font-family: "Courier New",monospace;
+	font-size: 12px;
+	overflow:auto;
+}
+
+pre code {
+	font-family: "Courier New",monospace;
+	color:#0000ff;
+}
+
+pre span {
+	color:#999;
+}
+
+div#maincontent ul {
+	margin-top:10px;
+	margin-bottom:0;
+}
+
+div#maincontent li {
+	margin-top:3px;
+}
+
+div#navsecond ul, div#navsecond li, div#sidebar ul, div#sidebar li	{
+	margin: 0;
+	padding: 0;
+}
+
+div#navsecond ul{
+	margin-left: 12px;
+}
+
+div#navsecond li{
+	list-style: none;
+}
+img {
+	border:0;
+}
+
+div#maincontent img {
+	margin:25px 0 0 25px;
+}
+
+div#maincontent	div{
+	padding: 20px 0 20px 0;
+	border:0;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+span.i {
+	font-style:italic;
+}
+
+span.deprecated {
+	color:#e80000;
+}
+span.marked {
+	color:#ff0000;
+}
+.tiy {
+	font-weight:bold;
+}
+p.gototop {
+	font-weight:bold;
+	text-align:right;
+}
+/* ----------------------------------- 表格 ----------------------------------- */
+table.dataintable {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:10px;
+	border-collapse:collapse;
+	border:1px solid #888;
+	width:100%;
+}
+
+table.dataintable pre {
+	width:auto;
+	margin:0;
+	padding:0;
+	border:0;
+}
+table.dataintable th {
+	vertical-align:baseline;
+	padding:5px 15px 5px 5px;
+	background-color:#ccc;
+	border:1px solid #888;
+	text-align:left;
+}
+table.dataintable td {
+	vertical-align:text-top;
+	padding:5px 15px 5px 5px;
+	background-color:#efefef;
+	border:1px solid #aaa;
+}
+table.dataintable p {
+	margin:0 0 2px 0;
+}
+table.dataintable td em{
+	color:#0000ff;
+	font-weight:normal;
+}
+table.dataintable .table_value {
+	color:#0F93D2;
+}
+
+table.dataintable ul,table.dataintable li {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+table.dataintable ul.listintable {
+	margin:20px;
+	padding:0;
+}
+table.dataintable ul.listintable  li{
+	list-style-type:disc;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="navfirst">
+			<ul id="menu">
+				<li><a href="one.html" target="_blank">XML说明</a></li>
+				<li class="select"><a href="two.html" target="_blank">XSLT模板</a></li>
+				<li><a href="three.html" target="_blank">无datadef的使用说明</a></li>
+				<li><a href="four.html" target="_blank">ctrs.xml说明</a></li>
+				<li><a href="five.html" target="_blank">调用说明</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="maincontent">
+			<h1>datafmt中xslt的表格模版，编辑界面模版，charts模版，每个的用法、对应样式说明以及实例</h1>
+			<div>
+				<p>通过数据源xml获得了数据xml，我们可以根据不同的xslt模板，将相同的数据呈现出不同的样子。</p>
+			</div>
+			<div>
+				<h2>1．　表格模板（单表）</h2>
+				<p>表格是数据呈现最普遍的方式。</p>
+				<p>表格根据是否有分页和分页的种类可以分为三类：无分页、第一种分页（有页码的）、第二种（没有页码的）：</p>
+				<ul>
+					<li>无分页的表格模板</li>
+					<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+  &lt;xsl:import href="Template_Table.xslt"/&gt;
+  &lt;xsl:output method="html" indent="yes"/&gt;
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;xsl:call-template name="TableContent"&gt;
+      &lt;xsl:with-param name="pagination"&gt;0&lt;/xsl:with-param&gt;
+      &lt;xsl:with-param name="pagetype"&gt;&lt;/xsl:with-param&gt;
+    &lt;/xsl:call-template&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+					<li>有页码的表格模板</li>
+					<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+  &lt;xsl:import href="Template_Table.xslt"/&gt;
+  &lt;xsl:output method="html" indent="yes"/&gt;
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;xsl:call-template name="TableContent"&gt;
+      &lt;xsl:with-param name="pagination"&gt;1&lt;/xsl:with-param&gt;
+      &lt;xsl:with-param name="pagetype"&gt;one&lt;/xsl:with-param&gt;
+    &lt;/xsl:call-template&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+					<li>没有页码的表格模板（table_page.xslt）</li>
+					<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+  &lt;xsl:import href="Template_Table.xslt"/&gt;
+  &lt;xsl:output method="html" indent="yes"/&gt;
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;xsl:call-template name="TableContent"&gt;
+      &lt;xsl:with-param name="pagination"&gt;1&lt;/xsl:with-param&gt;
+      &lt;xsl:with-param name="pagetype"&gt;two&lt;/xsl:with-param&gt;
+    &lt;/xsl:call-template&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				</ul>			
+                <p class="tip">不管哪种表格模板都基于一个底层模板  <span>Template_Table.xslt</span> ，而这个模板又包含一个分页模板 <span>Template_Page.xslt</span> 。</p>
+				<p class="note"><span>说明：</span>pagination这个变量用于确定是否有分页（1：有，0：无）；pagetype用于确定分页的种类（one：没有页码，two：有页码）。</p>
+				<p>对于表格的每个td的样式设置在数据源xml的filed元素的每个item元素的edit和fmt属性中，具体怎样设置，请看 <a href="one.html#113" target="_blank">数据源xml中的filed元素说明</a> 。</p>
+				<h3>1．1　导出pdf格式的表格（单表）</h3>
+				<p>要导出pdf格式的表格，要对数据源xml进行特殊设置：对filed元素的每个item元素的set属性进行设置pdf(宽度,对齐方式)，具体说明 <a href="one.html#113" target="_blank">数据源xml中的filed元素说明</a> 。</p>
+				<p class="note"><span>导出pdf格式的xslt模板：</span></p>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+
+  &lt;xsl:import href="Template_Table_Pdf.xslt"/&gt;
+
+  &lt;xsl:output method="xml" indent="yes"/&gt;
+
+  &lt;!--获得标题名--&gt;
+  &lt;xsl:variable name="xmltitle"&gt;
+    &lt;xsl:apply-templates select="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;/xsl:apply-templates&gt;
+  &lt;/xsl:variable&gt;
+  &lt;xsl:template match="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;xsl:value-of select="name()"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!--要显示的表格列数--&gt;
+  &lt;xsl:variable name="numberTd"&gt;
+    &lt;xsl:value-of select="count(/xmldata/fielddef/*[name()=$xmltitle]/item[@cIndex &gt;= 0])"/&gt;
+  &lt;/xsl:variable&gt;
+
+  &lt;!--打印页面宽度--&gt;
+  &lt;xsl:variable name="page_width"&gt;21&lt;/xsl:variable&gt;
+  &lt;!--打印页面高度--&gt;
+  &lt;xsl:variable name="page_height"&gt;29.7&lt;/xsl:variable&gt;
+  &lt;!--打印页面上部高度--&gt;
+  &lt;xsl:variable name="margin_top"&gt;1&lt;/xsl:variable&gt;
+  &lt;!--打印页面下部高度--&gt;
+  &lt;xsl:variable name="margin_bottom"&gt;1&lt;/xsl:variable&gt;
+  &lt;!--打印页面主体上部高度--&gt;
+  &lt;xsl:variable name="body_margin_top"&gt;1&lt;/xsl:variable&gt;
+  &lt;!--打印页面主体下部高度--&gt;
+  &lt;xsl:variable name="body_margin_bottom"&gt;1&lt;/xsl:variable&gt;
+
+  &lt;!--获得宽度，通过数据源xml设置的每个item元素的set属性，获得每个要显示的列表的宽度，从而算出总宽度。--&gt;
+  &lt;xsl:variable name="margin_width"&gt;
+    &lt;xsl:call-template name="width"&gt;
+      &lt;xsl:with-param name="nowtd"&gt;0&lt;/xsl:with-param&gt;
+      &lt;xsl:with-param name="widths"&gt;0&lt;/xsl:with-param&gt;
+    &lt;/xsl:call-template&gt;
+  &lt;/xsl:variable&gt;
+  &lt;xsl:template name="width"&gt;
+    &lt;xsl:param name="nowtd"&gt;&lt;/xsl:param&gt;
+    &lt;xsl:param name="widths"&gt;&lt;/xsl:param&gt;
+
+    &lt;xsl:variable name="set" select="/xmldata/fielddef/*[name()=$xmltitle]/item[@cIndex = $nowtd and not(@edtcontrol='checkbox')]/@set"&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="margin" select="substring-before(substring-before(substring-after($set,'pdf('),')'),',')"/&gt;
+
+    &lt;xsl:if test="(($nowtd + 1) = $numberTd) and not($margin='')"&gt;
+      &lt;xsl:value-of select="($page_width - ($widths + $margin)) div 2"/&gt;
+    &lt;/xsl:if&gt;
+
+    &lt;xsl:if test="(($nowtd + 1) = $numberTd) and $margin=''"&gt;
+      &lt;xsl:value-of select="($page_width - $widths) div 2"/&gt;
+    &lt;/xsl:if&gt;
+
+    &lt;xsl:if test="($nowtd + 1) &lt; $numberTd"&gt;
+      &lt;xsl:if test="not($margin='')"&gt;
+        &lt;xsl:call-template name="width"&gt;
+          &lt;xsl:with-param name="nowtd" select="$nowtd + 1"&gt;&lt;/xsl:with-param&gt;
+          &lt;xsl:with-param name="widths" select="$widths + $margin"&gt;&lt;/xsl:with-param&gt;
+        &lt;/xsl:call-template&gt;
+      &lt;/xsl:if&gt;
+      &lt;xsl:if test="$margin=''"&gt;
+        &lt;xsl:call-template name="width"&gt;
+          &lt;xsl:with-param name="nowtd" select="$nowtd + 1"&gt;&lt;/xsl:with-param&gt;
+          &lt;xsl:with-param name="widths" select="$widths"&gt;&lt;/xsl:with-param&gt;
+        &lt;/xsl:call-template&gt;
+      &lt;/xsl:if&gt;
+    &lt;/xsl:if&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;
+      &lt;fo:layout-master-set&gt;
+        &lt;fo:simple-page-master master-name="main"&gt;
+          &lt;xsl:attribute name="page-height"&gt;
+            &lt;xsl:value-of select="concat($page_height,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:attribute name="page-width"&gt;
+            &lt;xsl:value-of select="concat($page_width,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:attribute name="margin-top"&gt;
+            &lt;xsl:value-of select="concat($margin_top,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:attribute name="margin-bottom"&gt;
+            &lt;xsl:value-of select="concat($margin_bottom,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:attribute name="margin-left"&gt;
+            &lt;xsl:value-of select="concat($margin_width,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:attribute name="margin-right"&gt;
+            &lt;xsl:value-of select="concat($margin_width,'cm')"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;fo:region-body&gt;
+            &lt;xsl:attribute name="margin-top"&gt;
+              &lt;xsl:value-of select="concat($body_margin_top,'cm')"/&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:attribute name="margin-bottom"&gt;
+
+              &lt;xsl:value-of select="concat($body_margin_bottom,'cm')"/&gt;
+            &lt;/xsl:attribute&gt;
+          &lt;/fo:region-body&gt;
+        &lt;/fo:simple-page-master&gt;
+      &lt;/fo:layout-master-set&gt;
+      &lt;!--实际内容--&gt;
+      &lt;fo:page-sequence master-reference="main"&gt;
+        &lt;fo:flow flow-name="xsl-region-body"&gt;
+          &lt;fo:block font-family="宋体" text-align="center"&gt;
+            &lt;!--定义表格--&gt;
+            &lt;xsl:call-template name="printTableContent"&gt;
+
+            &lt;/xsl:call-template&gt;
+          &lt;/fo:block&gt;
+        &lt;/fo:flow&gt;
+      &lt;/fo:page-sequence&gt;
+    &lt;/fo:root&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				<p class="tip">该模板包含一个底层模板  <span>Template_Table_Pdf.xslt</span> 。</p>
+				<h3>1．2　导出xls格式的表格（单表）</h3>
+				<p>要导出xls格式的表格，要对数据源xml进行特殊设置：对filed元素的每个item元素的set属性进行设置xls(宽度,样式)，具体说明 <a href="one.html#113" target="_blank">数据源xml中的filed元素说明</a> 。</p>
+				<p class="note"><span>导出xls格式的xslt模板：</span></p>
+				<pre>&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+
+  &lt;xsl:import href="Template_Table_Excel.xslt"/&gt;
+
+  &lt;xsl:output method="xml" indent="yes"/&gt;
+
+  &lt;!--获得标题名--&gt;
+  &lt;xsl:variable name="xmltitle"&gt;
+    &lt;xsl:apply-templates select="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;/xsl:apply-templates&gt;
+  &lt;/xsl:variable&gt;
+  &lt;xsl:template match="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;xsl:value-of select="name()"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;xsl:text disable-output-escaping="yes"&gt;&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;/xsl:text&gt;
+    &lt;xsl:text disable-output-escaping="yes"&gt;&lt;?mso-application progid="Excel.Sheet"?&gt;&lt;/xsl:text&gt;
+    &lt;Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"
+     xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+     xmlns:html="http://www.w3.org/TR/REC-html40"&gt;
+      
+      &lt;!--excel属性的设置--&gt;
+      &lt;DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"&gt;
+        &lt;Author&gt;杭州西软电子技术开发有限公司&lt;/Author&gt;
+        &lt;LastAuthor&gt;杭州西软电子技术开发有限公司&lt;/LastAuthor&gt;
+        &lt;Created&gt;0000-00-00T00:00:00Z&lt;/Created&gt;
+        &lt;LastSaved&gt;0000-00-00T00:00:00Z&lt;/LastSaved&gt;
+        &lt;Company&gt;杭州西软电子技术开发有限公司&lt;/Company&gt;
+        &lt;Version&gt;11.5606&lt;/Version&gt;
+      &lt;/DocumentProperties&gt;
+      &lt;ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel"&gt;
+        &lt;WindowHeight&gt;10695&lt;/WindowHeight&gt;
+        &lt;WindowWidth&gt;18195&lt;/WindowWidth&gt;
+        &lt;WindowTopX&gt;120&lt;/WindowTopX&gt;
+        &lt;WindowTopY&gt;75&lt;/WindowTopY&gt;
+        &lt;ActiveSheet&gt;1&lt;/ActiveSheet&gt;
+        &lt;ProtectStructure&gt;False&lt;/ProtectStructure&gt;
+        &lt;ProtectWindows&gt;False&lt;/ProtectWindows&gt;
+      &lt;/ExcelWorkbook&gt;
+
+      &lt;!--样式--&gt;
+      &lt;xsl:call-template name="excel_style"&gt;&lt;/xsl:call-template&gt;
+
+      &lt;!--表格内容区--&gt;
+      &lt;Worksheet&gt;
+        &lt;xsl:attribute name="ss:Name"&gt;
+          &lt;xsl:value-of select="property/*[name()=$xmltitle]/@title"/&gt;
+        &lt;/xsl:attribute&gt;
+
+        &lt;!--表格内容--&gt;
+        &lt;xsl:call-template name="Excel_Content"&gt;&lt;/xsl:call-template&gt;
+        
+        &lt;!--excel属性的设置--&gt;
+        &lt;WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel"&gt;
+          &lt;Print&gt;
+            &lt;ValidPrinterInfo/&gt;
+            &lt;PaperSizeIndex&gt;9&lt;/PaperSizeIndex&gt;
+            &lt;HorizontalResolution&gt;600&lt;/HorizontalResolution&gt;
+            &lt;VerticalResolution&gt;600&lt;/VerticalResolution&gt;
+          &lt;/Print&gt;
+          &lt;Panes&gt;
+            &lt;Pane&gt;
+              &lt;Number&gt;3&lt;/Number&gt;
+              &lt;ActiveRow&gt;1&lt;/ActiveRow&gt;
+              &lt;ActiveCol&gt;1&lt;/ActiveCol&gt;
+            &lt;/Pane&gt;
+          &lt;/Panes&gt;
+          &lt;ProtectObjects&gt;False&lt;/ProtectObjects&gt;
+          &lt;ProtectScenarios&gt;False&lt;/ProtectScenarios&gt;
+        &lt;/WorksheetOptions&gt;
+      &lt;/Worksheet&gt;
+    &lt;/Workbook&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				<p class="tip">该模板包含一个底层模板  <span>Template_Table_Excel.xslt</span> ，而该底层模板包含了另一个底层模板 <span>Template_Excel_Style.xslt</span> ，对应set属性中的样式。</p>
+				<p id="1121" class="note"><span>xls(宽度,样式)中对应的样式名：</span></p>
+				<pre>&lt;Styles&gt;
+  &lt;!--默认样式--&gt;
+  &lt;Style ss:ID="Default" ss:Name="Normal"&gt;
+	&lt;Alignment ss:Vertical="Center"/&gt;
+	&lt;Borders/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;Interior/&gt;
+	&lt;NumberFormat/&gt;
+	&lt;Protection/&gt;
+  &lt;/Style&gt;
+  &lt;!--标题样式--&gt;
+  &lt;Style ss:ID="s1"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="20" ss:Bold="1"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居中，加粗--&gt;
+  &lt;Style ss:ID="s2"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="14" ss:Bold="1"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居中--&gt;
+  &lt;Style ss:ID="s3"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居右，加粗--&gt;
+  &lt;Style ss:ID="s4"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="13" ss:Bold="1"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居右--&gt;
+  &lt;Style ss:ID="s5"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居左，加粗--&gt;
+  &lt;Style ss:ID="s6"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12" ss:Bold="1"/&gt;
+  &lt;/Style&gt;
+  &lt;!--文本：居左--&gt;
+  &lt;Style ss:ID="s7"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+  &lt;/Style&gt;
+  &lt;!--整数：居中--&gt;
+  &lt;Style ss:ID="s8"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+  &lt;/Style&gt;
+  &lt;!--整数：居右--&gt;
+  &lt;Style ss:ID="s9"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留两位小数，居右--&gt;
+  &lt;Style ss:ID="s10"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.00_ "/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留两位小数，居左--&gt;
+  &lt;Style ss:ID="s11"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.00_ "/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留四位小数，居右--&gt;
+  &lt;Style ss:ID="s12"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.0000_ "/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留四位小数，居左--&gt;
+  &lt;Style ss:ID="s13"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.0000_ "/&gt;
+  &lt;/Style&gt;
+  &lt;!--日期格式：yyyy/mm/dd，居中--&gt;
+  &lt;Style ss:ID="s14"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="yyyy/mm/dd"/&gt;
+  &lt;/Style&gt;
+  &lt;!--日期格式：yyyy/mm/dd，居左--&gt;
+  &lt;Style ss:ID="s15"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="yyyy/mm/dd"/&gt;
+  &lt;/Style&gt;
+  &lt;!--日期时间格式：yyyy/mm/dd\ hh:mm:ss，居中--&gt;
+  &lt;Style ss:ID="s16"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="yyyy/mm/dd\ hh:mm:ss"/&gt;
+  &lt;/Style&gt;
+  &lt;!--日期时间格式：yyyy/mm/dd\ hh:mm:ss，居左--&gt;
+  &lt;Style ss:ID="s17"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="yyyy/mm/dd\ hh:mm:ss"/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字文本：居中--&gt;
+  &lt;Style ss:ID="s18"&gt;
+	&lt;Alignment ss:Horizontal="Center" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="@"/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字文本：居左--&gt;
+  &lt;Style ss:ID="s19"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="@"/&gt;
+  &lt;/Style&gt;
+  &lt;!--表格线--&gt;
+  &lt;Style ss:ID="s20"&gt;
+	&lt;Borders&gt;
+	  &lt;Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/&gt;
+	  &lt;Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/&gt;
+	  &lt;Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/&gt;
+	  &lt;Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/&gt;
+	&lt;/Borders&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留两位小数，居右--&gt;
+  &lt;Style ss:ID="s21"&gt;
+	&lt;Alignment ss:Horizontal="Right" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.000_ "/&gt;
+  &lt;/Style&gt;
+  &lt;!--数字：保留两位小数，居左--&gt;
+  &lt;Style ss:ID="s22"&gt;
+	&lt;Alignment ss:Horizontal="Left" ss:Vertical="Center"/&gt;
+	&lt;Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/&gt;
+	&lt;NumberFormat ss:Format="0.000_ "/&gt;
+  &lt;/Style&gt;
+&lt;/Styles&gt;</pre>
+				<p>要设置的值为ss:ID属性值。</p>
+			</div>
+			<div>
+				<h2>2．　编辑界面</h2>
+				<p>编辑界面一般是对一条数据（空数据）的展示。</p>
+				<p class="tip">不同的数据源xml编辑有不同的xslt，但是他们包含同一个底层模板 <span>Template_Edit.xslt</span> 。</p>
+				<h3>2．1　不同编辑模块实例（我们以 <a href="one.html#11" target="_blank">单表的完整版的数据源xml实例——VIP_Search_LOGID.xml</a> 为例。）</h3>
+				<p>对应的xslt实例edit_VIP_Search_LOGID.xslt：</p>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+
+  &lt;xsl:import href="Template_Edit.xslt"/&gt;
+
+  &lt;xsl:output method="html" indent="yes"/&gt;
+
+  &lt;!--获得标题名--&gt;
+  &lt;xsl:variable name="xmltitle"&gt;
+    &lt;xsl:apply-templates select="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;/xsl:apply-templates&gt;
+  &lt;/xsl:variable&gt;
+  &lt;xsl:template match="/xmldata/property/child::*" mode="getTitle"&gt;
+    &lt;xsl:value-of select="name()"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="/xmldata"&gt;
+    &lt;div class="edit_container"&gt;
+      &lt;!--设置id属性--&gt;
+      &lt;xsl:attribute name="id"&gt;
+        &lt;xsl:value-of select="concat($xmltitle,'_edit')"/&gt;
+      &lt;/xsl:attribute&gt;
+      &lt;div class="intr_type"&gt;
+        &lt;div class="intr_title"&gt;实卡信息&lt;/div&gt;
+        &lt;div class="intr_content"&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;实卡卡号&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;width_96&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;VIP_ID&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="maxLength"&gt;20&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;密码&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;width_96&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;PASSWORD&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="maxLength"&gt;50&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;姓名&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;width_192&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;NAME&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="maxLength"&gt;200&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;性别&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;SClass&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;SEX&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="editType"&gt;ddlist&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="cate"&gt;Sex&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;联系电话&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;width_250&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;CONTACTE_TEL&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="maxLength"&gt;200&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;卡类型&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;SClass&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;CARD_TYPE&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="editType"&gt;ddlist&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="cate"&gt;cardType&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;xsl:call-template name="Pitem"&gt;
+              &lt;xsl:with-param name="labelName"&gt;卡状态&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="className"&gt;SClass&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="dataName"&gt;CARD_STATUS&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="editType"&gt;ddlist&lt;/xsl:with-param&gt;
+              &lt;xsl:with-param name="cate"&gt;cardStatus&lt;/xsl:with-param&gt;
+            &lt;/xsl:call-template&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				<p>编辑模块总共定义了6个变量来区别模块：</p>
+				<ul>
+					<li>labelName —— 一般输入框前显示的label名。</li>
+					<li>className —— 一般输入框中的input样式名（class），当输出方式为下拉框时，设置的是下拉框的样式名（class）。</li>
+					<li>dataName —— 数据库的字段名。</li>
+					<li>maxLength —— 一般输入框最多能输入的长度（maxlength）。</li>
+					<li>editType —— 输出类型，默认是input，可不用设置，目前有password（密码输入框）、input（一般输入框）、ddlist（下拉框）、onecheckbox（只有一个选择框0/1）、dateinput（时间输入框）</li>
+					<li>cate —— 当editType为ddlist时设置，下拉框的类别，值为该下拉框在数据库中的类别。</li>
+				</ul>
+				<p class="note"><span>上述用到的编辑模块：</span></p>
+				<ul>
+					<li>一般文本输入框</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+    &lt;xsl:with-param name="labelName"&gt;实卡卡号&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="className"&gt;width_96&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="dataName"&gt;VIP_ID&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="maxLength"&gt;20&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;label&gt;实卡卡号：&lt;/label&gt;
+&lt;span&gt;&lt;input title="实卡卡号" type="text" id="frm_VIP_ID" value="数据" class="width_96" maxlength="20" /&gt;&lt;/span&gt;</pre>
+					<li>密码输入框</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+    &lt;xsl:with-param name="labelName"&gt;密码&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="className"&gt;width_96&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="dataName"&gt;PASSWORD&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="maxLength"&gt;50&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;label&gt;密码：&lt;/label&gt;
+&lt;span&gt;&lt;input title="密码" type="password" id="frm_PASSWORD" value="数据" class="width_96" maxlength="50" /&gt;&lt;/span&gt;</pre>
+					<li>下拉框</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+    &lt;xsl:with-param name="labelName"&gt;性别&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="className"&gt;SClass&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="dataName"&gt;SEX&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="editType"&gt;ddlist&lt;/xsl:with-param&gt;
+    &lt;xsl:with-param name="cate"&gt;Sex&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;label&gt;性别：&lt;/label&gt;
+&lt;span&gt;
+   &lt;select id="frm_SEX" name="SEX" dir="ltr" title="性别"&gt;
+      &lt;option value="0" selected="selected"&gt;男&lt;/option&gt;
+      &lt;option value="1"&gt;女&lt;/option&gt;
+   &lt;/select&gt;
+&lt;/span&gt;</pre>
+					<p>下拉框编辑界面需要进行以下设置，才可以用：</p>
+					<ul>
+						<li>建立一张表sys_diction，存储下拉框数据，字段为iid,cate(下拉框类别),id(下拉框option中的value属性),title(下拉框列表显示名),val,pid(上一级id，默认为root)。</li>
+						<li>建立视图v_sys_diction，全部下拉框数据，包括上述表（sys_diction）和其他作为下拉框某一分类的表数据。</li>
+						<li>视图语句（其他表用union）：</li>
+						<p class="tip"><span>mysql</span></p>
+						<pre>select `sys_diction`.`cate` AS `cate`,`sys_diction`.`id` AS `id`,`sys_diction`.`title` AS `title`,`sys_diction`.`val` AS `val`,`sys_diction`.`pid` AS `pid` from `sys_diction` 
+union
+select '下拉框分类' AS `cate`,`其他表`.`其他表字段` AS `id`,`其他表`.`其他表字段` AS `title`,`其他表`.`其他表字段` AS `val`,`其他表`.`其他表字段` AS `root` from `其他表名`</pre>
+						<p class="tip"><span>sql</span></p>
+						<pre>select cate, id, title, val, pid from sys_diction
+union all
+select '下拉框分类' AS cate, 其他表字段 AS id, 其他表字段 AS title, 其他表字段 AS val, 其他表字段 AS pid from 其他表名</pre>
+					</ul>
+					<p class="tip"><span>注：</span>在数据源xml相应的item中要设置def，设置初始值，值必须是在数据库中存在（id字段）。并且每个下拉框类别，必须存在一行id为%的数据。</p>
+				</ul>
+				<p class="note"><span>上述未用到的编辑模块：</span></p>
+				<ul>
+					<li>时间输入框</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+   &lt;xsl:with-param name="labelName"&gt;时间模块&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="className"&gt;timeClass&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="dataName"&gt;dt&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="editType"&gt;dateinput&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;label&gt;时间模块：&lt;/label&gt;
+&lt;span&gt;&lt;input value="数据" id="frm_dt" class="Wdate timeClass" onfocus="WdatePicker()"&gt;&lt;/span&gt;</pre>
+					<li>文本域</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+   &lt;xsl:with-param name="labelName"&gt;文本域模块&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="className"&gt;textareaClass&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="dataName"&gt;meno&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="editType"&gt;textarea&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;label&gt;文本域模块：&lt;/label&gt;
+&lt;span&gt;&lt;textarea id="frm_meno" name="meno" class="textareaClass" cols="50" rows="9" title="文本域模块"&gt;数据&lt;/textarea&gt;&lt;/span&gt;</pre>
+					<li>只有一个的选项的复选框</li>
+					<pre>&lt;xsl:call-template name="Pitem"&gt;
+   &lt;xsl:with-param name="labelName"&gt;一个选择框&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="className"&gt;checkClass&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="dataName"&gt;yesno&lt;/xsl:with-param&gt;
+   &lt;xsl:with-param name="editType"&gt;onecheckbox&lt;/xsl:with-param&gt;
+&lt;/xsl:call-template&gt;</pre>
+					<pre>&lt;span class="checkbox checkClass"&gt;&lt;input type="checkbox" id="frm_yesno" name="yesno" value="数据" checked="checked"/&gt;&lt;/span&gt;
+&lt;label class="checkbox checkClass"&gt;一个选择框&lt;/label&gt;</pre>
+				</ul>
+				<p class="note"><span>说明：</span>上述实例中的value的数据值为当前行该列的数据，当为空时，为默认值，数据源xml中的item的def属性。</p>
+			</div>
+			<div>
+				<h2>3．　charts模版（单表）</h2>
+				<p>显示flash图片，可以分为二维和三维。</p>
+				<p>不同数据源xml，charts模板不同。</p>
+				<p class="note"><span>二维的xslt模板：</span></p>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+
+    &lt;xsl:import href="Template_Charts_Data.xslt"/&gt;
+  
+    &lt;xsl:output method="xml" indent="yes"/&gt;
+
+    &lt;xsl:template match="/xmldata"&gt; 
+      &lt;!--单系列--&gt;
+      &lt;xsl:call-template name="ChartContent"&gt;
+        &lt;xsl:with-param name="Style"&gt;Single&lt;/xsl:with-param&gt;
+        &lt;xsl:with-param name="DataShowX"&gt;SALE_DT&lt;/xsl:with-param&gt;
+        &lt;xsl:with-param name="DataShowY"&gt;TAX_SALE_ENTRY_A&lt;/xsl:with-param&gt;        
+        &lt;xsl:with-param name="subCaption"&gt;副标题&lt;/xsl:with-param&gt;        
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				<p class="note"><span>三维的xslt模板：</span></p>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"&gt;
+
+    &lt;xsl:import href="Template_Charts_Data.xslt"/&gt;
+  
+    &lt;xsl:output method="xml" indent="yes"/&gt;
+
+    &lt;xsl:template match="/xmldata"&gt; 
+      &lt;!--多系列--&gt;
+      &lt;xsl:call-template name="ChartContent"&gt;
+        &lt;xsl:with-param name="Style"&gt;Multi&lt;/xsl:with-param&gt;
+        &lt;xsl:with-param name="DataShowX"&gt;SALE_DT&lt;/xsl:with-param&gt;
+        &lt;xsl:with-param name="DataShowY"&gt;TAX_SALE_ENTRY_A&lt;/xsl:with-param&gt;
+        &lt;xsl:with-param name="DataShowZ"&gt;STRUCT_NAME&lt;/xsl:with-param&gt;        
+        &lt;xsl:with-param name="subCaption"&gt;副标题&lt;/xsl:with-param&gt;        
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+				<p class="tip">每个charts模板都包含一个底层模板 <span>Template_Charts_Data.xslt</span> 。</p>
+				<p class="note"><span>模板变量：</span></p>
+				<ul>
+					<li>Style，区分二维（Single）/三维（Multi）。</li>
+					<li>DataShowX，X轴数据的列表名。</li>
+					<li>DataShowY，Y轴数据的列表名。</li>
+					<li>DataShowZ，将XY轴数据进行分类的列表名。</li>
+					<li>subCaption，副标题。</li>
+				</ul>
+			</div>
+			<div>
+				<h2 id="23">3．　JS使用方法</h2>
+				<p>有了数据源xml和xslt模板，我们就可以用js将两者结合起来，获得相应的界面。</p>
+				<p class="tip">所有的js都基于一个底层js文件， <span>ws.data.srv.js</span> 。</p>
+				<h3>3．1　表格</h3>
+				<pre>&lt;script type="text/javascript"&gt;
+	var pagedef = 'VIP_Search_LOGID';
+	var tablefmt= 'table_page';
+	var pagesize = 10;
+	var currpage = 1;
+	querydat = function(page) {
+	    
+		//搜索条件，$("#search_container .item_container")是搜索界面，每个input的id属性以数据列表名命名。
+        
+		var where=wssrv.GetWhereFromDiv($("#search_container .item_container"));
+		wssrv.UIGetSimpleQuery(pagedef, tablefmt, currpage, pagesize, where, $("#table_content"), function(){
+			
+		});
+		currpage = page;
+	}
+	$(function() {
+		//初始界面
+		querydat(1);
+		
+		$("#search").click(function() {
+			querydat(1);
+      	});	
+	});
+&lt;/script&gt;</pre>
+				<h3>3．2　编辑</h3>
+				<pre>&lt;script type="text/javascript"&gt;
+	var pagedef = 'VIP_Search_LOGID';
+	var editfmt = 'edit_VIP_Search_LOGID';
+	var pagesize = 10;
+	var currpage = 1;
+	var curriid = 0;
+	querydat = function(page) {
+		var where=wssrv.GetWhereFromDiv($("#search_container .item_container"));
+		wssrv.UIGetSimpleQuery(pagedef, tablefmt, currpage, pagesize, where, $("#table_content"), function(){
+			
+		});
+		currpage = page;
+	}
+	$(function() {
+
+		//初始界面
+		querydat(1);
+		
+		//编辑
+		$("#edit").click(function() {
+			//获取选中行数据的iid		
+			curriid = $($("#table_content tbody tr.select").children("td")[1]).children("input").attr("iid");
+			wssrv.UIGetSingleRowEdit(pagedef, editfmt, $("#edit_content"), curriid);
+		});
+		//新增
+		$("#add").click(function() {
+			//新增时，将iid设为0，区分新增和编辑
+			curriid = 0;
+			wssrv.UIGetSingleRowEdit(pagedef, editfmt, $("#edit_content"), curriid);
+		});
+		//保存		
+		$("#save").click(function(){
+			//去除出错输入框的标识
+			$("#VIP_Search_LOGID_edit input").removeClass('focusinput');
+			
+			//数据对象
+			var data = [];
+			
+            if (curriid != 0) {
+                data = [{ c0: '9',
+                    	  VIP_ID: $("#frm_VIP_ID").val(),
+                          PASSWORD: $("#frm_PASSWORD").val(),
+                          NAME: $("#frm_NAME").val(),
+                          SEX: $("#frm_SEX").val(),
+                          CONTACTE_TEL: $("#frm_CONTACTE_TEL").val(),
+                          CARD_TYPE: $("#frm_CARD_TYPE").val(),
+                          CARD_STATUS: $("#frm_CARD_STATUS").val(),
+                          key_iid: curriid}];
+       		} else {
+            	data = [{ c0: '8',
+                          VIP_ID: $("#frm_VIP_ID").val(),
+                          PASSWORD: $("#frm_PASSWORD").val(),
+                          NAME: $("#frm_NAME").val(),
+                          SEX: $("#frm_SEX").val(),
+                          CONTACTE_TEL: $("#frm_CONTACTE_TEL").val(),
+                          CARD_TYPE: $("#frm_CARD_TYPE").val(),
+                          CARD_STATUS: $("#frm_CARD_STATUS").val()}];
+       		}
+			var del = [];
+			
+			wssrv.DatSaveSingleRow(pagedef, data, del, function(rtn) {
+				querydat(currpage);
+			});
+		});
+	});
+&lt;/script&gt;</pre>
+			</div>
+			<div>
+				上述xslt中都涉及到一个重要的模块ws.def.模块名{名/值对}.ws，请查看 <a href="four.html" target="_blank">ctrs.xml</a> ，这个xml是将上述ws.def.模块名{名/值对}.ws，转化成对应的样式。
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>

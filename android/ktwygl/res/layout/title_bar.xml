@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingBottom="1dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:background="#cccccc">
+    
+    <RelativeLayout android:id="@+id/titlaMainFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+	    <RelativeLayout android:id="@+id/titleDiv1"
+	        android:layout_width="80dp"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentLeft="true">
+		    <Button
+		        android:id="@+id/btnBack"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:visibility="invisible"
+		        android:paddingLeft="1dp"
+		        android:paddingRight="0dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_centerVertical="true"
+		        android:textColor="@drawable/button_back_font_style"
+		        android:drawableLeft="@drawable/button_back_left_style"
+		        android:background="@drawable/button_back_stroke_style"
+		        android:textSize="18sp"
+		        android:text="返回"/>
+		    
+		    <ImageView android:id="@+id/imgLogo"
+		        android:paddingTop="1dp"
+		        android:paddingLeft="1dp"
+		        android:paddingRight="0dp"
+		        android:paddingBottom="1dp"
+		        android:layout_width="42dp"
+		        android:layout_height="42dp"/>
+	    </RelativeLayout>
+	    
+	    <RelativeLayout android:id="@+id/titleDiv2"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_toRightOf="@+id/titleDiv1"
+	        android:layout_toLeftOf="@+id/titleDiv3">
+		    <ImageView android:id="@+id/imgTitlePic"
+		        android:layout_width="40dp"
+		        android:layout_height="40dp"
+		        android:layout_centerInParent="true"/>
+		    <TextView
+		        android:id="@+id/labTitle"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_centerInParent="true"
+		        android:textColor="#ffffff"
+		        android:gravity="center"
+		        android:textSize="24sp" />
+	    </RelativeLayout>
+	    
+	    
+	    <RelativeLayout android:id="@+id/titleDiv3"
+	        android:layout_width="80dp"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentRight="true">
+		    <Button android:id="@+id/btnOK"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerInParent="true"
+		        android:textSize="18sp"
+		        android:textColor="@drawable/button_font_style"
+		        android:background="@drawable/button_stroke_style"
+		        android:visibility="invisible"
+		        android:text="完成"/>
+		    
+		    <Button android:id="@+id/btnMenu"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerInParent="true"
+		        android:textSize="18sp"
+		        android:textColor="@drawable/button_font_style"
+		        android:background="@drawable/button_stroke_style"
+		        android:visibility="invisible"
+		        android:text="菜单"/>
+		    
+		    <ImageView android:id="@+id/btnOkImage"
+		        android:layout_width="80dp"
+		        android:layout_height="40dp"
+		        android:layout_centerInParent="true"
+		        android:visibility="invisible"/>
+		    
+		    <TextView android:id="@+id/txtNumText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/tab_unread_bg"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:gravity="center"
+		        android:textColor="#ffffff"
+		        android:visibility="invisible"
+		        android:text="0"/>
+		    
+		
+		    <!--ImageButton
+		        android:id="@+id/btnMenu"
+		        android:layout_width="67dp"
+		        android:layout_height="wrap_content"
+		        android:layout_centerVertical="true"
+		        android:layout_marginRight="5dp"
+		        android:background="@drawable/title_button"
+		        android:src="@drawable/title_btn_function" /-->
+	    </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

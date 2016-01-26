@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script src="Base64.js"></script>
+ </head>
+
+ <body>
+  <input type="text" id="txtbox2" value="" style="width:500px"/><br/>
+  <input type="button" onclick="jsonToBase64String()" value=""/><br/>
+  <input type="text" id="txtbox3" value="" style="width:500px"/>
+  <script>
+	function jsonToBase64String()
+	{
+		var txtbox2 = document.getElementById('txtbox2');
+		var txtbox3 = document.getElementById('txtbox3');
+
+		txtbox3.value = Base64.encode(txtbox2.value);
+	}
+  </script>
+ </body>
+</html>

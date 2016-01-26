@@ -1,0 +1,17 @@
+1、tel 不能用了：tel:12345678
+2、回帖 照片大小限制
+3、ngsj://exec:execscript:eyJjYWxsYmFjayI6InBvc3Rtc2coKSJ9， 回调：{"callback":"postmsg()"}
+4、评论：ngsj://exec:inputstring:eyJ0aXRsZSI6IuivhOiuuiIsImNhbGxiYWNrIjoic2V0aW5wdXRzdHJpbmcoJyNfdmFsXyMnKSJ9，{"title":"评论","callback":"setinputstring('#_val_#')"}
+5、群发：根据用户小区，小区父节点，一直到根节点，注册为标签。select *,dbo.uf_category_treetitle('unit',uid),dbo.uf_category_treeid('unit',uid)  from dbo.app_wy_unit
+6、一对一发：user表的deviceId
+7、发送页面，群编号，可用树控件选
+8、业主页面，加一个树控件，选择人，可以群发
+9、业主编辑页，楼层不要，小区中文显示为 uf_category_treetitle
+10、推送时，IOS收不到
+11、ngsj://exec:pictureview:{"img1":"/abc/a.jpg"}
+{"img1":"/abc/a.jpg"}用base64编码
+打开一个全屏的图片查看，显示img1图片，可以缩放，移动，单击退出
+
+12、另jsMessageboxMode的窗口也改为协议
+ngsj://exec:nativealert:{"title":"确认删除","callback":"deletemsg(123)"}
+两个按钮，确认，取消，点击确认执行callback的脚本

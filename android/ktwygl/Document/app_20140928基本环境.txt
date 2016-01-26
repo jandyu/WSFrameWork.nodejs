@@ -1,0 +1,47 @@
+服务器桌面
+m.west-soft.com:13328
+administrator  west**((4008
+
+
+数据库
+地址：dev.west-soft.com,21433
+数据库：mobipos
+用户：sa/soft
+
+邮箱：posmis@126.com
+west8899
+
+推送
+
+https://www.jpush.cn/
+用户：posmis@126.com
+密码：west8899
+
+1、客户端
+     mobi.apk.platform.xrdz.com
+     中文名：门前小店
+     服务器地址
+     首页 ：http://m.west-soft.com:88/web/index.html
+     商城：http://m.west-soft.com:88/web/index1.html
+     逛附近：http://m.west-soft.com:88/web/index2.html
+     购物车：http://m.west-soft.com:88/web/index3.html
+     个人：http://m.west-soft.com:88/web/index4.html
+     暂时分为这5栏，图标就用随便弄5个
+     另外需要研究下怎么使用百度地图和定位，逛附近需要用到
+
+     根目录文件夹：D:\newpos\mobipos\web
+     release目录：D:\newpos\mobipos\web\android\release
+
+2、老板端
+     boss.apk.platform.xrdz.com
+     中文名：我的小店
+     地址
+     首页 ：http://m.west-soft.com:89/web/index.html
+     说明：无按钮，无标题，直接logo窗，然后全屏首页
+
+      根目录文件夹：D:\newpos\mobipos\boss
+      release目录：D:\newpos\mobipos\boss\android\release
+
+进度，国庆最好能把两个apk弄出来，放到对应的release目录，公司这里看过后开始做内容
+
+国庆后，具体内容这里会做好模版页面，然后你过来一下，给你说一下具体内容的开发。

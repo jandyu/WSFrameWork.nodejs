@@ -1,0 +1,34 @@
+﻿1、界面调整，登录，用户信息，发消息，仿QQ
+2、消息，放表里，建一个服务去发，记录哪些用户看了消息的结果表。放表 app_resource中。
+哪些用户看了，向表app_resource_check插一条记录（第一次看时记录）。
+
+ 
+ 物业不能新增用户
+
+
+ 
+
+ 将user_info表合并到user表中，预留10个字段，varhcar(100),
+
+
+ app_user添加 uid as iid 主键（已加)
+ app_user加一个字段，帐号类型：主帐号，子帐号
+ app_user表加一个业主字段，bigint
+ app_user添加一个unit_id字段，对应表app_wu_unit（物业表）的uid 业注注册时选
+ app_user添加一个floor字段，对应表app_wy_owner（业主表）的floor 业主注册时填
+ app_user oid 业主编号，对应表 app_wy_owner.oid
+
+
+	app_wu_unit 物业表
+		title 名称
+		pid 父节点
+	app_wy_owner 业主表
+		iid 业表编号
+		uid app_wy_unit表的uid
+		floor 单元+楼+号
+		status 状态：空置，出租，自住，未售
+		info 备注信息
+
+
+
+3、

@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无datadef文件的数据库表定义用到的sql及设置值和xml定义的对应关系说明和实例</title>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #f9f9f9;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+	height:0px;
+	font-size:1px;
+	overflow:hidden;
+}
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+}
+a:hover,a:active{
+	text-decoration : underline;
+	color: #ff0000;
+}
+/* ----------------------------------- layout -----------------------------------*/
+
+div#wrapper	{
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	width:1024px;
+	text-align: left;
+	border:1px solid #eeeeee;
+	padding:15px;
+	background:#fff;
+}
+div#navsecond{
+	float: left;
+	padding: 0;
+	border: 0;
+	width: 150px;
+	background:#f4f4f4;
+}
+div#maincontent{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 1024px;
+}
+/* ----------------------------------- navfirst -----------------------------------*/
+div#navfirst{
+	height: 40px;
+	padding: 0;
+	border: 0;
+	margin-bottom:20px;
+}
+
+div#navfirst ul#menu{
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+div#navfirst ul#menu li	{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	height: 40px;
+	line-height:40px;
+	padding:0px 80px;
+}
+div#navfirst ul#menu li a,div#navfirst ul#menu li a:visited {
+	text-decoration: none;
+	color:#737373;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+div#navfirst ul#menu li a:hover,div#navfirst ul#menu li.select a,div#navfirst ul#menu li.select a:visited{
+	color:#ae4141;
+	border-bottom:3px solid #ae4141;
+}
+	
+/* ----------------------------------- Typography ----------------------------------- */
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+div#maincontent h1	{
+	margin:10px 0 10px 15px;
+	font-size: 20px;
+	font-family: '微软雅黑';
+}
+div#maincontent h2	{
+	font-size: 14px;
+}
+div#maincontent h3,  div#maincontent h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+}
+div#navsecond h2{
+	font-size: 12px;
+	margin:10px 0 0 12px;
+}
+p{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+}
+
+div#maincontent div p:first-child {
+	margin: 0;
+}
+
+p.note span, p.important span, p.tip span, p.inherited, p.inherited span {
+	font-weight:bold;
+}
+
+p.important span {
+	color:#dd0000;
+}
+	
+p.tip span {
+	color:#ff9955;
+}
+
+p.inherited {
+	color:#ff0000;
+}
+
+p.inherited span {
+	color:#999;
+}
+
+p.chinese span {
+	color:#0000ff;
+}
+
+em{
+	font-style:normal;
+	font-weight:bold;
+}
+
+pre	{
+	margin: 10px 0 0 0;
+	padding: 10px;
+	border: 0;
+	border: 1px dotted #785;
+	background: #f5f5f5;
+	font-family: "Courier New",monospace;
+	font-size: 12px;
+	overflow:auto;
+}
+
+pre code {
+	font-family: "Courier New",monospace;
+	color:#0000ff;
+}
+
+pre span {
+	color:#999;
+}
+
+div#maincontent ul {
+	margin-top:10px;
+	margin-bottom:0;
+}
+
+div#maincontent li {
+	margin-top:3px;
+}
+
+div#navsecond ul, div#navsecond li, div#sidebar ul, div#sidebar li	{
+	margin: 0;
+	padding: 0;
+}
+
+div#navsecond ul{
+	margin-left: 12px;
+}
+
+div#navsecond li{
+	list-style: none;
+}
+img {
+	border:0;
+}
+
+div#maincontent img {
+	margin:25px 0 0 25px;
+}
+
+div#maincontent	div{
+	padding: 20px 0 20px 0;
+	border:0;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+span.i {
+	font-style:italic;
+}
+
+span.deprecated {
+	color:#e80000;
+}
+span.marked {
+	color:#ff0000;
+}
+.tiy {
+	font-weight:bold;
+}
+p.gototop {
+	font-weight:bold;
+	text-align:right;
+}
+/* ----------------------------------- 表格 ----------------------------------- */
+table.dataintable {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:10px;
+	border-collapse:collapse;
+	border:1px solid #888;
+	width:100%;
+}
+
+table.dataintable pre {
+	width:auto;
+	margin:0;
+	padding:0;
+	border:0;
+}
+table.dataintable th {
+	vertical-align:baseline;
+	padding:5px 15px 5px 5px;
+	background-color:#ccc;
+	border:1px solid #888;
+	text-align:left;
+}
+table.dataintable td {
+	vertical-align:text-top;
+	padding:5px 15px 5px 5px;
+	background-color:#efefef;
+	border:1px solid #aaa;
+}
+table.dataintable p {
+	margin:0 0 2px 0;
+}
+table.dataintable td em{
+	color:#0000ff;
+	font-weight:normal;
+}
+table.dataintable .table_value {
+	color:#0F93D2;
+}
+
+table.dataintable ul,table.dataintable li {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+table.dataintable ul.listintable {
+	margin:20px;
+	padding:0;
+}
+table.dataintable ul.listintable  li{
+	list-style-type:disc;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="navfirst">
+			<ul id="menu">
+				<li><a href="one.html" target="_blank">XML说明</a></li>
+				<li><a href="two.html" target="_blank">XSLT模板</a></li>
+				<li class="select"><a href="three.html" target="_blank">无datadef的使用说明</a></li>
+				<li><a href="four.html" target="_blank">ctrs.xml说明</a></li>
+				<li><a href="five.html" target="_blank">调用说明</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="maincontent">
+			<h1>无datadef文件的数据库表定义（sql和设置值）、xml定义的对应关系说明和实例</h1>
+			<div>
+				<p>我们可以通过在数据库中定义数据，来获得数据源xml，即不存在数据源xml。</p>
+			</div>
+			<div>
+				<h2>1．　无datadef文件的数据库表的sql语句</h2>
+				<p class="note"><span>1</span> 无datadef文件时，我们要先建立一张表wsd_systeminfo，来存储全部表数据字段。</p>
+				<h3>完整的sql语句</h3>
+				<pre>select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,edit,`set`
+from wsd_systeminfo
+where 1=1 and (#_where_#) order by tablename,colorder</pre>
+				<p class="note"><span>注释：</span>(#_where_#)传入条件——对应的表名，得到该表的数据源XML。</p>
+				<p class="note"><span>2</span> 新建一个视图systeminfo，用来读取数据表的系统参数。</p>
+				<pre>select `columns`.`TABLE_NAME` AS `tableName`,`columns`.`ORDINAL_POSITION` AS `colorder`,`columns`.`COLUMN_NAME` AS `colName`,(case `columns`.`EXTRA` when 'auto_increment' then 1 else 0 end) AS `IsIdentity`,(case `columns`.`COLUMN_KEY` when 'pri' then 1 else 0 end) AS `pKey`,`columns`.`DATA_TYPE` AS `type`,0 AS `bits`,(case when isnull(`columns`.`CHARACTER_MAXIMUM_LENGTH`) then `columns`.`NUMERIC_PRECISION` else `columns`.`CHARACTER_MAXIMUM_LENGTH` end) AS `length`,`columns`.`NUMERIC_SCALE` AS `digit`,(case `columns`.`IS_NULLABLE` when 'yes' then 0 else 1 end) AS `isnullable`,`columns`.`COLUMN_DEFAULT` AS `defaultValue`,`columns`.`COLUMN_COMMENT` AS `memo`,concat(`columns`.`TABLE_NAME`,'.',`columns`.`COLUMN_NAME`) AS `col` from `information_schema`.`columns` where (`columns`.`TABLE_SCHEMA` = '数据库名')</pre>
+				<p class="note"><span>3</span> 通过上述的视图，将数据表的相关数据添加到wsd_systeminfo表。</p>
+				<h3>将新表添加到wsd_systeminfo表中的sql语句</h3>
+				<pre>insert into wsd_systeminfo(tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,title)
+select tableName,colName,CONVERT(varchar(255),memo) memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,colorder,
+       CONVERT(varchar(200),memo) memo
+from systeminfo
+where tablename ='<code>表名</code>'</pre>
+				<p class="tip"><span>提示：</span>sql</p>
+				<pre>insert into wsd_systeminfo(tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,title)
+select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,colorder,memo
+from systeminfo 
+where tablename ='<code>表名</code>'</pre>
+				<p class="tip"><span>提示：</span>mysql</p>
+				<p class="note"><span>4</span> 将新表添加到wsd_systeminfo表后，要对表的特殊字段进行设置，从而获得一个完整的数据源。</p>
+			</div>
+			<div>
+				<h2>2．　wsd_systeminfo表中的字段说明</h2>
+				<table id="32" class="dataintable">
+					<tbody>
+						<tr>
+							<th style="width:15%;">字段名</th>
+							<th style="width:15%;">设置值</th>
+							<th style="width:15%;">对应数据源XML字段</th>
+							<th style="width:55%;">说明</th>
+						</tr>					
+						<tr>
+							<td>tableName</td>
+							<td>表名</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>colName</td>
+							<td>字段名</td>
+							<td>name</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>memo</td>
+							<td>说明</td>
+							<td>title</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>defaultValue</td>
+							<td>默认值</td>
+							<td>def</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>colOrder</td>
+							<td>该字段在本表的排列顺序</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>IsIdentity</td>
+							<td>是否主键</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pKey</td>
+							<td>是否主键</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td>字段类型</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bits</td>
+							<td>字段字节</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>length</td>
+							<td>字段长度</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>digit</td>
+							<td>小数位数</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>IsNullAble</td>
+							<td>可否为空</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>col</td>
+							<td>表名加字段名</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>cIndex</td>
+							<td>显示顺序</td>
+							<td>cIndex</td>
+							<td>从<span class="marked">0</span>开始，以1为递增。当小于0时，表明这个字段不用显示。</td>
+						</tr>
+						<tr>
+							<td>title</td>
+							<td>标题</td>
+							<td>无</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>edit</td>
+							<td>显示类型</td>
+							<td>edit</td>
+							<td>目前该字段主要用于显示表格中的下拉内容，格式——select(下拉的类型名)</td>
+						</tr>
+						<tr>
+							<td>set</td>
+							<td>特殊设置</td>
+							<td>set</td>
+							<td>设置生成pdf格式和xls格式时需要的属性，pdf格式要设置为：pdf(宽度,对齐方式)，宽度的单位是<i>cm</i>,对齐方式<i>start</i>（左对齐）、<i>center</i>（居中）、<i>end</i>（右对齐）；xls格式要设置为：xls(宽度,样式)，样式根据现实的数据不同对应<a href="two.html#1121" target="_blank">样式表</a>。可设置多个用<span class="marked">,</span>分隔。</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h2>3．　XML定义说明</h2>
+				<h3>3．1　完整版XML定义</h3>
+				<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;sourcedef ver="1.1">
+  &lt;property id="xml" xslid="xml" title="产生xml" nextdef="none" childdef="none" dbname="wsd_systeminfo" set="" /&gt;
+  &lt;filed&gt;
+    &lt;item name='rstatus'      cando='order' title='编辑标识,标识'             edit=''      fmt=''  validity='' expression=''  editable='false' dIndex='0'   cIndex='-2' def='2'    set='' /&gt;
+
+    &lt;item name='tableName'    cando='order' title='表名,表名'                 edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='1'   cIndex='0' def=''      set='' /&gt;    
+    &lt;item name='colName'      cando='order' title='字段名,字段名'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='2'   cIndex='1' def=''      set='' /&gt;
+    &lt;item name='cando'        cando='order' title='合计方式,合计方式'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='2' def='order' set='' /&gt;
+    &lt;item name='memo'         cando='order' title='说明,说明'                 edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='3'   cIndex='3' def=''      set='' /&gt;
+    &lt;item name='edit'         cando='order' title='编辑类型,编辑类型'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='15'  cIndex='4' def='input' set='' /&gt;
+    &lt;item name='fmt'          cando='order' title='输出格式,输出格式'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='5' def=''      set='' /&gt;
+    &lt;item name='validity'     cando='order' title='合法性,合法性'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='6' def=''      set='' /&gt;
+    &lt;item name='expression'   cando='order' title='正则表达式,正则表达式'     edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='7' def=''      set='' /&gt;
+    &lt;item name='editable'     cando='order' title='可否编辑,可否编辑'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='8' def='false' set='' /&gt;
+    &lt;item name='dIndex'       cando='order' title='select顺序,select顺序'     edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='9' def=''      set='' /&gt;
+    &lt;item name='cIndex'       cando='order' title='显示顺序,显示顺序'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='14'  cIndex='10' def=''     set='' /&gt;
+    &lt;item name='defaultValue' cando='order' title='默认值,默认值'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='4'   cIndex='11' def=''     set='' /&gt;
+    &lt;item name='set'          cando='order' title='备用属性,备用属性'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='16'  cIndex='12' def=''     set='' /&gt;
+    &lt;item name='colOrder'     cando='order' title='字段顺序,字段顺序'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='5'   cIndex='-12' def=''    set='' /&gt;
+    &lt;item name='IsIdentity'   cando='order' title='是否主键,是否主键'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='6'   cIndex='-13' def=''    set='' /&gt;
+    &lt;item name='pKey'         cando='order' title='是否主键,是否主键'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='7'   cIndex='-14' def=''    set='' /&gt;
+    &lt;item name='type'         cando='order' title='字段类型,字段类型'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='8'   cIndex='-15' def=''    set='' /&gt;
+    &lt;item name='bits'         cando='order' title='字段字节,字段字节'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='9'   cIndex='-16' def=''    set='' /&gt;
+    &lt;item name='length'       cando='order' title='字段长度,字段长度'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='10'  cIndex='-17' def=''    set='' /&gt;
+    &lt;item name='digit'        cando='order' title='小数位数,小数位数'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='11'  cIndex='-18' def=''    set='' /&gt;
+    &lt;item name='IsNullAble'   cando='order' title='可否为空,可否为空'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='12'  cIndex='-19' def=''    set='' /&gt;
+    &lt;item name='col'          cando='order' title='表名加字段名,表名加字段名' edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='13'  cIndex='-20' def=''    set='' /&gt;          
+  &lt;/filed&gt;
+  &lt;childparam&gt;
+    &lt;item name="" value="" /&gt;  
+  &lt;/childparam&gt;
+  &lt;query&gt;
+    &lt;condition id="title" condition="title like '%_%'" title="名称,名称或标题" edit="input" fmt="" validity="" set="" /&gt;
+  &lt;/query&gt;
+  &lt;data style="database" cancachefile="yes" set="{usexmlnode}" conn="数据库连接名">
+    &lt;sql&gt;select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,edit,`set`
+      from wsd_systeminfo
+      where 1=1 and (#_where_#) order by tablename,colorder
+    &lt;/sql&gt;
+    &lt;sqlamount /&gt;
+    &lt;wheredefault /&gt;
+    &lt;orderbydefault /&gt;
+    &lt;groupbydefault /&gt;
+    &lt;havingdefault /&gt;
+    &lt;value /&gt;
+  &lt;/data&gt;
+&lt;/sourcedef&gt;</pre>
+				<p class="tip"><span>提示：</span>xml定义中cIndex大于0的字段存在于数据源xml中。</p>
+				<h3>3．2　对应于数据源xml的字段</h3>
+				<table class="dataintable">
+					<tbody>
+						<tr>
+							<th style="width:50%;">定义XML字段</th>
+							<th style="width:50%;">数据源XML字段</th>
+						</tr>					
+						<tr>
+							<td>colName</td>
+							<td>name</td>
+						</tr>
+						<tr>
+							<td>cando</td>
+							<td>cando</td>
+						</tr>
+						<tr>
+							<td>memo</td>
+							<td>title</td>
+						</tr>
+						<tr>
+							<td>edit</td>
+							<td>edit</td>
+						</tr>
+						<tr>
+							<td>fmt</td>
+							<td>fmt</td>
+						</tr>
+						<tr>
+							<td>validity</td>
+							<td>validity</td>
+						</tr>
+						<tr>
+							<td>expression</td>
+							<td>expression</td>
+						</tr>
+						<tr>
+							<td>editable</td>
+							<td>editable</td>
+						</tr>
+						<tr>
+							<td>dIndex</td>
+							<td>dIndex</td>
+						</tr>
+						<tr>
+							<td>cIndex</td>
+							<td>cIndex</td>
+						</tr>
+						<tr>
+							<td>defaultValue</td>
+							<td>def</td>
+						</tr>
+						<tr>
+							<td>set</td>
+							<td>set</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h2>4．　JS使用方法</h2>
+				<p>有无datadef文件的js只在定义数据源xml的id上有区别。</p>
+				<p class="tip"><a href="two.html#23" target="_blank">有datadef文件时</a>，pagedef为数据源xml文件名，没有datadef文件时，pagedef为 <span>数据库名.数据表</span> 。</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
