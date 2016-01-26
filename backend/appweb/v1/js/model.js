@@ -34,23 +34,30 @@ var model ={
 		});	
 		return dfd.promise();
 	},
+
 	saveBefore:function(model){
 		var me = this; var dfd = $.Deferred();
-		setTimeout(function(){
+		setTimeout(function () {
+		    model.a++;
+		    console.info(model);
 			dfd.resolve(model);
 		},1);
 		return dfd.promise();
 	},
 	saveModel:function(model){
 		var me = this; var dfd = $.Deferred();
-		setTimeout(function(){
-			dfd.resolve(model);
+		setTimeout(function () {
+		    model.a++;
+		    console.info(model);
+		    dfd.reject(model);
 		},1);
 		return dfd.promise();
 	},
 	saveAfter:function(model){
 		var me = this; var dfd = $.Deferred();
-		setTimeout(function(){
+		setTimeout(function () {
+		    model.a++;
+		    console.info(model);
 			dfd.resolve(model);
 		},1);
 		return dfd.promise();
@@ -71,10 +78,10 @@ var wy_weixiu = model.create({});
 wy_weixiu.save(
 	{a:1},
 	function(m){
-		//console.info(m);
+		console.info(m);
 		},
 	function(e){
-		//console.info(e);
+		console.info("错误");
 		}
 );
 

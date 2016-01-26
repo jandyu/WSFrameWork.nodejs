@@ -27,7 +27,7 @@
 	}
 	
 </style>
-<script src="../js/jquery.js"></script>
+<script src="./js/jquery.min.js"></script>
 <script>
 	ngsjLoad = function(){
 		var rtn = {rightbtn:JSON.stringify({title:"...",badge:"1"})};
