@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A72256CCBF2F07D021BD288ED024CEB9BFCF65F4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : 0,
+    "A72256CCBF2F07D021BD288ED024CEB9BFCF65F4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5AF2903C-BD9E-48C4-93FD-AB9C67DE11CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : "WSFrameWork.nodejs\/iOSframework\/wy\/ktwygl\/ktwygl\/refreshview\/",
+    "A72256CCBF2F07D021BD288ED024CEB9BFCF65F4" : "WSFrameWork.nodejs\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ktwygl",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOSframework\/wy\/ktwygl\/ktwygl.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/tingxu.wang@192.166.100.201\/IPTV_Expand",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "565f01e6-8298-d441-aea4-1f15ed294c00++5771"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jandyu\/WSFrameWork.nodejs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A72256CCBF2F07D021BD288ED024CEB9BFCF65F4"
+    }
+  ]
+}

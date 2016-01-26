@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AD7B6C6FEB91140818AABDB7D6B8E01871D383B8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : 0,
+    "AD7B6C6FEB91140818AABDB7D6B8E01871D383B8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BAA9DDF7-37CA-4EE1-8CCB-0B4D327255C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "565f01e6-8298-d441-aea4-1f15ed294c00++5771" : "accordant\/pilatus\/IOS\/pilatushealth\/pilatushealth\/util\/nativefunc\/refreshview\/",
+    "AD7B6C6FEB91140818AABDB7D6B8E01871D383B8" : "accordant\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "pilatushealth",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "pilatus\/IOS\/pilatushealth\/pilatushealth.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/tingxu.wang@192.166.100.201\/IPTV_Expand",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "565f01e6-8298-d441-aea4-1f15ed294c00++5771"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kenkenchu\/accordant.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AD7B6C6FEB91140818AABDB7D6B8E01871D383B8"
+    }
+  ]
+}
