@@ -80,16 +80,3 @@ var hybridPage ={
         }
     }
 };
-
-
-ngsjLoad = function(){
-    
-};
-
-ngsjRightButtonDo = function(){
-    
-};
-
-ngsjAppear = function(){
-    
-};

@@ -27,7 +27,7 @@
 #define CONST_PAGEURL_2 @"http://wy.zjy8.cn/v1/d2.aspx"
 #define CONST_PAGEURL_3 @"http://wy.zjy8.cn/v1/d3.aspx"
 #define CONST_PAGEURL_4 @"http://wy.zjy8.cn/v1/d4.aspx"
-#define CONST_PAGEURL_5 @"http://wy.zjy8.cn/v1/d5.aspx"
+#define CONST_PAGEURL_5 @"http://wy.zjy8.cn/v1/wy_wx.aspx"
 
 /* 标题 */
 #define CONST_PAGETITLE_1 @"首  页"
