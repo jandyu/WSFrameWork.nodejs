@@ -75,8 +75,14 @@ var hybridPage ={
             this.SendMsgToNative("OpenMessageView","");
         },
         SetRightButton:function(btn){
+            //'{"title":"","img":""}'
             this.SendMsgToNative("SetRightButton",btn);
             //exec javascript rightButtonDo()
-        }
+        },
+        SetCanRefresh:function(param){
+        //'false' = '0'
+        this.SendMsgToNative("SetCanRefresh",param);
+        },
+        
     }
 };

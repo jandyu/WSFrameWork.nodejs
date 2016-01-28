@@ -18,12 +18,19 @@ class AccViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKS
     var nativeFunction:NativeFunctionProxy!
     var startDrag:Bool!
     var currUrl:String!
+    var canRefresh:Bool = true {
+        willSet(newRefreshStaus){
+            if(!newRefreshStaus && (self.refreshView) != nil){
+                    self.refreshView.hidden = true
+            }
+            
+        }
+    }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle? ,initWebUrl url:String){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         currUrl = url
         startDrag = false
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -161,7 +168,7 @@ class AccViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKS
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if (self.startDrag == true) {
+        if (self.startDrag == true && self.canRefresh) {
             //NSLog("scroll:\(scrollView.contentOffset)")
          
             refreshView.scrollViewDidScroll()
@@ -171,7 +178,9 @@ class AccViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKS
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         NSLog("scroll did end")
         self.startDrag = false
-        refreshView.scrollViewDidEndDraging()
+        if(self.canRefresh){
+            refreshView.scrollViewDidEndDraging()
+        }
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -187,20 +196,8 @@ class AccViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKS
         // 已经完成加载
         if !webbrower.loading {
             // 手动调用JS代码
-            let js = "ngsjLoad()";
-            self.webbrower.evaluateJavaScript(js) {
-                (result,error)->Void in
-                if error != nil{
-                    NSLog("evaluate ngsjload result:\(result)")
-                }
-                else{
-                    NSLog("call ngsgload:\(result)")
-                    if result != nil{
-                    self.nativeFunction.functionArgument = result as! String
-                    self.nativeFunction.functionOfRightButtonList(self.nativeFunction.functionArgument)
-                    }
-                }
-            }
+
+            self.nativeFunction.functionOfNgsjLoad()
             
             UIView.animateWithDuration(0.55, animations: { () -> Void in
                 self.progressView.alpha = 0.0;

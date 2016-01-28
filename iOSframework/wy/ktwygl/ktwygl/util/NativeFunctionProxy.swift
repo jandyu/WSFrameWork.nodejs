@@ -55,16 +55,17 @@ class NativeFunctionProxy:NSObject,ReadBarcodeViewDelegate,UIImagePickerControll
         print("console.log:\(info)")
         
     }
-    
-    func functionOfRightButtonList(btnConfig:String){
+   
+
+    func functionOfSetRightButton(btnConfig:String){
         //javascript function rightButtonDo()
         //argument:'rightbtn:{"title":"+",img:"btn.png"}'
         
-        if let rightbtn = RESTHttpUtil.getJsonValueFromString(btnConfig, jsonkey: "rightbtn"){
-            let btnTitle = RESTHttpUtil.getJsonValueFromString(rightbtn, jsonkey: "title")
+            
+        if let btnTitle = RESTHttpUtil.getJsonValueFromString(btnConfig, jsonkey: "title"){
             let funcName = "functionOfRightButtonDo"
             //var btn:UIBarButtonItem
-            if let btnImg = RESTHttpUtil.getJsonValueFromString(rightbtn, jsonkey: "img"){
+            if let btnImg = RESTHttpUtil.getJsonValueFromString(btnConfig, jsonkey: "img"){
                 //img button
                 let img = UIImage(data: NSData(contentsOfURL: NSURL(string: btnImg)!)!,scale:1.0)
                 let cbtn = UIButton(frame: CGRectMake(0,0,img!.size.width,img!.size.height))
@@ -75,19 +76,30 @@ class NativeFunctionProxy:NSObject,ReadBarcodeViewDelegate,UIImagePickerControll
                 let btn = BBBadgeBarButtonItem(customUIButton: cbtn)
                 btn.badgeOriginX = 20
                 btn.badgeOriginY = -5
+                btn.badgeBGColor = UIColor.redColor()
+                
                 btn.badgeValue = "1"
                 
                 webViewController.navigationItem.setRightBarButtonItem(btn, animated: true)
             }
             else
             {
+//                let btn = UIButton(type: .Custom)
                 
-                //let btn = UIBarButtonItem(title: btnTitle, style: .Plain, target: self, action: Selector(fName))
-                let btn = BBBadgeBarButtonItem(title: btnTitle, style: .Plain, target: self, action: Selector(funcName))
-                //btn.badgeOriginX = 20
-                //btn.badgeOriginY = -5
-                //btn.badgeValue = "1"
-                webViewController.navigationItem.setRightBarButtonItem(btn, animated: true)
+//                let btn = UIButton(type: .Custom)
+//                btn.frame = CGRectMake(0, 0, 100, 30)
+//                btn.titleLabel?.text = btnTitle
+//                btn.addTarget(self, action: Selector(funcName), forControlEvents: .TouchUpInside)
+                //let btn = UIBarButtonItem(
+                let bbtn = BBBadgeBarButtonItem(title: btnTitle, style: .Plain, target: self, action: Selector(funcName))
+                //let bbtn = BBBadgeBarButtonItem(customUIButton: btn)
+
+                bbtn.initializer()
+                bbtn.badgeOriginX = 20
+                bbtn.badgeOriginY = -5
+                bbtn.badgeBGColor = UIColor.redColor()
+                bbtn.badgeValue = "1"
+                webViewController.navigationItem.setRightBarButtonItem(bbtn, animated: true)
             }
             
             //
@@ -116,13 +128,23 @@ class NativeFunctionProxy:NSObject,ReadBarcodeViewDelegate,UIImagePickerControll
             
         }
     }
+    //
+    func functionOfSetCanRefresh(p:String){
+        if(p == "false" || p == "0"){
+            self.webViewController.canRefresh = false
+        }
+        else{
+            self.webViewController.canRefresh = true
+        }
+        
+    }
     
     //webview加载完成
     func functionOfNgsjLoad(){
 
         if let result = functionOfExecJavaScript("ngsjLoad()"){
             self.functionArgument = result
-            self.functionOfRightButtonList(self.functionArgument)
+            //self.functionOfRightButtonList(self.functionArgument)
             
         }
     }

@@ -64,7 +64,7 @@
 		FF36DCF41C5713BD00D77243 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
 		FF36DCF51C5713BD00D77243 /* upload_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_refresh.png; sourceTree = "<group>"; };
 		FF36DCFC1C5713C500D77243 /* AppMainFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMainFunc.swift; sourceTree = "<group>"; };
-		FF36DCFD1C5713C500D77243 /* NativeFunctionProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeFunctionProxy.swift; sourceTree = "<group>"; };
+		FF36DCFD1C5713C500D77243 /* NativeFunctionProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeFunctionProxy.swift; path = ../util/NativeFunctionProxy.swift; sourceTree = "<group>"; };
 		FF36DCFE1C5713C500D77243 /* RESTHttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTHttpUtil.swift; sourceTree = "<group>"; };
 		FF36DCFF1C5713C500D77243 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
 		FF36DD031C5714BB00D77243 /* ktwygl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ktwygl-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 		FF36DCD51C5713B500D77243 /* nativefunc */ = {
 			isa = PBXGroup;
 			children = (
+				FF36DCFD1C5713C500D77243 /* NativeFunctionProxy.swift */,
 				FF36DCD61C5713B500D77243 /* AccViewController.swift */,
 				FF36DCD71C5713B500D77243 /* AccViewController.xib */,
 				FF36DCD81C5713B500D77243 /* BBBadgeBarButtonItem.h */,
@@ -156,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				FF36DCFC1C5713C500D77243 /* AppMainFunc.swift */,
-				FF36DCFD1C5713C500D77243 /* NativeFunctionProxy.swift */,
 				FF36DCFE1C5713C500D77243 /* RESTHttpUtil.swift */,
 				FF36DCFF1C5713C500D77243 /* const.h */,
 			);
@@ -405,6 +405,7 @@
 				FF36DCD41C57136400D77243 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
