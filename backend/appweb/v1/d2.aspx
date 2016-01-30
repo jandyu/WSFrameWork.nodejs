@@ -1,135 +1,115 @@
 ﻿<!DOCTYPE html>
+<%@ Page Language="C#" %>
+<%@ Register Assembly="westsoft.data.xml" Namespace="westsoft.data.srv.UI" TagPrefix="xmldataui" %>
 <html manifest="app1.manifest">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-<title>首页</title>
-<style>
-		
-	ul#newslist>li{
-		height:155px;
-		width:100%;
-		line-height:normal;
-	}
-	
-	#wrapper{
-		height:800px;
-		overflow-y: scroll;
-		-webkit-overflow-scrolling: touch;
-	}
-</style>
-<script>
-	setheadphoto = function(imgurl){
-		$("#txtbox1").val(imgurl);
-		$("#newslist li:eq(0)").html("<img src='"+imgurl+"' />");
-	}
-	reloadpage = function(){
-		//document.location.href='d1.aspx?a=1';
-		//for(var i=1;i<999;i++){console.info(i);}
-		location.reload();
-		return "s";
-	}
-	setinputstring = function(txt){
-		$("#txtbox1").val(txt);
-	}
-	ngsjload = function(){
-		$("#devideid").text(hybridPage.DEVICE_UDID);
-		$("#userinfo").text(JSON.stringify(hybridPage.userinfo));
-		
-		$("#info").text("txt");
-		
-	}
-	
-	closethis = function(s){
-		if(hybridPage){
-			hybridPage.Native.CloseWebBrower('v1/d2.aspx');
-		}
-	}
-	setb = function(s){
-		console.info(s)
-		$("#txtbox1").val(s);
-		$("body").append("<img onclick=\"ppview('" +s+ "')\" style='width:100%' src='"+s+"' />")
-	}
-	
-	function setbadge()
-	{
-		if(hybridPage){
-			hybridPage.Native.SetBadge("{btnname:'rightbtn',number:'1'}");
-		}
-	}
+<title>维修</title>
+<link href="./css/wsapp.css" rel="stylesheet" type="text/css" />
+<link href="./css/font/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/data.srv.js"></script>
+<script type="text/javascript">
+
+    function ngsjLoad() {
+        wxpage = hybridPage.create({
+            currpage: 0,
+            getNextPage: function () {
+                var me = this;
+                me.currpage = me.currpage + 1;
+                var where = [];
+                var fmtid = "hy_app_repair_lst";
+                var where = [{ "col": "app_user.device_id", "logic": "=", "val": me.DEVICE_UDID, "andor": "" }];
+                datsrv.UIGetSimpleQuery("app_wy_repair_lst", fmtid, me.currpage, 15, where, $("#loadmsg"), function () {
+                    $("#newslist").append($("#loadmsg").html());
+                    setTimeout(function () { myScroll.options.bottom = -60; myScroll.refresh(); }, 0);
+                });
+            }
+        });
+
+
+
+        hybridPage.Native.SetRightButton("{ 'title': '测试', 'img': '', 'callback': 'ngsjRightButtonDo' }");
+    }
+    function ngsjRightButtonDo() {
+        //hybridPage.Native.NavToNewWebPage("v1/wy_wx_modify.aspx");
+        hybridPage.Native.CloseWebBrower();
+    }
+    function showdetail(rid) {
+        //显示packinfo.aspx
+        var u = '{"url":"repairinfo.aspx?rid=' + rid + '"}'
+        execNativeFunc("ngsj://url:web1:" + Base64.encode(u));
+    }
+
+    tonewpage = function (s) {
+        if (hybridPage) {
+            hybridPage.Native.NavToNewWebPage('v1/d2_1.aspx?iid=' + s);
+        }
+    }
+
 </script>
+<style>
+	
+</style>
+
 </head>
 <body>
-
-<div id="wrapper">
-	
-		<ul id="newslist">
-					
-			<li style="height:30px;">第二页</li>
-			<li style="height:30px;" onclick="closethis()">返回第一页</li>
+<div id="maincontent">
+		<ul class="linelist">
+			<li class="subtitle" ><span>处理中维修列表</span></li>
+			<li class="item" ><i class="fa fa-thumb-tack red"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack red"></i>维修列表1</li>
 			
-			<li style="height:30px;">第二页</li>
-			<li style="height:30px;" onclick="setbadge()">SetBadge</li>
-						
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-		
-		<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
-			<li style="height:30px;">第二页</li>				
+			<li class="subtitle" ><span>已经结束的维修列表</span></li>
+			<li class="item" ><i class="fa fa-thumb-tack blue" onclick="tonewpage(0)">新建维修</i></li>
+			<li class="item" ><i class="fa fa-thumb-tack blue" onclick="tonewpage(35)">修改</i></li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
+			<li class="item" ><i class="fa fa-thumb-tack blue"></i>维修列表1</li>
 		</ul>
-		
-		
-	</div>
 </div>
 </body>
 </html>

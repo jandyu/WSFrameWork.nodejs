@@ -50,8 +50,8 @@
   
   <database>
     
-	<db id="misdb"      conn="Server=localhost;database=kt_app;uid=org;pwd=yjsh123*();provider=System.Data.SqlClient"/>	
-	<db id="appdb"     conn="Server=localhost; database=kt_app;uid=org;pwd=yjsh123*();provider=System.Data.SqlClient"/>
-	<db id="makdb"     conn="Server=localhost; database=kt_app;uid=org;pwd=yjsh123*();provider=System.Data.SqlClient"/>
+	<db id="misdb"      conn="Server=127.0.0.1,21433;database=kt_app;uid=sa;pwd=soft123890;provider=System.Data.SqlClient"/>	
+	<db id="appdb"     conn="Server=127.0.0.1,21433; database=kt_app;uid=sa;pwd=soft123890;provider=System.Data.SqlClient"/>
+	<db id="makdb"     conn="Server=127.0.0.1,21433; database=kt_app;uid=sa;pwd=soft123890;provider=System.Data.SqlClient"/>
       </database>
 </systemCfg>
