@@ -68,9 +68,7 @@
         hybridPage.Native.NavToNewWebPage("v1/wy_wx_list.aspx");
     }
     function showdetail(rid) {
-        //显示packinfo.aspx
-        var u = '{"url":"repairinfo.aspx?rid=' + rid + '"}'
-        execNativeFunc("ngsj://url:web1:" + Base64.encode(u));
+        
     }
     
 </script>
