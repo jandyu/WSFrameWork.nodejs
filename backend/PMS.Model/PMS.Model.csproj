@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C06E7E97-4E4E-416A-B008-E4A0C83E5AC4}</ProjectGuid>
+    <ProjectGuid>{F18EE6CB-05F0-4198-8A14-117F8BB2901B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SysCommon</RootNamespace>
-    <AssemblyName>SysCommon</AssemblyName>
+    <RootNamespace>PMS.Model</RootNamespace>
+    <AssemblyName>PMS.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,23 +37,28 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="westsoft.data.xml, Version=2.13.5847.30282, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\westsoft.data.xml.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JSONDAL\DALCache.cs" />
-    <Compile Include="Model\IModel.cs" />
-    <Compile Include="JSONDAL\JSONDAL.cs" />
-    <Compile Include="JSONDAL\JSTools.cs" />
-    <Compile Include="JSONDAL\OperateDataJsonHelper.cs" />
-    <Compile Include="JSONDAL\PageData.cs" />
-    <Compile Include="JSONDAL\SendHttpRequest.cs" />
-    <Compile Include="JSONDAL\GlobalVar.cs" />
+    <Compile Include="Model\M_Dept.cs" />
+    <Compile Include="Model\M_Dict.cs" />
+    <Compile Include="Model\M_Employee.cs" />
+    <Compile Include="Model\M_Express.cs" />
+    <Compile Include="Model\M_Master.cs" />
+    <Compile Include="Model\M_Park.cs" />
+    <Compile Include="Model\M_ParkingStruct.cs" />
+    <Compile Include="Model\M_Resource.cs" />
+    <Compile Include="Model\M_Room.cs" />
+    <Compile Include="Model\M_RoomStruct.cs" />
+    <Compile Include="Model\M_User.cs" />
+    <Compile Include="Model\M_Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SysCommon\SysCommon.csproj">
+      <Project>{c06e7e97-4e4e-416a-b008-e4a0c83e5ac4}</Project>
+      <Name>SysCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

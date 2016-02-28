@@ -16,7 +16,7 @@ namespace ws.data.jsonDal
         /// <summary>
         /// 
         /// </summary>
-        public static string strUrl = PMS.Sys.CSystem.baseSystem.str_restServer;
+        public static string strUrl =  GlobalVar.str_restServer;//PMS.Sys.CSystem.baseSystem.str_restServer;
 
         /// <summary>
         /// 
@@ -38,8 +38,8 @@ namespace ws.data.jsonDal
             request.ContentLength = data.Length;
             request.KeepAlive = false;
             request.Timeout = 60 * 1000;
-            string uid = PMS.Sys.CSystem.str_uid;
-            string s_cook = PMS.Sys.CSystem.SHA1_Encrypt(uid + DateTime.Today.ToString("yyyyMMdd") + PMS.Sys.CSystem.myKey);
+            string uid = "";// PMS.Sys.CSystem.str_uid;
+            string s_cook = "";// PMS.Sys.CSystem.SHA1_Encrypt(uid + DateTime.Today.ToString("yyyyMMdd") + PMS.Sys.CSystem.myKey);
             request.CookieContainer = new CookieContainer();
             Cookie cook = new Cookie("token.wsdat", s_cook);
             cook.Domain = (new Uri(url)).Host;

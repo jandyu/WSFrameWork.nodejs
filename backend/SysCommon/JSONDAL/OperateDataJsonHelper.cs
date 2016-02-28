@@ -16,7 +16,7 @@ namespace ws.data.jsonDal
         /// <summary>
         /// 任意已经存在的defxml文件名用于拼装defid
         /// </summary>
-        public string defid = PMS.Sys.CSystem.baseSystem.str_dbDefault;//并没有真实的用到
+        public string defid = GlobalVar.str_dbDefault; //PMS.Sys.CSystem.baseSystem.str_dbDefault;//并没有真实的用到
         //string pstda = "{ defid: '{0}', fmtid: 'update', strparam: {1}, dStyle: 'xml' };";
 
         /// <summary>

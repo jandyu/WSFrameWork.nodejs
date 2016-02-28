@@ -13,7 +13,7 @@ namespace ws.data.jsonDal
         /// <summary>
         /// 
         /// </summary>
-        public static string str_dbDefault = "";//PMS.Sys.CSystem.baseSystem.str_dbDefault
+        public static string str_dbDefault = GlobalVar.str_dbDefault;//PMS.Sys.CSystem.baseSystem.str_dbDefault
 
         /// <summary>
         /// 查询
