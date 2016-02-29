@@ -7,3 +7,12 @@ E:\work\accondant\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\westsoft
 E:\work\accondant\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\SysCommon.pdb
 E:\work\accondant\github\WSFrameWork.nodejs\backend\PMS.Model\obj\Debug\PMS.Model.dll
 E:\work\accondant\github\WSFrameWork.nodejs\backend\PMS.Model\obj\Debug\PMS.Model.pdb
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\PMS.Model.dll
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\PMS.Model.pdb
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\SysCommon.dll
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\Newtonsoft.Json.dll
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\westsoft.data.xml.dll
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\bin\Debug\SysCommon.pdb
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\obj\Debug\PMS.Model.csprojResolveAssemblyReference.cache
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\obj\Debug\PMS.Model.dll
+D:\work\github\WSFrameWork.nodejs\backend\PMS.Model\obj\Debug\PMS.Model.pdb
