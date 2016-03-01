@@ -86,6 +86,27 @@
 	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码");
 	    }
 	}
+	function funReg() {
+
+	   
+	}
+
+    /*
+	function clickunit(uid, child, title) {
+
+	    if (child == 0) {
+	        $("#regownerdiv").show();
+	        $("#unitname").text(title);
+	        $("#unit").val(uid);
+	        setTimeout(function () { myScroll.refresh(); myScroll.scrollTo(0, 0); }, 0);
+	        return;
+	    }
+
+	    var where = [{ 'col': 'pid', 'logic': '=', 'val': uid, 'andor': '' }];
+	    datsrv.UIGetSimpleQuery("app_unit_list", "hy_app_unit_select", 1, 999, where, $("#unitselect"), function () {
+	        $("#scroller").append($("#unitselect").html());
+	    });
+	}*/
 	
 </script>
 
@@ -95,33 +116,58 @@
 	    <div class="row title">
 		    用户注册
 	    </div>
-	    <div class="row list">				
+	    <div class="row list regstep1">				
 		    <div class="col-xs-3">手机号</div>		
 		    <div class="col-xs-6"><input class="form-control" id="edit_phone" value="" placeholder="请输入手机号" /> </div>					
 	    </div>	
-        <div class="row list">				
+        <div class="row list regstep1">				
 		    <div class="col-xs-3">验证码</div>		
 		    <div class="col-xs-4"><input class="form-control" id="edit_checkcode" value="" placeholder="请输验证码" /> </div>					
             <div class="col-xs-5"><button type="button" class="btn btn-default" id="btn_getcode" onclick="sendMessage()">获取验证码</button></div>		
 	    </div>	
 
-        <div class="row list">				
+        <div class="row list regstep1">				
 		    <div class="col-xs-3">昵 称</div>		
 		    <div class="col-xs-6"><input class="form-control" id="edit_nick_name" value="" placeholder="请输入昵称" /> </div>					
 	    </div>
 
-        <div class="row list">				
+        <div class="row list regstep1">				
 	        <div class="col-xs-3">密 码</div>		
 	        <div class="col-xs-6"><input type="password" class="form-control" id="edit_password" value="" placeholder="请输入密码" /> </div>					
 	    </div>
        
-        <div class="row list lastrow">					    	
+        <div class="row list lastrow regstep1">					    	
 	        <div class="col-xs-12" >
                 <button type="button" class="btn btn-danger" id="btn_reg_reg"  onclick="funReg()" disabled="disabled" style="width:200px;">立即注册</button>
 
                 <button type="button" class="btn btn-success" id="btn_reg_login"  onclick="changeUI('login')" style="width:100px;">快速登录>></button>
             </div>
 	    </div>
+
+
+          <div class="row list lastrow regstep1">					    	
+	        <div class="col-xs-12" >
+                <div id="scroller">
+					
+	            </div>
+            </div>
+	    </div>
+
+        <div class="row list lastrow regstep1">					    	
+	        <div class="col-xs-12" >
+                <div id="unitselect" style="display:none">
+	                <ul>							
+		                <li class="button" onclick="clickunit('0')">上一步</li>
+		                <li class="form" onclick="clickunit('1')">1幢</li>
+		                <li class="form" onclick="clickunit('1')">1幢</li>
+		                <li class="form" onclick="clickunit('1')">1幢</li>
+		                <li class="form" onclick="clickunit('1')">1幢</li>							
+		                <li class="tipinfo" onclick="">暂时不修改，返回</li>		
+	                </ul>
+                </div>
+            </div>
+	    </div>
+
     </div>
     
      <div class="container-fluid ls-page-base ls-page-login" style="display:none;">    
