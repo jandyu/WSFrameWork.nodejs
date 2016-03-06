@@ -22,6 +22,7 @@
 <link href="../v1/css/wsapp.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../v1/js/jquery.min.js"></script>
 <script type="text/javascript" src="../v1/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../v1/js/data.srv.js"></script>
 <script>
     ngsjLoad = function () {
 
@@ -39,16 +40,25 @@
 	function changeUI(reg_login) {
 	    if (reg_login == "reg") {
 	        $(".ls-page-login").hide();
-	        $(".ls-page-success").hide();
+	        $(".ls-page-success").hide();	        
 	        $(".ls-page-reg").show();
+	        $(".ls-page-reg2").hide();
+	    }
+	    if (reg_login == "reg1") {
+	        $(".ls-page-login").hide();
+	        $(".ls-page-success").hide();
+	        $(".ls-page-reg").hide();
+	        $(".ls-page-reg2").show();
 	    }
 	    if (reg_login == "login") {	    
 	        $(".ls-page-reg").hide();
+	        $(".ls-page-reg2").hide();
 	        $(".ls-page-success").hide();
 	        $(".ls-page-login").show();
 	    }
 	    if (reg_login == "success") {	        
 	        $(".ls-page-reg").hide();
+	        $(".ls-page-reg2").hide();
 	        $(".ls-page-login").hide();
 	        $(".ls-page-success").show();
 	    }
@@ -56,7 +66,7 @@
 
 
 	var InterValObj; //timer变量，控制时间
-	var count = 5; //间隔函数，1秒执行
+	var count = 90; //间隔函数，1秒执行
 	var curCount;//当前剩余秒数
 
 	function sendMessage() {
@@ -64,12 +74,22 @@
 	    //设置button效果，开始计时
 	    
 	    //向后台发送处理数据
-	    var ls_phone=$("#edit_phone").val();
-	    $.post("../handler/Login.ashx", { op: "send_checkcode", phone: ls_phone }, function (rtn) {
+	    var ls_phone = $("#edit_phone").val();
+	    if (ls_phone == "") {
+	        alert("手机号不能为空!");
+	        return;
+	    }
+	    $.post("../handler/Op.ashx", { op: "send_checkcode", phone: ls_phone }, function (rtn) {
 	        $("#btn_getcode").attr("disabled", "true");
 	        $("#btn_reg_reg").removeAttr("disabled");//启用按钮
-
 	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码");
+
+            //记录对比验证码
+	        $("#edit_checkcode_re").val(rtn);
+	        if (rtn != "") {
+	            $("#edit_checkcode").val(rtn);
+	        }
+
 	        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
 	    });
         
@@ -86,28 +106,91 @@
 	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码");
 	    }
 	}
-	function funReg() {
 
-	   
+    //reg_step1
+	function funReg(step) {
+	    var s_phone = $("#edit_phone").val();
+	    var s_checkcode = $("#eidt_checkcode").val();
+	    var s_checkcode_re = $("#eidt_checkcode_re").val();
+	    var s_nick_name = $("#edit_nick_name").val();
+	    var s_password = $("#edit_password").val();
+	    var s_unit = $("#unit").val();
+        //注册下一步
+	    if (step == "1") {
+	        
+	        if (s_phone == "") {
+	            alert("手机号不能为空!");
+	            return;
+	        }
+
+	        
+	        if (s_checkcode == "") {
+	            alert("请输入验证码!");
+	            return;
+	        }
+
+	    
+	        if (s_checkcode != s_checkcode_re) {
+	            alert("验证码输入有误");
+	            return;
+	        }
+
+	        if (s_nick_name == "") {
+	            alert("昵称不能为空!");
+	            return;
+	        }
+	        if (s_password == "") {
+	            alert("密码不能为空!");
+	            return;
+	        }
+            //
+	        window.clearInterval(InterValObj);//停止计时器
+	        $("#btn_getcode").text("重新发送验证码");
+
+	        changeUI("reg1");
+	    }
+	    //立即注册
+	    if (step == "2") {
+
+	        $.post("../handler/Op.ashx", { op: "regmaster", phone: s_phone, checkcode: s_checkcode,nick_name:s_nick_name,password:s_password,unit:s_unit }, function (rtn) {
+	            if (rtn == "") {
+	                alert("注册成功");
+	            }
+	            else {
+	                alert("注册失败："+rtn);
+	            }
+	        });
+	    }
+
+
 	}
 
-    /*
+	//选择房号
+	function chooseunit() {
+	    $("#regownerdiv").hide();
+	    clickunit('0');
+	}
+	function cancelunit() {
+	    //顶级返回
+	    $("#unitlstdiv").remove();
+	    $("#regownerdiv").show();	    
+	}
 	function clickunit(uid, child, title) {
-
+	    $("#unitlstdiv").remove();
 	    if (child == 0) {
 	        $("#regownerdiv").show();
-	        $("#unitname").text(title);
+	        $("#unitname").val(title);
 	        $("#unit").val(uid);
-	        setTimeout(function () { myScroll.refresh(); myScroll.scrollTo(0, 0); }, 0);
+	        $(".regstep2-btn").show();
 	        return;
 	    }
 
 	    var where = [{ 'col': 'pid', 'logic': '=', 'val': uid, 'andor': '' }];
 	    datsrv.UIGetSimpleQuery("app_unit_list", "hy_app_unit_select", 1, 999, where, $("#unitselect"), function () {
-	        $("#scroller").append($("#unitselect").html());
+	        $("#scroller").append($("#unitselect").html());	        
 	    });
-	}*/
-	
+	}
+   
 </script>
 
 </head>
@@ -122,8 +205,10 @@
 	    </div>	
         <div class="row list regstep1">				
 		    <div class="col-xs-3">验证码</div>		
-		    <div class="col-xs-4"><input class="form-control" id="edit_checkcode" value="" placeholder="请输验证码" /> </div>					
-            <div class="col-xs-5"><button type="button" class="btn btn-default" id="btn_getcode" onclick="sendMessage()">获取验证码</button></div>		
+		    <div class="col-xs-4"><input class="form-control" id="edit_checkcode" name="edit_checkcode" value="" placeholder="请输验证码" /> </div>					
+            <div class="col-xs-5"><button type="button" class="btn btn-default" id="btn_getcode" onclick="sendMessage()">获取验证码</button>
+                <input type="hidden" id="edit_checkcode_re" name="edit_checkcode_re" />
+            </div>		
 	    </div>	
 
         <div class="row list regstep1">				
@@ -138,24 +223,34 @@
        
         <div class="row list lastrow regstep1">					    	
 	        <div class="col-xs-12" >
-                <button type="button" class="btn btn-danger" id="btn_reg_reg"  onclick="funReg()" disabled="disabled" style="width:200px;">立即注册</button>
+                <button type="button" class="btn btn-danger" id="btn_reg_reg"  onclick="funReg(1)" disabled="disabled" style="width:200px;">下一步</button>
 
                 <button type="button" class="btn btn-success" id="btn_reg_login"  onclick="changeUI('login')" style="width:100px;">快速登录>></button>
             </div>
 	    </div>
 
+    </div>
 
-          <div class="row list lastrow regstep1">					    	
+
+     <div class="container-fluid ls-page-base ls-page-reg2" style="display:none;">    
+	    <div class="row title">
+		    选择房号
+	    </div>
+
+          <div class="row list lastrow regstep2" id="regownerdiv">					    	
 	        <div class="col-xs-12" >
-                <div id="scroller">
-					
-	            </div>
+               <div class="col-xs-3">房号</div>		
+		        <div class="col-xs-6">
+                    <input class="form-control" id="unitname" name="unitname" value="" onclick="chooseunit()" placeholder="请选择房号" /> 
+                    <input type="hidden" id="unit" name="unit" /> 
+		        </div>			
             </div>
 	    </div>
 
-        <div class="row list lastrow regstep1">					    	
+        <div class="row list lastrow regstep2">					    	
 	        <div class="col-xs-12" >
-                <div id="unitselect" style="display:none">
+                <div id="unitselect">
+                    <!--
 	                <ul>							
 		                <li class="button" onclick="clickunit('0')">上一步</li>
 		                <li class="form" onclick="clickunit('1')">1幢</li>
@@ -164,11 +259,22 @@
 		                <li class="form" onclick="clickunit('1')">1幢</li>							
 		                <li class="tipinfo" onclick="">暂时不修改，返回</li>		
 	                </ul>
+                    -->
                 </div>
             </div>
 	    </div>
 
-    </div>
+        <div class="row list lastrow regstep2 regstep2-btn"  style="display:none;">					    	
+	        <div class="col-xs-12" >
+                <button type="button" class="btn btn-danger" id="btn_reg_reg2"  onclick="funReg(2)" style="width:200px;">立即注册</button>
+
+                <button type="button" class="btn btn-success" id="btn_reg_login2"  onclick="changeUI('login')" style="width:100px;">快速登录>></button>
+            </div>
+	    </div>
+
+
+     </div>
+
     
      <div class="container-fluid ls-page-base ls-page-login" style="display:none;">    
 	    <div class="row title">

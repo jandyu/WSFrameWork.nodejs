@@ -12,7 +12,7 @@
     <!--是否生成db数据xml文件-->
     <add key="xmldat" value="true"/>
     <add key="sqllog" value="true"/>        
-    <add key="TracingTraceFile" value="D:\youjish.cn\kt_app\Resource\config\dblog.txt"/>
+    <add key="TracingTraceFile" value="E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\config\dblog.txt"/>
     <!--是否生成db类型的define文件-->
     <add key="usedbxmlcache" value="true"/>
     <!--调试状态，db类型缓存无效-->

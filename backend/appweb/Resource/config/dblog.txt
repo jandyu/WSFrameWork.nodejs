@@ -1,0 +1,2108 @@
+2016/3/6 22:34:35:remote_addr:
+2016/3/6 22:34:35:本机
+2016/3/6 22:34:35:remote_addr end
+2016/3/6 22:34:36:缓存设置,no,force
+2016/3/6 22:35:02:remote_addr:
+2016/3/6 22:35:02:本机
+2016/3/6 22:35:02:remote_addr end
+2016/3/6 22:35:02:缓存设置,no,force
+2016/3/6 22:53:00:remote_addr:
+2016/3/6 22:53:00:本机
+2016/3/6 22:53:00:remote_addr end
+2016/3/6 22:53:00:缓存设置,no,force
+2016/3/6 22:53:00:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 22:53:00:USP_P_SPLITPAGE
+2016/3/6 22:53:00: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:00: CURRENTPAGE=1
+2016/3/6 22:53:00: PAGESIZE=999
+2016/3/6 22:53:00:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:04:remote_addr:
+2016/3/6 22:53:04:本机
+2016/3/6 22:53:04:remote_addr end
+2016/3/6 22:53:04:缓存设置,no,force
+2016/3/6 22:53:04:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"6","andor":""}]}}
+
+2016/3/6 22:53:04:USP_P_SPLITPAGE
+2016/3/6 22:53:04: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '6' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:04: CURRENTPAGE=1
+2016/3/6 22:53:04: PAGESIZE=999
+2016/3/6 22:53:04:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:06:remote_addr:
+2016/3/6 22:53:06:本机
+2016/3/6 22:53:06:remote_addr end
+2016/3/6 22:53:06:缓存设置,no,force
+2016/3/6 22:53:06:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":1,"andor":""}]}}
+
+2016/3/6 22:53:06:USP_P_SPLITPAGE
+2016/3/6 22:53:06: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:06: CURRENTPAGE=1
+2016/3/6 22:53:06: PAGESIZE=999
+2016/3/6 22:53:06:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:08:remote_addr:
+2016/3/6 22:53:08:本机
+2016/3/6 22:53:08:remote_addr end
+2016/3/6 22:53:08:缓存设置,no,force
+2016/3/6 22:53:08:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 22:53:08:USP_P_SPLITPAGE
+2016/3/6 22:53:08: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:08: CURRENTPAGE=1
+2016/3/6 22:53:08: PAGESIZE=999
+2016/3/6 22:53:08:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:43:remote_addr:
+2016/3/6 22:53:43:本机
+2016/3/6 22:53:43:remote_addr end
+2016/3/6 22:53:43:缓存设置,no,force
+2016/3/6 22:53:43:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 22:53:43:USP_P_SPLITPAGE
+2016/3/6 22:53:43: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:43: CURRENTPAGE=1
+2016/3/6 22:53:43: PAGESIZE=999
+2016/3/6 22:53:43:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:51:remote_addr:
+2016/3/6 22:53:51:本机
+2016/3/6 22:53:51:remote_addr end
+2016/3/6 22:53:51:缓存设置,no,force
+2016/3/6 22:53:51:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"2","andor":""}]}}
+
+2016/3/6 22:53:51:USP_P_SPLITPAGE
+2016/3/6 22:53:51: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '2' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:51: CURRENTPAGE=1
+2016/3/6 22:53:51: PAGESIZE=999
+2016/3/6 22:53:51:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:54:remote_addr:
+2016/3/6 22:53:54:本机
+2016/3/6 22:53:54:remote_addr end
+2016/3/6 22:53:54:缓存设置,no,force
+2016/3/6 22:53:54:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"7","andor":""}]}}
+
+2016/3/6 22:53:54:USP_P_SPLITPAGE
+2016/3/6 22:53:54: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '7' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:54: CURRENTPAGE=1
+2016/3/6 22:53:54: PAGESIZE=999
+2016/3/6 22:53:54:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:53:57:remote_addr:
+2016/3/6 22:53:57:本机
+2016/3/6 22:53:57:remote_addr end
+2016/3/6 22:53:57:缓存设置,no,force
+2016/3/6 22:53:57:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"39","andor":""}]}}
+
+2016/3/6 22:53:57:USP_P_SPLITPAGE
+2016/3/6 22:53:57: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '39' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:53:57: CURRENTPAGE=1
+2016/3/6 22:53:57: PAGESIZE=999
+2016/3/6 22:53:57:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:01:remote_addr:
+2016/3/6 22:57:01:本机
+2016/3/6 22:57:01:remote_addr end
+2016/3/6 22:57:01:缓存设置,no,force
+2016/3/6 22:57:01:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 22:57:01:USP_P_SPLITPAGE
+2016/3/6 22:57:01: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:01: CURRENTPAGE=1
+2016/3/6 22:57:01: PAGESIZE=999
+2016/3/6 22:57:01:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:16:remote_addr:
+2016/3/6 22:57:16:本机
+2016/3/6 22:57:16:remote_addr end
+2016/3/6 22:57:16:缓存设置,no,force
+2016/3/6 22:57:16:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 22:57:16:USP_P_SPLITPAGE
+2016/3/6 22:57:16: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:16: CURRENTPAGE=1
+2016/3/6 22:57:16: PAGESIZE=999
+2016/3/6 22:57:16:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:20:remote_addr:
+2016/3/6 22:57:20:本机
+2016/3/6 22:57:20:remote_addr end
+2016/3/6 22:57:20:缓存设置,no,force
+2016/3/6 22:57:20:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"2","andor":""}]}}
+
+2016/3/6 22:57:20:USP_P_SPLITPAGE
+2016/3/6 22:57:20: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '2' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:20: CURRENTPAGE=1
+2016/3/6 22:57:20: PAGESIZE=999
+2016/3/6 22:57:20:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:22:remote_addr:
+2016/3/6 22:57:22:本机
+2016/3/6 22:57:22:remote_addr end
+2016/3/6 22:57:22:缓存设置,no,force
+2016/3/6 22:57:22:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 22:57:22:USP_P_SPLITPAGE
+2016/3/6 22:57:22: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:22: CURRENTPAGE=1
+2016/3/6 22:57:22: PAGESIZE=999
+2016/3/6 22:57:22:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:26:remote_addr:
+2016/3/6 22:57:26:本机
+2016/3/6 22:57:26:remote_addr end
+2016/3/6 22:57:26:缓存设置,no,force
+2016/3/6 22:57:26:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"2","andor":""}]}}
+
+2016/3/6 22:57:26:USP_P_SPLITPAGE
+2016/3/6 22:57:26: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '2' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:26: CURRENTPAGE=1
+2016/3/6 22:57:26: PAGESIZE=999
+2016/3/6 22:57:26:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:29:remote_addr:
+2016/3/6 22:57:29:本机
+2016/3/6 22:57:29:remote_addr end
+2016/3/6 22:57:29:缓存设置,no,force
+2016/3/6 22:57:29:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 22:57:29:USP_P_SPLITPAGE
+2016/3/6 22:57:29: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:29: CURRENTPAGE=1
+2016/3/6 22:57:29: PAGESIZE=999
+2016/3/6 22:57:29:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:30:remote_addr:
+2016/3/6 22:57:30:本机
+2016/3/6 22:57:30:remote_addr end
+2016/3/6 22:57:30:缓存设置,no,force
+2016/3/6 22:57:30:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 22:57:30:USP_P_SPLITPAGE
+2016/3/6 22:57:30: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:30: CURRENTPAGE=1
+2016/3/6 22:57:30: PAGESIZE=999
+2016/3/6 22:57:30:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:31:remote_addr:
+2016/3/6 22:57:31:本机
+2016/3/6 22:57:31:remote_addr end
+2016/3/6 22:57:31:缓存设置,no,force
+2016/3/6 22:57:31:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 22:57:31:USP_P_SPLITPAGE
+2016/3/6 22:57:31: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:31: CURRENTPAGE=1
+2016/3/6 22:57:31: PAGESIZE=999
+2016/3/6 22:57:31:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:33:remote_addr:
+2016/3/6 22:57:33:本机
+2016/3/6 22:57:33:remote_addr end
+2016/3/6 22:57:33:缓存设置,no,force
+2016/3/6 22:57:33:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 22:57:33:USP_P_SPLITPAGE
+2016/3/6 22:57:33: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:33: CURRENTPAGE=1
+2016/3/6 22:57:33: PAGESIZE=999
+2016/3/6 22:57:33:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:34:remote_addr:
+2016/3/6 22:57:34:本机
+2016/3/6 22:57:34:remote_addr end
+2016/3/6 22:57:34:缓存设置,no,force
+2016/3/6 22:57:34:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 22:57:34:USP_P_SPLITPAGE
+2016/3/6 22:57:34: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:34: CURRENTPAGE=1
+2016/3/6 22:57:34: PAGESIZE=999
+2016/3/6 22:57:34:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:35:remote_addr:
+2016/3/6 22:57:35:本机
+2016/3/6 22:57:35:remote_addr end
+2016/3/6 22:57:35:缓存设置,no,force
+2016/3/6 22:57:35:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 22:57:35:USP_P_SPLITPAGE
+2016/3/6 22:57:35: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:35: CURRENTPAGE=1
+2016/3/6 22:57:35: PAGESIZE=999
+2016/3/6 22:57:35:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:57:36:remote_addr:
+2016/3/6 22:57:36:本机
+2016/3/6 22:57:36:remote_addr end
+2016/3/6 22:57:36:缓存设置,no,force
+2016/3/6 22:57:36:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 22:57:36:USP_P_SPLITPAGE
+2016/3/6 22:57:36: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:57:36: CURRENTPAGE=1
+2016/3/6 22:57:36: PAGESIZE=999
+2016/3/6 22:57:37:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:59:38:remote_addr:
+2016/3/6 22:59:38:本机
+2016/3/6 22:59:38:remote_addr end
+2016/3/6 22:59:38:缓存设置,no,force
+2016/3/6 22:59:38:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 22:59:38:USP_P_SPLITPAGE
+2016/3/6 22:59:38: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:59:38: CURRENTPAGE=1
+2016/3/6 22:59:38: PAGESIZE=999
+2016/3/6 22:59:39:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:59:40:remote_addr:
+2016/3/6 22:59:40:本机
+2016/3/6 22:59:40:remote_addr end
+2016/3/6 22:59:40:缓存设置,no,force
+2016/3/6 22:59:40:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 22:59:40:USP_P_SPLITPAGE
+2016/3/6 22:59:40: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:59:40: CURRENTPAGE=1
+2016/3/6 22:59:40: PAGESIZE=999
+2016/3/6 22:59:40:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:59:42:remote_addr:
+2016/3/6 22:59:42:本机
+2016/3/6 22:59:42:remote_addr end
+2016/3/6 22:59:42:缓存设置,no,force
+2016/3/6 22:59:42:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 22:59:42:USP_P_SPLITPAGE
+2016/3/6 22:59:42: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:59:42: CURRENTPAGE=1
+2016/3/6 22:59:42: PAGESIZE=999
+2016/3/6 22:59:42:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:59:42:remote_addr:
+2016/3/6 22:59:42:本机
+2016/3/6 22:59:42:remote_addr end
+2016/3/6 22:59:42:缓存设置,no,force
+2016/3/6 22:59:42:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 22:59:42:USP_P_SPLITPAGE
+2016/3/6 22:59:42: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:59:42: CURRENTPAGE=1
+2016/3/6 22:59:42: PAGESIZE=999
+2016/3/6 22:59:42:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 22:59:43:remote_addr:
+2016/3/6 22:59:43:本机
+2016/3/6 22:59:43:remote_addr end
+2016/3/6 22:59:43:缓存设置,no,force
+2016/3/6 22:59:43:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 22:59:43:USP_P_SPLITPAGE
+2016/3/6 22:59:43: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 22:59:43: CURRENTPAGE=1
+2016/3/6 22:59:43: PAGESIZE=999
+2016/3/6 22:59:43:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:07:remote_addr:
+2016/3/6 23:01:07:192.168.2.100
+2016/3/6 23:01:07:remote_addr end
+2016/3/6 23:01:07:缓存设置,no,force
+2016/3/6 23:01:07:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:01:07:USP_P_SPLITPAGE
+2016/3/6 23:01:07: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:07: CURRENTPAGE=1
+2016/3/6 23:01:07: PAGESIZE=999
+2016/3/6 23:01:07:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:12:remote_addr:
+2016/3/6 23:01:12:192.168.2.100
+2016/3/6 23:01:12:remote_addr end
+2016/3/6 23:01:12:缓存设置,no,force
+2016/3/6 23:01:12:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:01:12:USP_P_SPLITPAGE
+2016/3/6 23:01:12: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:12: CURRENTPAGE=1
+2016/3/6 23:01:12: PAGESIZE=999
+2016/3/6 23:01:12:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:14:remote_addr:
+2016/3/6 23:01:14:192.168.2.100
+2016/3/6 23:01:14:remote_addr end
+2016/3/6 23:01:14:缓存设置,no,force
+2016/3/6 23:01:14:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:01:14:USP_P_SPLITPAGE
+2016/3/6 23:01:14: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:14: CURRENTPAGE=1
+2016/3/6 23:01:14: PAGESIZE=999
+2016/3/6 23:01:14:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:15:remote_addr:
+2016/3/6 23:01:15:192.168.2.100
+2016/3/6 23:01:15:remote_addr end
+2016/3/6 23:01:15:缓存设置,no,force
+2016/3/6 23:01:15:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:01:15:USP_P_SPLITPAGE
+2016/3/6 23:01:15: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:15: CURRENTPAGE=1
+2016/3/6 23:01:15: PAGESIZE=999
+2016/3/6 23:01:15:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:17:remote_addr:
+2016/3/6 23:01:17:192.168.2.100
+2016/3/6 23:01:17:remote_addr end
+2016/3/6 23:01:17:缓存设置,no,force
+2016/3/6 23:01:17:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":9,"andor":""}]}}
+
+2016/3/6 23:01:17:USP_P_SPLITPAGE
+2016/3/6 23:01:17: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:17: CURRENTPAGE=1
+2016/3/6 23:01:17: PAGESIZE=999
+2016/3/6 23:01:17:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:18:remote_addr:
+2016/3/6 23:01:18:192.168.2.100
+2016/3/6 23:01:18:remote_addr end
+2016/3/6 23:01:18:缓存设置,no,force
+2016/3/6 23:01:18:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":1,"andor":""}]}}
+
+2016/3/6 23:01:18:USP_P_SPLITPAGE
+2016/3/6 23:01:18: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:18: CURRENTPAGE=1
+2016/3/6 23:01:18: PAGESIZE=999
+2016/3/6 23:01:18:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:21:remote_addr:
+2016/3/6 23:01:21:192.168.2.100
+2016/3/6 23:01:21:remote_addr end
+2016/3/6 23:01:21:缓存设置,no,force
+2016/3/6 23:01:21:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 23:01:21:USP_P_SPLITPAGE
+2016/3/6 23:01:21: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:21: CURRENTPAGE=1
+2016/3/6 23:01:21: PAGESIZE=999
+2016/3/6 23:01:22:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:25:remote_addr:
+2016/3/6 23:01:25:192.168.2.100
+2016/3/6 23:01:25:remote_addr end
+2016/3/6 23:01:25:缓存设置,no,force
+2016/3/6 23:01:25:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:01:25:USP_P_SPLITPAGE
+2016/3/6 23:01:25: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:25: CURRENTPAGE=1
+2016/3/6 23:01:25: PAGESIZE=999
+2016/3/6 23:01:25:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:26:remote_addr:
+2016/3/6 23:01:26:192.168.2.100
+2016/3/6 23:01:26:remote_addr end
+2016/3/6 23:01:26:缓存设置,no,force
+2016/3/6 23:01:26:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:01:26:USP_P_SPLITPAGE
+2016/3/6 23:01:26: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:26: CURRENTPAGE=1
+2016/3/6 23:01:26: PAGESIZE=999
+2016/3/6 23:01:26:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:27:remote_addr:
+2016/3/6 23:01:27:192.168.2.100
+2016/3/6 23:01:27:remote_addr end
+2016/3/6 23:01:27:缓存设置,no,force
+2016/3/6 23:01:27:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:01:27:USP_P_SPLITPAGE
+2016/3/6 23:01:27: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:27: CURRENTPAGE=1
+2016/3/6 23:01:27: PAGESIZE=999
+2016/3/6 23:01:27:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:01:28:remote_addr:
+2016/3/6 23:01:28:192.168.2.100
+2016/3/6 23:01:28:remote_addr end
+2016/3/6 23:01:28:缓存设置,no,force
+2016/3/6 23:01:28:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:01:28:USP_P_SPLITPAGE
+2016/3/6 23:01:28: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:01:28: CURRENTPAGE=1
+2016/3/6 23:01:28: PAGESIZE=999
+2016/3/6 23:01:28:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:03:04:remote_addr:
+2016/3/6 23:03:04:本机
+2016/3/6 23:03:04:remote_addr end
+2016/3/6 23:03:04:缓存设置,no,force
+2016/3/6 23:03:04:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:03:04:USP_P_SPLITPAGE
+2016/3/6 23:03:04: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:03:04: CURRENTPAGE=1
+2016/3/6 23:03:04: PAGESIZE=999
+2016/3/6 23:03:04:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:03:07:remote_addr:
+2016/3/6 23:03:07:本机
+2016/3/6 23:03:07:remote_addr end
+2016/3/6 23:03:07:缓存设置,no,force
+2016/3/6 23:03:07:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:03:07:USP_P_SPLITPAGE
+2016/3/6 23:03:07: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:03:07: CURRENTPAGE=1
+2016/3/6 23:03:07: PAGESIZE=999
+2016/3/6 23:03:07:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:03:08:remote_addr:
+2016/3/6 23:03:08:本机
+2016/3/6 23:03:08:remote_addr end
+2016/3/6 23:03:08:缓存设置,no,force
+2016/3/6 23:03:08:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 23:03:08:USP_P_SPLITPAGE
+2016/3/6 23:03:08: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:03:08: CURRENTPAGE=1
+2016/3/6 23:03:08: PAGESIZE=999
+2016/3/6 23:03:08:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:04:28:remote_addr:
+2016/3/6 23:04:28:192.168.2.100
+2016/3/6 23:04:28:remote_addr end
+2016/3/6 23:04:28:条件:{'common': { 'currpage': 1, 'pagesize': 9999, 'where': [{'col':'tablename','logic':'=','val':'app_config','andor':''}]} }
+
+2016/3/6 23:04:28:USP_P_SPLITPAGE
+2016/3/6 23:04:28: SQL=select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,edit,[set],cando,selecttable
+      from wsd_systeminfo
+      where 1=1 and ( ( tablename = 'app_config' ) and (1=1)) order by tablename,colorder
+    
+2016/3/6 23:04:28: CURRENTPAGE=1
+2016/3/6 23:04:28: PAGESIZE=9999
+2016/3/6 23:04:28:条件:{"common":{"where":[{"col":"ver","logic":"<=","val":"33","andor":" and "},{"col":"config_id","logic":"=","val":"app_rzzb_update_version","andor":" and "},{"col":"(pf","logic":"=","val":"normal","andor":" or "},{"col":"pf","logic":"=","val":"android","andor":")"}],"currpage":1,"pagesize":2147483647}}
+
+2016/3/6 23:04:28:USP_P_SPLITPAGE
+2016/3/6 23:04:28: SQL=select iid,config_id,pf,ver,val,jsonval,memo
+          from app_config
+          where 1=1 and ( ( ver <= '33'  and  config_id = 'app_rzzb_update_version'  and  (pf = 'normal'  or  pf = 'android' )) and (1=1))
+         order by  iid asc 
+2016/3/6 23:04:28: CURRENTPAGE=1
+2016/3/6 23:04:28: PAGESIZE=2147483647
+2016/3/6 23:04:43:remote_addr:
+2016/3/6 23:04:43:192.168.2.100
+2016/3/6 23:04:43:remote_addr end
+2016/3/6 23:04:43:缓存设置,no,force
+2016/3/6 23:04:43:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:04:43:USP_P_SPLITPAGE
+2016/3/6 23:04:43: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:04:43: CURRENTPAGE=1
+2016/3/6 23:04:43: PAGESIZE=999
+2016/3/6 23:04:43:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:04:45:remote_addr:
+2016/3/6 23:04:45:192.168.2.100
+2016/3/6 23:04:45:remote_addr end
+2016/3/6 23:04:45:缓存设置,no,force
+2016/3/6 23:04:45:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:04:45:USP_P_SPLITPAGE
+2016/3/6 23:04:45: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:04:45: CURRENTPAGE=1
+2016/3/6 23:04:45: PAGESIZE=999
+2016/3/6 23:04:45:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:04:48:remote_addr:
+2016/3/6 23:04:48:192.168.2.100
+2016/3/6 23:04:48:remote_addr end
+2016/3/6 23:04:48:缓存设置,no,force
+2016/3/6 23:04:48:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:04:48:USP_P_SPLITPAGE
+2016/3/6 23:04:48: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:04:48: CURRENTPAGE=1
+2016/3/6 23:04:48: PAGESIZE=999
+2016/3/6 23:04:48:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:04:49:remote_addr:
+2016/3/6 23:04:49:192.168.2.100
+2016/3/6 23:04:49:remote_addr end
+2016/3/6 23:04:49:缓存设置,no,force
+2016/3/6 23:04:49:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:04:49:USP_P_SPLITPAGE
+2016/3/6 23:04:49: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:04:49: CURRENTPAGE=1
+2016/3/6 23:04:49: PAGESIZE=999
+2016/3/6 23:04:49:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:04:51:remote_addr:
+2016/3/6 23:04:51:192.168.2.100
+2016/3/6 23:04:51:remote_addr end
+2016/3/6 23:04:51:缓存设置,no,force
+2016/3/6 23:04:51:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:04:51:USP_P_SPLITPAGE
+2016/3/6 23:04:51: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:04:51: CURRENTPAGE=1
+2016/3/6 23:04:51: PAGESIZE=999
+2016/3/6 23:04:51:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:07:07:remote_addr:
+2016/3/6 23:07:07:本机
+2016/3/6 23:07:07:remote_addr end
+2016/3/6 23:07:07:缓存设置,no,force
+2016/3/6 23:07:07:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:07:07:USP_P_SPLITPAGE
+2016/3/6 23:07:07: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:07:07: CURRENTPAGE=1
+2016/3/6 23:07:07: PAGESIZE=999
+2016/3/6 23:07:07:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:07:08:remote_addr:
+2016/3/6 23:07:08:本机
+2016/3/6 23:07:08:remote_addr end
+2016/3/6 23:07:08:缓存设置,no,force
+2016/3/6 23:07:08:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:07:08:USP_P_SPLITPAGE
+2016/3/6 23:07:08: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:07:08: CURRENTPAGE=1
+2016/3/6 23:07:08: PAGESIZE=999
+2016/3/6 23:07:08:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:07:09:remote_addr:
+2016/3/6 23:07:09:本机
+2016/3/6 23:07:09:remote_addr end
+2016/3/6 23:07:09:缓存设置,no,force
+2016/3/6 23:07:09:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:07:09:USP_P_SPLITPAGE
+2016/3/6 23:07:09: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:07:09: CURRENTPAGE=1
+2016/3/6 23:07:09: PAGESIZE=999
+2016/3/6 23:07:09:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:07:10:remote_addr:
+2016/3/6 23:07:10:本机
+2016/3/6 23:07:10:remote_addr end
+2016/3/6 23:07:10:缓存设置,no,force
+2016/3/6 23:07:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:07:10:USP_P_SPLITPAGE
+2016/3/6 23:07:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:07:10: CURRENTPAGE=1
+2016/3/6 23:07:10: PAGESIZE=999
+2016/3/6 23:07:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:07:14:remote_addr:
+2016/3/6 23:07:14:本机
+2016/3/6 23:07:14:remote_addr end
+2016/3/6 23:07:14:缓存设置,no,force
+2016/3/6 23:07:14:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:07:14:USP_P_SPLITPAGE
+2016/3/6 23:07:14: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:07:14: CURRENTPAGE=1
+2016/3/6 23:07:14: PAGESIZE=999
+2016/3/6 23:07:14:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:24:remote_addr:
+2016/3/6 23:08:24:本机
+2016/3/6 23:08:24:remote_addr end
+2016/3/6 23:08:24:缓存设置,no,force
+2016/3/6 23:08:24:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:08:24:USP_P_SPLITPAGE
+2016/3/6 23:08:24: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:24: CURRENTPAGE=1
+2016/3/6 23:08:24: PAGESIZE=999
+2016/3/6 23:08:24:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:26:remote_addr:
+2016/3/6 23:08:26:本机
+2016/3/6 23:08:26:remote_addr end
+2016/3/6 23:08:26:缓存设置,no,force
+2016/3/6 23:08:26:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:08:26:USP_P_SPLITPAGE
+2016/3/6 23:08:26: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:26: CURRENTPAGE=1
+2016/3/6 23:08:26: PAGESIZE=999
+2016/3/6 23:08:26:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:27:remote_addr:
+2016/3/6 23:08:27:本机
+2016/3/6 23:08:27:remote_addr end
+2016/3/6 23:08:27:缓存设置,no,force
+2016/3/6 23:08:27:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:08:27:USP_P_SPLITPAGE
+2016/3/6 23:08:27: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:27: CURRENTPAGE=1
+2016/3/6 23:08:27: PAGESIZE=999
+2016/3/6 23:08:27:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:28:remote_addr:
+2016/3/6 23:08:28:本机
+2016/3/6 23:08:28:remote_addr end
+2016/3/6 23:08:28:缓存设置,no,force
+2016/3/6 23:08:28:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:08:28:USP_P_SPLITPAGE
+2016/3/6 23:08:28: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:28: CURRENTPAGE=1
+2016/3/6 23:08:28: PAGESIZE=999
+2016/3/6 23:08:28:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:29:remote_addr:
+2016/3/6 23:08:29:本机
+2016/3/6 23:08:29:remote_addr end
+2016/3/6 23:08:29:缓存设置,no,force
+2016/3/6 23:08:29:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:08:29:USP_P_SPLITPAGE
+2016/3/6 23:08:29: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:29: CURRENTPAGE=1
+2016/3/6 23:08:29: PAGESIZE=999
+2016/3/6 23:08:29:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:08:59:remote_addr:
+2016/3/6 23:08:59:本机
+2016/3/6 23:08:59:remote_addr end
+2016/3/6 23:08:59:缓存设置,no,force
+2016/3/6 23:08:59:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:08:59:USP_P_SPLITPAGE
+2016/3/6 23:08:59: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:08:59: CURRENTPAGE=1
+2016/3/6 23:08:59: PAGESIZE=999
+2016/3/6 23:09:00:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:01:remote_addr:
+2016/3/6 23:09:01:本机
+2016/3/6 23:09:01:remote_addr end
+2016/3/6 23:09:01:缓存设置,no,force
+2016/3/6 23:09:01:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:09:01:USP_P_SPLITPAGE
+2016/3/6 23:09:01: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:01: CURRENTPAGE=1
+2016/3/6 23:09:01: PAGESIZE=999
+2016/3/6 23:09:01:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:01:remote_addr:
+2016/3/6 23:09:01:本机
+2016/3/6 23:09:01:remote_addr end
+2016/3/6 23:09:01:缓存设置,no,force
+2016/3/6 23:09:01:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:09:01:USP_P_SPLITPAGE
+2016/3/6 23:09:01: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:01: CURRENTPAGE=1
+2016/3/6 23:09:01: PAGESIZE=999
+2016/3/6 23:09:01:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:02:remote_addr:
+2016/3/6 23:09:02:本机
+2016/3/6 23:09:02:remote_addr end
+2016/3/6 23:09:02:缓存设置,no,force
+2016/3/6 23:09:02:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:09:02:USP_P_SPLITPAGE
+2016/3/6 23:09:02: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:02: CURRENTPAGE=1
+2016/3/6 23:09:02: PAGESIZE=999
+2016/3/6 23:09:02:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:02:remote_addr:
+2016/3/6 23:09:02:本机
+2016/3/6 23:09:02:remote_addr end
+2016/3/6 23:09:02:缓存设置,no,force
+2016/3/6 23:09:02:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:09:02:USP_P_SPLITPAGE
+2016/3/6 23:09:02: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:02: CURRENTPAGE=1
+2016/3/6 23:09:02: PAGESIZE=999
+2016/3/6 23:09:02:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:16:remote_addr:
+2016/3/6 23:09:16:本机
+2016/3/6 23:09:16:remote_addr end
+2016/3/6 23:09:16:缓存设置,no,force
+2016/3/6 23:09:16:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:09:16:USP_P_SPLITPAGE
+2016/3/6 23:09:16: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:16: CURRENTPAGE=1
+2016/3/6 23:09:16: PAGESIZE=999
+2016/3/6 23:09:16:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:09:52:remote_addr:
+2016/3/6 23:09:52:本机
+2016/3/6 23:09:52:remote_addr end
+2016/3/6 23:09:52:缓存设置,no,force
+2016/3/6 23:09:52:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:09:52:USP_P_SPLITPAGE
+2016/3/6 23:09:52: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:09:52: CURRENTPAGE=1
+2016/3/6 23:09:52: PAGESIZE=999
+2016/3/6 23:09:52:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:14:44:remote_addr:
+2016/3/6 23:14:44:本机
+2016/3/6 23:14:44:remote_addr end
+2016/3/6 23:14:44:缓存设置,no,force
+2016/3/6 23:14:44:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:14:44:USP_P_SPLITPAGE
+2016/3/6 23:14:44: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:14:44: CURRENTPAGE=1
+2016/3/6 23:14:44: PAGESIZE=999
+2016/3/6 23:14:44:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:16:51:remote_addr:
+2016/3/6 23:16:51:本机
+2016/3/6 23:16:51:remote_addr end
+2016/3/6 23:16:51:缓存设置,no,force
+2016/3/6 23:16:51:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:16:51:USP_P_SPLITPAGE
+2016/3/6 23:16:51: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:16:51: CURRENTPAGE=1
+2016/3/6 23:16:51: PAGESIZE=999
+2016/3/6 23:16:51:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:16:56:remote_addr:
+2016/3/6 23:16:56:本机
+2016/3/6 23:16:56:remote_addr end
+2016/3/6 23:16:56:缓存设置,no,force
+2016/3/6 23:16:56:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:16:56:USP_P_SPLITPAGE
+2016/3/6 23:16:56: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:16:56: CURRENTPAGE=1
+2016/3/6 23:16:56: PAGESIZE=999
+2016/3/6 23:16:56:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:16:58:remote_addr:
+2016/3/6 23:16:58:本机
+2016/3/6 23:16:58:remote_addr end
+2016/3/6 23:16:58:缓存设置,no,force
+2016/3/6 23:16:58:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:16:58:USP_P_SPLITPAGE
+2016/3/6 23:16:58: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:16:58: CURRENTPAGE=1
+2016/3/6 23:16:58: PAGESIZE=999
+2016/3/6 23:16:58:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:16:59:remote_addr:
+2016/3/6 23:16:59:本机
+2016/3/6 23:16:59:remote_addr end
+2016/3/6 23:16:59:缓存设置,no,force
+2016/3/6 23:16:59:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:16:59:USP_P_SPLITPAGE
+2016/3/6 23:16:59: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:16:59: CURRENTPAGE=1
+2016/3/6 23:16:59: PAGESIZE=999
+2016/3/6 23:16:59:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:00:remote_addr:
+2016/3/6 23:17:00:本机
+2016/3/6 23:17:00:remote_addr end
+2016/3/6 23:17:00:缓存设置,no,force
+2016/3/6 23:17:00:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:17:00:USP_P_SPLITPAGE
+2016/3/6 23:17:00: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:00: CURRENTPAGE=1
+2016/3/6 23:17:00: PAGESIZE=999
+2016/3/6 23:17:00:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:01:remote_addr:
+2016/3/6 23:17:01:本机
+2016/3/6 23:17:01:remote_addr end
+2016/3/6 23:17:01:缓存设置,no,force
+2016/3/6 23:17:01:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":9,"andor":""}]}}
+
+2016/3/6 23:17:01:USP_P_SPLITPAGE
+2016/3/6 23:17:01: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:01: CURRENTPAGE=1
+2016/3/6 23:17:01: PAGESIZE=999
+2016/3/6 23:17:01:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:02:remote_addr:
+2016/3/6 23:17:02:本机
+2016/3/6 23:17:02:remote_addr end
+2016/3/6 23:17:02:缓存设置,no,force
+2016/3/6 23:17:02:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":1,"andor":""}]}}
+
+2016/3/6 23:17:02:USP_P_SPLITPAGE
+2016/3/6 23:17:02: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:02: CURRENTPAGE=1
+2016/3/6 23:17:02: PAGESIZE=999
+2016/3/6 23:17:02:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:03:remote_addr:
+2016/3/6 23:17:03:本机
+2016/3/6 23:17:03:remote_addr end
+2016/3/6 23:17:03:缓存设置,no,force
+2016/3/6 23:17:03:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":0,"andor":""}]}}
+
+2016/3/6 23:17:03:USP_P_SPLITPAGE
+2016/3/6 23:17:03: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:03: CURRENTPAGE=1
+2016/3/6 23:17:03: PAGESIZE=999
+2016/3/6 23:17:03:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:07:remote_addr:
+2016/3/6 23:17:07:本机
+2016/3/6 23:17:07:remote_addr end
+2016/3/6 23:17:07:缓存设置,no,force
+2016/3/6 23:17:07:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:17:07:USP_P_SPLITPAGE
+2016/3/6 23:17:07: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:07: CURRENTPAGE=1
+2016/3/6 23:17:07: PAGESIZE=999
+2016/3/6 23:17:07:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:09:remote_addr:
+2016/3/6 23:17:09:本机
+2016/3/6 23:17:09:remote_addr end
+2016/3/6 23:17:09:缓存设置,no,force
+2016/3/6 23:17:09:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:17:09:USP_P_SPLITPAGE
+2016/3/6 23:17:09: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:09: CURRENTPAGE=1
+2016/3/6 23:17:09: PAGESIZE=999
+2016/3/6 23:17:09:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:09:remote_addr:
+2016/3/6 23:17:09:本机
+2016/3/6 23:17:09:remote_addr end
+2016/3/6 23:17:09:缓存设置,no,force
+2016/3/6 23:17:09:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:17:09:USP_P_SPLITPAGE
+2016/3/6 23:17:09: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:09: CURRENTPAGE=1
+2016/3/6 23:17:09: PAGESIZE=999
+2016/3/6 23:17:09:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:10:remote_addr:
+2016/3/6 23:17:10:本机
+2016/3/6 23:17:10:remote_addr end
+2016/3/6 23:17:10:缓存设置,no,force
+2016/3/6 23:17:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:17:10:USP_P_SPLITPAGE
+2016/3/6 23:17:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:10: CURRENTPAGE=1
+2016/3/6 23:17:10: PAGESIZE=999
+2016/3/6 23:17:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:10:remote_addr:
+2016/3/6 23:17:10:本机
+2016/3/6 23:17:10:remote_addr end
+2016/3/6 23:17:10:缓存设置,no,force
+2016/3/6 23:17:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:17:10:USP_P_SPLITPAGE
+2016/3/6 23:17:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:10: CURRENTPAGE=1
+2016/3/6 23:17:10: PAGESIZE=999
+2016/3/6 23:17:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:14:remote_addr:
+2016/3/6 23:17:14:本机
+2016/3/6 23:17:14:remote_addr end
+2016/3/6 23:17:14:缓存设置,no,force
+2016/3/6 23:17:14:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:17:14:USP_P_SPLITPAGE
+2016/3/6 23:17:14: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:14: CURRENTPAGE=1
+2016/3/6 23:17:14: PAGESIZE=999
+2016/3/6 23:17:14:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:17:48:remote_addr:
+2016/3/6 23:17:48:本机
+2016/3/6 23:17:48:remote_addr end
+2016/3/6 23:17:48:缓存设置,no,force
+2016/3/6 23:17:48:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:17:48:USP_P_SPLITPAGE
+2016/3/6 23:17:48: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:17:48: CURRENTPAGE=1
+2016/3/6 23:17:48: PAGESIZE=999
+2016/3/6 23:17:48:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:34:remote_addr:
+2016/3/6 23:20:34:本机
+2016/3/6 23:20:34:remote_addr end
+2016/3/6 23:20:34:缓存设置,no,force
+2016/3/6 23:20:34:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:20:34:USP_P_SPLITPAGE
+2016/3/6 23:20:34: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:34: CURRENTPAGE=1
+2016/3/6 23:20:34: PAGESIZE=999
+2016/3/6 23:20:34:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:37:remote_addr:
+2016/3/6 23:20:37:本机
+2016/3/6 23:20:37:remote_addr end
+2016/3/6 23:20:37:缓存设置,no,force
+2016/3/6 23:20:37:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:20:37:USP_P_SPLITPAGE
+2016/3/6 23:20:37: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:37: CURRENTPAGE=1
+2016/3/6 23:20:37: PAGESIZE=999
+2016/3/6 23:20:37:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:38:remote_addr:
+2016/3/6 23:20:38:本机
+2016/3/6 23:20:38:remote_addr end
+2016/3/6 23:20:38:缓存设置,no,force
+2016/3/6 23:20:38:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:20:38:USP_P_SPLITPAGE
+2016/3/6 23:20:38: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:38: CURRENTPAGE=1
+2016/3/6 23:20:38: PAGESIZE=999
+2016/3/6 23:20:38:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:39:remote_addr:
+2016/3/6 23:20:39:本机
+2016/3/6 23:20:39:remote_addr end
+2016/3/6 23:20:39:缓存设置,no,force
+2016/3/6 23:20:39:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:20:39:USP_P_SPLITPAGE
+2016/3/6 23:20:39: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:39: CURRENTPAGE=1
+2016/3/6 23:20:39: PAGESIZE=999
+2016/3/6 23:20:39:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:40:remote_addr:
+2016/3/6 23:20:40:本机
+2016/3/6 23:20:40:remote_addr end
+2016/3/6 23:20:40:缓存设置,no,force
+2016/3/6 23:20:40:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:20:40:USP_P_SPLITPAGE
+2016/3/6 23:20:40: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:40: CURRENTPAGE=1
+2016/3/6 23:20:40: PAGESIZE=999
+2016/3/6 23:20:40:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:20:41:remote_addr:
+2016/3/6 23:20:41:本机
+2016/3/6 23:20:41:remote_addr end
+2016/3/6 23:20:41:缓存设置,no,force
+2016/3/6 23:20:41:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:20:41:USP_P_SPLITPAGE
+2016/3/6 23:20:41: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:20:41: CURRENTPAGE=1
+2016/3/6 23:20:41: PAGESIZE=999
+2016/3/6 23:20:41:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:22:remote_addr:
+2016/3/6 23:21:22:本机
+2016/3/6 23:21:22:remote_addr end
+2016/3/6 23:21:22:缓存设置,no,force
+2016/3/6 23:21:22:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:21:22:USP_P_SPLITPAGE
+2016/3/6 23:21:22: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:21:22: CURRENTPAGE=1
+2016/3/6 23:21:22: PAGESIZE=999
+2016/3/6 23:21:22:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:23:remote_addr:
+2016/3/6 23:21:23:本机
+2016/3/6 23:21:23:remote_addr end
+2016/3/6 23:21:23:缓存设置,no,force
+2016/3/6 23:21:23:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:21:23:USP_P_SPLITPAGE
+2016/3/6 23:21:23: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:21:23: CURRENTPAGE=1
+2016/3/6 23:21:23: PAGESIZE=999
+2016/3/6 23:21:23:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:23:remote_addr:
+2016/3/6 23:21:23:本机
+2016/3/6 23:21:23:remote_addr end
+2016/3/6 23:21:23:缓存设置,no,force
+2016/3/6 23:21:23:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:21:23:USP_P_SPLITPAGE
+2016/3/6 23:21:23: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:21:23: CURRENTPAGE=1
+2016/3/6 23:21:23: PAGESIZE=999
+2016/3/6 23:21:23:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:24:remote_addr:
+2016/3/6 23:21:24:本机
+2016/3/6 23:21:24:remote_addr end
+2016/3/6 23:21:24:缓存设置,no,force
+2016/3/6 23:21:24:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:21:24:USP_P_SPLITPAGE
+2016/3/6 23:21:24: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:21:24: CURRENTPAGE=1
+2016/3/6 23:21:24: PAGESIZE=999
+2016/3/6 23:21:24:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:25:remote_addr:
+2016/3/6 23:21:25:本机
+2016/3/6 23:21:25:remote_addr end
+2016/3/6 23:21:25:缓存设置,no,force
+2016/3/6 23:21:25:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:21:25:USP_P_SPLITPAGE
+2016/3/6 23:21:25: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:21:25: CURRENTPAGE=1
+2016/3/6 23:21:25: PAGESIZE=999
+2016/3/6 23:21:25:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:21:49:remote_addr:
+2016/3/6 23:21:49:192.168.2.100
+2016/3/6 23:21:49:remote_addr end
+2016/3/6 23:21:49:条件:{'common': { 'currpage': 1, 'pagesize': 9999, 'where': [{'col':'tablename','logic':'=','val':'app_config','andor':''}]} }
+
+2016/3/6 23:21:49:USP_P_SPLITPAGE
+2016/3/6 23:21:49: SQL=select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,edit,[set],cando,selecttable
+      from wsd_systeminfo
+      where 1=1 and ( ( tablename = 'app_config' ) and (1=1)) order by tablename,colorder
+    
+2016/3/6 23:21:49: CURRENTPAGE=1
+2016/3/6 23:21:49: PAGESIZE=9999
+2016/3/6 23:21:49:条件:{"common":{"where":[{"col":"ver","logic":"<=","val":"33","andor":" and "},{"col":"config_id","logic":"=","val":"app_rzzb_update_version","andor":" and "},{"col":"(pf","logic":"=","val":"normal","andor":" or "},{"col":"pf","logic":"=","val":"android","andor":")"}],"currpage":1,"pagesize":2147483647}}
+
+2016/3/6 23:21:49:USP_P_SPLITPAGE
+2016/3/6 23:21:49: SQL=select iid,config_id,pf,ver,val,jsonval,memo
+          from app_config
+          where 1=1 and ( ( ver <= '33'  and  config_id = 'app_rzzb_update_version'  and  (pf = 'normal'  or  pf = 'android' )) and (1=1))
+         order by  iid asc 
+2016/3/6 23:21:49: CURRENTPAGE=1
+2016/3/6 23:21:49: PAGESIZE=2147483647
+2016/3/6 23:22:05:remote_addr:
+2016/3/6 23:22:05:192.168.2.100
+2016/3/6 23:22:05:remote_addr end
+2016/3/6 23:22:05:缓存设置,no,force
+2016/3/6 23:22:05:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:22:05:USP_P_SPLITPAGE
+2016/3/6 23:22:05: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:22:05: CURRENTPAGE=1
+2016/3/6 23:22:05: PAGESIZE=999
+2016/3/6 23:22:05:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:22:07:remote_addr:
+2016/3/6 23:22:07:192.168.2.100
+2016/3/6 23:22:07:remote_addr end
+2016/3/6 23:22:07:缓存设置,no,force
+2016/3/6 23:22:07:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:22:07:USP_P_SPLITPAGE
+2016/3/6 23:22:07: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:22:07: CURRENTPAGE=1
+2016/3/6 23:22:07: PAGESIZE=999
+2016/3/6 23:22:07:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:22:10:remote_addr:
+2016/3/6 23:22:10:192.168.2.100
+2016/3/6 23:22:10:remote_addr end
+2016/3/6 23:22:10:缓存设置,no,force
+2016/3/6 23:22:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:22:10:USP_P_SPLITPAGE
+2016/3/6 23:22:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:22:10: CURRENTPAGE=1
+2016/3/6 23:22:10: PAGESIZE=999
+2016/3/6 23:22:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:22:11:remote_addr:
+2016/3/6 23:22:11:192.168.2.100
+2016/3/6 23:22:11:remote_addr end
+2016/3/6 23:22:11:缓存设置,no,force
+2016/3/6 23:22:11:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:22:11:USP_P_SPLITPAGE
+2016/3/6 23:22:11: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:22:11: CURRENTPAGE=1
+2016/3/6 23:22:11: PAGESIZE=999
+2016/3/6 23:22:11:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:22:12:remote_addr:
+2016/3/6 23:22:12:192.168.2.100
+2016/3/6 23:22:12:remote_addr end
+2016/3/6 23:22:12:缓存设置,no,force
+2016/3/6 23:22:12:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:22:12:USP_P_SPLITPAGE
+2016/3/6 23:22:12: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:22:12: CURRENTPAGE=1
+2016/3/6 23:22:12: PAGESIZE=999
+2016/3/6 23:22:12:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:32:08:remote_addr:
+2016/3/6 23:32:08:本机
+2016/3/6 23:32:08:remote_addr end
+2016/3/6 23:32:08:缓存设置,no,force
+2016/3/6 23:32:08:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"0","andor":""}]}}
+
+2016/3/6 23:32:08:USP_P_SPLITPAGE
+2016/3/6 23:32:08: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '0' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:32:08: CURRENTPAGE=1
+2016/3/6 23:32:08: PAGESIZE=999
+2016/3/6 23:32:08:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:32:09:remote_addr:
+2016/3/6 23:32:09:本机
+2016/3/6 23:32:09:remote_addr end
+2016/3/6 23:32:09:缓存设置,no,force
+2016/3/6 23:32:09:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"1","andor":""}]}}
+
+2016/3/6 23:32:09:USP_P_SPLITPAGE
+2016/3/6 23:32:09: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '1' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:32:09: CURRENTPAGE=1
+2016/3/6 23:32:09: PAGESIZE=999
+2016/3/6 23:32:09:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:32:10:remote_addr:
+2016/3/6 23:32:10:本机
+2016/3/6 23:32:10:remote_addr end
+2016/3/6 23:32:10:缓存设置,no,force
+2016/3/6 23:32:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"9","andor":""}]}}
+
+2016/3/6 23:32:10:USP_P_SPLITPAGE
+2016/3/6 23:32:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '9' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:32:10: CURRENTPAGE=1
+2016/3/6 23:32:10: PAGESIZE=999
+2016/3/6 23:32:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:32:10:remote_addr:
+2016/3/6 23:32:10:本机
+2016/3/6 23:32:10:remote_addr end
+2016/3/6 23:32:10:缓存设置,no,force
+2016/3/6 23:32:10:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"10","andor":""}]}}
+
+2016/3/6 23:32:10:USP_P_SPLITPAGE
+2016/3/6 23:32:10: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '10' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:32:10: CURRENTPAGE=1
+2016/3/6 23:32:10: PAGESIZE=999
+2016/3/6 23:32:10:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。
+2016/3/6 23:32:11:remote_addr:
+2016/3/6 23:32:11:本机
+2016/3/6 23:32:11:remote_addr end
+2016/3/6 23:32:11:缓存设置,no,force
+2016/3/6 23:32:11:条件:{"common":{"currpage":1,"pagesize":999,"where":[{"col":"pid","logic":"=","val":"91","andor":""}]}}
+
+2016/3/6 23:32:11:USP_P_SPLITPAGE
+2016/3/6 23:32:11: SQL=select title,pid,uid,uid as iid,
+			
+			dbo.uf_category_treetitle('unit',pid) as p_title,
+			dbo.uf_category_treetitle('unit',uid) as unit_title,
+			(select count(*) from app_wy_unit b where b.pid = app_wy_unit.uid) as child,
+			isnull((select pid from app_wy_unit c where c.uid = app_wy_unit.pid),0) as parentid
+		from app_wy_unit
+			where 1=1 and ( ( pid = '91' ) and (1=1))
+			order by 
+      len(dbo.[uf_category_treetitle]('unit',uid)),      dbo.[uf_category_treetitle]('unit',uid)
+    
+2016/3/6 23:32:11: CURRENTPAGE=1
+2016/3/6 23:32:11: PAGESIZE=999
+2016/3/6 23:32:11:创建sysconfig配置失败初始化XmlDef对象file:E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\bin\..\Resource\datadef\sys_configset.xml错误,错误信息未能找到文件“E:\work\accondant\github\WSFrameWork.nodejs\backend\appweb\Resource\datadef\sys_configset.xml”。

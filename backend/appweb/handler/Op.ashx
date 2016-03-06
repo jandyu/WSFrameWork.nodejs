@@ -1,11 +1,11 @@
-﻿<%@ WebHandler Language="C#" Class="Login" %>
+﻿<%@ WebHandler Language="C#" Class="Op" %>
 
 using System;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Net;
 using System.IO;
-public class Login : IHttpHandler, System.Web.SessionState.IRequiresSessionState 
+public class Op : IHttpHandler, System.Web.SessionState.IRequiresSessionState 
 {
 
 
@@ -19,6 +19,24 @@ public class Login : IHttpHandler, System.Web.SessionState.IRequiresSessionState
             string ls_phone = context.Request.Form["phone"].ToString();
             ls_rtn=SendCheckCode(ls_phone);          
         }
+
+
+        if (ls_op.ToLower() == "regmaster")
+        {
+            string phone = context.Request.Form["phone"].ToString();
+            string checkcode = context.Request.Form["checkcode"].ToString();
+            string nick_name = context.Request.Form["nick_name"].ToString();
+            string password = context.Request.Form["password"].ToString();
+            string roomid = context.Request.Form["unit"].ToString();
+            MasterController masterctr = new MasterController();
+            String msg = "";
+            masterctr.RegMaster(phone, checkcode, nick_name, password, roomid,ref msg);
+            ls_rtn = msg;
+        }
+        
+        
+        
+        
         context.Response.Write(ls_rtn);
     }
 
@@ -31,13 +49,13 @@ public class Login : IHttpHandler, System.Web.SessionState.IRequiresSessionState
         _context.Session[phone] = s_code;//将手机号和随机数放置到session中，便于第二次提交注册数据时验证        
         try
         {
-
+            ls_rtn = s_code;
             //发送短信息信息到指定的手机
-            SendSMS(s_phone, "【科腾社区】注册,验证码" + s_code + ",短信编号" + s_number + "。");            
+            //SendSMS(s_phone, "【科腾社区】注册,验证码" + s_code + ",短信编号" + s_number + "。");            
         }
         catch (Exception ex)
         {
-            ls_rtn = ex.Message;              
+            ls_rtn = "";              
         }
         return ls_rtn;
     }

@@ -33,5 +33,20 @@ namespace PMS.Model
             }
         }
 
+        /// <summary>
+        /// 业主注册
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <param name="checkcode"></param>
+        /// <param name="nick_name"></param>
+        /// <param name="password"></param>
+        /// <param name="roomid"></param>
+        /// <param name="msg"></param>
+        public void RegMaster(string phone, string checkcode, string nick_name, string password, string roomid, ref string msg)
+        {
+            msg = "";
+        }
+
+
     }
 }
