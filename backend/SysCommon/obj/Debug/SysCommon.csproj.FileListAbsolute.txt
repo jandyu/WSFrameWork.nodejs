@@ -1,8 +1,0 @@
-E:\work\accondant\github\WSFrameWork.nodejs\backend\SysCommon\bin\Debug\SysCommon.dll
-E:\work\accondant\github\WSFrameWork.nodejs\backend\SysCommon\bin\Debug\SysCommon.pdb
-E:\work\accondant\github\WSFrameWork.nodejs\backend\SysCommon\obj\Debug\SysCommon.dll
-E:\work\accondant\github\WSFrameWork.nodejs\backend\SysCommon\obj\Debug\SysCommon.pdb
-D:\work\github\WSFrameWork.nodejs\backend\SysCommon\bin\Debug\SysCommon.dll
-D:\work\github\WSFrameWork.nodejs\backend\SysCommon\bin\Debug\SysCommon.pdb
-D:\work\github\WSFrameWork.nodejs\backend\SysCommon\obj\Debug\SysCommon.dll
-D:\work\github\WSFrameWork.nodejs\backend\SysCommon\obj\Debug\SysCommon.pdb
