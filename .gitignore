@@ -1,5 +1,9 @@
 #android
 android/ktwygl/bin
 backend/appweb/Resource/data
-backend/appweb/PMS.Model/bin
-backend/appweb/PMS.Model/obj
+backend/appweb/Resource/config/
+backend/appweb/bin
+backend/PMS.Model/bin
+backend/PMS.Model/obj
+backend/SysCommon/bin
+backend/SysCommon/obj

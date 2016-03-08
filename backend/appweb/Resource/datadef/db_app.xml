@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sourcedef ver="1.1">
+  <property id="datadef_data" xslid="datadef_data" title="产生xml" nextdef="none" childdef="none" dbname="cls_resource" set="" />
+  <filed>
+    <item name='rstatus' cando='order' title='编辑标识,标识'          edit='' fmt=''  validity='' expression=''                editable='false' dIndex='0'   cIndex='-2' def='2' set='' />
+
+    <item name='tableName'    cando='order' title='表名,表名'                 edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='1'   cIndex='0' def='' set='' />    
+    <item name='colName'      cando='order' title='字段名,字段名'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='2'   cIndex='1' def='' set='' />
+    <item name='cando'        cando='order' title='合计方式,合计方式'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='2' def='order' set='' />
+    <item name='memo'         cando='order' title='说明,说明'                 edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='3'   cIndex='3' def='' set='' />
+    <item name='edit'         cando='order' title='编辑类型,编辑类型'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='4' def='input' set='' />
+    <item name='fmt'          cando='order' title='输出格式,输出格式'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='5' def='' set='' />
+    <item name='validity'     cando='order' title='合法性,合法性'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='6' def='' set='' />
+    <item name='expression'   cando='order' title='正则表达式,正则表达式'     edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='7' def='' set='' />
+    <item name='editable'     cando='order' title='可否编辑,可否编辑'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='8' def='false' set='' />
+    <item name='dIndex'       cando='order' title='select顺序,select顺序'     edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='9' def='' set='' />
+    <item name='cIndex'       cando='order' title='显示顺序,显示顺序'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='10' def='' set='' />
+    <item name='defaultValue' cando='order' title='默认值,默认值'             edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='4'   cIndex='11' def='' set='' />
+    <item name='set'          cando='order' title='备用属性,备用属性'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='-2'  cIndex='12' def='' set='' />
+    <item name='colOrder'     cando='order' title='字段顺序,字段顺序'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='5'   cIndex='-12' def='' set='' />
+    <item name='IsIdentity'   cando='order' title='是否主键,是否主键'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='6'   cIndex='-13' def='' set='' />
+    <item name='pKey'         cando='order' title='是否主键,是否主键'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='7'   cIndex='-14' def='' set='' />
+    <item name='type'         cando='order' title='字段类型,字段类型'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='8'   cIndex='-15' def='' set='' />
+    <item name='bits'         cando='order' title='字段字节,字段字节'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='9'   cIndex='-16' def='' set='' />
+    <item name='length'       cando='order' title='字段长度,字段长度'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='10'  cIndex='-17' def='' set='' />
+    <item name='digit'        cando='order' title='小数位数,小数位数'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='11'  cIndex='-18' def='' set='' />
+    <item name='IsNullAble'   cando='order' title='可否为空,可否为空'         edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='12'  cIndex='-19' def='' set='' />
+    <item name='col'          cando='order' title='表名加字段名,表名加字段名' edit='input' fmt=''  validity='' expression=''  editable='false' dIndex='13'  cIndex='-20' def='' set='' />        
+  </filed>
+  <childparam>
+    <item name="" value="" />  
+  </childparam>
+  <query>
+    <condition id="title" condition="title like '%_%'" title="名称,名称或标题" edit="input" fmt="" validity="" set="" />
+  </query>
+  <data style="database" cancachefile="no" set="{usexmlnode}" conn="appdb">
+    <sql>select tableName,colName,memo,defaultValue,colOrder,IsIdentity,pKey,type,bits,length,digit,IsNullAble,col,cIndex,edit,[set],cando,selecttable
+      from wsd_systeminfo
+      where 1=1 and (#_where_#) order by tablename,colorder
+    </sql>
+    <sqlamount />
+    <wheredefault />
+    <orderbydefault />
+    <groupbydefault />
+    <havingdefault />
+    <value />
+  </data>
+</sourcedef>
