@@ -51,7 +51,7 @@ public class Op : IHttpHandler, System.Web.SessionState.IRequiresSessionState
         {
             ls_rtn = s_code;
             //发送短信息信息到指定的手机
-            //SendSMS(s_phone, "【科腾社区】注册,验证码" + s_code + ",短信编号" + s_number + "。");            
+            SendSMS(s_phone, "【科腾社区】注册,验证码" + s_code + ",短信编号" + s_number + "。");            
         }
         catch (Exception ex)
         {

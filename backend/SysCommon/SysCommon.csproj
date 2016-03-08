@@ -30,9 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fonet">
+      <HintPath>..\DLL\Fonet.dll</HintPath>
+    </Reference>
+    <Reference Include="JSON.CS">
+      <HintPath>..\DLL\JSON.CS.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +49,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="westsoft.data.xml, Version=2.13.5847.30282, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\westsoft.data.xml.dll</HintPath>
+      <HintPath>..\DLL\westsoft.data.xml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
