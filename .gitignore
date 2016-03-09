@@ -7,3 +7,5 @@ backend/PMS.Model/bin
 backend/PMS.Model/obj
 backend/SysCommon/bin
 backend/SysCommon/obj
+backend/MSGSrv/bin
+backend/MSGSrv/obj
