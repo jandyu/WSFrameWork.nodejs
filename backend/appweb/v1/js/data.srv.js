@@ -6,8 +6,8 @@ author:Rain.J
 */
 
 
-var wwwurl =".";
-$(function() { if (util.cookie("pagesize") == null) { util.cookie("pagesize", "10"); } });
+var wwwurl = ".";
+$(function () { if (util.cookie("pagesize") == null) { util.cookie("pagesize", "10"); } });
 
 var datsrv = {
 	errbox:function(info){
@@ -477,7 +477,7 @@ var datsrv = {
 
 
 //-----------------------------------------------------------------------------------------------------
-var util = {
+var util = {   
 	round:function(val,l){
 			return Math.round(val * Math.pow(10,l) ) / Math.pow(10,l)
 	},

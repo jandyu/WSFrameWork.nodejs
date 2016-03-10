@@ -23,6 +23,7 @@
 <script type="text/javascript" src="../v1/js/jquery.min.js"></script>
 <script type="text/javascript" src="../v1/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../v1/js/data.srv.js"></script>
+<script src="../v1/js/jsdal.js"></script>
 <script>
     ngsjLoad = function () {
 
@@ -79,6 +80,13 @@
 	        alert("手机号不能为空!");
 	        return;
 	    }
+
+	    //添加短信
+	    //datsrv.DatSaveSingleRow("tablename",{"c"}
+	    //util.DealMessage();//发送短信
+        //
+
+        //--------------发送验证码
 	    $.post("../handler/Op.ashx", { op: "send_checkcode", phone: ls_phone }, function (rtn) {
 	        $("#btn_getcode").attr("disabled", "true");
 	        $("#btn_reg_reg").removeAttr("disabled");//启用按钮

@@ -6,6 +6,10 @@ namespace MSGSrv.Models
     using SN.Data;
     using System.ComponentModel.DataAnnotations;
 
+
+    /// <summary>
+    ///  表名:app_resource_message
+    /// </summary>
     [SerializableAttribute()]
     public partial class app_resource_message : Entity
     {
@@ -13,6 +17,10 @@ namespace MSGSrv.Models
         /// 
         /// </summary>
         protected Int64 _iid;
+        /// <summary>
+        /// 优先级
+        /// </summary>
+        protected Int32? _priority;
         /// <summary>
         /// 
         /// </summary>
@@ -29,6 +37,10 @@ namespace MSGSrv.Models
         /// 
         /// </summary>
         protected String _info;
+        /// <summary>
+        /// 预定发送时间
+        /// </summary>
+        protected Int32? _reserve_time;
         /// <summary>
         /// 
         /// </summary>
@@ -60,6 +72,20 @@ namespace MSGSrv.Models
             {
                 this.OnPropertyValueChange(_.iid, _iid, value);
                 this._iid = value;
+            }
+        }
+
+        /// <summary>
+        /// 优先级
+        /// </summary>
+        [Display(Name = "优先级")]
+        public Int32? Priority
+        {
+            get { return this._priority; }
+            set
+            {
+                this.OnPropertyValueChange(_.priority, _priority, value);
+                this._priority = value;
             }
         }
 
@@ -112,6 +138,20 @@ namespace MSGSrv.Models
             {
                 this.OnPropertyValueChange(_.info, _info, value);
                 this._info = value;
+            }
+        }
+
+        /// <summary>
+        /// 预定发送时间
+        /// </summary>
+        [Display(Name = "预定发送时间")]
+        public Int32? Reserve_time
+        {
+            get { return this._reserve_time; }
+            set
+            {
+                this.OnPropertyValueChange(_.reserve_time, _reserve_time, value);
+                this._reserve_time = value;
             }
         }
 
@@ -215,10 +255,12 @@ namespace MSGSrv.Models
         {
             return new Field[] {
                     _.iid,
+                    _.priority,
                     _.target_type,
                     _.target,
                     _.title,
                     _.info,
+                    _.reserve_time,
                     _.send_time,
                     _.status,
                     _.try_times,
@@ -233,10 +275,12 @@ namespace MSGSrv.Models
         {
             return new object[] {
                         this._iid,
+                        this._priority,
                         this._target_type,
                         this._target,
                         this._title,
                         this._info,
+                        this._reserve_time,
                         this._send_time,
                         this._status,
                         this._try_times,
@@ -253,6 +297,10 @@ namespace MSGSrv.Models
             {
                 this._iid = reader.GetInt64(_.iid);
             }
+            if ((false == reader.IsDBNull(_.priority)))
+            {
+                this._priority = reader.GetInt32(_.priority);
+            }
             if ((false == reader.IsDBNull(_.target_type)))
             {
                 this._target_type = reader.GetInt32(_.target_type);
@@ -268,6 +316,10 @@ namespace MSGSrv.Models
             if ((false == reader.IsDBNull(_.info)))
             {
                 this._info = reader.GetString(_.info);
+            }
+            if ((false == reader.IsDBNull(_.reserve_time)))
+            {
+                this._reserve_time = reader.GetInt32(_.reserve_time);
             }
             if ((false == reader.IsDBNull(_.send_time)))
             {
@@ -326,6 +378,11 @@ namespace MSGSrv.Models
             public static Field iid = new Field<app_resource_message>("iid");
 
             /// <summary>
+            /// 优先级 - 字段名：priority -  数据类型：Int32?
+            /// </summary>
+            public static Field priority = new Field<app_resource_message>("priority");
+
+            /// <summary>
             ///  - 字段名：target_type -  数据类型：Int32?
             /// </summary>
             public static Field target_type = new Field<app_resource_message>("target_type");
@@ -344,6 +401,11 @@ namespace MSGSrv.Models
             ///  - 字段名：info -  数据类型：String
             /// </summary>
             public static Field info = new Field<app_resource_message>("info");
+
+            /// <summary>
+            /// 预定发送时间 - 字段名：reserve_time -  数据类型：Int32?
+            /// </summary>
+            public static Field reserve_time = new Field<app_resource_message>("reserve_time");
 
             /// <summary>
             ///  - 字段名：send_time -  数据类型：DateTime?
