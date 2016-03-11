@@ -67,8 +67,9 @@
 
 
 	var InterValObj; //timer变量，控制时间
-	var count = 90; //间隔函数，1秒执行
+	var count = 120; //间隔函数，1秒执行
 	var curCount;//当前剩余秒数
+	var msg_iid = "0";
 
 	function sendMessage() {
 	    curCount = count;
@@ -76,31 +77,32 @@
 	    
 	    //向后台发送处理数据
 	    var ls_phone = $("#edit_phone").val();
-	    if (ls_phone == "") {
-	        alert("手机号不能为空!");
+	    if (!util.IsPhone(ls_phone)) {
+	        alert("手机号输入有误!");
 	        return;
 	    }
 
-	    //添加短信
-	    //datsrv.DatSaveSingleRow("tablename",{"c"}
-	    //util.DealMessage();//发送短信
-        //
+	    if (ls_phone=="") {
+	        alert("手机号不能为空!");
+	        return;
+	    }
+	   
 
-        //--------------发送验证码
-	    $.post("../handler/Op.ashx", { op: "send_checkcode", phone: ls_phone }, function (rtn) {
+	    //添加短信	    
+	    jsondal.Exec("sp_send_message", { phone: ls_phone }, function (rtn) {
+	        msg_iid = jsondal.AnaRtn(rtn);
+	        //send message
+	        jsondal.DealMessage();
+
+	        //set button status
 	        $("#btn_getcode").attr("disabled", "true");
 	        $("#btn_reg_reg").removeAttr("disabled");//启用按钮
 	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码");
 
-            //记录对比验证码
-	        $("#edit_checkcode_re").val(rtn);
-	        if (rtn != "") {
-	            $("#edit_checkcode").val(rtn);
-	        }
-
 	        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+	    }, function (rtn) {
+	        console.info(rtn);
 	    });
-        
 	}
 	function SetRemainTime() {
 	    if (curCount == 0) {
@@ -119,10 +121,11 @@
 	function funReg(step) {
 	    var s_phone = $("#edit_phone").val();
 	    var s_checkcode = $("#eidt_checkcode").val();
-	    var s_checkcode_re = $("#eidt_checkcode_re").val();
+	    var s_name = $("#edit_name").val();
 	    var s_nick_name = $("#edit_nick_name").val();
 	    var s_password = $("#edit_password").val();
 	    var s_unit = $("#unit").val();
+	    var s_iid = msg_iid;
         //注册下一步
 	    if (step == "1") {
 	        
@@ -130,16 +133,14 @@
 	            alert("手机号不能为空!");
 	            return;
 	        }
-
 	        
 	        if (s_checkcode == "") {
 	            alert("请输入验证码!");
 	            return;
-	        }
+	        }	    
 
-	    
-	        if (s_checkcode != s_checkcode_re) {
-	            alert("验证码输入有误");
+	        if (s_name == "") {
+	            alert("业主姓名不能为空!");
 	            return;
 	        }
 
@@ -151,15 +152,40 @@
 	            alert("密码不能为空!");
 	            return;
 	        }
-            //
-	        window.clearInterval(InterValObj);//停止计时器
-	        $("#btn_getcode").text("重新发送验证码");
 
-	        changeUI("reg1");
+	        //check code
+	        jsondal.Exec("sp_check_code", { iid: s_iid, code: s_checkcode }, function (rtn) {
+	            var rtn = jsondal.AnaRtn(rtn);
+	            if (rtn.indexOf('0') == 0) {
+	                window.clearInterval(InterValObj);//停止计时器
+	                $("#btn_getcode").text("重新发送验证码");
+
+	                var o_arr = rtn.split(",");
+	                if (o_arr.length == 3) {
+	                    var uid = o_arr[1];
+	                    var uname = o_arr[2];
+	                    $("#unitname").val(uname);
+	                    $("#unit").val(uid);
+	                    $(".regstep2-btn").show();
+	                }
+	                changeUI("reg1");
+	            }	            
+	        }, function (rtn) {
+	            console.info(rtn);
+	        });
+	        
 	    }
 	    //立即注册
 	    if (step == "2") {
-
+	        jsondal.Exec("sp_user_reg", { iid: s_iid, code: s_checkcode ,phone:s_phone,name:s_name,nick_name:s_nick_name,password:s_password,unit:s_unit}, function (rtn) {
+	            var rtn = jsondal.AnaRtn(rtn);
+	            if (rtn.indexOf('0') == 0) {
+	                alert("注册成功");
+	            }
+	        }, function (rtn) {
+	            alert("注册失败：" + rtn);
+	        });
+            /*
 	        $.post("../handler/Op.ashx", { op: "regmaster", phone: s_phone, checkcode: s_checkcode,nick_name:s_nick_name,password:s_password,unit:s_unit }, function (rtn) {
 	            if (rtn == "") {
 	                alert("注册成功");
@@ -168,6 +194,7 @@
 	                alert("注册失败："+rtn);
 	            }
 	        });
+            */
 	    }
 
 
@@ -214,10 +241,14 @@
         <div class="row list regstep1">				
 		    <div class="col-xs-3">验证码</div>		
 		    <div class="col-xs-4"><input class="form-control" id="edit_checkcode" name="edit_checkcode" value="" placeholder="请输验证码" /> </div>					
-            <div class="col-xs-5"><button type="button" class="btn btn-default" id="btn_getcode" onclick="sendMessage()">获取验证码</button>
-                <input type="hidden" id="edit_checkcode_re" name="edit_checkcode_re" />
+            <div class="col-xs-5"><button type="button" class="btn btn-default" id="btn_getcode" onclick="sendMessage()">获取验证码</button>                
             </div>		
 	    </div>	
+
+        <div class="row list regstep1">				
+		    <div class="col-xs-3">姓 名</div>		
+		    <div class="col-xs-6"><input class="form-control" id="edit_name" name="edit_name" value="" placeholder="请输入姓名" /> </div>					
+	    </div>
 
         <div class="row list regstep1">				
 		    <div class="col-xs-3">昵 称</div>		
