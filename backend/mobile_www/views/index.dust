@@ -1,0 +1,31 @@
+{>layout /}
+
+{<pagescript}
+
+{/pagescript}
+{<title}
+{title}
+{/title}
+
+{<body}
+
+
+<div class="row">
+    slide list
+</div>
+
+<div class="row">
+    1,2,3,4
+</div>
+<div class="row">
+    1,2,3,4
+</div>
+
+<div class="row">
+    success case
+</div>
+
+{/body}
+
+
+

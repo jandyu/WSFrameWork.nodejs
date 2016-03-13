@@ -9,3 +9,6 @@ backend/SysCommon/bin
 backend/SysCommon/obj
 backend/MSGSrv/bin
 backend/MSGSrv/obj
+
+
+.DS_Store
