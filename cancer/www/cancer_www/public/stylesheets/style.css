@@ -1,13 +1,81 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.row{
+  padding: 0px;
+  margin: 0px;
 }
 
-a {
-  color: #00B7FF;
+.topbar{
+  height:92px;
+
+  padding: 0px;
+  margin: 0px;
+}
+.topbar>div.logo  {
+  padding: 0px;
+  margin: 0px;
+  min-width:280px;
+}
+.topbar>div.logo>img  {
+  width:280px;
+  bottom: 0px;
+  margin-top:8px;
+}
+
+.topbar>div.menu {
+  line-height: 50px;
+  background:url(../images/menubarback.png) repeat-x;
+
+}
+.menu>.nav-tabs{
+  border-bottom: 0px;
+  color:white;
+}
+.menu>.nav-tabs a {
+  color:white;
+  border: 0px;
 }
 
 
-@media screen {
-
+.menu>.nav-tabs a:hover {
+  color:black;
+  background: white;
+  font-weight: 600;
+  border: 0px;
 }
+
+
+/*
+slide
+*/
+
+.slide{
+  padding: 0px;
+  margin: 0px;
+}
+.slide img{
+  width:100%;
+}
+
+.slideimg{
+  padding: 0px;
+  margin: 0px;
+}
+
+.slideidxdiv{
+  margin-top : -90px;
+}
+
+.slideidx{
+  height:70px;
+}
+.slideidx img{
+  margin-top: 10px;
+  width:100%;
+  border:0px;
+  border-radius: 5px;"
+}
+.curridx{
+  border:5px solid white;
+  border-radius: 10px;"
+}
+
