@@ -4,17 +4,18 @@
 {title}
 <div class="row topbar hidden-lg">
     <div class="col-xs-2" style="padding-top: 50px">
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span class="glyphicon glyphicon-th-list"></span>
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    {#menu}
-                    <li><a href="{link}">{title}</a></li>
-                    {/menu}
-                </ul>
-            </div>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                <span class="glyphicon glyphicon-th-list"></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {#menu}
+                <li><a href="{link}">{title}</a></li>
+                {/menu}
+            </ul>
+        </div>
     </div>
     <div class="col-xs-10 logo">
         <img src="{logo.img}">
@@ -26,7 +27,7 @@
     <div class="col-sm-3 logo">
         <img src="{logo.img}">
     </div>
-    <div class="col-sm-9 menu" >
+    <div class="col-sm-9 menu">
         <br/>
         <ul class="nav nav-tabs">
             {#menu}

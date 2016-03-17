@@ -335,7 +335,42 @@ var lifestar = {
                         {img:"/images/home/slide4.jpg",link:""},
                         {img:"/images/home/slide5.jpg",link:""},
                         {img:"/images/home/slide6.jpg",link:""}
-                    ]
+                    ],
+                    footer:[
+                        {title:"关于星生命",
+                            link:[
+                                {title:'我们是谁',link:''},
+                                {title:'新闻',link:''},
+                                {title:'广告',link:''},
+                                {title:'职业',link:''},
+                                {title:'赞助商',link:''},
+                                {title:'加盟计划',link:''},
+                            ]
+                        },
+                        {title:"帮助",
+                            link:[
+                                {title:'网站导航',link:''},
+                                {title:'系统要求',link:''}
+                            ]
+                        },
+                        {title:"联系方式",
+                            link:[
+                                {title:'找到一个星生命的会议',link:''},
+                                {title:'社区',link:''},
+                                {title:'联系我们',link:''},
+                                {title:'微信二维码',link:''}
+                            ]
+                        }
+                    ],
+                    policy:{
+                        link:[
+                            {title:"International Sites",link:""},
+                            {title:"Privacy Policy",link:""},
+                            {title:"Notice of Privacy Practices",link:""},
+                            {title:"Terms and Conditions",link:""}
+                        ],
+                        desc:"© 2016 星生命 International, Inc. All rights reserved."
+                    }
                 }
             }
         })

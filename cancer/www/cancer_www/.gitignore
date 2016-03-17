@@ -30,3 +30,7 @@ build/Release
 node_modules
 
 .Ds_Store
+
+log
+../*.zip
+

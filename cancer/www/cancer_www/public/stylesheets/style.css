@@ -62,15 +62,21 @@ slide
 }
 
 .slideidxdiv{
-  margin-top : -90px;
+  margin-top : -105px;
+  height:105px;
 }
 
 .slideidx{
   height:70px;
+  text-align: center;
 }
 .slideidx img{
   margin-top: 10px;
-  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+
+  width:100px;
+
   border:0px;
   border-radius: 5px;"
 }
@@ -79,3 +85,8 @@ slide
   border-radius: 10px;"
 }
 
+.headimg{
+  height:135px;
+  width:135px;
+  border-radius: 50px;
+}

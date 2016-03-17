@@ -1,8 +1,38 @@
-<div class="row">
-    link
+<div style="clear: both"></div>
+<div class="row"
+     style="padding-top:30px; padding-left:30px; height:214px;background: url(/images/home/footerback.jpg) 50% 0% no-repeat;">
+    <div class="row" style="max-width:900px;margin-left: auto;margin-right: auto">
+        {#footer}
+        <div class="col-sm-4">
+            <div class="row" style="height:40px;line-height:40px;font-weight:800;border-bottom: 1px solid gray">
+                {title}
+            </div>
+            {#link}
+            <div class="row">
+                {title}
+            </div>
+            {/link}
+        </div>
+        {/footer}
+
+    </div>
 </div>
 
+<div class="row" style="padding-top:30px; padding-left:30px;">
 
-<div class="row">
-    about
+    <div class="row text-center" style="max-width:500px;margin-left: auto;margin-right: auto;">
+        <ul class="nav ">
+            {#policy.link}
+            <li> {title}</li>
+            {/policy.link}
+        </ul>
+        <p>
+            {policy.desc}
+        </p>
+
+        <p>
+            <img src="{logo.img}">
+        </p>
+    </div>
+
 </div>

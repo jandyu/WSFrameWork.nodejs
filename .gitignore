@@ -11,4 +11,7 @@ backend/MSGSrv/bin
 backend/MSGSrv/obj
 
 
+cancer/doc
+*.~$lock
+*.zip
 .DS_Store
