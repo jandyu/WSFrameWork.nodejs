@@ -320,7 +320,7 @@ var lifestar = {
                     logo:{img:"/images/logo.png",link:''},
                     menu:[
                         {title:"首页",link:"/index"},
-                        {title:"为什么叫星生命",link:"/index"},
+                        {title:"为什么星生命",link:"/index"},
                         {title:"我的医疗条件如何选择",link:"/index"},
                         {title:"向别人学习",link:"/index"},
                         {title:"支持服务",link:"/index"},
@@ -370,8 +370,75 @@ var lifestar = {
                             {title:"Terms and Conditions",link:""}
                         ],
                         desc:"© 2016 星生命 International, Inc. All rights reserved."
-                    }
+                    },
+                    succ:[
+                        {head:"/images/home/head1.jpg",desc:"琳达是一位癌症幸存者…. 也许你忧伤的坐着, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                        {head:"/images/home/head2.jpg",desc:"珍妮是一个癌症幸存者 …. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                        {head:"/images/home/head3.jpg",desc:"安妮是一个癌症幸存者 …. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                    ]
+                },
+                whylf:{
+                    logo:{img:"/images/logo.png",link:''},
+                    menu:[
+                        {title:"首页",link:"/index"},
+                        {title:"为什么星生命",link:"/index"},
+                        {title:"我的医疗条件如何选择",link:"/index"},
+                        {title:"向别人学习",link:"/index"},
+                        {title:"支持服务",link:"/index"},
+                        {title:"星生命故事",link:"/index"},
+                        {title:"登录",link:"/index"},
+                        {title:"用户信息",link:"/index"}
+                    ],
+                    slide:[
+                        {img:"/images/home/slide1.jpg",link:""},
+                        {img:"/images/home/slide2.jpg",link:""},
+                        {img:"/images/home/slide3.jpg",link:""},
+                        {img:"/images/home/slide4.jpg",link:""},
+                        {img:"/images/home/slide5.jpg",link:""},
+                        {img:"/images/home/slide6.jpg",link:""}
+                    ],
+                    footer:[
+                        {title:"关于星生命",
+                            link:[
+                                {title:'我们是谁',link:''},
+                                {title:'新闻',link:''},
+                                {title:'广告',link:''},
+                                {title:'职业',link:''},
+                                {title:'赞助商',link:''},
+                                {title:'加盟计划',link:''},
+                            ]
+                        },
+                        {title:"帮助",
+                            link:[
+                                {title:'网站导航',link:''},
+                                {title:'系统要求',link:''}
+                            ]
+                        },
+                        {title:"联系方式",
+                            link:[
+                                {title:'找到一个星生命的会议',link:''},
+                                {title:'社区',link:''},
+                                {title:'联系我们',link:''},
+                                {title:'微信二维码',link:''}
+                            ]
+                        }
+                    ],
+                    policy:{
+                        link:[
+                            {title:"International Sites",link:""},
+                            {title:"Privacy Policy",link:""},
+                            {title:"Notice of Privacy Practices",link:""},
+                            {title:"Terms and Conditions",link:""}
+                        ],
+                        desc:"© 2016 星生命 International, Inc. All rights reserved."
+                    },
+                    succ:[
+                        {head:"/images/home/head1.jpg",desc:"琳达是一位癌症幸存者…. 也许你忧伤的坐着, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                        {head:"/images/home/head2.jpg",desc:"珍妮是一个癌症幸存者 …. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                        {head:"/images/home/head3.jpg",desc:"安妮是一个癌症幸存者 …. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                    ]
                 }
+
             }
         })
 };

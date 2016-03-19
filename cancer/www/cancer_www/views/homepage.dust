@@ -1,0 +1,161 @@
+{>layout /}
+
+{<pagescript}
+    <script>
+        $(function () {
+            var currslideidx = 0;
+            var tm = 0;
+            setindex = function (idx) {
+                currslideidx = idx;
+                slidepic();
+            }
+
+            slidepic = function () {
+                clearTimeout(tm);
+                currslideidx = (currslideidx > 5) ? 0 : currslideidx;
+                $(".slideimg").hide();
+                $("#slideimg" + currslideidx).show();
+                $(".slideidx").removeClass("curridx");
+                $("#imgidx" + currslideidx).addClass("curridx");
+                currslideidx++;
+                tm = setTimeout(slidepic, 5000);
+            }
+            slidepic();
+        });
+
+    </script>
+{/pagescript}
+{<title}
+    Welcome lifestar
+{/title}
+
+{<body}
+    <div class="visible-lg-block" style="position: fixed;top:180px;right:100px;z-index:1000;background-color:blue;border-radius: 10px;box-shadow: 5px 5px 3px #888888;"><img src="/images/home/float_button.png" ></div>
+    <div class="hidden-lg" style="position: fixed;top:180px;right:10px;z-index:1000;background-color:white;border-radius: 3px;"><img src="/images/home/float_button.png" style="width:100px"></div>
+    <div style="clear: both"></div>
+    <div class="row hidden-lg">
+        <img src="{slide[0].img}" style="width:100%">
+    </div>
+    <div class="row slide visible-lg-block" style="height:578px;">
+        {#slide}
+            {@eq key=$idx value=0}
+                <div class="col-sm-12 slideimg " id="slideimg{$idx}"
+                     style="height:578px;background: url({img}) 50% 0% no-repeat;">
+                    &nbsp;
+                </div>
+
+            {:else}
+                <div class="col-sm-12 slideimg" id="slideimg{$idx}"
+                     style="display:none;height:578px;background: url( {img} ) 50% 0% no-repeat;">
+                    &nbsp;
+                </div>
+            {/eq}
+        {/slide}
+    </div>
+    <div style="clear: both"></div>
+    <div class="row slideidxdiv visible-lg-block">
+        <div class="col-sm-8 col-sm-offset-2" style="height:50px;">
+            {#slide}
+                {@eq key=$idx value=0}
+                    <div class="col-sm-2 slideidx curridx" id="imgidx{$idx}" onclick="setindex({$idx})">
+                        <img src="{img}">
+                    </div>
+                {:else}
+                    <div class="col-sm-2 slideidx" id="imgidx{$idx}" onclick="setindex({$idx})">
+                        <img src="{img}">
+                    </div>
+                {/eq}
+            {/slide}
+        </div>
+
+    </div>
+    <div style="clear: both"></div>
+
+    <div class="row visible-lg-block" style="background: url(/images/home/methodback.png) repeat-x">
+        <div class="col-sm-12" style="height:757px;background: url(/images/home/method.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row hidden-lg">
+        <img src="/images/home/method.jpg" style="width: 100%">
+    </div>
+    <div class="row" style="padding-bottom:20px;background-color: rgb(160,255,255)">
+        <div class="hidden-sm hidden-xs" style="max-width:1040px;margin-left: auto;margin-right: auto">
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method1.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method2.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method3.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method4.jpg">
+            </div>
+        </div>
+        <div class="visible-xs-block visible-sm-block" style="max-width:360px;margin-left: auto;margin-right: auto">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="/images/home/method1.jpg" style="width:100%">
+                </div>
+                <div class="col-xs-6">
+                    <img src="/images/home/method2.jpg" style="width:100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="/images/home/method3.jpg" style="width:100%">
+                </div>
+                <div class="col-xs-6">
+                    <img src="/images/home/method4.jpg" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row visible-lg-block" style="background-color:white;text-center">
+        <div class="col-sm-12" style="height:60px;background: url(/images/home/succtitle.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+        <div style="clear: both"></div>
+        {#succ}
+            <div class="row" style="height:150px;max-width:950px;margin-left: auto;margin-right: auto">
+                <div class="col-sm-3">
+                    <img src="{head}" class="headimg">
+                </div>
+                <div class="col-sm-9" style="border-bottom: 1px dotted  gray">
+                    <p style="padding-top:30px;line-height:25px;text-indent: 40px;">
+                        {desc}
+                    </p>
+                </div>
+            </div>
+        {/succ}
+    </div>
+
+    <div class="row hidden-lg" style="background-color:white;text-center">
+        <div class="col-sm-12" style="height:60px;background: url(/images/home/succtitle.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+        <div style="clear: both"></div>
+        {#succ}
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <img src="{head}" class="headimg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="border-bottom: 1px dotted  gray">
+                    <p style="padding-top:30px;line-height:25px;text-indent: 40px;">
+                        {desc}
+                    </p>
+                </div>
+            </div>
+        {/succ}
+    </div>
+
+{/body}
+
+
+

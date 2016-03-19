@@ -3,10 +3,22 @@ var router = express.Router();
 var lifestar = require("../lib/lifestar");
 var logger = require("../lib/log").sqllog;
 
-/* GET home page. */
-router.get('/', function (req, res) {
-    logger.info(lifestar.resource.data.homepage);
-    res.render('index', lifestar.resource.data.homepage);
+
+
+/* GET level 1 page. */
+router.get('/:m?', function (req, res) {
+    var pageName = req.params.m;
+    logger.info(pageName);
+
+    var viewName = (pageName==undefined)?"homepage":pageName;
+    var viewData = lifestar.resource.data[viewName];
+
+    logger.info(viewData);
+    res.render(viewName, viewData);
+
 });
+
+
+
 
 module.exports = router;
