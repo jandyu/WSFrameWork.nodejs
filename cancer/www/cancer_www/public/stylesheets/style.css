@@ -62,13 +62,14 @@ slide
 }
 
 .slideidxdiv{
-  margin-top : -105px;
+  margin-top : -95px;
   height:105px;
 }
 
 .slideidx{
   height:70px;
   text-align: center;
+  padding: 0px;
 }
 .slideidx img{
   margin-top: 10px;
@@ -81,7 +82,7 @@ slide
   border-radius: 5px;"
 }
 .curridx{
-  border:5px solid white;
+  border:2px solid white;
   border-radius: 10px;"
 }
 
@@ -90,3 +91,158 @@ slide
   width:135px;
   border-radius: 50px;
 }
+
+
+.lf_button_default{
+  font-size:18pt;
+  color:white;
+  border-radius: 25px;
+  border:0px;
+  height:40px;
+  width:180px;
+  background-color: rgb(0,54,100);
+}
+
+/*select-------------------------------------*/
+.lf_select {
+  display: inline-block;
+  /* 1 */
+  position: relative;
+  /* 2 */
+  vertical-align: middle;
+  /* 3 */
+  padding: 0;
+  /* 4 */
+  overflow: hidden;
+  /* 5 */
+  background: #fff;
+  color: #555;
+  border: 1px solid #aaa;
+  text-shadow: none;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-transition: box-shadow 0.25s ease;
+  -o-transition: box-shadow 0.25s ease;
+  -webkit-transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
+  /* 6 */
+  /* 6 */
+}
+.lf_select:hover {
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.lf_select:before {
+  position: absolute;
+  /* 7 */
+  top: 0.5em;
+  /* 7 */
+  right: 0.5em;
+  /* 7 */
+  pointer-events: none;
+  /* 8 */
+}
+.lf_select select {
+  cursor: pointer;
+  /* 9 */
+  padding: 0.5em;
+  /* 10 */
+  padding-right: 2em;
+  /* 11 */
+  width: 130%;
+  /* 12 */
+  border: none;
+  /* 13 */
+  background: transparent;
+  /* 13 */
+  background-image: none;
+  /* 13 */
+  -webkit-appearance: none;
+  /* 13 */
+  -moz-appearance: none;
+  /* 13 */
+  appearance: none;
+  /* 13 */
+  text-indent: 0.01px;
+  /* 14 */
+  text-overflow: '';
+  /* 14 */
+  width: 160% \9;
+  /* 15 */
+}
+.lf_select select:focus {
+  outline: none;
+  /* 16 */
+}
+
+/****************************
+ ****************************
+ ****************************
+ * Helpers
+ */
+.lf_select:before {
+  font-family: "icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--down:before, .lf_select:before {
+  content: "\e600";
+}
+
+@font-face {
+  font-family: 'icons';
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAARgAAoAAAAABBgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAANgAAADYZbVvCE9TLzIAAAHMAAAAYAAAAGAIIvy2Y21hcAAAAiwAAABMAAAATBpVzFdnYXNwAAACeAAAAAgAAAAIAAAAEGhlYWQAAAKAAAAANgAAADYAl8viaGhlYQAAArgAAAAkAAAAJANuAeZobXR4AAAC3AAAABQAAAAUAwAAdG1heHAAAALwAAAABgAAAAYABVAAbmFtZQAAAvgAAAFFAAABRVcZpu5wb3N0AAAEQAAAACAAAAAgAAMAAAEABAQAAQEBCGljb21vb24AAQIAAQA6+BwC+BsD+BgEHgoAGVP/i4seCgAZU/+LiwwHi2v4lPh0BR0AAAB2Dx0AAAB7ER0AAAAJHQAAAM8SAAYBAQgPERMWG2ljb21vb25pY29tb29udTB1MXUyMHVFNjAwAAACAYkAAwAFAQEEBwoNTPyUDvyUDvyUDvuUDvgg958VgYD7AiOLi4aFg4iEi4SLg46GkYuL+wLzgZaAloqel5eWlpqMmX8I7yvv6wWZl5qKloCXf4p4gIAIDviUFPiUFYsMCgADAgABkAAFAAABTAFmAAAARwFMAWYAAAD1ABkAhAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAEAAAOYAAeD/4P/gAeAAIAAAAAEAAAAAAAAAAAAAACAAAAAAAAIAAAADAAAAFAADAAEAAAAUAAQAOAAAAAoACAACAAIAAQAg5gD//f//AAAAAAAg5gD//f//AAH/4xoEAAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAQAAss1nQF8PPPUACwIAAAAAAM/2xdgAAAAAz/bF2AAAAAABjAE1AAAACAACAAAAAAAAAAEAAAHg/+AAAAIAAAAAAAGMAAEAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAQAAAAIAAHQAAFAAAAUAAAAAAA4ArgABAAAAAAABAA4AAAABAAAAAAACAA4ARwABAAAAAAADAA4AJAABAAAAAAAEAA4AVQABAAAAAAAFABYADgABAAAAAAAGAAcAMgABAAAAAAAKADQAYwADAAEECQABAA4AAAADAAEECQACAA4ARwADAAEECQADAA4AJAADAAEECQAEAA4AVQADAAEECQAFABYADgADAAEECQAGAA4AOQADAAEECQAKADQAYwBpAGMAbwBtAG8AbwBuAFYAZQByAHMAaQBvAG4AIAAxAC4AMABpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuAFIAZQBnAHUAbABhAHIAaQBjAG8AbQBvAG8AbgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAC4AAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*icons*/
+.lf-icon{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width:120px;
+  height:120px;
+  background-image: url(/images/icons.png);
+}
+
+
+.lf-icon-forum{
+  background-position: -241px -121px;
+}
+.lf-icon-coach{
+  background-position: -121px -121px;
+}
+.lf-icon-second{
+  background-position: 0px -121px;
+}
+
+
+.lf-icon-usa{
+  background-position: 0px 0px;
+}
+.lf-icon-travl{
+  background-position: -121px 0px;
+}
+.lf-icon-test{
+  background-position: -241px 0px;
+}
+.lf-icon-look{
+  background-position: -361px 0px;
+}
+.lf-icon-case{
+  background-position: -481px 0px;
+}
+
+
+

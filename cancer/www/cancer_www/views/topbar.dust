@@ -11,28 +11,28 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                {#menu}
+                {#layout.menu}
                     <li><a href="{link}">{title}</a></li>
-                {/menu}
+                {/layout.menu}
             </ul>
         </div>
     </div>
     <div class="col-xs-10 logo">
-        <img src="{logo.img}" style="width:100%;max-width:280px">
+        <img src="{layout.logo.img}" style="width:100%;max-width:280px">
     </div>
 
 </div>
 
 <div class="row topbar  hidden-sm hidden-xs">
     <div class="col-xs-3 logo">
-        <img src="{logo.img}">
+        <img src="{layout.logo.img}">
     </div>
     <div class="col-xs-9 menu">
         <br/>
         <ul class="nav nav-tabs">
-            {#menu}
+            {#layout.menu}
                 <li><a href="{link}">{title}</a></li>
-            {/menu}
+            {/layout.menu}
         </ul>
     </div>
 </div>

@@ -1,0 +1,85 @@
+{>layout /}
+
+{<pagescript}
+
+{/pagescript}
+{<title}
+    Why lifestar
+{/title}
+
+{<body}
+
+
+
+    <div style="clear: both"></div>
+
+    <div class="row" style="background: url(/images/home/methodback.png) repeat-x">
+        <div class="col-sm-12" style="height:579px;background: url(/images/why/why1.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row" style="background: url(/images/home/methodback.png) repeat-x">
+        <div class="col-sm-12" style="height:210px;background: url(/images/why/method.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row" style="background: url(/images/home/methodback.png) repeat-x">
+        <div class="col-sm-12" style="height:402px;background: url(/images/why/four.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+    </div>
+
+
+    <div class="row" style="padding-bottom:20px;background-color: white">
+        <div class="hidden-sm hidden-xs" style="max-width:1040px;margin-left: auto;margin-right: auto">
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method1.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method2.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method3.jpg">
+            </div>
+            <div class="col-sm-3" style="min-width:240px">
+                <img src="/images/home/method4.jpg">
+            </div>
+        </div>
+        <div class="visible-xs-block visible-sm-block" style="max-width:360px;margin-left: auto;margin-right: auto">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="/images/home/method1.jpg" style="width:100%">
+                </div>
+                <div class="col-xs-6">
+                    <img src="/images/home/method2.jpg" style="width:100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="/images/home/method3.jpg" style="width:100%">
+                </div>
+                <div class="col-xs-6">
+                    <img src="/images/home/method4.jpg" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="background: url(/images/home/methodback.png) repeat-x">
+        <div class="col-sm-12" style="height:70px;background: url(/images/why/videot.jpg) 50% 0% no-repeat;">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <video src="http://images.apple.com/media/cn/iphone-6s/2015/dhs3b549_75f9_422a_9470_4a09e709b350/tv-spots/hey-siri/iphone6s-hey-siri-cn-20151203_1920x1080l.mp4"
+               controls="controls" loop="loop" proload="auto" width="900" height="480"></video>
+
+    </div>
+
+    <div class="row text-center"><img src="/images/home/float_button.png"></div>
+
+{/body}
+
+
+

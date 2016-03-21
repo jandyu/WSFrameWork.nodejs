@@ -30,7 +30,7 @@
 {/title}
 
 {<body}
-    <div class="visible-lg-block" style="position: fixed;top:180px;right:100px;z-index:1000;background-color:blue;border-radius: 10px;box-shadow: 5px 5px 3px #888888;"><img src="/images/home/float_button.png" ></div>
+    <div class="visible-lg-block" style="position: fixed;top:180px;right:100px;z-index:1000;background-color:#ccffff;border-radius: 10px;box-shadow: 5px 5px 3px rgba(204,204,204,0.5);"><img src="/images/home/float_button.png" ></div>
     <div class="hidden-lg" style="position: fixed;top:180px;right:10px;z-index:1000;background-color:white;border-radius: 3px;"><img src="/images/home/float_button.png" style="width:100px"></div>
     <div style="clear: both"></div>
     <div class="row hidden-lg">

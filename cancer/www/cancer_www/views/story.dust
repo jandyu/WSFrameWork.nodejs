@@ -1,0 +1,31 @@
+{>layout /}
+
+{<pagescript}
+
+{/pagescript}
+{<title}
+    Success stroies
+{/title}
+
+{<body}
+
+
+
+    <div style="clear: both"></div>
+
+    <div class="row">
+        <div class="col-sm-12" style="height:579px;background: url(/images/story/background.jpg) 50% 0% no-repeat;">
+            <div style="margin-left: 50%;padding-left:40px">
+                <video src="http://images.apple.com/media/cn/iphone-6s/2015/dhs3b549_75f9_422a_9470_4a09e709b350/tv-spots/hey-siri/iphone6s-hey-siri-cn-20151203_1920x1080l.mp4"
+                       controls="controls" loop="loop" autoplay="auto" width="510" height="320"></video>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{/body}
+
+
+
