@@ -21,15 +21,15 @@
     <div class="row hidden-xs" style="padding-bottom:20px;background-color: rgb(160,255,255)">
         <div class="row" style="margin-top:35px;height:200px;max-width:1040px;margin-left: auto;margin-right: auto">
             {#link}
+                <a href="{href}">
+                    <div class="col-sm-4 text-center"
+                        {@sep}  style="border-right:1px solid black" {/sep}>
 
-                <div class="col-sm-4 text-center"
-                    {@sep}  style="border-right:1px solid black" {/sep}>
-
-                    <span class="lf-icon {icon}"/>&nbsp;</span>
-                    <label style="margin-top: 23px;font-size: 20pt;color:black">{title}</label><br>
-                    <label style="color:gray;font-size:13pt">{subtitle}</label>
-                </div>
-
+                        <span class="lf-icon {icon}"/>&nbsp;</span>
+                        <label style="margin-top: 23px;font-size: 20pt;color:black">{title}</label><br>
+                        <label style="color:gray;font-size:13pt">{subtitle}</label>
+                    </div>
+                </a>
             {/link}
         </div>
     </div>
@@ -37,14 +37,14 @@
     <div class="row visible-xs">
         <div class="row" style="margin-top:35px;background-color: rgb(160,255,255)">
             {#link}
+                <a href="{href}">
+                    <div class="row text-center" style="margin-top: 15px;margin-bottom: 15px">
 
-                <div class="row text-center" style="margin-top: 15px;margin-bottom: 15px">
-
-                    <span class="lf-icon {icon}"/>&nbsp;</span>
-                    <label style="margin-top: 23px;font-size: 20pt;color:black">{title}</label><br>
-                    <label style="color:gray;font-size:13pt">{subtitle}</label>
-                </div>
-
+                        <span class="lf-icon {icon}"/>&nbsp;</span>
+                        <label style="margin-top: 23px;font-size: 20pt;color:black">{title}</label><br>
+                        <label style="color:gray;font-size:13pt">{subtitle}</label>
+                    </div>
+                </a>
             {/link}
         </div>
 

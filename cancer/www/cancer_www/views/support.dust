@@ -25,20 +25,22 @@
             <div class="row hidden-xs"
                  style="margin-top:120px;height:200px;max-width:1040px;margin-left: auto;margin-right: auto">
                 {#link}
-                    <div class="col-sm-2 text-center {@first} col-sm-offset-1 {/first}">
-                        <span class="lf-icon {icon}"/>&nbsp;</span>
-                        <label style="margin-top: 23px;font-size: 15pt;color:rgb(0,54,100)">{title}</label><br>
-                    </div>
-
+                    <a href="{href}">
+                        <div class="col-sm-2 text-center {@first} col-sm-offset-1 {/first}">
+                            <span class="lf-icon {icon}"/>&nbsp;</span>
+                            <label style="margin-top: 23px;font-size: 15pt;color:rgb(0,54,100)">{title}</label><br>
+                        </div>
+                    </a>
                 {/link}
             </div>
             <div class="row visible-xs">
                 {#link}
-                    <div class="row text-center" {@first} style="margin-top: 120px" {/first}>
-                        <span class="lf-icon {icon}"/>&nbsp;</span>
-                        <label style="margin-top: 23px;font-size: 15pt;color:rgb(0,54,100)">{title}</label><br>
-                    </div>
-
+                    <a href="{href}">
+                        <div class="row text-center" {@first} style="margin-top: 120px" {/first}>
+                            <span class="lf-icon {icon}"/>&nbsp;</span>
+                            <label style="margin-top: 23px;font-size: 15pt;color:rgb(0,54,100)">{title}</label><br>
+                        </div>
+                    </a>
                 {/link}
             </div>
 
@@ -73,7 +75,7 @@
 
             </div>
             <div class="col-sm-6">
-                <div class="row"  style="margin-top: 30px;">
+                <div class="row" style="margin-top: 30px;">
                     医院排行
                     <div class="lf_select" style="font-size: 11pt;">
                         <select id="cancer_category" style="width:200px;">

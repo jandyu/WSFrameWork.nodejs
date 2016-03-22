@@ -388,31 +388,178 @@ var lifestar = {
                     },
                 ]
             },
-            whylf: {}
-            ,
-            choose: {}
-            ,
+            whylf: {},
+            choose: {},
             connect: {
                 link:[
-                    {icon:'lf-icon-forum',title:'社区留言板',subtitle:'聊天和常见问题'},
-                    {icon:'lf-icon-coach',title:'星生命教练',subtitle:'私人教练让你保持健康'},
-                    {icon:'lf-icon-second',title:'二次诊断',subtitle:'远程咨询会诊'}
+                    {icon:'lf-icon-forum',title:'社区留言板',subtitle:'聊天和常见问题',href:'/forum'},
+                    {icon:'lf-icon-coach',title:'星生命教练',subtitle:'私人教练让你保持健康',href:'/lv3/coach'},
+                    {icon:'lf-icon-second',title:'二次诊断',subtitle:'远程咨询会诊',href:'/lv3/second'}
                 ]
             },
             support:{
                 link:[
-                    {icon:'lf-icon-usa',title:'二次诊断(美国)'},
-                    {icon:'lf-icon-travl',title:'医疗旅游(美国)'},
-                    {icon:'lf-icon-test',title:'临床试验服务'},
-                    {icon:'lf-icon-look',title:'家庭护理和康复服务'},
-                    {icon:'lf-icon-case',title:'病案管理服务'},
+                    {icon:'lf-icon-usa',title:'二次诊断(美国)',href:'/lv3/second'},
+                    {icon:'lf-icon-travl',title:'医疗旅游(美国)',href:'/lv3/travl'},
+                    {icon:'lf-icon-test',title:'临床试验服务',href:'/lv3/test'},
+                    {icon:'lf-icon-look',title:'家庭护理和康复服务',href:'/lv3/look'},
+                    {icon:'lf-icon-case',title:'病案管理服务',href:'/lv3/case'},
                 ]
             },
-            story:{
+            story:{}
+        },
+        lv3:{
+            coach:{
+                icon:"lf-icon-coach",
+                title:"星生命教练",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
+
+            },
+            second:{
+                icon:"lf-icon-second",
+                title:"二次诊断",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
+
+            },
+            test:{
+                icon:"lf-icon-test",
+                title:"临床试验服务",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
+
+            },
+            travl:{
+                icon:"lf-icon-travl",
+                title:"医疗旅游",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
+
+            },
+            look:{
+                icon:"lf-icon-look",
+                title:"家庭护理和康复服务",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
+
+            },
+            case:{
+                icon:"lf-icon-case",
+                title:"病案管理服务",
+                subtitle:"私人教练让你保持健康",
+                desc:"星生命教练员训练病患者成为领航员可以帮助你找到你的癌症相关的问题的答案。他们可以很快地引导你到我们的网站或其他来源的信息。他们可以帮助你通过这个过程获得第二意见的网络咨询或电话咨询。他们可以协助您将您联系到我们的海外服务。",
+                link:[{
+                    icon:"lf-icon-small-tel",
+                    title:"电话",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-txt",
+                    title:"消息/语音/文字",
+                    desc:"86-9999-0987",
+                    time:"8 am – 10 pm"
+                },
+                {
+                    icon:"lf-icon-small-email",
+                    title:"电子邮件",
+                    desc:"86-9999-0987",
+                    time:"12小时回复"
+                }]
 
             }
         }
-
     })
 };
 

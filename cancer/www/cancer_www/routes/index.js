@@ -24,7 +24,21 @@ router.get('/:m?', function (req, res) {
 
 });
 
+router.get("/lv3/:m?",function(req,res){
+    var pageName = req.params.m;
+    logger.info(pageName);
 
+    var viewName = (pageName==undefined)?"default":pageName;
+
+    if (!_.has(lifestar.resource.lv3,viewName)){
+        viewName = "default";
+    }
+
+    var viewData = lifestar.resource.lv3[viewName];
+    viewData["layout"] = lifestar.resource.data.layout;
+    logger.info(viewData);
+    res.render("lv3page", viewData);
+});
 
 
 module.exports = router;
