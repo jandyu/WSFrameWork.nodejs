@@ -310,7 +310,7 @@ var dal = {
 var lifestar = {
     dal: dal,
 
-    resource: _.extend(dal, {
+    resource: _.extend(_.extend({},dal), {
         "collectionName": "Resource", "modelName": "resource",
         data: {
             layout: {
@@ -560,7 +560,13 @@ var lifestar = {
 
             }
         }
+    }),
+
+    cancer_az: _.extend(_.extend({},dal),{
+        "collectionName": "Cancer",
+        "modelName": "cancer"
     })
+
 };
 
 module.exports = lifestar;

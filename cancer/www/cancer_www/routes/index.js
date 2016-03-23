@@ -40,5 +40,25 @@ router.get("/lv3/:m?",function(req,res){
     res.render("lv3page", viewData);
 });
 
+router.get("/choose/canceraz",function(req,res){
+    var cancer = req.query.t;
+    var stage = req.query.s;
+    var q ={category:cancer,stage:stage};
+
+    //var viewData = lifestar.cance_az.newModelData()[0];
+
+    //lifestar.cance_az.queryData(q,function(cancer){
+    //},function(err){
+    //});
+
+
+
+    var viewData = lifestar.cancer_az.newModelData()[0];
+    logger.info(viewData);
+    viewData["layout"] = lifestar.resource.data.layout;
+    res.render("canceraz", viewData);
+
+});
+
 
 module.exports = router;
