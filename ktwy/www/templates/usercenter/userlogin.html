@@ -1,0 +1,27 @@
+<ion-view view-title="登录">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="$ionicGoBack()">返回</button>
+  </ion-nav-buttons>
+
+  <ion-content scroll="false">
+    <ion-list>
+      <ion-item class="item-input item-stacked">
+        <ion-label>用户名</ion-label>
+        <input type="text" placeholder="15603652265" ng-model="usercenter_login.username">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>密码</ion-label>
+        <input type="password" placeholder="abcdef"  ng-model="usercenter_login.password">
+      </ion-item>
+    </ion-list>
+    <div style="padding:5px;">
+      <button class="button button-block button-positive" ng-click="login()">登录</button>
+    </div>
+
+    <div style="padding:0px 5px 5px 5px;">
+      <button class="button button-block button-stable" ng-click="goreg()">如果未注册，请点击注册</button>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -69,7 +69,7 @@
 	var InterValObj; //timer变量，控制时间
 	var count = 120; //间隔函数，1秒执行
 	var curCount;//当前剩余秒数
-	var msg_iid = "0";
+	var msg_number = "";
 
 	function sendMessage() {
 	    curCount = count;
@@ -87,7 +87,21 @@
 	        return;
 	    }
 	   
+	    jsondal.Exec("sp_sms_get_message", { phone: ls_phone }, function (rtn) {
+	        msg_number = jsondal.AnaRtn(rtn);
+	        //send message
+	        jsondal.DealMessage();
 
+	        //set button status
+	        $("#btn_getcode").attr("disabled", "true");
+	        $("#btn_reg_reg").removeAttr("disabled");//启用按钮
+	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码("+msg_number+")");
+
+	        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+	    }, function (rtn) {
+	        console.info(rtn);
+	    });
+        /*
 	    //添加短信	    
 	    jsondal.Exec("sp_send_message", { phone: ls_phone }, function (rtn) {
 	        msg_iid = jsondal.AnaRtn(rtn);
@@ -103,6 +117,9 @@
 	    }, function (rtn) {
 	        console.info(rtn);
 	    });
+        */
+
+
 	}
 	function SetRemainTime() {
 	    if (curCount == 0) {
@@ -113,19 +130,19 @@
 	    }
 	    else {
 	        curCount--;
-	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码");
+	        $("#btn_getcode").text("请在" + curCount + "秒内输入验证码(" + msg_number + ")");
 	    }
 	}
 
     //reg_step1
 	function funReg(step) {
 	    var s_phone = $("#edit_phone").val();
-	    var s_checkcode = $("#eidt_checkcode").val();
+	    var s_checkcode = $("#edit_checkcode").val();
 	    var s_name = $("#edit_name").val();
 	    var s_nick_name = $("#edit_nick_name").val();
 	    var s_password = $("#edit_password").val();
 	    var s_unit = $("#unit").val();
-	    var s_iid = msg_iid;
+	    //var s_iid = msg_iid;
         //注册下一步
 	    if (step == "1") {
 	        
@@ -154,7 +171,7 @@
 	        }
 
 	        //check code
-	        jsondal.Exec("sp_check_code", { iid: s_iid, code: s_checkcode }, function (rtn) {
+	        jsondal.Exec("sp_check_code", { number: msg_number, code: s_checkcode, phone: s_phone }, function (rtn) {
 	            var rtn = jsondal.AnaRtn(rtn);
 	            if (rtn.indexOf('0') == 0) {
 	                window.clearInterval(InterValObj);//停止计时器
@@ -169,7 +186,10 @@
 	                    $(".regstep2-btn").show();
 	                }
 	                changeUI("reg1");
-	            }	            
+	            }
+	            else {
+	                alert("验证吗输入有误!");
+	            }
 	        }, function (rtn) {
 	            console.info(rtn);
 	        });
@@ -177,24 +197,16 @@
 	    }
 	    //立即注册
 	    if (step == "2") {
-	        jsondal.Exec("sp_user_reg", { iid: s_iid, code: s_checkcode ,phone:s_phone,name:s_name,nick_name:s_nick_name,password:s_password,unit:s_unit}, function (rtn) {
+	        jsondal.Exec("sp_user_reg", { number: msg_number, code: s_checkcode, phone: s_phone, name: s_name, nick_name: s_nick_name, password: s_password, unit: s_unit }, function (rtn) {
 	            var rtn = jsondal.AnaRtn(rtn);
 	            if (rtn.indexOf('0') == 0) {
 	                alert("注册成功");
+	            } else {
+	                alert(rtn);
 	            }
 	        }, function (rtn) {
 	            alert("注册失败：" + rtn);
-	        });
-            /*
-	        $.post("../handler/Op.ashx", { op: "regmaster", phone: s_phone, checkcode: s_checkcode,nick_name:s_nick_name,password:s_password,unit:s_unit }, function (rtn) {
-	            if (rtn == "") {
-	                alert("注册成功");
-	            }
-	            else {
-	                alert("注册失败："+rtn);
-	            }
-	        });
-            */
+	        });           
 	    }
 
 

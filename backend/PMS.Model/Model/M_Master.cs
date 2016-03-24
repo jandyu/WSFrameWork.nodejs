@@ -25,7 +25,7 @@ namespace PMS.Model
         {
             try
             {
-                ws.data.jsonDal.JSONDAL.Update("sys_master", "{'key_iid':'" + iid + "','appstatus':'" + appstatus + "'}", ref msg);
+                ws.data.jsonDal.JSONDAL.Update("app_master", "{'key_iid':'" + iid + "','appstatus':'" + appstatus + "'}", ref msg);
             }
             catch (Exception ex)
             {

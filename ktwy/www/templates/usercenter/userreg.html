@@ -1,0 +1,42 @@
+<ion-view view-title="注册">
+  <ion-nav-buttons side="left">
+  </ion-nav-buttons>
+
+  <ion-content scroll="false">
+    <ion-list>
+      <ion-item class="item-input item-stacked">
+        <ion-label>用户名</ion-label>
+        <input type="text" placeholder="手机号"  ng-model="usercenter_reg.username">
+      </ion-item>
+      <ion-item class="item-input item-button-right">
+        <ion-label>验证码</ion-label>
+        <input type="text" placeholder="验证码" ng-model="usercenter_reg.checkcode">
+        <button class="button button-stable {{usercenter_reg.btn_getcode_disabled}}" style="font-size: 12px;" ng-click="getCheckCode()">{{usercenter_reg.btn_getcode_txt}}</button>
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>姓名</ion-label>
+        <input type="text" placeholder="姓名" ng-model="usercenter_reg.name">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>昵称</ion-label>
+        <input type="text" placeholder="昵称" ng-model="usercenter_reg.nickname">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>密码</ion-label>
+        <input type="password" placeholder="密码" ng-model="usercenter_reg.password">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>确认密码</ion-label>
+        <input type="password" placeholder="确认密码" ng-model="usercenter_reg.repassword" >
+      </ion-item>
+    </ion-list>
+    <div style="padding:5px;">
+      <button class="button button-block button-positive {{usercenter_reg.btn_reg_disabled}}" ng-click="nextstep()">下一步</button>
+    </div>
+
+    <div style="padding:0px 5px 5px 5px;">
+      <button class="button button-block button-stable" ng-click="login()">如果已注册，请点击登录</button>
+    </div>
+
+  </ion-content>
+</ion-view>

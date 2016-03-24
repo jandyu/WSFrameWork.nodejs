@@ -15,7 +15,7 @@ namespace MSGSrv.AFacade
             {
                 if (arm.Status == "0")
                 {
-                    string s_password = "8Uy5%*lM4";
+                    string s_password = "hYcy123$";
                     s_password = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(s_password, "MD5").ToLower();                    
                     string strURL = "http://www.ztsms.cn/sendSms.do?username=keteng&password=" + s_password + "&mobile=" + arm.Target + "&content=" + arm.Info + "&dstime=&productid=676767&xh=";
                     WebRequest wRequest = WebRequest.Create(strURL);
@@ -24,7 +24,7 @@ namespace MSGSrv.AFacade
                     StreamReader reader = new StreamReader(stream, System.Text.Encoding.Default);
                     string r = reader.ReadToEnd();
                     wResponse.Close();
-                }                
+                }
             }
             catch (Exception ex)
             {
