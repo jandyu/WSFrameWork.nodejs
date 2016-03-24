@@ -1,7 +1,10 @@
 {
-  "account": "lifstar",
-  "fullname": "lifestar",
-  "passwd":"123",
-  "email":"",
-  "type":"0"
+  "account": "",
+  "fullname": "name",
+  "passwd": "123",
+  "email": "",
+  "role": "member",
+  "brithday": "",
+  "tel": "",
+  "sex": "M"
 }

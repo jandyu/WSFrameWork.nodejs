@@ -1,0 +1,33 @@
+{
+  "userID":"",
+  "province": "",
+  "city": "",
+  "address": "",
+  "zipcode": "",
+  "weigth": "",
+  "height": "",
+  "tobacco": {
+    "use": "",
+    "amount": "",
+    "last": ""
+  },
+  "alcohol": {
+    "user": "",
+    "amount": ""
+  },
+  "exercise": {
+    "use": "",
+    "event": "",
+    "times": 0,
+    "duration": 10
+  },
+  "treatment": {
+    "cancerCategory": "",
+    "cancerStage": "",
+    "status": "",
+    "history": "",
+    "socialHistory": "",
+    "medical": ""
+  },
+  "examReport": []
+}

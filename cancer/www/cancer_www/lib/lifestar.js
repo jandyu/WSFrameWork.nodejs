@@ -7,6 +7,7 @@ ObjectID = require('mongodb').ObjectID;
 var connection = require('./connection');
 
 var fs = require('fs');
+var uuid = require('uuid');
 var Promise = require('promise');
 
 
@@ -283,7 +284,7 @@ var dal = {
      */
     insertData: function (data, callback, errback) {
 
-        if (hasOwnProp(data, "_id")) {
+        if (_.has(data, "_id")) {
             data._id = uuid.v4().replace(/-/g, "");
         } else {
             data["_id"] = uuid.v4().replace(/-/g, "");

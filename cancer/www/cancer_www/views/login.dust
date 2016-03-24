@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label style="color:red;font-weight: 200">&nbsp;{errinfo}</label>
                 </div>
-
+                <input type="hidden" name ="url" value="{url}">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox"> 保留我的登录状态

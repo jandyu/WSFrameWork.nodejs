@@ -19,7 +19,7 @@ router.get('/:m?', function (req, res) {
     var viewData = lifestar.resource.data[viewName];
     viewData["layout"] = lifestar.resource.data.layout;
 
-    logger.info(viewData);
+//    logger.info(viewData);
     res.render(viewName, viewData);
 
 });

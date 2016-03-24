@@ -15,6 +15,8 @@
     "promise":"~7.1.1",
     "mongodb": "~1.4.7",
     "underscore":"*",
-    "log4js":"*"
+    "log4js":"*",
+    "uuid":"~2.0.1",
+    "sha1":"*"
   }
 }
