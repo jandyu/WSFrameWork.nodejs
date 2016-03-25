@@ -11,7 +11,7 @@ router.get('/login', function (req, res) {
     var viewData = {errinfo: ""};
     viewData["layout"] = lifestar.resource.data.layout;
     viewData["url"] = (url == undefined) ? "" : url;
-    res.render("login", viewData);
+    res.render("user/login", viewData);
 });
 
 
@@ -28,7 +28,7 @@ router.post('/login', function (req, res) {
         var viewData = {errinfo: err};
         viewData["layout"] = lifestar.resource.data.layout;
         viewData["url"] = rtnurl;
-        res.render("login", viewData);
+        res.render("user/login", viewData);
     }
 
     lifestar.Users.doPromise(lifestar.Users.queryData, log).then(
@@ -50,7 +50,7 @@ router.post('/login', function (req, res) {
 router.get('/register', function (req, res) {
     var viewData = {errinfo: ""};
     viewData["layout"] = lifestar.resource.data.layout;
-    res.render("register", viewData);
+    res.render("user/register", viewData);
 });
 
 router.post('/register', function (req, res) {
@@ -72,7 +72,7 @@ router.post('/register', function (req, res) {
     errback = function (err) {
         logger.error(err);
         viewData.errinfo = err;
-        res.render("register", viewData);
+        res.render("user/register", viewData);
     }
 
     lifestar.Users.doPromise(lifestar.Users.queryData, {account: user.account}).then(
@@ -84,7 +84,7 @@ router.post('/register', function (req, res) {
                 lifestar.Users.doPromise(lifestar.Users.insertData, user).then(
                     function () {
                         //succ
-                        res.redirect("/");
+                        res.redirect("/users/profile");
                     },
                     function (err) {
                         errback("注册失败:" + err);
@@ -100,7 +100,16 @@ router.post('/register', function (req, res) {
 
 });
 
-router.get("/center",function(req,res){
+router.get("/center", function (req, res) {
+
+});
+
+
+router.get("/profile", function (req, res) {
+
+    var viewData = {};
+    viewData["layout"] = lifestar.resource.data.layout;
+    res.render("user/profile", viewData);
 
 });
 
