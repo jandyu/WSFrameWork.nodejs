@@ -17,6 +17,8 @@
     "underscore":"*",
     "log4js":"*",
     "uuid":"~2.0.1",
-    "sha1":"*"
+    "sha1":"*",
+    "express-session":"*",
+    "upload-file":"*"
   }
 }

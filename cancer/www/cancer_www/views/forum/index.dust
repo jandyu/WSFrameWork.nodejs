@@ -1,0 +1,60 @@
+{>layout /}
+
+{<pagescript}
+
+{/pagescript}
+{<title}
+    星生命-论坛
+{/title}
+
+{<body}
+
+
+
+    <div style="clear: both"></div>
+
+    <div class="row">
+        <div class="col-sm-12" style="height:571px;background: url(/images/forum/top.jpg) 50% 0% no-repeat;">
+            <div class="col-sm-6 col-sm-offset-6" style="margin-top: 210px;color:#333333;text-indent: 30px">
+                <p>在您使用本留言板前，我们希望您了解并同意遵守以下使用规则：</p>
+
+                <p>1．	您作为用户的注册和使用本网站（包括选择用户名和昵称）应遵守中华人民共和国法律法规，并符合网络道德。</p>
+                <p>2．	星生命网站管理员将尽力保证留言板上发布的内容遵守中华人民共和国法律法规、并符合网络道德。对不合适的提问和回答，我们会采取删除、编辑或关闭内容的行动。但基于网站操作和管理的原因，我们删除或关闭内容的行动可能会有所延迟。敬请理解。</p>
+                <p>3．	和其他公共留言板一样，本留言板中的内容是用户个人意见的表达，并不代表星生命的立场和态度，也不代表星生命认同这些信息和观点的真实性。星生命不对这些内容负责。请谨慎参考。</p>
+                <p>4．	您不会发布任何带有威胁、淫秽、漫骂、非法、歧视、或其他侵害他人权益的信息或言论。</p>
+                <p>5．	我们保留编辑、删除和关闭用户所发布的内容的权利。</p>
+                <p>6．	本留言板使用规则是用户注册协议和网站免责声明中的一部分，和用户注册协议和网站免责声明具有相同效力。</p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {#forum}
+            <div class="col-sm-3 text-center" style="padding: 35px;">
+                <ul class="nav nav-pills nav-stacked"
+                    style="border: 1px solid rgb(210,228,241);border-radius: 5px;box-shadow: 5px 5px 3px rgba(204,204,204,0.5);">
+                    <li role="presentation" style="background-color: rgb(226,250,250);height:35px;line-height: 35px;">
+                        {categroy}
+                    </li>
+                    {#topic}
+                        <li role="presentation"><a href="/forum/topic/{topicID}">{title}</a></li>
+                    {/topic}
+
+                </ul>
+
+            </div>
+            {@math key=$idx method="mod" operand="4"}
+                {@eq value="3" type="number"}
+                    <div class="clearfix"></div>
+                {/eq}
+            {/math}
+        {/forum}
+    </div>
+
+{/body}
+
+
+

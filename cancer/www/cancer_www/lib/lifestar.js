@@ -375,10 +375,10 @@ var lifestar = {
                 ],
                 policy: {
                     link: [
-                        {title: "International Sites", link: ""},
-                        {title: "Privacy Policy", link: ""},
-                        {title: "Notice of Privacy Practices", link: ""},
-                        {title: "Terms and Conditions", link: ""}
+                        {title: "法律声明", link: "/legal/notice"},
+                        {title: "隐私声明", link: "/legal/privacy"},
+                        {title: "免责声明", link: "/legal/disclaimer"},
+                        {title: "留言板使用规则", link: "/legal/boardtc"}
                     ],
                     desc: "© 2016 星生命 International, Inc. All rights reserved."
                 }
@@ -412,7 +412,7 @@ var lifestar = {
 
             connect: {
                 link: [
-                    {icon: 'lf-icon-forum', title: '社区留言板', subtitle: '聊天和常见问题', href: '/forum'},
+                    {icon: 'lf-icon-forum', title: '社区留言板', subtitle: '聊天和常见问题', href: '/forum/index'},
                     {icon: 'lf-icon-coach', title: '星生命教练', subtitle: '私人教练让你保持健康', href: '/lv3/coach'},
                     {icon: 'lf-icon-second', title: '二次诊断', subtitle: '远程咨询会诊', href: '/lv3/second'}
                 ]
@@ -426,7 +426,21 @@ var lifestar = {
                     {icon: 'lf-icon-case', title: '病案管理服务', href: '/lv3/case'},
                 ]
             },
-            story: {}
+            story: {},
+            session:function(user){
+                logger.info(user);
+                if(!user) return this.layout;
+                return _.extend(_.extend({},this.layout),{menu: [
+                    {title: "首 页", link: "/"},
+                    {title: "为什么星生命", link: "/whylf"},
+                    {title: "我的医疗条件如何选择", link: "/choose"},
+                    {title: "向别人学习", link: "/connect"},
+                    {title: "支持服务", link: "/support"},
+                    {title: "星生命故事", link: "/story"},
+                    {title: "注 销", link: "/users/login?o=1"},
+                    {title: user.fullname, link: "/users/center"}
+                ]})
+            }
         },
         lv3: {
             coach: {
@@ -587,7 +601,19 @@ var lifestar = {
         "modelName": "cancer"
     }),
 
-    Users: _.extend(_.extend({}, dal), {"collectionName": "Users", "modelName": "users"})
+    Users: _.extend(_.extend({}, dal), {"collectionName": "Users", "modelName": "users"}),
+    UsersProfile: _.extend(_.extend({}, dal), {"collectionName": "UsersProfile", "modelName": "profile"}),
+    UsersLog: _.extend(_.extend({}, dal), {"collectionName": "UsersLog", "modelName": "userlog"}),
+    ForumTopics: _.extend(_.extend({}, dal), {"collectionName": "ForumTopics", "modelName": "forumtopic",
+        getTopics:function(){
+            return this.newModelData();
+        }
+    }),
+    CancerCategory:_.extend(_.extend({}, dal), {"collectionName": "CancerCategory", "modelName": "cancercategory",
+        getCategory:function(){
+            return this.newModelData();
+        }
+    })
 
 
 };

@@ -33,13 +33,13 @@
 <div class="container">
     {>topbar /}
 
-    <div class="row" style="background: url(/images/default.png) 50% 0% repeat-y;">
+    <div class="row" style=" background: url(/images/default.png) 50% 0% repeat-y;">
 
         <div class="col-sm-12" style="height:230px;background: url(/images/default.jpg) 50% 0% no-repeat;">
             {+titleview}  {/titleview}
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="padding:50px;">
             {+body /}
         </div>
     </div>
