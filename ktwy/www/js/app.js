@@ -71,7 +71,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
             controller: 'usercenter'
           }
         }
-      })
+      });
+      /*
       .state('userlogin', {
         url: '/userlogin',
         templateUrl: 'templates/usercenter/userlogin.html',
@@ -86,7 +87,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
         url: '/userreg_step2',
         templateUrl: 'templates/usercenter/userreg_step2.html',
         controller:'userreg_step2'
-      });;
+      });
+      */
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/home');

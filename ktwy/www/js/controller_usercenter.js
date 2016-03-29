@@ -1,11 +1,11 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $log,service_usercenter) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $log,$ionicModal,service_usercenter) {
     $scope.usercenter=service_usercenter;
     //登录窗口
     $scope.login = function () {
-
-        $state.go("userlogin");
+      $scope.openLoginWnd();
+        //$state.go("userlogin");
     };
     $scope.userExit=function()
     {
@@ -16,10 +16,32 @@ angular.module('ktwy.controllers', [])
       service_usercenter.phone="";
       service_usercenter.nickname="";
     };
+
+    //登陆窗口
+    $ionicModal.fromTemplateUrl('templates/usercenter/userlogin.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function(modal) {
+
+      $scope.LoginWnd = modal;
+    });
+
+
+    $scope.openLoginWnd = function() {
+      //此处初始化
+      $scope.LoginWnd.show();
+    };
+
+    $scope.closeLoginWnd = function() {
+      $scope.LoginWnd.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.LoginWnd.remove();
+    });
   })
 
   //登录
-  .controller('userlogin', function ($scope, $stateParams, $state, $log,service_usercenter,service_usercenter_login,$rootScope,$ionicPopup) {
+  .controller('userlogin', function ($scope, $stateParams, $state, $log,$rootScope,$ionicPopup,$ionicModal,service_usercenter,service_usercenter_login) {
 
     $scope.usercenter_login=service_usercenter_login;
 
@@ -40,7 +62,19 @@ angular.module('ktwy.controllers', [])
           service_usercenter.nickname=arr_rtn[6];
 
           //登录成功则返回
-          $rootScope.$ionicGoBack();
+          //$rootScope.$ionicGoBack();
+          if($scope.usercenter_login.willGoUrl!='')
+          {
+
+            $state.go($scope.usercenter_login.willGoUrl);
+            $scope.usercenter_login.willGoUrl="";
+            $scope.closeLoginWnd();
+          }
+          else
+          {
+            $scope.closeLoginWnd();
+            //$rootScope.$ionicGoBack();
+          }
         }
         else
         {
@@ -59,13 +93,37 @@ angular.module('ktwy.controllers', [])
 
     $scope.goreg=function()
     {
-      $state.go("userreg");
-    }
+      //$state.go("userreg");
+      $scope.openRegWnd();
+    };
+
+
+    //注册窗口
+    $ionicModal.fromTemplateUrl('templates/usercenter/userreg.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function(modal) {
+
+      $scope.RegWnd = modal;
+    });
+
+
+    $scope.openRegWnd = function() {
+      //此处初始化
+      $scope.RegWnd.show();
+    };
+
+    $scope.closeRegWnd = function() {
+      $scope.RegWnd.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.RegWnd.remove();
+    });
 
   })
 
   //注册-step1
-  .controller('userreg', function ($scope, $stateParams, $state, $log, service_usercenter_reg,$ionicPopup) {
+  .controller('userreg', function ($scope, $stateParams, $state, $log,$ionicPopup,$ionicModal, service_usercenter_reg) {
     var usercenter_reg=service_usercenter_reg.usercenter_reg;
     $scope.usercenter_reg=usercenter_reg;
 
@@ -120,7 +178,7 @@ angular.module('ktwy.controllers', [])
         }
         $scope.$apply();
       }
-    }
+    };
     //下一步
     $scope.nextstep = function () {
       //数据校验
@@ -161,7 +219,9 @@ angular.module('ktwy.controllers', [])
             usercenter_reg.btn_getcode_disabled="";
             usercenter_reg.btn_getcode_txt="重新发送验证码";
             //跳转
-            $state.go("userreg_step2");
+            //$state.go("userreg_step2");
+            $scope.openReg2Wnd();
+
           }
           if (o_arr.length == 2) {
             var msg = o_arr[1];
@@ -171,8 +231,6 @@ angular.module('ktwy.controllers', [])
             window.clearInterval($scope.InterValObj);//停止计时器
             usercenter_reg.btn_getcode_disabled="";
             usercenter_reg.btn_getcode_txt="重新发送验证码";
-            //跳转
-            //$state.go("userreg_step2");
 
             $ionicPopup.alert({
               title: '提醒',
@@ -191,7 +249,33 @@ angular.module('ktwy.controllers', [])
       },function(rtn){
 
       });
-    }
+    };
+
+
+    //注册窗口step2
+    $ionicModal.fromTemplateUrl('templates/usercenter/userreg_step2.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function(modal) {
+
+      $scope.Reg2Wnd = modal;
+    });
+
+
+    $scope.openReg2Wnd = function() {
+      //此处初始化
+      $scope.Reg2Wnd.show();
+    };
+
+    $scope.closeReg2Wnd = function() {
+      $scope.Reg2Wnd.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.Reg2Wnd.remove();
+    });
+
+
+
   })
 
   //注册-step2
@@ -323,7 +407,10 @@ angular.module('ktwy.controllers', [])
             title: '提醒',
             template: '注册成功!'
           });
-          $state.go("tab.usercenter");
+          //$state.go("tab.usercenter");
+          $scope.closeReg2Wnd();
+          $scope.closeRegWnd();
+          $scope.closeLoginWnd();
 
         } else {
           $ionicPopup.alert({

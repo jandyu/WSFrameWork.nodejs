@@ -1,8 +1,13 @@
-<ion-view view-title="登录">
-
+<ion-modal-view  ng-controller="userlogin">
+  <!--
   <ion-nav-buttons side="left">
     <button class="button button-clear" ng-click="$ionicGoBack()">返回</button>
   </ion-nav-buttons>
+  -->
+  <ion-header-bar class="energized-bg light" align-title="center">
+    <button class="button button-clear" ng-click="closeLoginWnd()">返回</button>
+    <h1 class="title light">登陆</h1>
+  </ion-header-bar>
 
   <ion-content scroll="false">
     <ion-list>
@@ -24,4 +29,4 @@
     </div>
 
   </ion-content>
-</ion-view>
+  </ion-modal-view>
