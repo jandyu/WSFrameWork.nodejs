@@ -36,7 +36,7 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> 同意<a style="color:white">注册协议</a>
+                        <input type="checkbox"> 同意<a style="color:white" href="/legal/notice">注册协议</a>
                     </label>
 
                 </div>

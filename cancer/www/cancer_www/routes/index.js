@@ -10,40 +10,47 @@ router.get('/:m?', function (req, res) {
     var pageName = req.params.m;
     logger.info(pageName);
 
-    var viewName = (pageName==undefined)?"homepage":pageName;
+    var viewName = (pageName == undefined) ? "homepage" : pageName;
 
-    if (!_.has(lifestar.resource.data,viewName)){
+    if (!_.has(lifestar.resource.data, viewName)) {
         viewName = "homepage";
     }
 
     var viewData = lifestar.resource.data[viewName];
-    viewData["layout"] = lifestar.resource.data.layout;
+    viewData["layout"] = lifestar.resource.data.session(req.session.user);
+    if (pageName == "choose") viewData["cancerCategory"] = lifestar.CancerCategory.getCategory();
 
 //    logger.info(viewData);
     res.render(viewName, viewData);
 
 });
-
-router.get("/lv3/:m?",function(req,res){
+router.get("/legal/:m?", function (req, res) {
+    var pageName = req.params.m;
+    var viewData = {};
+    viewData["layout"] = lifestar.resource.data.session(req.session.user);
+    logger.info(viewData);
+    res.render("legal/" + pageName, viewData);
+});
+router.get("/lv3/:m?", function (req, res) {
     var pageName = req.params.m;
     logger.info(pageName);
 
-    var viewName = (pageName==undefined)?"default":pageName;
+    var viewName = (pageName == undefined) ? "default" : pageName;
 
-    if (!_.has(lifestar.resource.lv3,viewName)){
+    if (!_.has(lifestar.resource.lv3, viewName)) {
         viewName = "default";
     }
 
     var viewData = lifestar.resource.lv3[viewName];
-    viewData["layout"] = lifestar.resource.data.layout;
+    viewData["layout"] = lifestar.resource.data.session(req.session.user);
     logger.info(viewData);
     res.render("lv3page", viewData);
 });
 
-router.get("/choose/canceraz",function(req,res){
+router.get("/choose/canceraz", function (req, res) {
     var cancer = req.query.t;
     var stage = req.query.s;
-    var q ={category:cancer,stage:stage};
+    var q = {category: cancer, stage: stage};
 
     //var viewData = lifestar.cance_az.newModelData()[0];
 
@@ -52,10 +59,9 @@ router.get("/choose/canceraz",function(req,res){
     //});
 
 
-
     var viewData = lifestar.cancer_az.newModelData()[0];
     logger.info(viewData);
-    viewData["layout"] = lifestar.resource.data.layout;
+    viewData["layout"] = lifestar.resource.data.session(req.session.user);
     res.render("canceraz", viewData);
 
 });
