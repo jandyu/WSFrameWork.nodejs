@@ -1,0 +1,42 @@
+<ion-view view-title="车辆查询">
+
+  <ion-content scroll="false">
+
+
+    <ion-list>
+      <ion-item class="item-input item-button-right">
+        <input type="text" placeholder="车牌号" ng-model="vehicle_query.plate">
+        <button class="button" ng-click="queryplate()">查询</button>
+      </ion-item>
+    </ion-list>
+
+    <div class="list card">
+
+      <div class="item item-icon-left">
+        <i class="icon ion-android-car"></i>
+        车型:{{vehicle_query.models}}
+      </div>
+
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-home"></i>
+        房号:{{vehicle_query.roompath}}
+      </div>
+
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-person"></i>
+        业主:{{vehicle_query.mastername}}
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-telephone"></i>
+        手机号:{{vehicle_query.phone}}
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-android-locate"></i>
+        车位:{{vehicle_query.parkpath}}
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
+

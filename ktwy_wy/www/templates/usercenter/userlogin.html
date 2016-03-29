@@ -1,0 +1,30 @@
+<ion-modal-view  ng-controller="userlogin">
+  <!--
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="$ionicGoBack()">返回</button>
+  </ion-nav-buttons>
+  -->
+  <ion-header-bar class="energized-bg light" align-title="center">
+    <button class="button button-clear" ng-click="closeLoginWnd()">返回</button>
+    <h1 class="title light">登陆</h1>
+  </ion-header-bar>
+
+  <ion-content scroll="false">
+    <ion-list>
+      <ion-item class="item-input item-stacked">
+        <ion-label>用户名</ion-label>
+        <input type="text" placeholder="手机号" ng-model="usercenter_login.username">
+      </ion-item>
+      <ion-item class="item-input item-button-right">
+        <ion-label>验证码</ion-label>
+        <input type="text" placeholder="验证码" ng-model="usercenter_login.checkcode">
+        <button class="button button-stable {{usercenter_login.btn_getcode_disabled}}"  style="font-size: 12px;" ng-click="getCheckCode()">{{usercenter_login.btn_getcode_txt}}</button>
+      </ion-item>
+    </ion-list>
+    <div style="padding:5px;">
+      <button class="button button-block button-positive {{usercenter_login.btn_reg_disabled}}" ng-click="login()" >登录
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>
+

@@ -46,7 +46,7 @@ angular.module('ktwy.services', [])
 
     var obj=$.extend( IService,{
       usercenter_reg:{
-        username:'15606526620',
+        username:'',
         checkcode:'',
         checkcode_number:'',//短信编号
         name:'',
@@ -58,7 +58,8 @@ angular.module('ktwy.services', [])
         btn_getcode_txt:'获取验证码',
         btn_getcode_disabled:'',//disabled 或者空
         btn_reg_disabled:'disabled',
-        userid:'0'
+        userid:'0',
+        selectroom_disabled:false
       },
       //获取验证码
       getCheckCode:function(succ,err)

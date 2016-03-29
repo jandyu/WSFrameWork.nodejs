@@ -1,0 +1,59 @@
+<ion-view view-title="业主查询">
+
+  <ion-header-bar class="energized-bg light" align-title="center">
+
+  </ion-header-bar>
+
+    <ion-tabs class="tabs-top tabs-striped nav-bar-tabs-top">
+      <ion-tab title="按房号">
+        <ion-nav-view name="search_by_room">
+          <ion-content scroll="false">
+            <ion-list>
+              <ion-item class="item-input item-button-right">
+                <input type="text" placeholder="选择房号" ng-click="openSelectRoomWnd()" ng-model="master_query.roompath" >
+                <button class="button" ng-click="querybyroomid()">查询</button>
+              </ion-item>
+            </ion-list>
+
+            <div class="list card">
+              <div class="item item-icon-right" ng-repeat="itm in master_query.masters">
+                <i class="icon ion-ios-telephone"></i>
+                <div class="item-stacked-label" >
+                  姓名:{{itm.name}}
+                </div>
+                联系电话:{{itm.phone}}
+              </div>
+            </div>
+
+
+          </ion-content>
+        </ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="按姓名">
+        <ion-nav-view name="search_by_person">
+          <ion-content scroll="false">
+
+            <ion-list >
+              <ion-item class="item-input item-button-right">
+                <input type="text" placeholder="姓名" ng-model="master_query.name">
+                <button class="button button-light" ng-click="querybyname()">查询</button>
+              </ion-item>
+            </ion-list>
+
+            <div class="list card">
+              <div class="item item-icon-right" ng-repeat="itm in master_query.masters">
+                <i class="icon ion-ios-telephone"></i>
+                <div class="item-stacked-label" >
+                  姓名:{{itm.name}}
+                </div>
+                联系电话:{{itm.phone}}
+              </div>
+            </div>
+
+          </ion-content>
+        </ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
+</ion-view>
+

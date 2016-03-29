@@ -5,8 +5,23 @@
   <ion-content scroll="false">
     <ion-list>
       <ion-item class="item-input item-stacked">
-        <input type="text" placeholder="请选择房号"  ng-model="usercenter_reg.unitname" ng-click="openModal()">
+        <input type="text" placeholder="请选择房号"  ng-model="usercenter_reg.unitname" ng-disabled="usercenter_reg.selectroom_disabled" ng-click="openModal()">
       </ion-item>
+
+      <ion-item class="item-input">
+        <ion-label>姓名</ion-label>
+        <input type="text" placeholder="姓名" ng-model="usercenter_reg.name">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>昵称</ion-label>
+        <input type="text" placeholder="昵称" ng-model="usercenter_reg.nickname">
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label>密码</ion-label>
+        <input type="password" placeholder="密码" ng-model="usercenter_reg.password">
+      </ion-item>
+
+
     </ion-list>
     <div style="padding:5px;">
       <button class="button button-block button-positive {{usercenter_reg.unit==''?'disabled':''}}" ng-click="regUser()" >注册</button>

@@ -6,7 +6,16 @@ angular.module('ktwy.controllers', [])
     $scope.login = function () {
 
         $state.go("userlogin");
-    }
+    };
+    $scope.userExit=function()
+    {
+      service_usercenter.userid="0";
+      service_usercenter.roomid="";
+      service_usercenter.roompath="";
+      service_usercenter.name="";
+      service_usercenter.phone="";
+      service_usercenter.nickname="";
+    };
   })
 
   //登录
@@ -131,54 +140,47 @@ angular.module('ktwy.controllers', [])
         return;
       }
 
-      if(usercenter_reg.name==""){
-        $ionicPopup.alert({
-          title: '提醒',
-          template: '姓名不能为空!'
-        });
-        return;
-      }
-
-      if(usercenter_reg.nickname==""){
-        $ionicPopup.alert({
-          title: '提醒',
-          template: '昵称不能为空!'
-        });
-        return;
-      }
-
-      if(usercenter_reg.password==""){
-        $ionicPopup.alert({
-          title: '提醒',
-          template: '密码不能为空!'
-        });
-        return;
-      }
-
-      if(usercenter_reg.password!=usercenter_reg.repassword){
-        $ionicPopup.alert({
-          title: '提醒',
-          template: '密码不一致,请确认密码!'
-        });
-        return;
-      }
-
       //校验验证码是否正确
       service_usercenter_reg.checkCode(function(rtn){
-        if (rtn.indexOf('0') == 0) {
+        if (rtn.indexOf('0') == 0)
+        {
           var o_arr = rtn.split(",");
           if (o_arr.length == 3) {
             var uid = o_arr[1];
             var uname = o_arr[2];
             usercenter_reg.unit=uid;
             usercenter_reg.unitname=uname;
+            if(uid!="") {
+              usercenter_reg.selectroom_disabled = true;
+            }
+            else
+            {
+              usercenter_reg.selectroom_disabled = false;
+            }
+            window.clearInterval($scope.InterValObj);//停止计时器
+            usercenter_reg.btn_getcode_disabled="";
+            usercenter_reg.btn_getcode_txt="重新发送验证码";
+            //跳转
+            $state.go("userreg_step2");
+          }
+          if (o_arr.length == 2) {
+            var msg = o_arr[1];
+
+            usercenter_reg.selectroom_disabled=false;
+
+            window.clearInterval($scope.InterValObj);//停止计时器
+            usercenter_reg.btn_getcode_disabled="";
+            usercenter_reg.btn_getcode_txt="重新发送验证码";
+            //跳转
+            //$state.go("userreg_step2");
+
+            $ionicPopup.alert({
+              title: '提醒',
+              template: msg
+            });
           }
 
-          window.clearInterval($scope.InterValObj);//停止计时器
-          usercenter_reg.btn_getcode_disabled="";
-          usercenter_reg.btn_getcode_txt="重新发送验证码";
-          //跳转
-          $state.go("userreg_step2");
+
         }
         else {
           $ionicPopup.alert({
@@ -259,6 +261,51 @@ angular.module('ktwy.controllers', [])
 
     $scope.regUser=function()
     {
+
+      if(usercenter_reg.unit=="0")
+      {
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '请选择房号!'
+        });
+        return;
+      }
+
+      if(usercenter_reg.name==""){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '姓名不能为空!'
+        });
+        return;
+      }
+
+      if(usercenter_reg.nickname==""){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '昵称不能为空!'
+        });
+        return;
+      }
+
+
+      if(usercenter_reg.password==""){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '密码不能为空!'
+        });
+        return;
+      }
+
+       /*
+      if(usercenter_reg.password!=usercenter_reg.repassword){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '密码不一致,请确认密码!'
+        });
+        return;
+      }*/
+
+
       service_usercenter_reg.regUser().then(function(rtn){
         var rtn = jsondal.AnaRtn(rtn);
         if (rtn.indexOf('0') == 0) {
@@ -301,14 +348,6 @@ angular.module('ktwy.controllers', [])
     };
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
-    });
-    // Execute action on hide modal
-    $scope.$on('modal.hidden', function() {
-      // Execute action
-    });
-    // Execute action on remove modal
-    $scope.$on('modal.removed', function() {
-      // Execute action
     });
 });
 

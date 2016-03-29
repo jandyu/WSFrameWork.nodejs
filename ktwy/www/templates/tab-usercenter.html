@@ -1,5 +1,5 @@
 <ion-view view-title="用户中心">
-  <ion-content scroll="false">
+  <ion-content scroll="true">
     <ion-item class="item-icon-right item-icon-left" ng-click="login()">
       <i class="icon ion-person"></i>
       <h2>{{usercenter.userid=="0"?"未登录":"欢迎您,"+usercenter.name}}</h2>
@@ -35,6 +35,10 @@
       <i class="icon ion-person"></i>
       <h2>我发起的资讯</h2>
       <i class="icon ion-ios-arrow-right"></i>
+    </ion-item>
+
+    <ion-item class="item" ng-show="usercenter.userid=='0'?false:true">
+      <button class="button button-block button-positive" ng-click="userExit()" >退出登录</button>
     </ion-item>
 
   </ion-content>
