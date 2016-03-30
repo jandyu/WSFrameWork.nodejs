@@ -47,7 +47,7 @@ router.post('/login', function (req, res) {
 
                 lifestar.UsersLog.insertData(log,function(){},function(){});
 
-                req.session["user"] = {userid: rtn[0]._id, fullname: rtn[0].fullname, role: rtn[0].role};
+                req.session["user"] = {photo:rtn[0].photo,userid: rtn[0]._id, fullname: rtn[0].fullname, role: rtn[0].role};
 
                 //redirect
                 res.redirect((rtnurl == "") ? "/users/center" : rtnurl);

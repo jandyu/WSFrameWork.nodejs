@@ -15,21 +15,35 @@
 
     <div class="row">
         <div class="col-sm-12" style="height:571px;background: url(/images/forum/top.jpg) 50% 0% no-repeat;">
-            <div class="col-sm-6 col-sm-offset-6" style="margin-top: 210px;color:#333333;text-indent: 30px">
-                <p>在您使用本留言板前，我们希望您了解并同意遵守以下使用规则：</p>
+            <div class="col-sm-6 col-sm-offset-6" style="margin-top: 310px;color:#333333;text-indent: 30px">
+                <p>在星生命，您可进入社区论坛。看一看周围的人，听听别人说什么。欢迎大家访问我们的论坛。</p>
 
-                <p>1．	您作为用户的注册和使用本网站（包括选择用户名和昵称）应遵守中华人民共和国法律法规，并符合网络道德。</p>
-                <p>2．	星生命网站管理员将尽力保证留言板上发布的内容遵守中华人民共和国法律法规、并符合网络道德。对不合适的提问和回答，我们会采取删除、编辑或关闭内容的行动。但基于网站操作和管理的原因，我们删除或关闭内容的行动可能会有所延迟。敬请理解。</p>
-                <p>3．	和其他公共留言板一样，本留言板中的内容是用户个人意见的表达，并不代表星生命的立场和态度，也不代表星生命认同这些信息和观点的真实性。星生命不对这些内容负责。请谨慎参考。</p>
-                <p>4．	您不会发布任何带有威胁、淫秽、漫骂、非法、歧视、或其他侵害他人权益的信息或言论。</p>
-                <p>5．	我们保留编辑、删除和关闭用户所发布的内容的权利。</p>
-                <p>6．	本留言板使用规则是用户注册协议和网站免责声明中的一部分，和用户注册协议和网站免责声明具有相同效力。</p>
+                <P>如果您选择加入星生命社区，您可以回复留言板的帖子，也可以开启您自己的讨论。我们的留言板是一个好的地方，您可以提出您的问题并可能很快得到答案，分享您的故事，支持其他癌症患者。</P>
 
-
-
+                <p> 创建一个星生命登录账号，并立即开始参与我们的留言板和其他论坛。只需要您的手机号码就可设置您免费的星生命帐户。</p>
             </div>
+
+                <div class="col-sm-6 col-sm-offset-6" style="margin-top: 20px;">
+                    <form action="/forum/search" method="post" class="form-horizontal">
+                        <div class="form-group">
+
+                            <label class="col-sm-3 control-label">查询关注的内容:</label>
+                            <div class="col-sm-7">
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="search">
+                                    <div class="input-group-addon" style="padding:0px;margin:0px;"><button type="submit" class="glyphicon glyphicon-search" style="border: 0px;width:100%;height:100%;"></button></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
         </div>
     </div>
+
 
     <div class="row">
         {#forum}
@@ -37,10 +51,10 @@
                 <ul class="nav nav-pills nav-stacked"
                     style="border: 1px solid rgb(210,228,241);border-radius: 5px;box-shadow: 5px 5px 3px rgba(204,204,204,0.5);">
                     <li role="presentation" style="background-color: rgb(226,250,250);height:35px;line-height: 35px;">
-                        {categroy}
+                        {category}
                     </li>
                     {#topic}
-                        <li role="presentation"><a href="/forum/topic/{topicID}">{title}</a></li>
+                        <li role="presentation"><a href="/forum/category/{_id}">{title}</a></li>
                     {/topic}
 
                 </ul>

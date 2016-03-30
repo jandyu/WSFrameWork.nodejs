@@ -5,6 +5,10 @@ var logger = require("../lib/log").sqllog;
 var _ = require("underscore");
 
 
+router.get("/init/forumtopic",function(req,res){
+   lifestar.ForumTopics.initTopics();
+    res.send("init forum topic use forumtopic.json");
+});
 /* GET level 1 page. */
 router.get('/:m?', function (req, res) {
     var pageName = req.params.m;

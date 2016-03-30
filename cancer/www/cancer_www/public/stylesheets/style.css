@@ -22,7 +22,9 @@
 }
 
 .topbar>div.menu {
-  line-height: 50px;
+  height:105px;
+  padding-left:0px;
+
   background:url(../images/menubarback.png) repeat-x;
 
 }

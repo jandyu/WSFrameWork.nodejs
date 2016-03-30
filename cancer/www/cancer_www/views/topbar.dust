@@ -2,7 +2,7 @@
 
 </div>
 
-<div class="row topbar visible-xs-block visible-sm-block">
+<div class="row topbar visible-xs">
     <div class="col-xs-2" style="padding-left:0px;padding-top: 50px">
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -23,15 +23,13 @@
 
 </div>
 
-<div class="row topbar  hidden-sm hidden-xs">
-    <div class="col-xs-3 logo">
-        <img src="{layout.logo.img}">
-    </div>
-    <div class="col-xs-9 menu">
-        <br/>
-        <ul class="nav nav-tabs">
+<div class="row topbar  hidden-xs">
+
+    <div class="col-sm-12 menu">
+        <ul class="nav nav-tabs" style="margin-top: 55px;">
+            <li style="margin-top: -35px;padding: 0px"><img src="{layout.logo.img}"></li>
             {#layout.menu}
-                <li><a href="{link}">{title}</a></li>
+                <li style="margin-left: 5px;"><a href="{link}">{title}</a></li>
             {/layout.menu}
         </ul>
     </div>

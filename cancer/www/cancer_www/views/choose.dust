@@ -14,8 +14,11 @@
     <div style="clear: both"></div>
 
     <div class="row">
-        <div class="col-sm-12" style="height:578px;background: url(/images/choose/background.jpg) 50% 0% no-repeat;">
+        <div class="col-sm-12  hidden-xs" style="height:578px;background: url(/images/choose/background.jpg) 50% 0% no-repeat;">
             &nbsp;
+        </div>
+        <div class="col-sm-12  visible-xs" style="padding:0px" >
+            <img src="/images/choose/background_xs.jpg" style="width:100%">
         </div>
     </div>
     <div class="row">

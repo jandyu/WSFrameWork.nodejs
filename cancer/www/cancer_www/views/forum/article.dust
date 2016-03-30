@@ -1,0 +1,112 @@
+{>layout_forum /}
+
+{<pagescript}
+    <style>
+        .col-sm-2 > .row {
+            height: 35px;
+            text-align: center;
+
+            border-bottom: 1px solid rgb(150, 151, 152);
+        }
+    </style>
+    <script>
+        login = function () {
+            $("form").submit();
+        }
+    </script>
+{/pagescript}
+{<title}
+    {topic.title}
+{/title}
+
+
+{<titleview}
+    <div class="row" style="margin-top: 50px;padding-left: 60px;padding-bottom: 20px;">
+        {#article}
+            <h4>{title}
+            </h4>
+            <h5>{content}</h5>
+        {/article}
+    </div>
+
+{/titleview}
+{<body}
+    <div class="row" style="margin-top: -100px;">
+        <div class="col-sm-9">
+            {#replies}
+                <div class="row" style="text-indent:25px;padding: 15px; border-top:1px solid rgb(250,251,252)">
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="{user.photo}" style="width:100px;border-radius: 5px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{user.fullname}</h4>
+
+                            <p>{content}</p>
+
+                            <p>{timestamp}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            {/replies}
+        </div>
+        <div class="col-sm-2 col-sm-offset-1">
+            <p><a  data-toggle="modal" data-target="#myModal"> 回 复 </a></p>
+            <p><a href="/forum/category/{article.topicID}">  返 回 </a></p>
+            <p><a href="/forum/index"> 论坛首页 </a></p>
+
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+
+    <div class="row text-center">
+        <!-- Button trigger modal -->
+        <a type="button" data-toggle="modal" data-target="#myModal">
+            回 复
+        </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="/forum/newreply" method="post" class="form-horizontal">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">回复你的意见</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <input type="hidden" name="articleID" value="{article._id}">
+                            <input type="hidden" name="userID" value="{layout.sessionuser._id}">
+                            <input type="hidden" name="photo" value="{layout.sessionuser.photo}">
+                            <input type="hidden" name="fullname" value="{layout.sessionuser.fullname}">
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">内容: </label>
+
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" name="content" rows="5"></textarea>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                            <button type="submit" class="btn btn-primary">保 存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{/body}
+
+
+

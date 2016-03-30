@@ -13,8 +13,11 @@
     <div style="clear: both"></div>
 
     <div class="row">
-        <div class="col-sm-12" style="height:578px;background: url(/images/connect/connect.jpg) 50% 0% no-repeat;">
+        <div class="col-sm-12 hidden-xs" style="height:578px;background: url(/images/connect/connect.jpg) 50% 0% no-repeat;">
             &nbsp;
+        </div>
+        <div class="col-sm-12  visible-xs" style="padding:0px" >
+            <img src="/images/connect/connect_xs.jpg" style="width:100%">
         </div>
     </div>
 
