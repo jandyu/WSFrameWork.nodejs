@@ -24,6 +24,16 @@
         });
 
     </script>
+    <style>
+        .method>.col-sm-3{
+            color:rgb(45,103,150);
+            padding-top: 150px;;
+        }
+        .method-xs>.col-xs-6{
+            color:rgb(45,103,150);
+            padding-top: 100px;;
+        }
+    </style>
 {/pagescript}
 {<title}
     Welcome lifestar
@@ -80,35 +90,46 @@
         <img src="/images/home/top2.jpg" style="width: 100%">
     </div>
     <div class="row" style="padding-bottom:20px;background-color: rgb(160,255,255)">
-        <div class="hidden-sm hidden-xs" style="max-width:1040px;margin-left: auto;margin-right: auto">
-            <div class="col-sm-3" style="min-width:240px">
-                <img src="/images/home/method1.jpg">
+        <div class="hidden-sm hidden-xs method" style="width:960px;margin-left: auto;margin-right: auto">
+            <div class="col-sm-3" style="width:230px;height:390px;background: url(/images/home/method1.jpg)">
+                星生命会基于对您基本病情的了解，为您私人定制潜在的治疗方案。
+
             </div>
-            <div class="col-sm-3" style="min-width:240px">
-                <img src="/images/home/method2.jpg">
+            <div class="col-sm-3" style="width:230px;height:390px;margin-left:10px;background: url(/images/home/method2.jpg)">
+                星生命可以帮助您获得国内外各种治疗方案的基本信息
+                会员可以得到所有方案的详细信息.
+
             </div>
-            <div class="col-sm-3" style="min-width:240px">
-                <img src="/images/home/method3.jpg">
+            <div class="col-sm-3" style="width:230px;height:390px;margin-left:10px;background: url(/images/home/method3.jpg)">
+                星生命的论坛完全免费，欢迎患者和家人的共同加入，可以记录您的患病历程，分享您的诊治经验，病友之间，亲朋之间，勉励扶助，携同抗癌。
+                通过我们的支持服务，您会获得更多的治疗机会.
+
             </div>
-            <div class="col-sm-3" style="min-width:240px">
-                <img src="/images/home/method4.jpg">
+            <div class="col-sm-3" style="width:230px;height:390px;margin-left:10px;background: url(/images/home/method4.jpg)">
+                星生命方案决定工具可以帮助您通过对比所有潜在治疗方案，或者和专家在线沟通筛选出个性化的最佳方案
+
             </div>
+
         </div>
-        <div class="visible-xs-block visible-sm-block" style="max-width:360px;margin-left: auto;margin-right: auto">
-            <div class="row">
-                <div class="col-xs-6">
-                    <img src="/images/home/method1.jpg" style="width:100%">
+        <div class="visible-xs-block visible-sm-block " style="max-width:360px;margin-left: auto;margin-right: auto">
+            <div class="row method-xs">
+                <div class="col-xs-6"style="width:150px;height:250px;margin-left:10px;background-size: cover; background-image: url(/images/home/method1.jpg)">
+                    星生命会基于对您基本病情的了解，为您私人定制潜在的治疗方案。
                 </div>
-                <div class="col-xs-6">
-                    <img src="/images/home/method2.jpg" style="width:100%">
+                <div class="col-xs-6"style="width:150px;height:250px;margin-left:10px;background-size: cover; background-image: url(/images/home/method2.jpg)">
+                    星生命可以帮助您获得国内外各种治疗方案的基本信息
+                    会员可以得到所有方案的详细信息.
                 </div>
+
             </div>
-            <div class="row" style="margin-top: 5px;">
-                <div class="col-xs-6">
-                    <img src="/images/home/method3.jpg" style="width:100%">
+            <div class="row method-xs" style="margin-top: 5px;">
+                <div class="col-xs-6"style="padding:100px 1px 0px 1px;width:150px;height:250px;margin-left:10px;background-size: cover; background-image: url(/images/home/method3.jpg)">
+                    星生命的论坛完全免费，可以记录您的患病历程，分享您的诊治经验，病友之间，亲朋之间，勉励扶助，携同抗癌。
+                    您会获得更多的治疗机会.
                 </div>
-                <div class="col-xs-6">
-                    <img src="/images/home/method4.jpg" style="width:100%">
+                <div class="col-xs-6"style="width:150px;height:250px;margin-left:10px;background-size: cover; background-image: url(/images/home/method4.jpg)">
+                    星生命方案决定工具可以帮助您通过对比所有潜在治疗方案，或者和专家在线沟通筛选出个性化的最佳方案
+
                 </div>
             </div>
         </div>

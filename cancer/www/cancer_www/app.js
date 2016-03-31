@@ -47,7 +47,8 @@ app.use(session({
     cookie: { secure: false}
 }));
 app.use(function (req, res, next) {
-    var url = req.path;//req.originalUrl;
+
+    var url = req.originalUrl;
 
 
 

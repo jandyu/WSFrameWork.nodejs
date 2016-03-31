@@ -1,4 +1,11 @@
-
+@media (min-width: 1270px) {
+  .container {
+    width: 1270px;
+  }
+}
+.pagination>li>a{
+  text-align: center;
+}
 .row{
   padding: 0px;
   margin: 0px;
@@ -6,10 +13,10 @@
 
 .topbar{
   height:92px;
-
   padding: 0px;
   margin: 0px;
 }
+
 .topbar>div.logo  {
   padding: 0px;
   margin: 0px;

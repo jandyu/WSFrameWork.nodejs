@@ -16,48 +16,93 @@
     </script>
 {/pagescript}
 {<title}
-    {topic.title}
+    {article.title}
 {/title}
 
 
 {<titleview}
-    <div class="row" style="margin-top: 50px;padding-left: 60px;padding-bottom: 20px;">
-        {#article}
-            <h4>{title}
-            </h4>
-            <h5>{content}</h5>
-        {/article}
-    </div>
+
 
 {/titleview}
 {<body}
-    <div class="row" style="margin-top: -100px;">
-        <div class="col-sm-9">
-            {#replies}
-                <div class="row" style="text-indent:25px;padding: 15px; border-top:1px solid rgb(250,251,252)">
 
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="{user.photo}" style="width:100px;border-radius: 5px">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">{user.fullname}</h4>
 
-                            <p>{content}</p>
+    <div class="row" style="text-indent:25px;  margin-top:-150px;">
+        <div class="row" style="height:45px;line-height:45px;color:white;font-size:14pt;margin-bottom: 3px">
+            <div class="col-sm-12" style="background:gray">
+                <a href="/forum/index" style="color:white;">&laquo; 论坛首页 </a> /
+                <a href="/forum/category/{article.topicID}" style="color:white;">{article.topic}</a>
+                - {article.title}
+            </div>
+        </div>
+        <div class="col-sm-9" style="background-color: white">
+            <div class="row">
+                {#article}
+                    <h4 style="border-bottom: 2px solid rgb(204,205,206)"><span
+                            style="padding-bottom:5px;margin-bottom:-2px ;display:block;min-width:100px;max-width:30%;text-overflow:hidden; border-bottom: 15px solid rgb(0,54,100);box-shadow: 5px 0px 0px white;">{title}</span>
+                    </h4>
+                    <h5 style="margin: 20px;">{content}</h5>
+                {/article}
+            </div>
 
-                            <p>{timestamp}</p>
+            <div class="row">
+                {#replies}
+                    <div class="row" style="text-indent:25px;padding: 15px; border-top:1px solid rgb(250,251,252)">
+
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="{user.photo}" style="width:100px;border-radius: 5px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{user.fullname}</h4>
+
+                                <p>{content}</p>
+
+                                <p>{timestamp}</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+                {/replies}
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <ul class="pagination" style="text-indent:0px;font-size: 10pt;">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">上一页</a></li>
+                        <li><a href="#">下一页</a></li>
+                        <li><a href="#">末页</a></li>
+                    </ul>
                 </div>
-                <div class="clearfix"></div>
-            {/replies}
+                <div class="col-sm-3 col-sm-offset-3">
+                    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+                        回 复
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-2 col-sm-offset-1">
-            <p><a  data-toggle="modal" data-target="#myModal"> 回 复 </a></p>
-            <p><a href="/forum/category/{article.topicID}">  返 回 </a></p>
-            <p><a href="/forum/index"> 论坛首页 </a></p>
+        <div class="col-sm-3 hidden-xs" style="padding-left:10px;padding-right: 0px">
+            <div class="row" style=" background-color: white">
+
+                    <div class="row text-center" style="padding: 35px;">
+                        <ul class="nav nav-pills nav-stacked"
+                            style="border: 1px solid rgb(210,228,241);border-radius: 5px;box-shadow: 5px 5px 3px rgba(204,204,204,0.5);">
+                            <li role="presentation" style="background-color: rgb(226,250,250);height:35px;line-height: 35px;">
+                                {article.topic}
+                            </li>
+                            {#rlist}
+                                <li role="presentation"><a href="/forum/article/{_id}">{title}</a></li>
+                            {/rlist}
+
+                        </ul>
+
+                    </div>
+
+            </div>
 
         </div>
     </div>
@@ -65,9 +110,7 @@
 
     <div class="row text-center">
         <!-- Button trigger modal -->
-        <a type="button" data-toggle="modal" data-target="#myModal">
-            回 复
-        </a>
+
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -106,6 +149,7 @@
             </div>
         </div>
     </div>
+
 {/body}
 
 
