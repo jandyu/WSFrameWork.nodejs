@@ -47,11 +47,11 @@ angular.module('ktwy.services', [])
 
     var obj=$.extend( IService,{
       usercenter_reg:{
-        username:'',
+        username:'',//手机号
         checkcode:'',
         checkcode_number:'',//短信编号
-        name:'',
-        nickname:'',
+        name:'',//姓名
+        nickname:'',//昵称
         password:'',
         repassword:'',
         unit:'',//房间id

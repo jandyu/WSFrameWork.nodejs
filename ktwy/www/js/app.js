@@ -59,6 +59,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
         views: {
           'tab-home': {
             templateUrl: 'templates/tab-home.html',
+            controller:'home'
           }
         }
       })
@@ -71,24 +72,16 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
             controller: 'usercenter'
           }
         }
-      });
-      /*
-      .state('userlogin', {
-        url: '/userlogin',
-        templateUrl: 'templates/usercenter/userlogin.html',
-        controller:'userlogin'
       })
-      .state('userreg', {
-        url: '/userreg',
-        templateUrl: 'templates/usercenter/userreg.html',
-        controller:'userreg'
-      })
-      .state('userreg_step2', {
-        url: '/userreg_step2',
-        templateUrl: 'templates/usercenter/userreg_step2.html',
-        controller:'userreg_step2'
+      .state('tab.user_repair', {
+        url: '/user_repair',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/usercenter/user_repair.html',
+            controller:'user_repair'
+          }
+        }
       });
-      */
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/home');
