@@ -26,7 +26,7 @@ angular.module('ktwy.services')
           }
           else
           {
-            _this.masters[{name:'',phone:''}];
+            _this.masters=[{name:'',phone:''}];
           }
         },function(rtn){
 

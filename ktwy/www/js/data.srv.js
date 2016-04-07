@@ -481,6 +481,29 @@ var util = {
 	round:function(val,l){
 			return Math.round(val * Math.pow(10,l) ) / Math.pow(10,l)
 	},
+
+  DateFormat: function (dt, fmt) {
+
+    var weekday = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+    var o = {
+      "M+": dt.getMonth() + 1,                 //
+      "d+": dt.getDate(),                    //
+      "h+": dt.getHours(),                   //
+      "m+": dt.getMinutes(),                 //
+      "s+": dt.getSeconds(),                 //
+      "q+": Math.floor((dt.getMonth() + 3) / 3), //season
+      "S": dt.getMilliseconds(),             //
+      "W": weekday[dt.getDay()]
+    };
+
+    if (/(y+)/.test(fmt))
+      fmt = fmt.replace(RegExp.$1, (dt.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+      if (new RegExp("(" + k + ")").test(fmt))
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+  },
+
     GetDayString: function(d, f) {
         var oDate = new Date();
         var tdat = new Date(oDate.valueOf() + d * 24 * 60 * 60 * 1000);

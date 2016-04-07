@@ -22,6 +22,29 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
       }
     });
   })
+  .filter('Imgurl', function (srvRESTfulAPI) {
+    return function (imgurl) {
+      var rtnurl = imgurl;
+      //var r = RegExp(/^([0-9,a-f,A-F]*-[0-9,a-f,A-F]*){4}$/);
+      var r = RegExp(/^\/images\//i);
+      if (r.test(imgurl)) {
+        // id
+        rtnurl = srvRESTfulAPI.config.urlBase + imgurl;
+      }
+      return rtnurl;
+    }
+  })
+  .filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+      return $sce.trustAsHtml(text);
+    }
+  }])
+  .filter('to_dateformat',function(){
+    return function (sdt,ff){
+      var dt=new Date(sdt);
+      return util.DateFormat(dt,ff);
+    };
+  })
 
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -85,5 +108,6 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/home');
+    //$urlRouterProvider.otherwise('/tab/user_repair');
 
   });

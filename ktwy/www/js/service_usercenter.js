@@ -27,8 +27,8 @@ angular.module('ktwy.services', [])
   .factory('service_usercenter_login', function() {
 
     var usercenter_login= $.extend( IService,{
-      username:'',
-      password:'',
+      username:'15606526620',
+      password:'123456',
       willGoUrl:'',
       //用户登录
       userLogin:function()

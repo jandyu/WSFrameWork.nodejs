@@ -1,58 +1,61 @@
 <ion-view view-title="维修">
-
-  <ion-content scroll="true">
-
-    <!--
-    <div class="row">
-      <ion-item class="item-icon-left col-60">
-        <i class="icon ion-android-person"></i>
-        <input type="text" placeholder="联系人" ng-model="user_repair.name">
-      </ion-item>
-
-      <ion-item class=" item-icon-right col-40">
-        <input type="text" placeholder="联系电话" ng-model="user_repair.phone">
-      </ion-item>
-
-    </div>
-    -->
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="repail_apply()">{{user_repair.show_list==true?"维修申请":"返回"}}</button>
+  </ion-nav-buttons>
+  <ion-content scroll="true" ng-show="!user_repair.show_list">
     <ion-list>
       <ion-item class="item item-input">
         <i class="icon ion-ios-person"></i>
-        <input type="text" placeholder="联系人" ng-model="user_repari.name">
-        <input type="text" placeholder="联系电话" ng-model="user_repari.phone">
+        <input type="text" placeholder="联系人" ng-model="user_repair.model.report_person">
+        <input type="text" placeholder="联系电话" ng-model="user_repair.model.phone">
       </ion-item>
 
       <ion-item class="item item-input">
         <i class="icon ion-ios-location"></i>
-        <input type="text" placeholder="房号" ng-model="user_repari.roompath">
+        <input type="text" placeholder="房号" ng-model="user_repair.model.roompath" ng-click="openModal()">
       </ion-item>
+
 
       <ion-item class="item item-input item-select">
         <div class="input-label">请选择</div>
-        <select>
+        <select ng-model="user_repair.model.category">
           <option value="0">个人</option>
           <option value="1">公共</option>
         </select>
       </ion-item>
-      <ion-item class="item item-body">
-        <h2>有图有真相,上传照片:</h2>
-        <p>
-          <img src=""/>
-        </p>
-      </ion-item>
+
+      <div class="row">
+        <div class="col">上传照片:</div>
+      </div>
+      <div class="row">
+        <img src="img/photo_camar.png" class="col-25"/>
+        <img src="{{NativePlugin.PictrueModel.image_url}} class="col-25"/>
+        <img src="img/photo_add.png" class="col-25"/>
+        <img src="img/photo_add.png" class="col-25"/>
+      </div>
 
       <ion-item class="item item-input">
-        <input type="text" placeholder="房号" ng-model="user_repari.roompath">
+        <textarea rows=5 placeholder="请输入问题的描述,以便于我们准去定位,尽快处理" ng-model="user_repair.model.reason"></textarea>
       </ion-item>
 
-
-
-
+      <div class="row">
+        <button class="button button-block button-positive col" ng-click="saveRepair()">填好了</button>
+      </div>
     </ion-list>
+  </ion-content>
+  <ion-content scroll="true" ng-show="user_repair.show_list">
 
+    <div class="list card" ng-repeat="itm in user_repair.model_list" ng-click="eidt_repair(itm.iid)">
+      <div class="row">
+        <div class="col">维修类型:{{itm.category=='0'?"个人":"公共"}}</div>
+        <div class="col">状态:{{dict.getTxtById(itm.status)}}</div>
 
+      </div>
+      <div class="row">
+        <div class="col-offset-50">日期:{{itm.report_dt | to_dateformat:"yyyy年MM月dd"}}</div>
+      </div>
+    </div>
 
   </ion-content>
-
 </ion-view>
 
