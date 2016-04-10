@@ -27,11 +27,8 @@
       <div class="row">
         <div class="col">上传照片:</div>
       </div>
-      <div class="row">
-        <img src="img/photo_camar.png" class="col-25"/>
-        <img src="{{NativePlugin.PictrueModel.image_url}} class="col-25"/>
-        <img src="img/photo_add.png" class="col-25"/>
-        <img src="img/photo_add.png" class="col-25"/>
+      <div class="item-content scroll" id="repair_image_list">
+        <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url" ng-click="getPicture(itm.id)"/>
       </div>
 
       <ion-item class="item item-input">

@@ -5,3 +5,9 @@ div.row img.nav{
   width:34px;
   height:34px;
 }
+
+#repair_image_list img{
+  width:80px;
+  height:80px;
+  margin: 10px;
+}

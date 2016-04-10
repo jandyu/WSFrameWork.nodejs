@@ -2,9 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fb7ec51-fb68-48a4-8696-4018cac18b34" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/10访客信息.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/11保安巡逻.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/12消息推送.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/1业主查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/2车牌查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/3投诉表扬.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/4维修.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/5社区通知.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/6物业费查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/7短信群发.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/8快递录入.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/9水费抄表.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ktwy/www/img/头像_未登录.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/10访客信息.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/11保安巡逻.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/12消息推送.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/1业主查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/2车牌查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/3投诉表扬.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/4维修.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/5社区通知.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/6物业费查询.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/7短信群发.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/8快递录入.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/9水费抄表.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/头像_未登录.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/package.json" afterPath="$PROJECT_DIR$/../ktwy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/app.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/controller_home_yz.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/controller_home_yz.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/tab-home.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/tab-home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="ktwy_wy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,14 +55,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GradleBuilder.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/platforms/android/cordova/lib/builders/GradleBuilder.js">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5714285">
-              <caret line="164" column="131" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="131" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.2820513">
+              <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +110,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="-1416" />
+    <option name="y" value="-336" />
     <option name="width" value="1251" />
     <option name="height" value="729" />
   </component>
@@ -112,7 +140,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -141,7 +171,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="scss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -155,90 +185,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="usercenter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ktwy_wy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -715,11 +667,13 @@
       <workItem from="1460039581626" duration="12000" />
       <workItem from="1460076169681" duration="30000" />
       <workItem from="1460077522286" duration="483000" />
+      <workItem from="1460093122150" duration="1018000" />
+      <workItem from="1460094283247" duration="341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66750000" />
+    <option name="totallyTimeSpent" value="68109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -731,7 +685,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1251" height="729" extended-state="0" />
+    <frame x="-1416" y="-336" width="1251" height="729" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -740,7 +694,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62754303" sideWeight="0.2522746" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707354" sideWeight="0.49710503" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.62637365" sideWeight="0.74772537" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6259781" sideWeight="0.74772537" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.235732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1039,13 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16483517">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="2" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16483517">
@@ -1106,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1290323">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.071428575">
           <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,9 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.071428575">
           <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
-          <folding>
-            <element signature="e#1262#2453#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,19 +1074,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.546798">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/cordova/lib/builders/GradleBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5714285">
+        <state vertical-scroll-proportion="2.8803828">
           <caret line="164" column="131" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="131" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2820513">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

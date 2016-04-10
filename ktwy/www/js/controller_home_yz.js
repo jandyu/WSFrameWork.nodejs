@@ -42,7 +42,7 @@ angular.module('ktwy.controllers')
     });
   })
 
-  .controller('user_repair', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin) {
+  .controller('user_repair', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_repair = service_user_repair;
 
@@ -163,11 +163,17 @@ angular.module('ktwy.controllers')
     {
       $scope.user_repair.show_list=false;
       if(iid=="" || iid=="0") {
+        $scope.user_repair.iniModel();
         $scope.user_repair.model.creater = $scope.usercenter.userid;
         $scope.user_repair.model.report_person = $scope.usercenter.name;
         $scope.user_repair.model.phone = $scope.usercenter.phone;
         $scope.user_repair.model.roomid = $scope.usercenter.roomid;
         $scope.user_repair.model.roompath = $scope.usercenter.roompath;
+
+        $scope.user_repair.model.imagelist_url=[{id: '0', url: 'img/photo_add.png'},
+          {id: '1', url: 'img/photo_add.png'},
+          {id: '2', url: 'img/photo_add.png'},
+          {id: '3', url: 'img/photo_add.png'}];
       }
       else
       {
@@ -198,10 +204,33 @@ angular.module('ktwy.controllers')
     };
 
     //获取照片
-    $scope.NativePlugin=NativePlugin;
-    $scope.getPicture=function()
+    $scope.getPicture=function(id)
     {
+      //获取图片
       NativePlugin.GetPicture(function(imageData){
+
+        $scope.user_repair.model.imagelist_url[id].url=NativePlugin.PictureModel.image_url;
+
+        console.log(NativePlugin.PictureModel.image_url);
+
+        //上传图片
+        NativePlugin.FileTrans(NativePlugin.PictureModel.image_url,function(rtn){
+
+          //保存资源
+          service_wy_resource.model.category='维修照片';
+          service_wy_resource.model.url=rtn;
+
+          service_wy_resource.SaveResource(function(rtn){
+            $scope.user_repair.model.imagelist_url[id].rid=jsondal.AnaRtn(rtn);
+
+
+            $scope.$apply();
+          },function(rtn){});
+
+
+        },function(rtn){
+          console.log(JSON.stringify(rtn));
+        },{});
 
       },function(message){
 
