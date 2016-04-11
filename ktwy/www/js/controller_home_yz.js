@@ -55,7 +55,11 @@ angular.module('ktwy.controllers')
       $scope.user_repair.getRepairList($scope.usercenter.userid,function(rtn){
         console.info($scope.user_repair.model_list);
         //初始化字
-        service_dict.getDcit('repair_status',function(rtn){ $scope.$apply();});
+        service_dict.getDcit('repair_status',function(rtn){
+
+          $scope.$broadcast('scroll.refreshComplete');
+          $scope.$apply();
+        });
         //$scope.$apply();
       },function(rtn){
         $ionicPopup.alert({
@@ -64,6 +68,11 @@ angular.module('ktwy.controllers')
         });
         return;
       });
+    };
+
+    $scope.loadMore=function()
+    {
+      $scope.$broadcast('scroll.infiniteScrollComplete');
     };
 
 

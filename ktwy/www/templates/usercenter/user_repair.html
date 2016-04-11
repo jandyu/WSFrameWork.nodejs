@@ -42,6 +42,8 @@
   </ion-content>
   <ion-content scroll="true" ng-show="user_repair.show_list">
 
+    <ion-refresher pulling-text="下拉刷新" on-refresh="getRepairList()"></ion-refresher>
+
     <div class="list card" ng-repeat="itm in user_repair.model_list" ng-click="eidt_repair(itm.iid)">
       <div class="row">
         <div class="col">维修类型:{{itm.category=='0'?"个人":"公共"}}</div>
@@ -52,6 +54,8 @@
         <div class="col-offset-50">日期:{{itm.report_dt | to_dateformat:"yyyy年MM月dd"}}</div>
       </div>
     </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()"></ion-infinite-scroll>
 
   </ion-content>
 </ion-view>
