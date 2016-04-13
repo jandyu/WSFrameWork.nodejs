@@ -1,0 +1,51 @@
+<ion-modal-view ng-controller="user_repair_edit">
+  <ion-header-bar class="energized-bg light" align-title="center">
+    <button class="button button-clear" ng-click="closeWithReturn()">返回</button>
+    <h1 class="title light">维修</h1>
+  </ion-header-bar>
+  <ion-content scroll="true">
+    <ion-list>
+      <ion-item class="item item-input">
+        <i class="icon ion-ios-person"></i>
+        <input type="text" placeholder="联系人" ng-model="user_repair.model.report_person"
+               ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+        <input type="text" placeholder="联系电话" ng-model="user_repair.model.phone"
+               ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+      </ion-item>
+
+      <ion-item class="item item-input">
+        <i class="icon ion-ios-location"></i>
+        <input type="text" placeholder="房号" ng-model="user_repair.model.roompath" ng-click="openModal()"
+               ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+      </ion-item>
+
+
+      <ion-item class="item item-input item-select">
+        <div class="input-label">请选择</div>
+        <select ng-model="user_repair.model.category"
+                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+          <option value="0">个人</option>
+          <option value="1">公共</option>
+        </select>
+      </ion-item>
+
+      <div class="row" ng-show="(user_repair.model.status=='' || user_repair.model.status=='0')?true:false">
+        <div class="col">上传图片:</div>
+      </div>
+      <div class="item-content scroll" id="repair_image_list">
+        <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url" ng-click="getPicture(itm.id)">
+      </div>
+
+      <ion-item class="item item-input" >
+        <textarea rows=5 placeholder="请输入问题的描述,以便于我们准去定位,尽快处理" ng-model="user_repair.model.reason"
+                  ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true"></textarea>
+      </ion-item>
+
+
+      <div class="row">
+        <button class="button button-block button-positive col" ng-click="saveRepair()">填好了</button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

@@ -41,6 +41,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
   }])
   .filter('to_dateformat',function(){
     return function (sdt,ff){
+      if(sdt=="") return "";
       var dt=new Date(sdt);
       return util.DateFormat(dt,ff);
     };
@@ -104,7 +105,9 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
             controller:'user_repair'
           }
         }
-      });
+      })
+    ;
+
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/home');

@@ -15,7 +15,7 @@ angular.module('ktwy.services')
         //saveToPhotoAlbum: false,
         //targetWidth: 100,
         //targetHeight: 100,
-        mediaType:2,
+        mediaType:0,
         destinationType:1,//DATA_URL : 0,FILE_URI : 1,NATIVE_URI : 2
         sourceType:0//PHOTOLIBRARY : 0,CAMERA : 1,SAVEDPHOTOALBUM : 2
       },
@@ -69,27 +69,47 @@ angular.module('ktwy.services')
         console.log(JSON.stringify(option));
         var me=this;
         navigator.camera.getPicture(function(imageData){
-          if(option.destinationType==0)
+
+
+          if(imageData.indexOf("content://com.google.android.apps.photos.contentprovider")==0)
           {
-            me.PictureModel.image_url="data:image/jpeg;base64," + imageData;
-            console.log(me.PictureModel.image_url);
+              window.FilePath.resolveNativePath(imageData,function(rtn){
+                imageData=rtn;
+                me.getPictureRealCollback(option,imageData,succ);
+              },function(rtn){
+                console.log("convert uri error:"+rtn);
+              })
+          }
+          else
+          {
+           me.getPictureRealCollback(option,imageData,succ);
           }
 
-          if(option.destinationType==1)
-          {
-            me.PictureModel.image_url=imageData
-            console.log(me.PictureModel.image_url);
-          }
-
-          succ(imageData);
         }, function(message){
           fail(message);
         }, option);
       },
+      getPictureRealCollback:function(option,imageData,succ)
+      {
+        var me=this;
+        if(option.destinationType==0)
+        {
+          me.PictureModel.image_url="data:image/jpeg;base64," + imageData;
+          console.log(me.PictureModel.image_url);
+        }
+
+        if(option.destinationType==1)
+        {
+          me.PictureModel.image_url=imageData
+          console.log(me.PictureModel.image_url);
+        }
+
+        succ(imageData);
+      },
       //2上传文件--------------------------------------------------------------------------------------------------------------
       FileTransDefaultOption:
       {
-        mimeType:'multipart/form-data',//image/jpeg,text/plain,multipart/form-data
+        mimeType:'image/jpeg',//image/jpeg,text/plain,multipart/form-data
         urlServer:'http://wy.zjy8.cn/resource.wsdat'
       },
       FileTrans:function(fileURL,succ,fail,option)
@@ -126,7 +146,6 @@ angular.module('ktwy.services')
 
         ft.upload(fileURL, uri, onsucc, fail, options);
       }
-
     };
 
     return Native_Plugin;

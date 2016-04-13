@@ -1,0 +1,88 @@
+<ion-modal-view ng-controller="user_repair_detail">
+  <ion-header-bar class="energized-bg light" align-title="center">
+    <button class="button button-clear" ng-click="close_wnd_user_repair_detail()">返回</button>
+    <h1 class="title light">维修详情</h1>
+  </ion-header-bar>
+  <ion-content scroll="true">
+    <ion-list>
+
+      <div class="item item-input">
+        <i class="icon ion-ios-person"></i>
+        <div class="col">{{user_repair.model.report_person}}</div>
+        <div class="col">{{user_repair.model.phone}}</div>
+      </div>
+
+
+      <div class="item item-input">
+        <i class="icon ion-ios-location"></i>
+        <div class="col">
+          {{user_repair.model.roompath}}
+        </div>
+      </div>
+
+
+      <div class="item item-input">
+        <i class="icon ion-wrench"></i>
+        <div class="col">
+          维修类型:{{itm.category=='0'?"个人":"公共"}}
+        </div>
+      </div>
+
+
+      <div class="item item-content scroll" id="repair_image_list">
+        <h2>图片:</h2>
+        <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url">
+      </div>
+
+      <div class="item item-content">
+        <h2>问题描述:</h2>
+        <p>{{user_repair.model.reason}}</p>
+      </div>
+
+      <div class="item item-content">
+        <h2>处理情况:</h2>
+
+        <div class="card" ng-repeat="itm in user_repair.model.deal_list">
+
+          <div class="row">
+            <div class="col">维修人员:{{itm.repair}}</div>
+            <div class="col">{{itm.phone}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col">人工费:{{itm.labourfee}}</div>
+            <div class="col">材料费:{{itm.meterialfee}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col">{{itm.statusname}}</div>
+            <div class="col col-67">派工时间:{{itm.dealdt|to_dateformat:"yyyy/MM/dd"}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col">预计维修时间:{{itm.plantime|to_dateformat:"yyyy/MM/dd"}}</div>
+          </div>
+
+          <div class="item item-text-wrap">
+            {{itm.memo}}
+          </div>
+          <div class="item" align="right">
+            完成时间:{{itm.complatedt|to_dateformat:"yyyy/MM/dd"}}
+          </div>
+
+      </div>
+
+      </div>
+      <div class="row" ng-show="user_repair.model.status==''?true:false">
+        <button class="button button-block button-positive col" ng-click="saveRepair()">填好了</button>
+      </div>
+
+     <div class="item" align="center">
+        <button class="button button-positive " ng-click="open_wnd_user_repair_edit(user_repair.model.iid)">修改</button>
+        <button class="button button-positive  ">撤回</button>
+        <button class="button button-positive  ">评价</button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
