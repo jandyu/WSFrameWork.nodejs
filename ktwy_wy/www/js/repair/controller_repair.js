@@ -181,7 +181,7 @@ angular.module('ktwy.controllers')
           title: '提醒',
           template: '撤回成功!'
         });
-        
+
         $scope.$apply();
       },function(rtn){
         $ionicPopup.alert({

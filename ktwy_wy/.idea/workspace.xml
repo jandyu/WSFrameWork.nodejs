@@ -17,30 +17,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="cn.zjy8.kwwy" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fb7ec51-fb68-48a4-8696-4018cac18b34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/photo_add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/photo_camar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/native-plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/repair/controller_repair.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/repair/service_repair.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/usercenter/user_repair.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/usercenter/user_repair_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/repair/controller_repair.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/repair/controller_repair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/repair/service_repair.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/repair/service_repair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair_detail.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ktwy_wy.iml" afterPath="$PROJECT_DIR$/.idea/ktwy_wy.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/data.srv.js" afterPath="$PROJECT_DIR$/www/js/data.srv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/jsdal.js" afterPath="$PROJECT_DIR$/www/js/jsdal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/service_home_wy.js" afterPath="$PROJECT_DIR$/www/js/service_home_wy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/service_usercenter.js" afterPath="$PROJECT_DIR$/www/js/service_usercenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home-wy.html" afterPath="$PROJECT_DIR$/www/templates/tab-home-wy.html" />
-    </list>
+    <list default="true" id="9fb7ec51-fb68-48a4-8696-4018cac18b34" name="Default" comment="" />
     <ignored path="ktwy_wy.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -74,8 +51,8 @@
       <file leaf-file-name="controller_repair.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/repair/controller_repair.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58778626">
-              <caret line="183" column="8" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.29007635">
+              <caret line="170" column="35" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="35" />
               <folding>
                 <element signature="e#2079#3285#0" expanded="false" />
                 <element signature="e#4000#4059#0" expanded="false" />
@@ -771,12 +748,12 @@
       <workItem from="1460625674500" duration="395000" />
       <workItem from="1460682149551" duration="3509000" />
       <workItem from="1460690748604" duration="8879000" />
-      <workItem from="1460705463668" duration="346000" />
+      <workItem from="1460705463668" duration="490000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86333000" />
+    <option name="totallyTimeSpent" value="86477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1199,8 +1176,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/repair/controller_repair.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58778626">
-          <caret line="183" column="8" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.29007635">
+          <caret line="170" column="35" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="35" />
           <folding>
             <element signature="e#2079#3285#0" expanded="false" />
             <element signature="e#4000#4059#0" expanded="false" />
