@@ -8,6 +8,7 @@
 var wwwurl_message = "http://msg.zjy8.cn";
 
 var jsondal = {
+  debug:"true",//调试阶段,false:正式阶段
   database: "db_app",
   DealMessage: function () {
     $.getJSON(wwwurl_message + "/DealMsg.asmx/DealMessage?jsoncallback=?", {}, function (rtn) {

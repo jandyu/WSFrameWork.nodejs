@@ -49,15 +49,15 @@ angular.module('ktwy.services')
       model_list: [],
       show_list: true,
       currpage: 0,
-      getRepairList: function (userid, succ, fail) {
+      getRepairList: function (qry, succ, fail) {
         var me = this;
-        var qry = {'col': 'creater', 'logic': '=', 'val': userid, 'andor': ''};
+        //var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
         var ord = {'col': 'iid', 'sort': 'desc'};
         jsondal.Query("v_m_app_wy_repair", qry, me.currpage, 50, ord, function (rtn) {
           console.info(rtn);
-
+          me.model_list=[];
           if (rtn.d != undefined) {
-            me.model_list=[];
+
             $.each(rtn.d, function (k, v) {
               var itm = {
                 creater: v.creater,
@@ -239,37 +239,35 @@ angular.module('ktwy.services')
       }
       ,
       //评价信息
-      saveVisit:function(tmp,succ,fail){
-
+      saveVisit:function(succ,fail){
         var me=this;
+        console.log("----------visit_list----------------");
+        console.log(me.model.visit_list);
+        var tmp=me.model.visit_list[0];
         var dat= {
           pid: me.model.iid,
-          iid:"0",
-          visiter:"",
+          iid:(tmp.iid || "0"),
+          visiter:(tmp.visiter || ""),
           myd:tmp.myd,
           detail:tmp.detail
       };
-
 
         jsondal.Exec("p_m_repair_pj", {iid:dat.iid,pid:dat.pid,myd:dat.myd,detail:dat.detail},
           function (rtn) {
           var rtn = jsondal.AnaRtn(rtn);
             if(dat.iid=="0")
             {
-              dat.iid=rtn;
+              me.model.visit_list[0].iid=rtn;
             }
             if(dat.myd=="0") {
-              dat.mydname = '满意';
+              me.model.visit_list[0].mydname = '满意';
             }
             if(dat.myd=="1") {
-              dat.mydname = '一般';
+              me.model.visit_list[0].mydname = '一般';
             }
             if(dat.myd=="2") {
-              dat.mydname = '不满意';
+              me.model.visit_list[0].mydname = '不满意';
             }
-
-            me.model.visit_list.push(dat);
-
             me.model.status='6';
 
           succ(rtn);

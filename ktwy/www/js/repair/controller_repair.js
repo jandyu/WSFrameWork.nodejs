@@ -85,10 +85,27 @@ angular.module('ktwy.controllers')
 
     $scope.open_wnd_user_repair_edit = function (iid) {
       //此处初始化
+      if(iid=="0") {
+        $scope.eidt_repair(iid);
 
-      $scope.eidt_repair(iid);
+        $scope.wnd_user_repair_edit.show();
+      }
+      else
+      {
+        if ($scope.user_repair.model.status == "" || $scope.user_repair.model.status == "0") {
 
-      $scope.wnd_user_repair_edit.show();
+          $scope.eidt_repair(iid);
+
+          $scope.wnd_user_repair_edit.show();
+        }
+        else {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '当前状态不能修改!'
+          });
+          return;
+        }
+      }
     };
 
     $scope.close_wnd_user_repair_edit = function () {
@@ -127,6 +144,39 @@ angular.module('ktwy.controllers')
     };
     $scope.$on('$destroy', function () {
       $scope.wnd_user_repair_detail.remove();
+    });
+
+
+    //评价------------------------------
+    $ionicModal.fromTemplateUrl('templates/usercenter/user_repair_visit.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.wnd_user_repair_visit = modal;
+    });
+
+    $scope.open_wnd_user_repair_visit = function (iid) {
+      //此处初始化
+      if($scope.user_repair.model.status=="7" ||$scope.user_repair.model.status=="6") {
+        $scope.eidt_repair(iid, "1");
+        $scope.wnd_user_repair_visit.show();
+      }
+      else
+      {
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '当前状态不能评价!'
+        });
+      }
+
+    };
+
+    $scope.close_wnd_user_repair_visit = function () {
+      $scope.$apply();
+      $scope.wnd_user_repair_visit.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.wnd_user_repair_visit.remove();
     });
 
 
@@ -232,7 +282,7 @@ angular.module('ktwy.controllers')
     //获取照片
     $scope.getPicture=function(id)
     {
-      if(user_repair.model.status=='' || user_repair.model.status=='0') {
+      if($scope.user_repair.model.status=='' || $scope.user_repair.model.status=='0') {
 
         //获取图片
         NativePlugin.GetPicture(function (imageData) {
@@ -288,12 +338,78 @@ angular.module('ktwy.controllers')
 
     $scope.closeWithReturn=function()
     {
-      $scope.close_wnd_user_repair_edit();
+      $scope.close_wnd_user_repair_detail();
       $scope.getRepairList();
     };
 
 
+    $scope.masterReturn=function(iid)
+    {
+
+      if($scope.user_repair.model.status=="0") {
+        $scope.user_repair.masterReturn(iid, function (rtn) {
+
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '撤回成功!'
+          });
+          $scope.$apply();
+        }, function (rtn) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '撤回失败!' + rtn
+          });
+        });
+      }
+      else
+      {
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '当前状态不能撤回!'
+        });
+      }
+    };
 
   })
+
+  .controller('user_repair_visit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
+    $scope.usercenter = service_usercenter;
+    $scope.user_repair = service_user_repair;
+
+
+    $scope.visit={myd:"0", detail:""};
+
+    $scope.saveVisit=function(v)
+    {
+      $scope.user_repair.saveVisit(v,function(rtn){
+
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '评价成功!'
+        });
+        $scope.visit_myd="0";
+        $scope.visit_detail="";
+
+        $scope.closeWithReturn();
+
+      },function(rtn){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '评价失败!'+rtn
+        });
+      });
+    };
+
+
+
+    //维修编辑相关-----------------------------------------------
+
+    $scope.closeWithReturn=function()
+    {
+      $scope.close_wnd_user_repair_visit();
+    };
+
+  })
+
 
 ;

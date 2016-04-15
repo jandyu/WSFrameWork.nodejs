@@ -70,7 +70,7 @@
             完成时间:{{itm.complatedt|to_dateformat:"yyyy/MM/dd"}}
           </div>
 
-      </div>
+        </div>
 
       </div>
 
@@ -96,15 +96,7 @@
 
 
 
-      <div class="row" ng-show="user_repair.model.status==''?true:false">
-        <button class="button button-block button-positive col" ng-click="saveRepair()">填好了</button>
-      </div>
 
-     <div class="item" align="center">
-        <button class="button button-positive " ng-click="open_wnd_user_repair_edit(user_repair.model.iid)">修改</button>
-        <button class="button button-positive" ng-click="masterReturn(user_repair.model.iid)">撤回</button>
-        <button class="button button-positive" ng-click="open_wnd_user_repair_visit(user_repair.model.iid)" >评价</button>
-      </div>
 
     </ion-list>
   </ion-content>

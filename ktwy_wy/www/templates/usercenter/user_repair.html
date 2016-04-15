@@ -1,0 +1,51 @@
+<ion-view view-title="维修" >
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+  <ion-content scroll="true">
+    <!--
+    <ion-item class="item-input item-button-right">
+      <input type="text" placeholder="状态" ng-model="vehicle_query.plate">
+      <button class="button" ng-click="queryplate()">查询</button>
+    </ion-item>
+    -->
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="getRepairList()"></ion-refresher>
+
+    <div class="list">
+
+      <ion-item class="item-input item-button-right">
+        <input type="text" placeholder="选择房号" ng-click="openSelectRoomWnd()" ng-model="qeryfilters.roompath" >
+        <button class="button" ng-click="querybyroomid()">查询</button>
+      </ion-item>
+
+      <div class="item row" align="center">
+        <div class="col">房号</div>
+        <div class="col item-select">
+          <select ng-model="qeryfilters.status">
+            <option value="" selected>全部</option>
+            <option value="0" >已受理</option>
+            <option value="1" >已退回</option>
+
+            <option value="2" >业主撤回</option>
+            <option value="3" >已派工</option>
+            <option value="5" >再派工</option>
+
+            <option value="7" >维修结束</option>
+
+            <option value="6" >已回访/评价</option>
+            <option value="4" >已完成</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="item row" align="center" ng-repeat="itm in user_repair.model_list" ng-click="open_wnd_user_repair_detail(itm.iid)">
+        <div class="item-text-wrap col-67">{{itm.roompath}}</div>
+        <div class="col">{{dict.getTxtById(itm.status)}}</div>
+      </div>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>
+

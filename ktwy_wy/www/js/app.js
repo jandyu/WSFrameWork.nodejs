@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
+angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -21,6 +21,30 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
         StatusBar.styleDefault();
       }
     });
+  })
+  .filter('Imgurl', function (srvRESTfulAPI) {
+    return function (imgurl) {
+      var rtnurl = imgurl;
+      //var r = RegExp(/^([0-9,a-f,A-F]*-[0-9,a-f,A-F]*){4}$/);
+      var r = RegExp(/^\/images\//i);
+      if (r.test(imgurl)) {
+        // id
+        rtnurl = srvRESTfulAPI.config.urlBase + imgurl;
+      }
+      return rtnurl;
+    }
+  })
+  .filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+      return $sce.trustAsHtml(text);
+    }
+  }])
+  .filter('to_dateformat',function(){
+    return function (sdt,ff){
+      if(sdt=="") return "";
+      var dt=new Date(sdt);
+      return util.DateFormat(dt,ff);
+    };
   })
 
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
@@ -90,7 +114,17 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services'])
             controller:'vehicle_query'
           }
         }
-      });
+      })
+      .state('tab.user_repair', {
+        url: '/user_repair',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/usercenter/user_repair.html',
+            controller:'user_repair'
+          }
+        }
+      })
+    ;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/home');

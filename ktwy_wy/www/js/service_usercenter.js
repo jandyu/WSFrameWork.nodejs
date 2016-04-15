@@ -25,13 +25,13 @@ angular.module('ktwy.services', [])
     //login service
     .factory('service_usercenter_login', function () {
         var usercenter_login = $.extend(IService, {
-            username: '',
+            username: '15606526620',
             password: '',
-            checkcode:'',
+            checkcode:'00000',
             checkcode_number:'',//短信编号
             btn_getcode_txt: '获取验证码',
             btn_getcode_disabled: '',//disabled 或者空
-            btn_reg_disabled: 'disabled',
+            btn_reg_disabled: (jsondal.debug==false?'disabled':""),
             willGoUrl:'',//登陆成功后即将跳转的页面
             //用户登录
             userLogin: function () {

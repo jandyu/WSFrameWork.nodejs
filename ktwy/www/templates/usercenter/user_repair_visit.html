@@ -1,0 +1,28 @@
+<ion-modal-view ng-controller="user_repair_visit">
+  <ion-header-bar class="energized-bg light" align-title="center">
+    <button class="button button-clear" ng-click="closeWithReturn()">返回</button>
+    <h1 class="title light">评价</h1>
+  </ion-header-bar>
+  <ion-content scroll="true">
+    <ion-list>
+
+      <ion-item class="item item-input item-select">
+        <div class="input-label">满意度</div>
+        <select ng-model="visit.myd">
+          <option value="0">满意</option>
+          <option value="1">一般</option>
+          <option value="2">不满意</option>
+        </select>
+      </ion-item>
+
+      <ion-item class="item item-input" >
+        <textarea rows=5 placeholder="请输入评价" ng-model="visit.detail"></textarea>
+      </ion-item>
+
+      <div class="row">
+        <button class="button button-block button-positive col" ng-click="saveVisit(visit)">确定</button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

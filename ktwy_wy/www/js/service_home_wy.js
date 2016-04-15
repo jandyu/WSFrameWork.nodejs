@@ -80,4 +80,68 @@ angular.module('ktwy.services')
       }
     });
     return vehicle_query;
-  });
+  })
+  .factory("service_dict", function () {
+    var dict = {
+      dict_list: [],
+      getDcit: function (category, succ) {
+        var me = this;
+        var qry = {'col': 'category', 'logic': '=', 'val': category, 'andor': ''};
+        var ord = {'col': 'iid', 'sort': 'asc'};
+        jsondal.Query("v_dict", qry, 1, 9999, ord, function (rtn) {
+            console.info(rtn);
+            me.dict_list = [];
+            if (rtn.d != undefined) {
+              $.each(rtn.d, function (k, v) {
+                var itm = {
+                  category: v.category,
+                  id: v.id,
+                  txt: v.txt,
+                  pid: v.pid,
+                  order_id: v.order_id,
+                  iid: v.iid
+                };
+                me.dict_list.push(itm);
+              });
+            }
+            if (succ != undefined && succ != null) {
+              succ(rtn);
+            }
+          },
+          function (rtn) {
+          });
+      },
+      getTxtById:function(id)
+      {
+        var me=this;
+        var rtn=id;
+        $.each(me.dict_list,function(k,v){
+          if(v.id==id)
+          {
+            rtn= v.txt;
+          }
+        });
+        return rtn;
+      }
+    };
+    return dict;
+  })
+
+  .factory('service_wy_resource',function(){
+    var wy_resource={
+      model:{iid:'0',category:'',url:'',memo:''},
+      SaveResource:function(succ,fail)
+      {
+        var me = this;
+        var dat = {
+          category: me.model.category,
+          url: me.model.url,
+          memo: me.model.memo,
+          iid:me.iid
+        };
+        jsondal.Insert("app_wy_resource", dat, succ, fail);
+      }
+    };
+    return wy_resource;
+  })
+;
