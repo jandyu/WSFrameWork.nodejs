@@ -27,7 +27,7 @@ angular.module('ktwy.controllers')
       },function(rtn){
         $ionicPopup.alert({
           title: '提醒',
-          template: '提交有误!' + rtn
+          template: '有误!' + rtn
         });
         return;
       });
@@ -62,8 +62,35 @@ angular.module('ktwy.controllers')
 
     $scope.loadMore=function()
     {
-      $scope.$broadcast('scroll.infiniteScrollComplete');
+      //$scope.$broadcast('scroll.infiniteScrollComplete');
+      var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+      if(qry==undefined || qry=="" || qry==null)
+      {
+        qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+      }
+      $scope.user_repair.getRepairList(qry,function(rtn){
+        console.info($scope.user_repair.model_list);
+        //初始化字
+        service_dict.getDcit('repair_status',function(rtn){
+
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.$apply();
+        });
+        //$scope.$apply();
+      },function(rtn){
+        $ionicPopup.alert({
+          title: '提醒',
+          template: '有误!' + rtn
+        });
+        return;
+      });
     };
+
+    /*
+    $scope.$on('stateChangeSuccess', function() {
+      $scope.loadMore();
+    });
+    */
 
     //维修编辑或者申请
     //cate:

@@ -16,10 +16,11 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         cordova.plugins.Keyboard.disableScroll(true);
 
       }
+      /*
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
-      }
+      }*/
     });
   })
   .filter('Imgurl', function (srvRESTfulAPI) {
