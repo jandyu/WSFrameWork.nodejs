@@ -9,6 +9,8 @@ angular.module('ktwy.services', [])
     name:'',
     phone:'',
     nickname:'',
+    deviceid:'',
+    platform:'',
     //判断是否登录成功
     checkLogin:function() {
       var _this=this;
@@ -29,17 +31,26 @@ angular.module('ktwy.services', [])
     var usercenter_login= $.extend( IService,{
       username:'15606526620',
       password:'123456',
+      deviceid:'',
+      platform:'',
       willGoUrl:'',
       //用户登录
       userLogin:function()
       {
         var _this=this;
-        return jsondal.doPromise(jsondal.Exec,"sp_user_login", { username:_this.username,password:_this.password });
+        return jsondal.doPromise(jsondal.Exec,"sp_user_login", { username:_this.username,password:_this.password,deviceid:_this.deviceid ,platform:_this.platform });
+      },
+      userLoginDevice:function()
+      {
+        var _this=this;
+        return jsondal.doPromise(jsondal.Exec,"sp_user_login_device", { deviceid:_this.deviceid});
+      },
+      userLoginOut:function()
+      {
+        var _this=this;
+        return jsondal.doPromise(jsondal.Exec,"sp_user_login_out", { deviceid:_this.deviceid});
       }
       });
-
-
-
     return usercenter_login;
   })
   //reg service

@@ -1,25 +1,24 @@
 angular.module('ktwy.controllers')
 
-  .controller('user_repair', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
+  .controller('user_repair', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_repair, service_dict, NativePlugin, service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_repair = service_user_repair;
 
 
-    $scope.dict=service_dict;
+    $scope.dict = service_dict;
 
     //$scope.dict.getDcit('repair_status',function(rtn){ });
-    $scope.getRepairList=function()
-    {
-      $scope.user_repair.getRepairList($scope.usercenter.userid,function(rtn){
+    $scope.getRepairList = function () {
+      $scope.user_repair.getRepairList($scope.usercenter.userid, function (rtn) {
         console.info($scope.user_repair.model_list);
         //初始化字
-        service_dict.getDcit('repair_status',function(rtn){
+        service_dict.getDcit('repair_status', function (rtn) {
 
           $scope.$broadcast('scroll.refreshComplete');
           $scope.$apply();
         });
         //$scope.$apply();
-      },function(rtn){
+      }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
           template: '提交有误!' + rtn
@@ -28,8 +27,7 @@ angular.module('ktwy.controllers')
       });
     };
 
-    $scope.loadMore=function()
-    {
+    $scope.loadMore = function () {
       $scope.$broadcast('scroll.infiniteScrollComplete');
     };
 
@@ -38,9 +36,8 @@ angular.module('ktwy.controllers')
 
     //维修编辑或者申请
     //cate:
-    $scope.eidt_repair=function(iid,cate)
-    {
-      if(iid=="" || iid=="0") {
+    $scope.eidt_repair = function (iid, cate) {
+      if (iid == "" || iid == "0") {
         $scope.user_repair.iniModel();
         $scope.user_repair.model.creater = $scope.usercenter.userid;
         $scope.user_repair.model.report_person = $scope.usercenter.name;
@@ -48,31 +45,28 @@ angular.module('ktwy.controllers')
         $scope.user_repair.model.roomid = $scope.usercenter.roomid;
         $scope.user_repair.model.roompath = $scope.usercenter.roompath;
 
-        $scope.user_repair.model.imagelist_url=[{id: '0', url: 'img/photo_add.png'},
+        $scope.user_repair.model.imagelist_url = [{id: '0', url: 'img/photo_add.png'},
           {id: '1', url: 'img/photo_add.png'},
           {id: '2', url: 'img/photo_add.png'},
           {id: '3', url: 'img/photo_add.png'}];
       }
-      else
-      {
-        $scope.user_repair.getRepair(iid,function(rtn){
-
-          if(cate=="1")
-          {
-            $scope.user_repair.model.imagelist_url=
-              _.reject($scope.user_repair.model.imagelist_url,function(itm){
-              return itm.url=="img/photo_add.png";
-            });
+      else {
+        $scope.user_repair.getRepair(iid, function (rtn) {
+          if (cate == "1") {
+            $scope.user_repair.model.imagelist_url =
+              _.reject($scope.user_repair.model.imagelist_url, function (itm) {
+                return itm.url == "img/photo_add.png";
+              });
             console.log($scope.user_repair.model.imagelist_url);
           }
 
           $scope.$apply();
           console.info("get repari from server");
           console.info(JSON.stringify(rtn));
-        },function(rnt){});
+        }, function (rnt) {
+        });
       }
     };
-
 
 
     //编辑窗口-----------------------------
@@ -85,13 +79,12 @@ angular.module('ktwy.controllers')
 
     $scope.open_wnd_user_repair_edit = function (iid) {
       //此处初始化
-      if(iid=="0") {
+      if (iid == "0") {
         $scope.eidt_repair(iid);
 
         $scope.wnd_user_repair_edit.show();
       }
-      else
-      {
+      else {
         if ($scope.user_repair.model.status == "" || $scope.user_repair.model.status == "0") {
 
           $scope.eidt_repair(iid);
@@ -110,9 +103,9 @@ angular.module('ktwy.controllers')
 
     $scope.close_wnd_user_repair_edit = function () {
 
-      $scope.user_repair.model.imagelist_url=
-        _.reject($scope.user_repair.model.imagelist_url,function(itm){
-          return itm.url=="img/photo_add.png";
+      $scope.user_repair.model.imagelist_url =
+        _.reject($scope.user_repair.model.imagelist_url, function (itm) {
+          return itm.url == "img/photo_add.png";
         });
 
       $scope.wnd_user_repair_edit.hide();
@@ -133,7 +126,7 @@ angular.module('ktwy.controllers')
     $scope.open_wnd_user_repair_detail = function (iid) {
       //此处初始化
 
-      $scope.eidt_repair(iid,"1");
+      $scope.eidt_repair(iid, "1");
 
       $scope.wnd_user_repair_detail.show();
     };
@@ -157,12 +150,11 @@ angular.module('ktwy.controllers')
 
     $scope.open_wnd_user_repair_visit = function (iid) {
       //此处初始化
-      if($scope.user_repair.model.status=="7" ||$scope.user_repair.model.status=="6") {
+      if ($scope.user_repair.model.status == "7" || $scope.user_repair.model.status == "6") {
         $scope.eidt_repair(iid, "1");
         $scope.wnd_user_repair_visit.show();
       }
-      else
-      {
+      else {
         $ionicPopup.alert({
           title: '提醒',
           template: '当前状态不能评价!'
@@ -182,12 +174,12 @@ angular.module('ktwy.controllers')
 
   })
 
-  .controller('user_repair_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
+  .controller('user_repair_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_repair, service_dict, NativePlugin, service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_repair = service_user_repair;
 
 
-    $scope.dict=service_dict;
+    $scope.dict = service_dict;
 
     //选择房号--------------------------------------------------
     var roomselect = service_roomselect;
@@ -280,9 +272,8 @@ angular.module('ktwy.controllers')
     };
 
     //获取照片
-    $scope.getPicture=function(id)
-    {
-      if($scope.user_repair.model.status=='' || $scope.user_repair.model.status=='0') {
+    $scope.getPicture = function (id) {
+      if ($scope.user_repair.model.status == '' || $scope.user_repair.model.status == '0') {
 
         //获取图片
         NativePlugin.GetPicture(function (imageData) {
@@ -294,13 +285,15 @@ angular.module('ktwy.controllers')
           //上传图片
           NativePlugin.FileTrans(NativePlugin.PictureModel.image_url, function (rtn) {
 
+            console.info('--------uploadfile callback------------');
+            console.info(rtn);
+
             //保存资源
             service_wy_resource.model.category = '维修照片';
             service_wy_resource.model.url = rtn;
 
             service_wy_resource.SaveResource(function (rtn) {
               $scope.user_repair.model.imagelist_url[id].rid = jsondal.AnaRtn(rtn);
-
 
               $scope.$apply();
             }, function (rtn) {
@@ -317,36 +310,53 @@ angular.module('ktwy.controllers')
 
       }
     };
+
+
+    $scope.photoview=function (url)
+    {
+      NativePlugin.PhotoView(url,"");
+    };
+
+    //显示图片详情或者添加图片
+    $scope.add_viewPhoto=function(url,id)
+    {
+      console.info("---------------------");
+      console.info("url:"+url+"id:"+id);
+      if(url=='img/photo_add.png')
+      {
+        $scope.getPicture(id);
+      }
+      else
+      {
+        $scope.photoview(url);
+      }
+
+    };
     //维修编辑相关-----------------------------------------------
 
-    $scope.closeWithReturn=function()
-    {
+    $scope.closeWithReturn = function () {
       $scope.close_wnd_user_repair_edit();
       $scope.getRepairList();
     };
 
 
-
   })
 
-  .controller('user_repair_detail', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
+  .controller('user_repair_detail', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_repair, service_dict, NativePlugin, service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_repair = service_user_repair;
 
 
     //维修编辑相关-----------------------------------------------
-
-    $scope.closeWithReturn=function()
-    {
+    $scope.closeWithReturn = function () {
       $scope.close_wnd_user_repair_detail();
       $scope.getRepairList();
     };
 
 
-    $scope.masterReturn=function(iid)
-    {
+    $scope.masterReturn = function (iid) {
 
-      if($scope.user_repair.model.status=="0") {
+      if ($scope.user_repair.model.status == "0") {
         $scope.user_repair.masterReturn(iid, function (rtn) {
 
           $ionicPopup.alert({
@@ -361,8 +371,7 @@ angular.module('ktwy.controllers')
           });
         });
       }
-      else
-      {
+      else {
         $ionicPopup.alert({
           title: '提醒',
           template: '当前状态不能撤回!'
@@ -370,42 +379,45 @@ angular.module('ktwy.controllers')
       }
     };
 
+    //显示图片详情
+    $scope.photoview=function (url)
+    {
+      NativePlugin.PhotoView(url,"");
+    };
+
   })
 
-  .controller('user_repair_visit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,service_roomselect, service_usercenter, service_user_repair,service_dict,NativePlugin,service_wy_resource) {
+  .controller('user_repair_visit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_repair, service_dict, NativePlugin, service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_repair = service_user_repair;
 
 
-    $scope.visit={myd:"0", detail:""};
+    $scope.visit = {myd: "0", detail: ""};
 
-    $scope.saveVisit=function(v)
-    {
-      $scope.user_repair.saveVisit(v,function(rtn){
+    $scope.saveVisit = function (v) {
+      $scope.user_repair.saveVisit(v, function (rtn) {
 
         $ionicPopup.alert({
           title: '提醒',
           template: '评价成功!'
         });
-        $scope.visit_myd="0";
-        $scope.visit_detail="";
+        $scope.visit_myd = "0";
+        $scope.visit_detail = "";
 
         $scope.closeWithReturn();
 
-      },function(rtn){
+      }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
-          template: '评价失败!'+rtn
+          template: '评价失败!' + rtn
         });
       });
     };
 
 
-
     //维修编辑相关-----------------------------------------------
 
-    $scope.closeWithReturn=function()
-    {
+    $scope.closeWithReturn = function () {
       $scope.close_wnd_user_repair_visit();
     };
 

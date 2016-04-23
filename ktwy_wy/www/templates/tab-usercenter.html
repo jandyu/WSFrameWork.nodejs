@@ -37,5 +37,9 @@
       <i class="icon ion-ios-arrow-right"></i>
     </ion-item>
 
+    <ion-item class="item" ng-show="usercenter.userid=='0'?false:true">
+      <button class="button button-block button-positive" ng-click="userExit()" >退出登录</button>
+    </ion-item>
+
   </ion-content>
 </ion-view>

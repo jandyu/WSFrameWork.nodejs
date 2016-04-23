@@ -127,6 +127,7 @@ angular.module('ktwy.services')
         options.headers = headers;
 
         var ft = new FileTransfer();
+        /*
         ft.onprogress = function(progressEvent) {
           if (progressEvent.lengthComputable) {
             loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
@@ -134,7 +135,7 @@ angular.module('ktwy.services')
             loadingStatus.increment();
           }
         };
-
+        */
         var uri = encodeURI(option_new.urlServer);
         var onsucc=function(rtn)
         {
@@ -145,6 +146,12 @@ angular.module('ktwy.services')
         }
 
         ft.upload(fileURL, uri, onsucc, fail, options);
+      },
+      //photoview------------------------
+      //PhotoViewer.show('http://my_site.com/my_image.jpg', 'Optional Title')
+      PhotoView:function(url,title)
+      {
+        PhotoViewer.show(url, title)
       }
     };
 

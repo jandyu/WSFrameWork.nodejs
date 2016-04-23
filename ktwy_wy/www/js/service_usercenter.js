@@ -9,6 +9,8 @@ angular.module('ktwy.services', [])
             dpetid: '0',
             deptname: '',
             phone: '',
+            deviceid:'',
+            platform:'',
             //判断是否登录成功
             checkLogin: function () {
                 var _this = this;
@@ -27,6 +29,8 @@ angular.module('ktwy.services', [])
         var usercenter_login = $.extend(IService, {
             username: '15606526620',
             password: '',
+            deviceid:'',
+            platform:'',
             checkcode:'00000',
             checkcode_number:'',//短信编号
             btn_getcode_txt: '获取验证码',
@@ -58,13 +62,23 @@ angular.module('ktwy.services', [])
           userLogin:function(succ,err)
           {
             var _this=this;
-            jsondal.Exec("sp_employee_login", { number:_this.checkcode_number, code: _this.checkcode, phone: _this.username }, function (rtn) {
+            jsondal.Exec("sp_employee_login", { number:_this.checkcode_number, code: _this.checkcode, phone: _this.username,deviceid:_this.deviceid ,platform:_this.platform  }, function (rtn) {
               var rtn = jsondal.AnaRtn(rtn);
               succ(rtn);
             }, function (rtn) {
               console.info(rtn);
               err(rtn);
             });
+          },
+          userLoginDevice:function()
+          {
+            var _this=this;
+            return jsondal.doPromise(jsondal.Exec,"sp_employee_login_device", { deviceid:_this.deviceid});
+          },
+          userLoginOut:function()
+          {
+            var _this=this;
+            return jsondal.doPromise(jsondal.Exec,"sp_employee_login_out", { deviceid:_this.deviceid});
           }
         });
 

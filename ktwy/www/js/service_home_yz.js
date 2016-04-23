@@ -96,4 +96,31 @@ angular.module('ktwy.services')
     };
     return wy_resource;
   })
+  /*
+  .factory('templateInjector', function (Session) {
+    var sessionInjector = {
+      request: function (config) {
+        //if (!SessionService.isAnonymus) {
+        console.info(config);
+        if(/^templates\//.test(config.url)) {
+          config.url = config.url + "?" + new Date().getTime();
+        }
+        config.requestTimestamp = new Date().getTime();
+       // config.headers['authorization'] = Session.token;
+        //}
+        return config;
+      },
+      response: function(response) {
+        response.config.responseTimestamp = new Date().getTime();
+        if(response.status==401){
+          //todo unauthorized
+          console.info("Unauthorized");
+          console.info(response.data);
+        }
+        return response;
+      }
+    };
+    return sessionInjector;
+  })
+  */
 ;

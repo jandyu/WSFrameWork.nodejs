@@ -4,15 +4,53 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 
-<ion-tabs class="tabs-icon-top tabs-dark">
+<ion-tabs class="tabs-icon-top tabs-background-light tabs-color-orange">
 
-  <ion-tab title="首页" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong"  href="#/tab/home">
+  <ion-tab title="首页" icon-off="ion-ios-home"
+           icon-on="ion-ios-home"  href="#/tab/home">
     <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="我的" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/usercenter">
+  <ion-tab title="消息" icon-off="ion-chatbubble-working" icon-on="ion-chatbubble-working">
+    <ion-nav-view name="tab-usercenter"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="通信录" icon-off="ion-clipboard" icon-on="ion-clipboard" >
+    <ion-nav-view name="tab-usercenter"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="邻里圈" icon-off="ion-chatbubbles" icon-on="ion-chatbubbles" >
+    <ion-nav-view name="tab-usercenter"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="我的" icon-off="ion-person" icon-on="ion-person" href="#/tab/usercenter">
     <ion-nav-view name="tab-usercenter"></ion-nav-view>
   </ion-tab>
 
 </ion-tabs>
 
+<!--
+<div class="tabs tabs-icon-top tabs-background-light tabs-color-orange">
+  <a class="tab-item" href="#">
+    <i class="icon ion-home"></i>
+    首页
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </a>
+  <a class="tab-item" href="#">
+    <i class="icon ion-star"></i>
+    消息
+  </a>
+  <a class="tab-item" href="#">
+    <i class="icon ion-gear-a"></i>
+    通讯录
+  </a>
+  <a class="tab-item" href="#">
+    <i class="icon ion-gear-a"></i>
+    邻里圈
+  </a>
+  <a class="tab-item" href="#">
+    <i class="icon ion-gear-a"></i>
+    我的
+  </a>
+</div>
+-->

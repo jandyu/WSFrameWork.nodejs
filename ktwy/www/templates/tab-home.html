@@ -1,78 +1,67 @@
 
 <ion-view view-title="首页">
-  <ion-content scroll="true">
-    <div class="row"  align="center">
-        <div class="col-25">
-          <img src="img/1yzcx.png" class="nav" ng-click="open('www.baidu.com')">
-          </br>
-          物业沟通
-        </div>
-        <div class="col-25">
-          <img src="img/2cpcx.png" class="nav">
-          </br>
-          衣交所
-        </div>
-        <div class="col-25">
-          <img src="img/3tsby.png" class="nav">
-          </br>
-          投诉表扬
-        </div>
-        <div class="col-25" ng-click="goAfterLogin('tab.user_repair')">
-          <img src="img/4wx.png" class="nav">
-          </br>
-          维修
-        </div>
-    </div>
-    <div class="row" style="margin-top:5px;" align="center">
-      <div class="col-25">
-        <img src="img/5sqtz.png" class="nav">
-        </br>
-        送水服务
-      </div>
+  <ion-content scroll="true" class="home">
 
-      <div class="col-25">
-        <img src="img/6wyfcx.png" class="nav">
-        </br>
-        精选
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+
+    <div class="row nav"  align="center">
+      <div class="col col-25 col1">
+        <img src="img/1sqdt.png">
+        <div>社区通知</div>
       </div>
-      <div class="col-25">
-        <img src="img/7dxqf.png" class="nav">
-        </br>
-        双城免税
+      <div class="col col-25 col2">
+        <img src="img/2fkdj.png">
+        <div>访客登记</div>
       </div>
-      <div class="col-25">
-        <img src="img/8kdlr.png" class="nav">
-        </br>
-        全部服务
+      <div class="col col-25 col3">
+        <img src="img/3lxgj.png">
+        <div>联系管家</div>
+      </div>
+      <div class="col col-25 col4" ng-click="reload()">
+        <img src="img/4cyxx.png">
+        <div>常用信息</div>
       </div>
     </div>
-    <div class="row" style="margin-top:5px;">
-      <div class="col-100">
-        <img src="img/pm.jpg" style="max-width:340px;"/>
+    <div class="row nav"  align="center">
+      <div class="col col-25 col5">
+        <img src="img/5kdds.png">
+        <div>快递代收</div>
+      </div>
+      <div class="col col-25 col6" ng-click="goAfterLogin('tab.user_repair')">
+        <img src="img/6wxsb.png">
+        <div>维修申请</div>
+      </div>
+      <div class="col col-25 col7">
+        <img src="img/7tsjy.png">
+        <div>投诉建议</div>
+      </div>
+      <div class="col col-25 col8">
+        <img src="img/8fyjn.png">
+        <div>费用缴纳</div>
       </div>
     </div>
+
 
     <ion-list>
-      <ion-item class="item-icon-right">
-        <h2>社区动态</h2>
-        <i class="icon ion-ios-arrow-right"></i>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
+      <a class="item item-input notify" align="center" href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
+
+      <a class="item item-input notify" align="center"  href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
     </ion-list>
+
+    <div class="row nav"  align="center">
+      <div class="col">
+        <img src="img/9pm.png" style="width:100%;">
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>

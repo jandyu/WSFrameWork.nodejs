@@ -39,6 +39,7 @@ angular.module('ktwy.services')
           reason: '',//原因
           source: '1',//移动端
           status: '',
+          statusname:'',
           report_dt: util.today('-'),
           create_dt: util.today('-'),
           iid:'0',
@@ -70,6 +71,7 @@ angular.module('ktwy.services')
                 reason: v.reason,
                 source: v.source,
                 status: v.status,
+                statusname: v.statusname,
                 report_dt: v.report_dt,
                 create_dt: v.create_dt,
                 iid: v.iid
@@ -107,6 +109,7 @@ angular.module('ktwy.services')
         var qry = {'col': 'iid', 'logic': '=', 'val': iid, 'andor': ''};
         var ord = {'col': 'iid', 'sort': 'desc'};
         jsondal.Query("v_m_app_wy_repair", qry, me.currpage, 1, ord, function (rtn) {
+          console.info('---------------');
           console.info(rtn);
           if (rtn.d != undefined) {
             if (succ != undefined && succ != null) {
@@ -138,16 +141,11 @@ angular.module('ktwy.services')
 
                 me.model.imagelist_url.push({id:i,url:v,rid:vrid});
               }
-              /*
-               me.model.imagelist_url=[{id: '0', url: 'img/photo_add.png'},
-               {id: '1', url: 'img/photo_add.png'},
-               {id: '2', url: 'img/photo_add.png'},
-               {id: '3', url: 'img/photo_add.png'}];
-               */
 
               me.model.reason=rtn.d[0].reason;
               me.model.source=rtn.d[0].source;
               me.model.status=rtn.d[0].status;
+              me.model.statusname=rtn.d[0].statusname;
               me.model.report_dt=rtn.d[0].report_dt;
               me.model.create_dt=rtn.d[0].create_dt;
               me.model.iid=rtn.d[0].iid;
@@ -168,6 +166,10 @@ angular.module('ktwy.services')
                 var qry_visit = {'col': 'pid', 'logic': '=', 'val': iid, 'andor': ''};
                 var ord_visit = {'col': 'iid', 'sort': 'asc'};
                 jsondal.Query("v_m_app_wy_repair_visit", qry_visit, me.currpage, 10, ord_visit,function(rtn_visit){
+
+                  console.log("---------rtn_visit----------");
+                  console.log(rtn_visit);
+
 
                   me.model.visit_list=[];
                   if (rtn_visit.d != undefined) {
@@ -245,13 +247,14 @@ angular.module('ktwy.services')
         var dat= {
           pid: me.model.iid,
           iid:"0",
-          visiter:"",
+          visiter:me.model.report_person,
           myd:tmp.myd,
-          detail:tmp.detail
+          detail:tmp.detail,
+          dt:util.today('-')
       };
 
 
-        jsondal.Exec("p_m_repair_pj", {iid:dat.iid,pid:dat.pid,myd:dat.myd,detail:dat.detail},
+        jsondal.Exec("p_m_repair_pj", {iid:dat.iid,pid:dat.pid,myd:dat.myd,detail:dat.detail,visiter:dat.visiter},
           function (rtn) {
           var rtn = jsondal.AnaRtn(rtn);
             if(dat.iid=="0")
@@ -267,6 +270,8 @@ angular.module('ktwy.services')
             if(dat.myd=="2") {
               dat.mydname = '不满意';
             }
+            dat.type='0';
+            dat.typename="评价";
 
             me.model.visit_list.push(dat);
 

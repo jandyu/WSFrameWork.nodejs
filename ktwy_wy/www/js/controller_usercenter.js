@@ -1,27 +1,30 @@
 angular.module('ktwy.controllers', [])
 
-    .controller('usercenter', function ($scope, $stateParams, $state,$ionicModal, $log, service_usercenter) {
+    .controller('usercenter', function ($scope, $stateParams, $state,$ionicModal, $log, service_usercenter,service_usercenter_login) {
         $scope.usercenter = service_usercenter;
+        $scope.usercenter_login=service_usercenter_login;
         //登录窗口
         $scope.login = function () {
             //$state.go("userlogin");
             $scope.openLoginWnd();
 
         };
-      /*
-      $scope.goAfterLogin=function(url)
-      {
-        //$state.go(url);
 
-        if($scope.usercenter.checkLogin()==true)
-        {
-          $state.go(url);
-        }
-        else
-        {
-          $scope.usercenter_login.willGoUrl=url;
-          $scope.openLoginWnd();
-        }*/
+      $scope.userExit=function()
+      {
+
+        service_usercenter.userid="0";
+        service_usercenter.enumber="";
+        service_usercenter.name="";
+        service_usercenter.phone="";
+        service_usercenter.dpetid="";
+        service_usercenter.deptname="";
+
+        $scope.usercenter_login.userLoginOut().then(
+          function(rtn){
+          },function(rtn){
+          });
+      };
 
       //登陆窗口
       $ionicModal.fromTemplateUrl('templates/usercenter/userlogin.html', {

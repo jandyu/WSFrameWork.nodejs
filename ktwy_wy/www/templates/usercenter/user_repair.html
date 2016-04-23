@@ -44,7 +44,8 @@
       </div>
     </div>
 
-    <ion-infinite-scroll on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+    <ion-infinite-scroll  icon="ion-loading-c" ng-if="user_repair.load_more"
+                         on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

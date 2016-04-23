@@ -15,9 +15,11 @@ angular.module('ktwy.controllers')
       {
         qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
       }
+      //清空数据
+      $scope.user_repair.model_list=[];
+
       $scope.user_repair.getRepairList(qry,function(rtn){
-        console.info($scope.user_repair.model_list);
-        //初始化字
+        //初始化字典
         service_dict.getDcit('repair_status',function(rtn){
 
           $scope.$broadcast('scroll.refreshComplete');
@@ -39,58 +41,45 @@ angular.module('ktwy.controllers')
     //按房号查询
     $scope.querybyroomid=function()
     {
+      //查询数据
       $scope.getRepairList({'col': 'roomid', 'logic': '=', 'val':$scope.qeryfilters.roomid, 'andor': ''});
     };
-    //按状态查询
-    $scope.querybystatus=function()
-    {
-      $scope.getRepairList({'col': 'status', 'logic': '=', 'val':$scope.qeryfilters.status, 'andor': ''});
-    };
 
+    $scope.init=function() {
+      $scope.$watch('qeryfilters.status', function (newval, oldval) {
+        //console.log("newval:"+newval+";oldval:"+oldval);
+        var qry = {'col': 'status', 'logic': '=', 'val': newval, 'andor': ''};
 
-    $scope.$watch('qeryfilters.status',function(newval,oldval){
-      //console.log("newval:"+newval+";oldval:"+oldval);
-      var qry={'col': 'status', 'logic': '=', 'val':newval, 'andor': ''};
-      if(newval=="")
-      {
-        qry={'col': 'iid', 'logic': '>', 'val':'0', 'andor': ''};
-      }
-
-
-      $scope.getRepairList(qry);
-    });
-
-    $scope.loadMore=function()
-    {
-      //$scope.$broadcast('scroll.infiniteScrollComplete');
-      var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
-      if(qry==undefined || qry=="" || qry==null)
-      {
-        qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
-      }
-      $scope.user_repair.getRepairList(qry,function(rtn){
-        console.info($scope.user_repair.model_list);
-        //初始化字
-        service_dict.getDcit('repair_status',function(rtn){
-
-          $scope.$broadcast('scroll.infiniteScrollComplete');
-          $scope.$apply();
-        });
-        //$scope.$apply();
-      },function(rtn){
-        $ionicPopup.alert({
-          title: '提醒',
-          template: '有误!' + rtn
-        });
-        return;
+        if (newval == "") {
+          qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+        }
+        //查询数据
+        $scope.getRepairList(qry);
       });
-    };
+      $scope.loadMore = function () {
+        console.log("--1111111111111111");
 
-    /*
-    $scope.$on('stateChangeSuccess', function() {
-      $scope.loadMore();
-    });
-    */
+        var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+
+        $scope.user_repair.getRepairList(qry, function (rtn) {
+          console.info($scope.user_repair.model_list);
+          //初始化字
+          service_dict.getDcit('repair_status', function (rtn) {
+
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+            $scope.$apply();
+
+          });
+          //$scope.$apply();
+        }, function (rtn) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '有误!' + rtn
+          });
+          return;
+        });
+      };
+    };
 
     //维修编辑或者申请
     //cate:
@@ -182,6 +171,8 @@ angular.module('ktwy.controllers')
       $scope.SelectRoomWnd.remove();
     });
 
+
+    $scope.init();
 
   })
 

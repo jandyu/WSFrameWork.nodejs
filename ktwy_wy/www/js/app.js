@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource'])
 
-  .run(function ($ionicPlatform) {
+  .run(function ($ionicPlatform,$rootScope,service_usercenter) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -16,11 +16,18 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         cordova.plugins.Keyboard.disableScroll(true);
 
       }
-      /*
+
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
-      }*/
+      }
+
+      if(device)
+      {
+        service_usercenter.deviceid=device.uuid;
+        service_usercenter.platform=device.platform.toLowerCase();
+        $rootScope.$broadcast("kwsq-device-on-ready", {"deviceid":device.uuid});
+      }
     });
   })
   .filter('Imgurl', function (srvRESTfulAPI) {

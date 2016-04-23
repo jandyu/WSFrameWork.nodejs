@@ -1,7 +1,8 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $log,$ionicModal,service_usercenter) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $log,$ionicModal,service_usercenter,service_usercenter_login) {
     $scope.usercenter=service_usercenter;
+    $scope.usercenter_login=service_usercenter_login;
     //登录窗口
     $scope.login = function () {
       $scope.openLoginWnd();
@@ -9,12 +10,18 @@ angular.module('ktwy.controllers', [])
     };
     $scope.userExit=function()
     {
+
       service_usercenter.userid="0";
       service_usercenter.roomid="";
       service_usercenter.roompath="";
       service_usercenter.name="";
       service_usercenter.phone="";
       service_usercenter.nickname="";
+
+      $scope.usercenter_login.userLoginOut().then(
+        function(rtn){
+        },function(rtn){
+        });
     };
 
     //登陆窗口
@@ -48,8 +55,8 @@ angular.module('ktwy.controllers', [])
 
     $scope.login = function () {
 
-      $scope.usercenter_login.userLogin().then(function(rtn){
-
+      $scope.usercenter_login.userLogin().then(
+        function(rtn){
         rtn=jsondal.AnaRtn(rtn);
         var arr_rtn=rtn.split(',');
         if(arr_rtn[0]=="0")
@@ -89,7 +96,9 @@ angular.module('ktwy.controllers', [])
           template: '登录失败!'+rtn
         });
       });
-    }
+    };
+
+
 
     $scope.goreg=function()
     {

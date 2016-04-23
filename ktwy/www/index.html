@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <!--
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://wy.zjy8.cn/ ;ojbect-src 'self'">
+  -->
   <title></title>
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -46,8 +49,9 @@
 
 </head>
 <body ng-app="ktwy">
-<ion-nav-bar align-title="center" class="energized-bg light">
-  <ion-nav-back-button></ion-nav-back-button>
+<ion-nav-bar align-title="center" class="orange-bg light">
+  <ion-nav-back-button class=" button-clear ion ion-chevron-left">
+  </ion-nav-back-button>
 </ion-nav-bar>
 
 <ion-nav-view></ion-nav-view>
