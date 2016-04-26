@@ -119,6 +119,15 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+      .state('tab.user_suggestion', {
+        url: '/user_suggestion',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/suggestions/user_suggestion.html',
+            controller:'user_suggestion'
+          }
+        }
+      })
     ;
 
 

@@ -173,6 +173,39 @@ var jsondal = {
     func.apply(self, funcArgument);
 
     return deferred.promise();
+  },
+  /*获取图片的宽高\原图\所旅途*/
+  //缩略图[/upload1/20160422/abcdefg_100_100.jpg-s.jpg]
+  //原图地址[/upload1/20160422/abcdefg_100_100.jpg]
+  GetImageInfo:function(url)
+  {
+    var rtn={
+      w:200,
+      h:200,
+      orgurl:url,
+      thumburl:url
+    };
+
+    var r=RegExp(/.*_\d+_\d+\./);
+    if(r.test(url)) {
+      //宽高
+      var arr = url.split('.')[0].split('_');
+      rtn.w = arr[1];
+      rtn.h = arr[2];
+
+      //缩略图与原图地址
+      if(url.indexOf('-1')==-1)
+      {
+        rtn.orgurl=url;
+        rtn.thumburl=url+"-s.jpg";
+      }
+      else
+      {
+        rtn.thumburl=url;
+        rtn.orgurl=url.split('-')[0];
+      }
+    }
+    return rtn;
   }
 
 }

@@ -8,13 +8,13 @@
     <div class="list form-container border-top" align="center">
 
       <div class="item item-input form-body" style="border-top:0px;font-size:14px;">
-        <div class="col-10"><i class="icon ion-android-attach"></i></div>
+        <div class="col-10"><i class="icon ion-ios-person"></i></div>
         <div class="col-50" align="left">联系人:{{user_repair.model.report_person}}</div>
         <div class="col-34" align="right">{{user_repair.model.phone}}</div>
       </div>
 
       <div class="item item-input form-body" style="font-size:14px;">
-        <div class="col-10"><i class="icon ion-android-attach"></i></div>
+        <div class="col-10"><i class="icon ion-ios-location"></i></div>
         <div class="col-90" align="left">{{user_repair.model.roompath}}</div>
       </div>
 
@@ -31,10 +31,11 @@
       </div>
 
       <div class="item item-input form-body item-text-wrap">
-        <div class="col" align="left" id="repair_image_list">
-          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url" style="width:80px;height:80px;margin-left:2px;"
-               ng-click="photoview(itm.url)">
-          {{user_repair.model.imagelist_url.length>0?"":"无照片"}}
+        <div class="col" align="left" id="repair_image_list" >
+          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url" style="width:78px;height:78px;margin-left:2px;"
+               ng-click="photoview(user_repair.model.imagelist_url,$index)">
+
+          <span ng-bind="user_repair.model.imagelist_url.length>0?'':'无照片'"></span>
         </div>
       </div>
 
@@ -99,9 +100,15 @@
 
         <div class="item item-input form-body">
           <div class="col-10" align="left">满意度:</div>
-          <div class="col-25" align="center">满意</div>
-          <div class="col-25" align="center">一般</div>
-          <div class="col-25" align="center">不满意</div>
+          <div class="col-33" align="right">
+            <div class="kwwy-icon-url-orange visit {{itm.myd=='0'?'visit_my':'visit_my_'}}"></div>
+          </div>
+          <div class="col-33" align="center">
+            <div class="kwwy-icon-url-orange visit {{itm.myd=='1'?'visit_yb':'visit_yb_'}}"></div>
+          </div>
+          <div class="col-25" align="left">
+            <div class="kwwy-icon-url-orange visit {{itm.myd=='2'?'visit_bmy':'visit_bmy_'}}"></div>
+          </div>
         </div>
 
 
@@ -116,7 +123,72 @@
         <button class="button button-block button-orange button-small" ng-click="open_wnd_user_repair_visit(user_repair.model.iid)">评价</button>
       </div>
     </div>
+    </ion-content>
 
+  <div class="repair_detail pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-  </ion-content>
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+          PhotoSwipe keeps only 3 of them in the DOM to save memory.
+          Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </ion-modal-view>

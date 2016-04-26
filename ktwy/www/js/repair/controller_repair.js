@@ -312,23 +312,54 @@ angular.module('ktwy.controllers')
     };
 
 
-    $scope.photoview=function (url)
-    {
-      NativePlugin.PhotoView(url,"");
+    $scope.photoview = function (urls) {
+      //NativePlugin.PhotoView(url,"");
+      /*
+      var pswpElement = document.querySelectorAll('.repair_edit.pswp')[0];
+
+      // build items array
+      var items = [];
+
+      var arr_urls=urls;
+      var arr_urls=_.reject(urls, function (itm) {
+        return itm.url == "img/photo_add.png";
+      });
+
+
+      console.info(arr_urls);
+
+      $.each(arr_urls,function(k,v){
+        var url={
+          src: v.url
+        };
+        items.push(url);
+      });
+
+
+
+      // define options (if needed)
+      var options = {
+        index: 0, // start at first slide
+        history:false,
+        shareEl:false,
+        tapToClose:true
+      };
+
+      // Initializes and opens PhotoSwipe
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
+      */
     };
 
     //显示图片详情或者添加图片
-    $scope.add_viewPhoto=function(url,id)
-    {
+    $scope.add_viewPhoto = function (url, id) {
       console.info("---------------------");
-      console.info("url:"+url+"id:"+id);
-      if(url=='img/photo_add.png')
-      {
+      console.info("url:" + url + "id:" + id);
+      if (url == 'img/photo_add.png') {
         $scope.getPicture(id);
       }
-      else
-      {
-        $scope.photoview(url);
+      else {
+        $scope.photoview($scope.user_repair.model.imagelist_url);
       }
 
     };
@@ -337,6 +368,10 @@ angular.module('ktwy.controllers')
     $scope.closeWithReturn = function () {
       $scope.close_wnd_user_repair_edit();
       $scope.getRepairList();
+    };
+
+    $scope.changeCategory = function (category) {
+      $scope.user_repair.model.category = category;
     };
 
 
@@ -380,9 +415,42 @@ angular.module('ktwy.controllers')
     };
 
     //显示图片详情
-    $scope.photoview=function (url)
-    {
-      NativePlugin.PhotoView(url,"");
+    $scope.photoview = function (urls,idx) {
+
+      var pswpElement = document.querySelectorAll('.repair_detail.pswp')[0];
+
+      // build items array
+      var items = [];
+
+      $.each(urls,function(k,v){
+
+        var new_img=new Image();
+        new_img.src= v.url;
+
+        var url={
+          src: v.url,
+          w:new_img.width,
+          h:new_img.height
+        };
+        console.info(url);
+        items.push(url);
+      });
+
+
+
+      // define options (if needed)
+      var options = {
+        index: idx, // start at first slide
+        history:false,
+        shareEl:false,
+        tapToClose:true,
+        fullscreenEl:false
+      };
+
+      // Initializes and opens PhotoSwipe
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
+
     };
 
   })

@@ -7,7 +7,7 @@ angular.module('ktwy.services')
         phone: '',//联系电话
         roomid: '',//房号id
         roompath: '',//房号路径
-        category: '1',//维修类型
+        category: '0',//维修类型
         imagelist_img: '',//图片 ,分割
         imagelist_url:[{id: '', url: 'img/photo_add.png',rid:''},
           {id: '', url: 'img/photo_add.png',rid:''},
@@ -30,7 +30,7 @@ angular.module('ktwy.services')
           phone: '',//联系电话
           roomid: '',//房号id
           roompath: '',//房号路径
-          category: '1',//维修类型
+          category: '0',//维修类型
           imagelist_img: '',//图片 ,分割
           imagelist_url:[{id: '', url: 'img/photo_add.png',rid:''},
             {id: '', url: 'img/photo_add.png',rid:''},
@@ -135,7 +135,9 @@ angular.module('ktwy.services')
                 var vrid='';
                 if(ls_url[i])
                 {
-                  v=wwwurl+ls_url[i].split(';')[0];
+                  //v=wwwurl+ls_url[i].split(';')[0];
+                  v=ls_url[i].split(';')[0];
+                  v= wwwurl+v.substr(1);
                   vrid=ls_url[i].split(';')[1];
                 }
 

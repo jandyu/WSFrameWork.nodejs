@@ -142,6 +142,12 @@ angular.module('ktwy.services')
           var ls_res=JSON.stringify(rtn.response);
           var ls_tmp="var tmp="+ls_res.substr(1,ls_res.length - 2)+";";
           eval(ls_tmp);
+          /*
+          var rg=RegExp(/^\//);//以/开头,则去掉
+          if(rg.test(tmp.url))
+          {
+            tmp.url=tmp.url.substr(1);
+          }*/
           succ(tmp.url);
         }
 

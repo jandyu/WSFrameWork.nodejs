@@ -1,0 +1,111 @@
+/*橙色*/
+.kwwy-icon-url-orange{
+  background-image: url(kwwy_org.png);
+}
+/*512*512----------------------------------------*/
+.kwwy-icon-512{
+  background-size:512px 512px;
+  width:39px;
+  height:39px;
+  display:block;
+}
+.kwwy-icon-512-home
+{
+  background-position: -1px -5px;
+}
+.kwwy-icon-512-home-active
+{
+  background-position: -1px -45px;
+}
+
+.kwwy-icon-512-message
+{
+  background-position: -42px -5px;
+}
+.kwwy-icon-512-message-active
+{
+  background-position: -42px -45px;
+}
+
+
+.kwwy-icon-512-contact
+{
+  background-position: -83px -5px;
+}
+.kwwy-icon-512-contact-active
+{
+  background-position: -83px -45px;
+}
+
+.kwwy-icon-512-group
+{
+  background-position: -124px -5px;
+}
+.kwwy-icon-512-group-active
+{
+  background-position: -124px -45px;
+}
+
+
+.kwwy-icon-512-me
+{
+  background-position: -165px -5px;
+}
+.kwwy-icon-512-me-active
+{
+  background-position: -165px -45px;
+}
+
+/*location person*/
+.kwwy-icon-512-location
+{
+  background-position: -165px -85px;
+}
+.kwwy-icon-512-person
+{
+  background-position: -165px -125px;
+}
+
+
+
+/*11行*/
+.kwwy-icon-512-checked-active
+{
+  background-position: -1px -411px;
+}
+
+.kwwy-icon-512-checked
+{
+  background-position: -42px -411px;
+}
+
+
+
+/*特殊尺寸----------------------------------------*/
+/*评价/回访*/
+.visit{
+  background-size:512px 512px;
+  width:80px;
+  height:40px;
+}
+
+.visit_my{
+  background-position: -1px -328px;
+}
+.visit_my_{
+  background-position: -1px -368px;
+}
+
+.visit_yb{
+  background-position: -83px -328px;
+}
+.visit_yb_{
+  background-position: -83px -368px;
+}
+
+.visit_bmy{
+  background-position: -165px -328px;
+}
+.visit_bmy_{
+  background-position: -165px -368px;
+}

@@ -1,0 +1,46 @@
+<ion-view view-title="我的投诉建议" >
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-click="open_wnd_user_suggestion_edit(0)">新增</button>
+  </ion-nav-buttons>
+
+  <ion-content scroll="true" ng-show="user_suggestion.show_list">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="getsuggestionList()"></ion-refresher>
+
+    <div class="list list-container" align="center">
+      <div class="item item-input list-title">
+        <div class="col-10 "><i class="icon ion-android-attach"></i></div>
+        <div class="col-25">时间</div>
+        <div class="col-33">类型</div>
+        <div class="col-34">处理进度</div>
+      </div>
+
+      <div class="item item-input list-body" ng-repeat="itm in user_suggestion.model_list" ng-click="open_wnd_user_suggestion_detail(itm.iid)">
+        <div class="col-10 "><i class="icon ion-pin"></i></div>
+        <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy年MM月dd"}}</div>
+        <div class="col-33">{{itm.category=='0'?"个人":"公共"}}</div>
+        <div class="col-34">{{dict.getTxtById(itm.status)}}</div>
+      </div>
+
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()"></ion-infinite-scroll>
+
+  </ion-content>
+
+  <ion-content scroll="true" ng-show="!user_suggestion.show_list" align="center">
+    <div class="row" style="margin-top: 150px;">
+      <div class="col" ng-click="open_wnd_user_suggestion_edit(0)">
+        <img src="img/add.png"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        您暂时没有投诉建议,请点击新增
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
+

@@ -1,0 +1,120 @@
+<ion-modal-view ng-controller="user_suggestion_detail">
+  <ion-header-bar class="orange-bg light" align-title="center">
+    <button class="button button-clear" ng-click="close_wnd_user_suggestion_detail()">返回</button>
+    <h1 class="title light">投诉建议详情</h1>
+    <button class="button button-clear button-light" ng-click="masterReturn(user_suggestion.model.iid)">撤回</button>
+  </ion-header-bar>
+  <ion-content scroll="true" ng-show="true">
+    <div class="list form-container border-top" align="center">
+
+      <div class="item item-input form-body" style="border-top:0px;font-size:14px;">
+        <div class="col-10"><i class="icon ion-android-attach"></i></div>
+        <div class="col-50" align="left">联系人:{{user_suggestion.model.report_person}}</div>
+        <div class="col-34" align="right">{{user_suggestion.model.phone}}</div>
+      </div>
+
+      <div class="item item-input form-body" style="font-size:14px;">
+        <div class="col-10"><i class="icon ion-android-attach"></i></div>
+        <div class="col-90" align="left">{{user_suggestion.model.roompath}}</div>
+      </div>
+
+      <div class="item item-input form-body">
+        <div class="col-34" align="left">报修时间:{{user_suggestion.model.report_dt|to_dateformat:'yyyy/MM/dd'}}</div>
+        <div class="col-33" align="center">类型:{{user_suggestion.model.category=='0'?"个人":"公共"}}</div>
+        <div class="col-33" align="right">处理进度:{{user_suggestion.model.statusname}}</div>
+      </div>
+
+      <div class="item item-input item-text-wrap form-body">
+        <div class="col" align="left">
+          问题描述:{{user_suggestion.model.reason}}
+        </div>
+      </div>
+
+      <div class="row item-input form-body" align="center">
+        <button class="button button-block button-orange button-small" ng-click="open_wnd_user_suggestion_edit(user_suggestion.model.iid)">修改</button>
+      </div>
+    </div>
+
+    <div class="list form-container border-top">
+
+      <div class="item item-input form-body form-subtitle" style="">
+        <div class="col"><h2>处理记录</h2></div>
+      </div>
+
+      <div class="list form-container" style="padding:0px;" ng-repeat="itm in user_suggestion.model.deal_list">
+        <div class="item item-input form-body">
+          <div class="col-50" align="left"><h4>处理时间:{{itm.dealdt|to_dateformat:"yyyy/MM/dd"}}</h4></div>
+          <div class="col-50" align="left">进度:{{itm.statusname}}</div>
+        </div>
+
+        <div class="item item-input form-body">
+          <div class="col-50" align="left">联系人:{{itm.suggestion}}</div>
+          <div class="col-50" align="left">联系电话:{{itm.phone}}</div>
+        </div>
+
+        <div class="item item-input form-body">
+          <div class="col-50" align="left">预约时间:{{itm.plantime|to_dateformat:"yyyy/MM/dd"}}</div>
+          <div class="col-25" align="left">人工费:{{itm.labourfee}}</div>
+          <div class="col-25" align="left">材料费:{{itm.materialfee}}</div>
+        </div>
+
+        <div class="item item-input item-text-wrap form-body">
+          <div class="col" align="left">
+            维修预案:{{itm.rplan}}
+          </div>
+        </div>
+        <div class="item item-input item-text-wrap form-body">
+          <div class="col" align="left">
+            维修小结:{{itm.memo}}
+          </div>
+        </div>
+        <div class="item item-input form-body" style="border-bottom:0px;">
+          <div class="col" align="left">完成时间:{{itm.complatedt|to_dateformat:"yyyy/MM/dd"}}</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="list form-container border-top">
+
+      <div class="item item-input form-body form-subtitle">
+        <div class="col"><h2>回访/评价</h2></div>
+      </div>
+
+      <div class="list form-container" style="padding:0px;" ng-repeat="itm in user_suggestion.model.visit_list">
+        <div class="item item-input form-body">
+          <div class="col-33" align="left"><h4>类型:{{itm.typename}}</h4></div>
+          <div class="col-33" align="left">{{itm.visiter}}</div>
+          <div class="col-34" align="left">时间:{{itm.dt|to_dateformat:"yyyy/MM/dd"}}</div>
+        </div>
+
+        <div class="item item-input form-body">
+          <div class="col-10" align="left">满意度:</div>
+          <div class="col-33" align="right">
+            <div class="visit {{itm.myd=='0'?'visit_my':'visit_my_'}}"></div>
+          </div>
+          <div class="col-33" align="center">
+            <div class="visit {{itm.myd=='1'?'visit_yb':'visit_yb_'}}"></div>
+          </div>
+          <div class="col-25" align="left">
+            <div class="visit {{itm.myd=='2'?'visit_bmy':'visit_bmy_'}}"></div>
+          </div>
+        </div>
+
+
+        <div class="item item-input item-text-wrap form-body">
+          <div class="col" align="left">
+            评价内容:{{itm.detail}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row item-input form-body" align="center">
+        <button class="button button-block button-orange button-small" ng-click="open_wnd_user_suggestion_visit(user_suggestion.model.iid)">评价</button>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>
