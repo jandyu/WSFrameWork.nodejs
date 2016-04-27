@@ -153,3 +153,11 @@ angular.module('ktwy.services', [])
 
   return roomselect;
 })
+
+.factory('service_imageview',function(){
+  var rtn={urls:[],
+    idx:0
+  };
+  return rtn;
+})
+;

@@ -277,9 +277,10 @@ angular.module('ktwy.controllers')
 
         //获取图片
         NativePlugin.GetPicture(function (imageData) {
-
+          /*
           $scope.user_repair.model.imagelist_url[id].url = NativePlugin.PictureModel.image_url;
-
+          $scope.$apply();
+          */
           console.log(NativePlugin.PictureModel.image_url);
 
           //上传图片
@@ -291,6 +292,8 @@ angular.module('ktwy.controllers')
             //保存资源
             service_wy_resource.model.category = '维修照片';
             service_wy_resource.model.url = rtn;
+
+            $scope.user_repair.model.imagelist_url[id].url = rtn;
 
             service_wy_resource.SaveResource(function (rtn) {
               $scope.user_repair.model.imagelist_url[id].rid = jsondal.AnaRtn(rtn);
@@ -314,41 +317,6 @@ angular.module('ktwy.controllers')
 
     $scope.photoview = function (urls) {
       //NativePlugin.PhotoView(url,"");
-      /*
-      var pswpElement = document.querySelectorAll('.repair_edit.pswp')[0];
-
-      // build items array
-      var items = [];
-
-      var arr_urls=urls;
-      var arr_urls=_.reject(urls, function (itm) {
-        return itm.url == "img/photo_add.png";
-      });
-
-
-      console.info(arr_urls);
-
-      $.each(arr_urls,function(k,v){
-        var url={
-          src: v.url
-        };
-        items.push(url);
-      });
-
-
-
-      // define options (if needed)
-      var options = {
-        index: 0, // start at first slide
-        history:false,
-        shareEl:false,
-        tapToClose:true
-      };
-
-      // Initializes and opens PhotoSwipe
-      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-      gallery.init();
-      */
     };
 
     //显示图片详情或者添加图片
@@ -416,41 +384,7 @@ angular.module('ktwy.controllers')
 
     //显示图片详情
     $scope.photoview = function (urls,idx) {
-
-      var pswpElement = document.querySelectorAll('.repair_detail.pswp')[0];
-
-      // build items array
-      var items = [];
-
-      $.each(urls,function(k,v){
-
-        var new_img=new Image();
-        new_img.src= v.url;
-
-        var url={
-          src: v.url,
-          w:new_img.width,
-          h:new_img.height
-        };
-        console.info(url);
-        items.push(url);
-      });
-
-
-
-      // define options (if needed)
-      var options = {
-        index: idx, // start at first slide
-        history:false,
-        shareEl:false,
-        tapToClose:true,
-        fullscreenEl:false
-      };
-
-      // Initializes and opens PhotoSwipe
-      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-      gallery.init();
-
+      NativePlugin.PhotoViews(urls,idx,".repair_detail.pswp");
     };
 
   })

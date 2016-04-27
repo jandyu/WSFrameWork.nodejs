@@ -87,23 +87,6 @@
   box-shadow: none;
   color: #fff; }
 
-
-
-.icon-home-yz-bottom{
-  background-size:140px 64px;
-  width:28px;
-  height:32px;
-  background-image: url(/img/bottom-yz.png);
-}
-
-.ion-home-yz-home{
-  background-position: 0 0px;
-}
-
-.ion-home-yz-home-active{
-  background-position:0 -32px;
-}
-
 /*button-clear*/
 .button-clear {
   border-color: transparent;
@@ -118,13 +101,14 @@
 }
 .list-title {
   background-color:rgb(204,204,204);
-
+  height:55px;
 }
 .list-body
 {
   border-left:0px;
   border-right:0px;
-  font-size:14px;
+  /*font-size:14px;*/
+  height:55px;
 }
 
 /*form*/

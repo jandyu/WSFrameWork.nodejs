@@ -11,7 +11,7 @@ angular.module('ktwy.services')
       },
       PictureDefaultOption:{
         quality: 50,
-        allowEdit:true,
+        allowEdit:false,
         //saveToPhotoAlbum: false,
         //targetWidth: 100,
         //targetHeight: 100,
@@ -158,6 +158,44 @@ angular.module('ktwy.services')
       PhotoView:function(url,title)
       {
         PhotoViewer.show(url, title)
+      },
+      //多图片浏览
+      //urls:图片地址数组
+      //idx:打开之后默认显示数组中的第几个图片;
+      //cls:浏览图片窗口的类,例如:.repair_detail.pswp
+      PhotoViews:function(urls,idx,cls)
+      {
+        var pswpElement = document.querySelectorAll(cls)[0];
+
+        // build items array
+        var items = [];
+
+        $.each(urls,function(k,v){
+
+          var imginfo=jsondal.GetImageInfo(v.url);
+
+          var url={
+            src: imginfo.orgurl,
+            w:imginfo.w,
+            h:imginfo.h
+          };
+          console.info(url);
+          items.push(url);
+        });
+
+        // define options (if needed)
+        var options = {
+          index: idx, // start at first slide
+          history:false,
+          shareEl:false,
+          tapToClose:true,
+          fullscreenEl:false
+        };
+
+        // Initializes and opens PhotoSwipe
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+
       }
     };
 

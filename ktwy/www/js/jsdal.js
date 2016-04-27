@@ -179,30 +179,34 @@ var jsondal = {
   //原图地址[/upload1/20160422/abcdefg_100_100.jpg]
   GetImageInfo:function(url)
   {
+    var old_arr_url=url.split('/');
     var rtn={
       w:200,
       h:200,
       orgurl:url,
       thumburl:url
     };
+    var ls_url=old_arr_url[old_arr_url.length - 1];
 
     var r=RegExp(/.*_\d+_\d+\./);
-    if(r.test(url)) {
+    if(r.test(ls_url)) {
       //宽高
-      var arr = url.split('.')[0].split('_');
+      var arr = ls_url.split('.')[0].split('_');
+      console.info(arr);
       rtn.w = arr[1];
       rtn.h = arr[2];
 
       //缩略图与原图地址
-      if(url.indexOf('-1')==-1)
+      if(ls_url.indexOf('-')==-1)
       {
         rtn.orgurl=url;
         rtn.thumburl=url+"-s.jpg";
       }
       else
       {
-        rtn.thumburl=url;
-        rtn.orgurl=url.split('-')[0];
+        rtn.thumburl=ls_url;
+        old_arr_url[old_arr_url.length - 1]=ls_url.split('-')[0];
+        rtn.orgurl=old_arr_url.join('/');
       }
     }
     return rtn;
