@@ -33,7 +33,6 @@ angular.module('ktwy.controllers')
 
     $scope.getRepairList();
 
-
     //维修编辑或者申请
     //cate:
     $scope.eidt_repair = function (iid, cate) {
@@ -170,8 +169,6 @@ angular.module('ktwy.controllers')
     $scope.$on('$destroy', function () {
       $scope.wnd_user_repair_visit.remove();
     });
-
-
   })
 
   .controller('user_repair_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_repair, service_dict, NativePlugin, service_wy_resource) {
@@ -278,9 +275,9 @@ angular.module('ktwy.controllers')
         //获取图片
         NativePlugin.GetPicture(function (imageData) {
           /*
-          $scope.user_repair.model.imagelist_url[id].url = NativePlugin.PictureModel.image_url;
-          $scope.$apply();
-          */
+           $scope.user_repair.model.imagelist_url[id].url = NativePlugin.PictureModel.image_url;
+           $scope.$apply();
+           */
           console.log(NativePlugin.PictureModel.image_url);
 
           //上传图片
@@ -293,7 +290,7 @@ angular.module('ktwy.controllers')
             service_wy_resource.model.category = '维修照片';
             service_wy_resource.model.url = rtn;
 
-            $scope.user_repair.model.imagelist_url[id].url = rtn;
+            $scope.user_repair.model.imagelist_url[id].url = wwwurl + rtn.substr(1);
 
             service_wy_resource.SaveResource(function (rtn) {
               $scope.user_repair.model.imagelist_url[id].rid = jsondal.AnaRtn(rtn);
@@ -315,22 +312,47 @@ angular.module('ktwy.controllers')
     };
 
 
-    $scope.photoview = function (urls) {
-      //NativePlugin.PhotoView(url,"");
+    $scope.photoview = function (urls, idx) {
+
+      var arr_urls = _.clone(urls);
+      arr_urls = _.reject(arr_urls, function (itm) {
+        return itm.url == "img/photo_add.png";
+      });
+
+      console.info(arr_urls);
+
+      NativePlugin.PhotoViews(arr_urls, idx, ".repair_edit.pswp");
     };
 
     //显示图片详情或者添加图片
-    $scope.add_viewPhoto = function (url, id) {
+    $scope.add_viewPhoto = function (url, id, idx) {
       console.info("---------------------");
       console.info("url:" + url + "id:" + id);
       if (url == 'img/photo_add.png') {
         $scope.getPicture(id);
       }
       else {
-        $scope.photoview($scope.user_repair.model.imagelist_url);
+        $scope.photoview($scope.user_repair.model.imagelist_url, idx);
       }
 
     };
+
+    //长按替换图片
+    $scope.replacePhoto = function (url, id, idx) {
+      console.info("---------------------");
+      console.info("url:" + url + "id:" + id);
+      /*
+       if (url == 'img/photo_add.png') {
+       $scope.getPicture(id);
+       }
+       else {
+       $scope.photoview($scope.user_repair.model.imagelist_url,idx);
+       }*/
+      $scope.getPicture(id);
+
+    };
+
+
     //维修编辑相关-----------------------------------------------
 
     $scope.closeWithReturn = function () {
@@ -383,8 +405,8 @@ angular.module('ktwy.controllers')
     };
 
     //显示图片详情
-    $scope.photoview = function (urls,idx) {
-      NativePlugin.PhotoViews(urls,idx,".repair_detail.pswp");
+    $scope.photoview = function (urls, idx) {
+      NativePlugin.PhotoViews(urls, idx, ".repair_detail.pswp");
     };
 
   })
@@ -424,6 +446,5 @@ angular.module('ktwy.controllers')
     };
 
   })
-
 
 ;

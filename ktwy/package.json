@@ -24,7 +24,8 @@
     "cordova-plugin-camera",
     "cordova-plugin-file-transfer",
     "cordova-plugin-filepath",
-    "com-sarriaroman-photoviewer"
+    "com-sarriaroman-photoviewer",
+    "cordova-plugin-geolocation"
   ],
   "cordovaPlatforms": [
     "ios",

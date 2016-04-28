@@ -5,7 +5,8 @@
     <button class="button button-clear button-light" ng-click="masterReturn(user_repair.model.iid)">撤回</button>
   </ion-header-bar>
   <ion-content scroll="true" ng-show="true">
-    <div class="list" align="center" style="padding:5px 5px 0px 5px;">
+    <div class="list list-inset" align="center">
+      <div class="item item-divider"></div>
       <div class="row item item-input-inset">
         <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i></div>
         <div class="col-50" align="left">联系人:{{user_repair.model.report_person}}</div>
@@ -49,7 +50,7 @@
       </div>
     </div>
 
-    <div class="list" style="padding:5px 5px 0px 5px;">
+    <div class="list list-inset">
 
       <div class="row item item-input-inset item-divider">
         <div class="col"><h2>处理记录</h2></div>
@@ -93,7 +94,7 @@
     </div>
 
 
-    <div class="list" style="padding:5px 5px 0px 5px;">
+    <div class="list list-inset">
 
       <div class="row item item-input-inset item-divider">
         <div class="col"><h2>回访/评价</h2></div>

@@ -3,20 +3,21 @@
     <button class="button button-clear button-light" ng-click="open_wnd_user_repair_edit(0)">新增</button>
   </ion-nav-buttons>
 
-  <ion-content scroll="true" ng-show="user_repair.show_list">
+  <!--<ion-content scroll="true" ng-show="user_repair.show_list">-->
+  <ion-content scroll="true" ng-show="true">
   <ion-refresher pulling-text="下拉刷新" on-refresh="getRepairList()"></ion-refresher>
+    <div class="list" align="center" style="padding:5px 5px 0px 5px;">
 
-    <div class="list list-container" align="center">
-      <div class="item item-input list-title">
-        <div class="col-10 "><i class="icon ion-android-attach"></i></div>
+      <div class="row item-input-inset item-divider">
+        <div class="col-10 "><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-ring_pin"></i></div>
         <div class="col-25">报修时间</div>
         <div class="col-33">类型</div>
         <div class="col-34">处理进度</div>
       </div>
 
-      <div class="item item-input list-body" ng-repeat="itm in user_repair.model_list" ng-click="open_wnd_user_repair_detail(itm.iid)">
-        <div class="col-10 "><i class="icon ion-pin"></i></div>
-        <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy年MM月dd"}}</div>
+      <div class="row item item-input-inset" ng-repeat="itm in user_repair.model_list" ng-click="open_wnd_user_repair_detail(itm.iid)">
+        <div class="col-10 "><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-thumbtack"></i></div>
+        <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy-MM-dd"}}</div>
         <div class="col-33">{{itm.category=='0'?"个人":"公共"}}</div>
         <div class="col-34">{{dict.getTxtById(itm.status)}}</div>
       </div>
@@ -27,7 +28,8 @@
 
   </ion-content>
 
-  <ion-content scroll="true" ng-show="!user_repair.show_list" align="center">
+  <!--<ion-content scroll="true" ng-show="!user_repair.show_list" align="center">-->
+  <ion-content scroll="true" ng-show="false" align="center">
     <div class="row" style="margin-top: 150px;">
       <div class="col" ng-click="open_wnd_user_repair_edit(0)">
         <img src="img/add.png"/>

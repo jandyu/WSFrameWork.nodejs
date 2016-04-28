@@ -95,21 +95,6 @@
   color: #FFFFFF !important;
 }
 
-/*表格*/
-.list-container{
-  padding:10px;
-}
-.list-title {
-  background-color:rgb(204,204,204);
-  height:55px;
-}
-.list-body
-{
-  border-left:0px;
-  border-right:0px;
-  /*font-size:14px;*/
-  height:55px;
-}
 
 /*form*/
 .form-container{

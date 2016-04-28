@@ -6,65 +6,68 @@
 
 
   <ion-content scroll="true" ng-show="true">
-    <div class="list form-container border-top" align="center">
 
-      <ion-item class="item item-input form-body" style="border-top:0px;">
-        <i class="icon ion-ios-person"></i>联系人:
+    <div class="list" align="center" style="padding:5px 5px 0px 5px;">
+
+      <ion-item class="item item-input">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
+
         <input type="text" placeholder="联系人" ng-model="user_repair.model.report_person"
                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
-        <input type="text" placeholder="联系电话" ng-model="user_repair.model.phone"
+
+        <input type="number" placeholder="联系电话" ng-model="user_repair.model.phone"
                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+
       </ion-item>
 
-      <ion-item class="item item-input form-body"  style="border-bottom:0px;">
-        <i class="icon ion-ios-location"></i>
+      <ion-item class="item item-input">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
         <input type="text" placeholder="房号" ng-model="user_repair.model.roompath" ng-click="openModal()"
                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
       </ion-item>
 
 
-    </div>
-
-    <div class="list form-container border-top" align="center" style="font-size:14px;">
-
-
-      <div class="item item-input form-body" style="border-top:0px;font-size:14px;">
+      <div class="item item-input item-divider">
         <div class="col" align="left">选择类型</div>
       </div>
 
 
-      <div class="item item-input form-body">
+      <div class="item item-input">
         <div class="col-50" align="center" ng-click="changeCategory('0')">
-          <h4 style="color:{{user_repair.model.category=='0'?'#ff9933':'black'}} ">个人</h4>
+          <h4 style="color:{{user_repair.model.category=='0'?'#ff9933':'black'}} ">居家维修</h4>
           <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_repair.model.category=='0'?'kwwy-icon-512-checked-active':'kwwy-icon-512-checked'}} "></i>
         </div>
         <div class="col-50" align="center" style="border-left:1px solid #b2b2b2;"  ng-click="changeCategory('1')">
-          <h4 style="color:{{user_repair.model.category=='0'?'black':'#ff9933'}} ">公共</h4>
+          <h4 style="color:{{user_repair.model.category=='0'?'black':'#ff9933'}} ">公共维修</h4>
           <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_repair.model.category=='0'?'kwwy-icon-512-checked':'kwwy-icon-512-checked-active'}} "></i>
         </div>
       </div>
 
 
-      <div class="item item-input form-body">
-        <div class="col" align="left" style="border-bottom:0px;">
-          有图有真相,上传照片:</br>
-          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url" ng-click="add_viewPhoto(itm.url,itm.id)"
-               style="width:80px;height:80px;margin-left:2px;">
+
+      <div class="item item-input item-divider">
+        <div class="col" align="left">有图有真相,上传照片</div>
+      </div>
+
+
+      <div class="item item-input">
+        <div class="col" align="left">
+          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url"
+               ng-click="add_viewPhoto(itm.url,itm.id,$index)"
+               on-hold="replacePhoto(itm.url,itm.id,$index)"
+               style="width:24%;heigth:98%;margin-left:2px;">
         </div>
       </div>
-    </div>
 
-    <div class="list form-container border-top" align="center" style="font-size:14px;">
-
-      <div class="item item-input item-text-wrap form-body" style="borde:0px;font-size:14px;">
+      <div class="item item-input item-text-wrap">
         <div class="col" align="left">
           <textarea rows=5 placeholder="请输入问题的描述,以便于我们准去定位,尽快处理" ng-model="user_repair.model.reason"
                     ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true"></textarea>
         </div>
       </div>
 
-      <div class="row item-input form-body" align="center">
-        <button class="button button-block button-orange button-small" ng-click="saveRepair()">填好了</button>
+      <div class="row item-input item-divider" align="center">
+        <button class="button button-block button-orange" ng-click="saveRepair()">填好了</button>
       </div>
     </div>
 

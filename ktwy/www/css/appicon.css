@@ -67,6 +67,30 @@
 }
 
 
+/*8行--图钉\环形针\位置\人*/
+.kwwy-icon-512-thumbtack
+{
+  background-position: -165px -287px;
+}
+
+.kwwy-icon-512-ring_pin
+{
+  background-position: -206px -287px;
+}
+
+.kwwy-icon-512-location_small
+{
+  background-position: -247px -287px;
+}
+
+.kwwy-icon-512-person_small
+{
+  background-position: -288px -287px;
+}
+
+
+
+
 
 /*11行*/
 .kwwy-icon-512-checked-active
@@ -78,6 +102,7 @@
 {
   background-position: -42px -411px;
 }
+
 
 
 
