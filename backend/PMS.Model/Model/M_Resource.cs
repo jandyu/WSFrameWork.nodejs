@@ -15,16 +15,28 @@ namespace PMS.Model//ws.data.jsonDal
         {
         }
 
-      
+
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="cate">类型</param>
         /// <param name="objid">资源所属对象id</param>
+        /// <param name="ids">资源ids：逗号分隔</param>
         /// <returns></returns>
-        public static PageData GetResource(string cate,string objid)
+        public static PageData GetResource(string cate,string objid,string ids="")
         {
-            return ws.data.jsonDal.JSONDAL.Query("app_wy_resource", "[{'col':'category','logic':'=','val':'" + cate + "','andor':' and '},{'col':'objid','logic':'=','val':'" + objid + "','andor':''}]", 1, 9999, "[{'col':'iid','sort':'asc'}]");
+            PageData pd = null;
+            if (ids != "")
+            {
+                //ids = ids.Replace(",", "','");
+                pd = ws.data.jsonDal.JSONDAL.Query("app_wy_resource", "[{'col':'iid','logic':'in ("+ids+") and 1=','val':'1','andor':''}]", 1, 9999, "[{'col':'iid','sort':'asc'}]");
+            }
+            else
+            {
+               pd= ws.data.jsonDal.JSONDAL.Query("app_wy_resource", "[{'col':'category','logic':'=','val':'" + cate + "','andor':' and '},{'col':'objid','logic':'=','val':'" + objid + "','andor':''}]", 1, 9999, "[{'col':'iid','sort':'asc'}]");
+            }
+            return pd;
         }
 
         /// <summary>
@@ -35,15 +47,19 @@ namespace PMS.Model//ws.data.jsonDal
         /// <param name="order_id"></param>
         /// <param name="memo"></param>
         /// <param name="msg"></param>
-        public static void AddResource(string category, string objid, string url, string memo, ref string msg)
-        {
+       /// <returns></returns>
+        public static string AddResource(string category, string objid, string url, string memo, ref string msg)
+        {            
             try
             {
-                ws.data.jsonDal.JSONDAL.Insert("app_wy_resource", "{'category':'" + category + "','objid':'" + objid + "','url':'" + url + "','memo':'" + memo + "'}", ref msg);
+                string rtn = "";
+               rtn= ws.data.jsonDal.JSONDAL.Insert("app_wy_resource", "{'category':'" + category + "','objid':'" + objid + "','url':'" + url + "','memo':'" + memo + "'}", ref msg);
+               return rtn;
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                return "";
             }
         }
 
