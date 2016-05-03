@@ -1,6 +1,6 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $log,$ionicModal,service_usercenter,service_usercenter_login) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $log,$ionicModal,$ionicPopup,service_usercenter,service_usercenter_login) {
     $scope.usercenter=service_usercenter;
     $scope.usercenter_login=service_usercenter_login;
     //登录窗口
@@ -11,17 +11,32 @@ angular.module('ktwy.controllers', [])
     $scope.userExit=function()
     {
 
-      service_usercenter.userid="0";
-      service_usercenter.roomid="";
-      service_usercenter.roompath="";
-      service_usercenter.name="";
-      service_usercenter.phone="";
-      service_usercenter.nickname="";
+      var confirmPopup = $ionicPopup.confirm({
+        title: '确认',
+        template: '确定要退出吗?',
+        cancelText: '取消',
+        cancelType: 'button-orange',
+        okText: '确定',
+        okType: 'button-orange'
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
+          service_usercenter.userid="0";
+          service_usercenter.roomid="";
+          service_usercenter.roompath="";
+          service_usercenter.name="";
+          service_usercenter.phone="";
+          service_usercenter.nickname="";
 
-      $scope.usercenter_login.userLoginOut().then(
-        function(rtn){
-        },function(rtn){
-        });
+          $scope.usercenter_login.userLoginOut().then(
+            function(rtn){
+            },function(rtn){
+            });
+        } else {
+          console.log('You are not sure');
+        }
+      });
+
     };
 
     //登陆窗口
@@ -45,6 +60,28 @@ angular.module('ktwy.controllers', [])
     $scope.$on('$destroy', function() {
       $scope.LoginWnd.remove();
     });
+
+    //账号设置
+    $ionicModal.fromTemplateUrl('templates/usercenter/user_set.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.wnd_user_set = modal;
+    });
+
+    $scope.open_wnd_user_set = function (iid) {
+      //此处初始化
+      $scope.wnd_user_set.show();
+    };
+
+    $scope.close_wnd_user_set = function () {
+
+      $scope.wnd_user_set.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.wnd_user_set.remove();
+    });
+
   })
 
   //登录
@@ -87,17 +124,18 @@ angular.module('ktwy.controllers', [])
         {
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: '登录失败!'+arr_rtn[1]
           });
         }
       },function(rtn){
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '登录失败!'+rtn
         });
       });
     };
-
 
 
     $scope.goreg=function()
@@ -145,6 +183,7 @@ angular.module('ktwy.controllers', [])
       if (!util.IsPhone(ls_phone)) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '手机号输入有误!'
         });
         return;
@@ -152,6 +191,7 @@ angular.module('ktwy.controllers', [])
       if (ls_phone=="") {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '手机号不能为空!'
         });
         return;
@@ -195,6 +235,7 @@ angular.module('ktwy.controllers', [])
       if (!util.IsPhone(ls_phone)) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '手机号输入有误!'
         });
         return;
@@ -202,6 +243,7 @@ angular.module('ktwy.controllers', [])
       if (ls_phone=="") {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '手机号不能为空!'
         });
         return;
@@ -243,6 +285,7 @@ angular.module('ktwy.controllers', [])
 
             $ionicPopup.alert({
               title: '提醒',
+              okType:'button-orange',
               template: msg
             });
           }
@@ -252,6 +295,7 @@ angular.module('ktwy.controllers', [])
         else {
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: '验证码不正确!'
           });
         }
@@ -359,6 +403,7 @@ angular.module('ktwy.controllers', [])
       {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '请选择房号!'
         });
         return;
@@ -367,6 +412,7 @@ angular.module('ktwy.controllers', [])
       if(usercenter_reg.name==""){
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '姓名不能为空!'
         });
         return;
@@ -375,6 +421,7 @@ angular.module('ktwy.controllers', [])
       if(usercenter_reg.nickname==""){
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '昵称不能为空!'
         });
         return;
@@ -384,6 +431,7 @@ angular.module('ktwy.controllers', [])
       if(usercenter_reg.password==""){
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '密码不能为空!'
         });
         return;
@@ -414,6 +462,7 @@ angular.module('ktwy.controllers', [])
 
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: '注册成功!'
           });
           //$state.go("tab.usercenter");
@@ -424,12 +473,14 @@ angular.module('ktwy.controllers', [])
         } else {
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: rtn
           });
         }
       },function(err){
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '注册失败'+err
         });
       });
@@ -445,5 +496,10 @@ angular.module('ktwy.controllers', [])
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
     });
-});
+})
+
+  .controller('user_set', function ($scope, $stateParams, $state, $log,$ionicModal,$ionicPopup,service_usercenter,service_usercenter_login) {
+    $scope.usercenter = service_usercenter;
+  })
+;
 

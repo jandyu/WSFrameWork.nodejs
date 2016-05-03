@@ -21,6 +21,7 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交有误!' + rtn
         });
         return;
@@ -93,6 +94,7 @@ angular.module('ktwy.controllers')
         else {
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: '当前状态不能修改!'
           });
           return;
@@ -156,6 +158,7 @@ angular.module('ktwy.controllers')
       else {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '当前状态不能评价!'
         });
       }
@@ -255,6 +258,7 @@ angular.module('ktwy.controllers')
         console.log(rtn);
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交成功!'
         });
         $scope.closeWithReturn();
@@ -262,6 +266,7 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交有误!' + rtn
         });
         return;
@@ -382,23 +387,46 @@ angular.module('ktwy.controllers')
     $scope.masterReturn = function (iid) {
 
       if ($scope.user_repair.model.status == "0") {
-        $scope.user_repair.masterReturn(iid, function (rtn) {
 
-          $ionicPopup.alert({
-            title: '提醒',
-            template: '撤回成功!'
-          });
-          $scope.$apply();
-        }, function (rtn) {
-          $ionicPopup.alert({
-            title: '提醒',
-            template: '撤回失败!' + rtn
-          });
+        var confirmPopup = $ionicPopup.confirm({
+          title: '确认',
+          template: '确定要撤回吗?',
+          cancelText: '取消',
+          cancelType: 'button-orange',
+          okText: '确定',
+          okType: 'button-orange'
         });
+        confirmPopup.then(function(res) {
+          if(res) {
+
+            $scope.user_repair.masterReturn(iid, function (rtn) {
+
+              $ionicPopup.alert({
+                title: '提醒',
+                okType:'button-orange',
+                template: '撤回成功!'
+              });
+              $scope.$apply();
+            }, function (rtn) {
+              $ionicPopup.alert({
+                title: '提醒',
+                okType:'button-orange',
+                template: '撤回失败!' + rtn
+              });
+            });
+
+
+          } else {
+            console.log('You are not sure');
+          }
+        });
+
+
       }
       else {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '当前状态不能撤回!'
         });
       }
@@ -423,6 +451,7 @@ angular.module('ktwy.controllers')
 
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '评价成功!'
         });
         $scope.visit_myd = "0";
@@ -433,6 +462,7 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '评价失败!' + rtn
         });
       });

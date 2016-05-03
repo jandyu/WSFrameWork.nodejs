@@ -1,0 +1,59 @@
+<ion-modal-view ng-controller="user_set">
+
+  <ion-header-bar class="orange-bg light" align-title="center">
+    <button class="button button-clear" ng-click="close_wnd_user_set()">返回</button>
+    <h1 class="title light">账号设置</h1>
+  </ion-header-bar>
+  <ion-content scroll="true">
+    <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-90">头像</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-75">真实姓名</div>
+        <div class="col-25">{{usercenter.name}}</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-75">我的昵称</div>
+        <div class="col-25">{{usercenter.nickname}}</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-60">手机号码</div>
+        <div class="col-40">{{usercenter.phone}}</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-60">出生日期</div>
+        <div class="col-40">1981-12-13</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-75">性别</div>
+        <div class="col-25">男</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-75">我的标签</div>
+        <div class="col-25"></div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col-75">修改密码</div>
+        <div class="col-25"></div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>
