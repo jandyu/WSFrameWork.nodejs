@@ -439,6 +439,10 @@ angular.module('ktwy.controllers')
     };
 
 
+    $scope.changeMyd=function(v){
+      $scope.visit.myd=v;
+    }
+
     //维修编辑相关-----------------------------------------------
 
     $scope.closeWithReturn = function () {

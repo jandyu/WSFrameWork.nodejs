@@ -1,4 +1,4 @@
-<ion-modal-view ng-controller="user_repair_edit">
+<ion-modal-view ng-controller="user_repair_edit" >
   <ion-header-bar class="orange-bg light" align-title="center">
     <button class="button button-clear" ng-click="closeWithReturn()">返回</button>
     <h1 class="title light">维修</h1>
@@ -6,23 +6,28 @@
 
 
   <ion-content scroll="true" ng-show="true">
-
+<form name="my_form">
     <div class="list" align="center" style="padding:5px 5px 0px 5px;">
 
-      <ion-item class="item item-input">
-        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
+      <ion-item class="item item-input item-icon-left">
+        <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
 
-        <input type="text" placeholder="联系人" ng-model="user_repair.model.report_person"
+        <input class="col-40" type="text" placeholder="联系人" ng-model="user_repair.model.report_person"
                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
 
-        <input type="number" placeholder="联系电话" ng-model="user_repair.model.phone"
-               ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
+        <input class="col-50" type="tel" placeholder="联系电话" ng-model="user_repair.model.phone"
+               ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true"
+        required name="phone">
+
+        <div class="error-messages" ng-messages="my_form.phone.$error">
+          <div ng-message="required">手机号不能为空</div>
+        </div>
 
       </ion-item>
 
       <ion-item class="item item-input">
-        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
-        <input type="text" placeholder="房号" ng-model="user_repair.model.roompath" ng-click="openModal()"
+        <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
+        <input class="col-90" type="text" placeholder="房号" ng-model="user_repair.model.roompath" ng-click="openModal()"
                ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true">
       </ion-item>
 
@@ -32,7 +37,7 @@
       </div>
 
 
-      <div class="item item-input">
+      <ion-item class="item item-input">
         <div class="col-50" align="center" ng-click="changeCategory('0')">
           <h4 style="color:{{user_repair.model.category=='0'?'#ff9933':'black'}} ">居家维修</h4>
           <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_repair.model.category=='0'?'kwwy-icon-512-checked-active':'kwwy-icon-512-checked'}} "></i>
@@ -41,7 +46,7 @@
           <h4 style="color:{{user_repair.model.category=='0'?'black':'#ff9933'}} ">公共维修</h4>
           <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_repair.model.category=='0'?'kwwy-icon-512-checked':'kwwy-icon-512-checked-active'}} "></i>
         </div>
-      </div>
+      </ion-item>
 
 
 
@@ -50,28 +55,40 @@
       </div>
 
 
+      <div class="item item-input-inset item-text-wrap">
+        <div class="col" align="left"  style="height:80px;">
+          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url"
+               style="width:24%;height:98%;margin-left:2px;"
+               ng-click="add_viewPhoto(itm.url,itm.id,$index)"
+               on-hold="replacePhoto(itm.url,itm.id,$index)">
+        </div>
+      </div>
+
+
       <div class="item item-input">
         <div class="col" align="left">
-          <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url"
-               ng-click="add_viewPhoto(itm.url,itm.id,$index)"
-               on-hold="replacePhoto(itm.url,itm.id,$index)"
-               style="width:24%;heigth:98%;margin-left:2px;">
-        </div>
-      </div>
-
-      <div class="item item-input item-text-wrap">
-        <div class="col" align="left">
           <textarea rows=5 placeholder="请输入问题的描述,以便于我们准去定位,尽快处理" ng-model="user_repair.model.reason"
-                    ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true"></textarea>
+                    name="reason"
+                    ng-disabled="(user_repair.model.status=='' || user_repair.model.status=='0')?false:true"
+          required ng-minlength="2" ng-maxlength="50"></textarea>
+
+          <div class="error-messages" ng-messages="my_form.reason.$error">
+            <div ng-message="required">不能为空</div>
+            <div ng-message="minlength">问题描述太短</div>
+            <div ng-message="maxlength">不能超过50字</div>
+          </div>
+
         </div>
       </div>
 
-      <div class="row item-input item-divider" align="center">
-        <button class="button button-block button-orange" ng-click="saveRepair()">填好了</button>
+      <div class="row item item-input item-divider" align="center">
+        <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="saveRepair()">填好了</button>
       </div>
     </div>
-
+</form>
   </ion-content>
+
+
 
 
   <div class="repair_edit pswp" tabindex="-1" role="dialog" aria-hidden="true">
