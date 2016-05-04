@@ -3,18 +3,25 @@ angular.module('ktwy.controllers')
   .controller('user_suggestion', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_suggestion, service_dict, NativePlugin, service_wy_resource) {
     $scope.usercenter = service_usercenter;
     $scope.user_suggestion = service_user_suggestion;
-    
+
+
+    $scope.dict = service_dict;
 
     //$scope.dict.getDcit('suggestion_status',function(rtn){ });
     $scope.getsuggestionList = function () {
       $scope.user_suggestion.getsuggestionList($scope.usercenter.userid, function (rtn) {
         console.info($scope.user_suggestion.model_list);
         //初始化字
-        $scope.$broadcast('scroll.refreshComplete');
-        $scope.$apply();
+        service_dict.getDcit('activity_status', function (rtn) {
+
+          $scope.$broadcast('scroll.refreshComplete');
+          $scope.$apply();
+        });
+        //$scope.$apply();
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交有误!' + rtn
         });
         return;
@@ -27,7 +34,6 @@ angular.module('ktwy.controllers')
 
     $scope.getsuggestionList();
 
-
     //维修编辑或者申请
     //cate:
     $scope.eidt_suggestion = function (iid, cate) {
@@ -38,10 +44,25 @@ angular.module('ktwy.controllers')
         $scope.user_suggestion.model.phone = $scope.usercenter.phone;
         $scope.user_suggestion.model.roomid = $scope.usercenter.roomid;
         $scope.user_suggestion.model.roompath = $scope.usercenter.roompath;
+
+        $scope.user_suggestion.model.imagelist_url = [{id: '0', url: 'img/photo_add.png'},
+          {id: '1', url: 'img/photo_add.png'},
+          {id: '2', url: 'img/photo_add.png'},
+          {id: '3', url: 'img/photo_add.png'}];
       }
       else {
         $scope.user_suggestion.getsuggestion(iid, function (rtn) {
+          if (cate == "1") {
+            $scope.user_suggestion.model.imagelist_url =
+              _.reject($scope.user_suggestion.model.imagelist_url, function (itm) {
+                return itm.url == "img/photo_add.png";
+              });
+            console.log($scope.user_suggestion.model.imagelist_url);
+          }
+
           $scope.$apply();
+          console.info("get repari from server");
+          console.info(JSON.stringify(rtn));
         }, function (rnt) {
         });
       }
@@ -73,6 +94,7 @@ angular.module('ktwy.controllers')
         else {
           $ionicPopup.alert({
             title: '提醒',
+            okType:'button-orange',
             template: '当前状态不能修改!'
           });
           return;
@@ -81,6 +103,11 @@ angular.module('ktwy.controllers')
     };
 
     $scope.close_wnd_user_suggestion_edit = function () {
+
+      $scope.user_suggestion.model.imagelist_url =
+        _.reject($scope.user_suggestion.model.imagelist_url, function (itm) {
+          return itm.url == "img/photo_add.png";
+        });
 
       $scope.wnd_user_suggestion_edit.hide();
     };
@@ -124,13 +151,14 @@ angular.module('ktwy.controllers')
 
     $scope.open_wnd_user_suggestion_visit = function (iid) {
       //此处初始化
-      if ($scope.user_suggestion.model.status == "7" || $scope.user_suggestion.model.status == "6") {
+      if ($scope.user_suggestion.model.status == "1") {
         $scope.eidt_suggestion(iid, "1");
         $scope.wnd_user_suggestion_visit.show();
       }
       else {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '当前状态不能评价!'
         });
       }
@@ -144,8 +172,6 @@ angular.module('ktwy.controllers')
     $scope.$on('$destroy', function () {
       $scope.wnd_user_suggestion_visit.remove();
     });
-
-
   })
 
   .controller('user_suggestion_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_user_suggestion, service_dict, NativePlugin, service_wy_resource) {
@@ -232,6 +258,7 @@ angular.module('ktwy.controllers')
         console.log(rtn);
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交成功!'
         });
         $scope.closeWithReturn();
@@ -239,6 +266,7 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '提交有误!' + rtn
         });
         return;
@@ -251,9 +279,10 @@ angular.module('ktwy.controllers')
 
         //获取图片
         NativePlugin.GetPicture(function (imageData) {
-
-          $scope.user_suggestion.model.imagelist_url[id].url = NativePlugin.PictureModel.image_url;
-
+          /*
+           $scope.user_suggestion.model.imagelist_url[id].url = NativePlugin.PictureModel.image_url;
+           $scope.$apply();
+           */
           console.log(NativePlugin.PictureModel.image_url);
 
           //上传图片
@@ -265,6 +294,8 @@ angular.module('ktwy.controllers')
             //保存资源
             service_wy_resource.model.category = '维修照片';
             service_wy_resource.model.url = rtn;
+
+            $scope.user_suggestion.model.imagelist_url[id].url = wwwurl + rtn.substr(1);
 
             service_wy_resource.SaveResource(function (rtn) {
               $scope.user_suggestion.model.imagelist_url[id].rid = jsondal.AnaRtn(rtn);
@@ -286,31 +317,56 @@ angular.module('ktwy.controllers')
     };
 
 
-    $scope.photoview=function (url)
-    {
-      NativePlugin.PhotoView(url,"");
+    $scope.photoview = function (urls, idx) {
+
+      var arr_urls = _.clone(urls);
+      arr_urls = _.reject(arr_urls, function (itm) {
+        return itm.url == "img/photo_add.png";
+      });
+
+      console.info(arr_urls);
+
+      NativePlugin.PhotoViews(arr_urls, idx, ".suggestion_edit.pswp");
     };
 
     //显示图片详情或者添加图片
-    $scope.add_viewPhoto=function(url,id)
-    {
+    $scope.add_viewPhoto = function (url, id, idx) {
       console.info("---------------------");
-      console.info("url:"+url+"id:"+id);
-      if(url=='img/photo_add.png')
-      {
+      console.info("url:" + url + "id:" + id);
+      if (url == 'img/photo_add.png') {
         $scope.getPicture(id);
       }
-      else
-      {
-        $scope.photoview(url);
+      else {
+        $scope.photoview($scope.user_suggestion.model.imagelist_url, idx);
       }
 
     };
+
+    //长按替换图片
+    $scope.replacePhoto = function (url, id, idx) {
+      console.info("---------------------");
+      console.info("url:" + url + "id:" + id);
+      /*
+       if (url == 'img/photo_add.png') {
+       $scope.getPicture(id);
+       }
+       else {
+       $scope.photoview($scope.user_suggestion.model.imagelist_url,idx);
+       }*/
+      $scope.getPicture(id);
+
+    };
+
+
     //维修编辑相关-----------------------------------------------
 
     $scope.closeWithReturn = function () {
       $scope.close_wnd_user_suggestion_edit();
       $scope.getsuggestionList();
+    };
+
+    $scope.changeCategory = function (category) {
+      $scope.user_suggestion.model.category = category;
     };
 
 
@@ -331,26 +387,54 @@ angular.module('ktwy.controllers')
     $scope.masterReturn = function (iid) {
 
       if ($scope.user_suggestion.model.status == "0") {
-        $scope.user_suggestion.masterReturn(iid, function (rtn) {
 
-          $ionicPopup.alert({
-            title: '提醒',
-            template: '撤回成功!'
-          });
-          $scope.$apply();
-        }, function (rtn) {
-          $ionicPopup.alert({
-            title: '提醒',
-            template: '撤回失败!' + rtn
-          });
+        var confirmPopup = $ionicPopup.confirm({
+          title: '确认',
+          template: '确定要撤回吗?',
+          cancelText: '取消',
+          cancelType: 'button-orange',
+          okText: '确定',
+          okType: 'button-orange'
         });
+        confirmPopup.then(function(res) {
+          if(res) {
+
+            $scope.user_suggestion.masterReturn(iid, function (rtn) {
+
+              $ionicPopup.alert({
+                title: '提醒',
+                okType:'button-orange',
+                template: '撤回成功!'
+              });
+              $scope.$apply();
+            }, function (rtn) {
+              $ionicPopup.alert({
+                title: '提醒',
+                okType:'button-orange',
+                template: '撤回失败!' + rtn
+              });
+            });
+
+
+          } else {
+            console.log('You are not sure');
+          }
+        });
+
+
       }
       else {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '当前状态不能撤回!'
         });
       }
+    };
+
+    //显示图片详情
+    $scope.photoview = function (urls, idx) {
+      NativePlugin.PhotoViews(urls, idx, ".suggestion_detail.pswp");
     };
 
   })
@@ -367,6 +451,7 @@ angular.module('ktwy.controllers')
 
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '评价成功!'
         });
         $scope.visit_myd = "0";
@@ -377,11 +462,16 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
         $ionicPopup.alert({
           title: '提醒',
+          okType:'button-orange',
           template: '评价失败!' + rtn
         });
       });
     };
 
+
+    $scope.changeMyd=function(v){
+      $scope.visit.myd=v;
+    }
 
     //维修编辑相关-----------------------------------------------
 
@@ -390,6 +480,5 @@ angular.module('ktwy.controllers')
     };
 
   })
-
 
 ;

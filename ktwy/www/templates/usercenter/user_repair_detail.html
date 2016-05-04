@@ -5,34 +5,34 @@
     <button class="button button-clear button-light" ng-click="masterReturn(user_repair.model.iid)">撤回</button>
   </ion-header-bar>
   <ion-content scroll="true" ng-show="true">
-    <div class="list" align="center" style="padding:5px 5px 0px 5px;">
-      <div class="row item item-input-inset">
-        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i></div>
-        <div class="col-50" align="left">联系人:{{user_repair.model.report_person}}</div>
+    <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+      <div class=" item item-input-inset">
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small" style="width:38px;"></i></div>
+        <div class="col-50" align="left">联系人: {{user_repair.model.report_person}}</div>
         <div class="col-34" align="right">{{user_repair.model.phone}}</div>
       </div>
 
-      <div class="row item item-input-inset">
-        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i></div>
+      <div class=" item item-input-inset">
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small" style="width:38px;"></i></div>
         <div class="col-90" align="left">{{user_repair.model.roompath}}</div>
       </div>
 
-      <div class="row item item-input-inset">
-        <div class="col" align="left">报修时间:{{user_repair.model.report_dt|to_dateformat:'yyyy-MM-dd'}}</div>
-        <div class="col" align="center">类型:{{user_repair.model.category=='0'?"居家维修":"公共维修"}}</div>
+      <div class=" item item-input-inset">
+        <div class="col" align="left">报修时间: {{user_repair.model.report_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+        <div class="col-40" align="center">类型: {{user_repair.model.category=='0'?"居家维修":"公共维修"}}</div>
       </div>
 
-      <div class="row item item-input-inset">
-        <div class="col" align="left">处理进度:{{user_repair.model.statusname}}</div>
+      <div class=" item item-input-inset">
+        <div class="col" align="left">处理进度: {{user_repair.model.statusname}}</div>
       </div>
 
-      <div class="row item item-input-inset item-text-wrap">
+      <div class=" item item-input-inset item-text-wrap">
         <div class="col" align="left">
-          问题描述:{{user_repair.model.reason}}
+          问题描述: {{user_repair.model.reason}}
         </div>
       </div>
 
-      <div class="row item item-input-inset item-text-wrap">
+      <div class=" item item-input-inset item-text-wrap">
         <div class="col" align="left" id="repair_image_list" style="height:80px;">
           <img src="{{itm.url}}" ng-repeat="itm in user_repair.model.imagelist_url"
                style="width:24%;height:98%;margin-left:2px;"
@@ -48,83 +48,83 @@
       </div>
     </div>
 
-    <div class="list" style="padding:5px 5px 0px 5px;">
+    <div class="list list_full_row" style="padding:5px 5px 0px 5px;">
 
-      <div class="row item item-input-inset item-divider">
+      <div class=" item item-input-inset item-divider">
         <div class="col"><h2>处理记录</h2></div>
       </div>
 
-      <div class="list" ng-repeat="itm in user_repair.model.deal_list">
-        <div class="row item item-input-inset">
-          <div class="col-60" align="left">处理时间:{{itm.dealdt|to_dateformat:"yyyy-MM-dd"}}</div>
-          <div class="col-40" align="left">进度:{{itm.statusname}}</div>
+      <div class="list list_full_row" ng-repeat="itm in user_repair.model.deal_list">
+        <div class="item item-input-inset">
+          <div class="col"  align="left">处理时间: {{itm.dealdt|to_dateformat:"yyyy-MM-dd"}}</div>
+          <div class="col-40" align="left">进度: {{itm.statusname}}</div>
         </div>
 
-        <div class="row item item-input-inset">
-          <div class="col" align="left">联系人:{{itm.repair}}</div>
-          <div class="col" align="left">电话:{{itm.phone}}</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">联系人: {{itm.repair}}</div>
+          <div class="col" align="left">电话: <a href="tel: {{itm.phone}}">{{itm.phone}}</a></div>
         </div>
 
-        <div class="row item item-input-inset">
-          <div class="col" align="left">预约时间:{{itm.plantime|to_dateformat:"yyyy-MM-dd"}}</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">预约时间: {{itm.plantime|to_dateformat:"yyyy-MM-dd"}}</div>
         </div>
 
-        <div class="row item item-input-inset">
-          <div class="col" align="left">人工费:{{itm.labourfee}}</div>
-          <div class="col" align="left">材料费:{{itm.materialfee}}</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">人工费: {{itm.labourfee}}</div>
+          <div class="col" align="left">材料费: {{itm.materialfee}}</div>
         </div>
 
-        <div class="row item item-input-inset item-text-wrap">
+        <div class=" item item-input-inset item-text-wrap">
           <div class="col" align="left">
-            维修预案:{{itm.rplan}}
+            维修预案: {{itm.rplan}}
           </div>
         </div>
-        <div class="row item item-input-inset item-text-wrap">
+        <div class=" item item-input-inset item-text-wrap">
           <div class="col" align="left">
-            维修小结:{{itm.memo}}
+            维修小结: {{itm.memo}}
           </div>
         </div>
-        <div class="row item item-input-inset">
-          <div class="col" align="left">完成时间:{{itm.complatedt|to_dateformat:"yyyy-MM-dd"}}</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">完成时间: {{itm.complatedt|to_dateformat:"yyyy-MM-dd"}}</div>
         </div>
       </div>
 
     </div>
 
 
-    <div class="list" style="padding:5px 5px 0px 5px;">
+    <div class="list list_full_row" style="padding:5px 5px 0px 5px;">
 
-      <div class="row item item-input-inset item-divider">
+      <div class=" item item-input-inset item-divider">
         <div class="col"><h2>回访/评价</h2></div>
       </div>
 
-      <div class="list" ng-repeat="itm in user_repair.model.visit_list">
-        <div class="row item item-input-inset">
-          <div class="col-34" align="left">类型:{{itm.typename}}</div>
-          <div class="col" align="left">评价/回访人:{{itm.visiter}}</div>
+      <div class="list list_full_row" ng-repeat="itm in user_repair.model.visit_list">
+        <div class=" item item-input-inset">
+          <div class="col"  align="left">类型: {{itm.typename}}</div>
+          <div class="col-60"  align="left">评价/回访人: {{itm.visiter}}</div>
         </div>
 
-        <div class="row item item-input-inset">
-          <div class="col" align="left">评价/回访时间:{{itm.dt|to_dateformat:"yyyy-MM-dd"}}</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">评价/回访时间: {{itm.dt|to_dateformat:"yyyy-MM-dd"}}</div>
         </div>
 
-        <div class="row item item-input-inset">
-          <div class="col-20" align="left">满意度:</div>
-          <div class="col" align="right">
+        <div class=" item item-input-inset">
+
+          <div class="col" align="center">
             <div class="kwwy-icon-url-orange visit {{itm.myd=='0'?'visit_my':'visit_my_'}}"></div>
           </div>
-          <div class="col" align="left">
+          <div class="col" align="center">
             <div class="kwwy-icon-url-orange visit {{itm.myd=='1'?'visit_yb':'visit_yb_'}}"></div>
           </div>
-          <div class="col" align="left">
+          <div class="col" align="center">
             <div class="kwwy-icon-url-orange visit {{itm.myd=='2'?'visit_bmy':'visit_bmy_'}}"></div>
           </div>
         </div>
 
 
-        <div class="row item item-input-inset item-text-wrap">
+        <div class=" item item-input-inset item-text-wrap">
           <div class="col" align="left">
-            评价内容:{{itm.detail}}
+            评价内容: {{itm.detail}}
           </div>
         </div>
       </div>

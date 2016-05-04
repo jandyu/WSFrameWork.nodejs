@@ -144,7 +144,7 @@
   border-width:5px;
 }
 
-.list_full_row>div
+.list_full_row>div,.list_full_row>ion-item
 {
   border-left:0px;
   border-right:0px;

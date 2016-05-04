@@ -1,28 +1,38 @@
-<ion-modal-view ng-controller="user_repair_visit">
-  <ion-header-bar class="energized-bg light" align-title="center">
+<ion-modal-view ng-controller="user_suggestion_visit">
+  <ion-header-bar class="orange-bg light" align-title="center">
     <button class="button button-clear" ng-click="closeWithReturn()">返回</button>
     <h1 class="title light">评价</h1>
   </ion-header-bar>
   <ion-content scroll="true">
-    <ion-list>
+    <form name="my_form">
+      <div class="list list_full_row" style="padding:5px 5px 0px 5px;">
 
-      <ion-item class="item item-input item-select">
-        <div class="input-label">满意度</div>
-        <select ng-model="visit.myd">
-          <option value="0">满意</option>
-          <option value="1">一般</option>
-          <option value="2">不满意</option>
-        </select>
-      </ion-item>
+        <div class="item item-input">
+          <div class="col-20" align="left">满意度:</div>
+          <div class="col" align="right" ng-click="changeMyd('0')">
+            <div class="kwwy-icon-url-orange visit {{visit.myd=='0'?'visit_my':'visit_my_'}}"></div>
+          </div>
+          <div class="col" align="left" ng-click="changeMyd('1')">
+            <div class="kwwy-icon-url-orange visit {{visit.myd=='1'?'visit_yb':'visit_yb_'}}"></div>
+          </div>
+          <div class="col" align="left" ng-click="changeMyd('2')">
+            <div class="kwwy-icon-url-orange visit {{visit.myd=='2'?'visit_bmy':'visit_bmy_'}}"></div>
+          </div>
+        </div>
 
-      <ion-item class="item item-input" >
-        <textarea rows=5 placeholder="请输入评价" ng-model="visit.detail"></textarea>
-      </ion-item>
+        <div class="item item-input">
+          <div class="col" align="left">
+          <textarea rows=5 placeholder="请输入您的评价!" ng-model="visit.detail"
+                    name="detail"
+                    ng-minlength="2" ng-maxlength="50"></textarea>
+          </div>
+        </div>
 
-      <div class="row">
-        <button class="button button-block button-positive col" ng-click="saveVisit(visit)">确定</button>
+        <div class="row item item-divider">
+          <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="saveVisit(visit)">确定</button>
+        </div>
+
       </div>
-
-    </ion-list>
+    </form>
   </ion-content>
 </ion-modal-view>
