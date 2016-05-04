@@ -306,7 +306,7 @@ angular.module('ktwy.services')
             var rtn = jsondal.AnaRtn(rtn);
 
             me.model.status='3';
-
+            me.model.statusname='已撤回';
             succ(rtn);
           }, function (rtn) {
             console.info(rtn);
