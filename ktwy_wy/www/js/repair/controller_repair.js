@@ -46,6 +46,7 @@ angular.module('ktwy.controllers')
     };
 
     $scope.init=function() {
+
       $scope.$watch('qeryfilters.status', function (newval, oldval) {
         //console.log("newval:"+newval+";oldval:"+oldval);
         var qry = {'col': 'status', 'logic': '=', 'val': newval, 'andor': ''};
@@ -56,6 +57,7 @@ angular.module('ktwy.controllers')
         //查询数据
         $scope.getRepairList(qry);
       });
+
       $scope.loadMore = function () {
         console.log("--1111111111111111");
 

@@ -1,99 +1,109 @@
 
 <ion-view view-title="首页">
-  <ion-content scroll="true">
-    <div class="row"  align="center">
-        <div class="col-25" ng-click="goAfterLogin('tab.master_query')">
-          <img src="img/1yzcx.png" class="nav">
-          </br>
-          业主查询
-        </div>
-        <div class="col-25" ng-click="goAfterLogin('tab.vehicle_query')">
-          <img src="img/2cpcx.png" class="nav">
-          </br>
-          车牌查询
-        </div>
-        <div class="col-25">
-          <img src="img/3tsby.png" class="nav">
-          </br>
-          投诉表扬
-        </div>
-        <div class="col-25">
-          <img src="img/4wx.png" class="nav" ng-click="goAfterLogin('tab.user_repair')">
-          </br>
-          维修
-        </div>
-    </div>
-    <div class="row" style="margin-top:5px;" align="center">
-      <div class="col-25">
-        <img src="img/5sqtz.png" class="nav">
-        </br>
-        社区通知
-      </div>
+  <ion-content scroll="true" class="home">
 
-      <div class="col-25">
-        <img src="img/6wyfcx.png" class="nav">
-        </br>
-        物业费查询
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+
+    <div class="row nav"  align="center">
+      <div class="col col-25 col1" ng-click="goAfterLogin('tab.vehicle_query')">
+        <img src="img/1clcx.png">
+        <div>车辆查询</div>
       </div>
-      <div class="col-25">
-        <img src="img/7dxqf.png" class="nav">
-        </br>
-        短信群发
+      <div class="col col-25 col2" ng-click="goAfterLogin('tab.master_query')">
+        <img src="img/2yzcx.png">
+        <div>业主查询</div>
       </div>
-      <div class="col-25">
-        <img src="img/8kdlr.png" class="nav">
-        </br>
-        快递录入
+      <div class="col col-25 col3">
+        <img src="img/3sqtz.png">
+        <div>社区通知</div>
+      </div>
+      <div class="col col-25 col4" ng-click="reload()">
+        <img src="img/4fkgl.png">
+        <div>访客管理</div>
+      </div>
+    </div>
+    <div class="row nav"  align="center">
+      <div class="col col-25 col5" ng-click="goAfterLogin('tab.express_list')">
+        <img src="img/5kdds.png">
+        <div>快递代收</div>
+      </div>
+      <div class="col col-25 col6" ng-click="goAfterLogin('tab.user_repair')">
+        <img src="img/6wxgl.png">
+        <div>维修管理</div>
+      </div>
+      <div class="col col-25 col7" ng-click="goAfterLogin('tab.user_suggestion')">
+        <img src="img/7tsjy.png">
+        <div>投诉建议</div>
+      </div>
+      <div class="col col-25 col8">
+        <img src="img/8dxqf.png">
+        <div>短信群发</div>
       </div>
     </div>
 
-    <div class="row" style="margin-top:5px;" align="center">
-      <div class="col-25">
-        <img src="img/9sfcb.png" class="nav">
-        </br>
-        水费抄表
+    <div class="row nav"  align="center">
+      <div class="col col-25 col5">
+        <img src="img/9tcsf.png">
+        <div>停车收费</div>
       </div>
-      <div class="col-25">
-        <img src="img/10fkxx.png" class="nav">
-        </br>
-        访客信息
+      <div class="col col-25 col6">
+        <img src="img/10sfcb.png">
+        <div>收费抄表</div>
       </div>
-      <div class="col-25">
-        <img src="img/11baxl.png" class="nav">
-        </br>
-        保安巡逻
+      <div class="col col-25 col7">
+        <img src="img/11gstg.png">
+        <div>公司通告</div>
       </div>
-
-      <div class="col-25">
-        <img src="img/12xxfs.png" class="nav">
-        </br>
-        消息推送
+      <div class="col col-25 col8">
+        <img src="img/12fwxx.png">
+        <div>房屋信息</div>
       </div>
     </div>
+
+    <div class="row nav"  align="center">
+      <div class="col col-25 col5">
+        <img src="img/15blank.png">
+        <div></div>
+      </div>
+      <div class="col col-25 col6">
+        <img src="img/13cwxx.png">
+        <div>车位信息</div>
+      </div>
+      <div class="col col-25 col7" ng-click="reload()">
+        <img src="img/14fycx.png">
+        <div>费用查询</div>
+      </div>
+      <div class="col col-25 col8">
+        <img src="img/15blank.png">
+        <div></div>
+      </div>
+    </div>
+
 
     <ion-list>
-      <ion-item class="item-icon-right">
-        <h2>内部通知</h2>
-        <i class="icon ion-ios-arrow-right"></i>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
-      <ion-item>
-        <h3>关于开始收取2016年度物业管理费的通知</h3>
-        <p>尊敬的业主：2016年度物业管理费收取工作已经...</p>
-        <div align="right">2016/03/04</div>
-      </ion-item>
+      <a class="item item-input notify" align="center" href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
 
+      <a class="item item-input notify" align="center"  href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
+      <a class="item item-input notify" align="center"  href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
+      <a class="item item-input notify" align="center"  href="#">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col-60">收取2016年度物业管理费的通知</div>
+        <div class="col-20">2016-04-06</div>
+      </a>
     </ion-list>
-
 
   </ion-content>
 </ion-view>

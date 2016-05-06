@@ -73,6 +73,17 @@ angular.module('ktwy.controllers')
       $scope.$on('$destroy', function() {
         $scope.LoginWnd.remove();
       });
+
+
+      $scope.doRefresh=function()
+      {
+        $scope.$broadcast('scroll.refreshComplete');
+      };
+      $scope.reload=function()
+      {
+        window.location.reload();
+      };
+
     })
 
 

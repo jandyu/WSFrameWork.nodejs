@@ -132,6 +132,15 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+      .state('tab.express_list', {
+        url: '/express_list',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/express/express_list.html',
+            controller:'express_list'
+          }
+        }
+      })
     ;
 
     // if none of the above states are matched, use this as the fallback

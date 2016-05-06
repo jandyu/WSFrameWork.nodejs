@@ -1,0 +1,194 @@
+/*橙色*/
+.kwwy-icon-url-blue{
+  background-image: url(kwwy_org.png);
+}
+/*512*512----------------------------------------*/
+.kwwy-icon-512{
+  background-size:512px 512px;
+  width:39px;
+  height:39px;
+  display:block;
+}
+.kwwy-icon-512-home
+{
+  background-position: -1px -5px;
+}
+.kwwy-icon-512-home-active
+{
+  background-position: -1px -45px;
+}
+.kwwy-icon-512-home-active_blue
+{
+  background-position: -1px -169px;
+}
+
+
+.kwwy-icon-512-message
+{
+  background-position: -42px -5px;
+}
+.kwwy-icon-512-message-active
+{
+  background-position: -42px -45px;
+}
+
+.kwwy-icon-512-message-active_blue
+{
+  background-position: -42px -169px;
+}
+
+
+.kwwy-icon-512-contact
+{
+  background-position: -83px -5px;
+}
+.kwwy-icon-512-contact-active
+{
+  background-position: -83px -45px;
+}
+.kwwy-icon-512-contact-active_blue
+{
+  background-position: -83px -169px;
+}
+
+.kwwy-icon-512-group
+{
+  background-position: -124px -5px;
+}
+.kwwy-icon-512-group-active
+{
+  background-position: -124px -45px;
+}
+.kwwy-icon-512-group-active_blue
+{
+  background-position: -124px -169px;
+}
+
+
+
+.kwwy-icon-512-me
+{
+  background-position: -165px -5px;
+}
+.kwwy-icon-512-me-active
+{
+  background-position: -165px -45px;
+}
+.kwwy-icon-512-me-active_blue
+{
+  background-position: -165px -169px;
+}
+
+/*location person*/
+.kwwy-icon-512-location
+{
+  background-position: -165px -85px;
+}
+.kwwy-icon-512-person
+{
+  background-position: -165px -125px;
+}
+
+
+/*8行--图钉\环形针\位置\人*/
+.kwwy-icon-512-thumbtack
+{
+  background-position: -165px -287px;
+}
+
+.kwwy-icon-512-ring_pin
+{
+  background-position: -206px -287px;
+}
+
+.kwwy-icon-512-location_small
+{
+  background-position: -247px -287px;
+}
+
+.kwwy-icon-512-person_small
+{
+  background-position: -288px -287px;
+}
+
+
+
+
+
+/*11行*/
+.kwwy-icon-512-checked-active
+{
+  background-position: -1px -411px;
+}
+
+.kwwy-icon-512-checked
+{
+  background-position: -42px -411px;
+}
+
+.kwwy-icon-512-person_photo_default
+{
+  background-position: -83px -411px;
+}
+
+.kwwy-icon-512-usercenter_myhouse
+{
+  background-position: -124px -411px;
+}
+
+.kwwy-icon-512-usercenter_childaccount
+{
+  background-position: -165px -411px;
+}
+
+.kwwy-icon-512-usercenter_myorder
+{
+  background-position: -206px -411px;
+}
+
+.kwwy-icon-512-usercenter_advance
+{
+  background-position: -247px -411px;
+}
+
+.kwwy-icon-512-usercenter_version
+{
+  background-position: -288px -411px;
+}
+
+.kwwy-icon-512-usercenter_array_right_circle
+{
+  background-position: -329px -411px;
+}
+
+
+
+
+/*特殊尺寸----------------------------------------*/
+/*评价/回访*/
+.visit{
+  background-size:512px 512px;
+  width:80px;
+  height:40px;
+}
+
+.visit_my{
+  background-position: -1px -328px;
+}
+.visit_my_{
+  background-position: -1px -368px;
+}
+
+.visit_yb{
+  background-position: -83px -328px;
+}
+.visit_yb_{
+  background-position: -83px -368px;
+}
+
+.visit_bmy{
+  background-position: -165px -328px;
+}
+.visit_bmy_{
+  background-position: -165px -368px;
+}
