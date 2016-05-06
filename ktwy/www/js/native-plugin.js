@@ -25,6 +25,8 @@ angular.module('ktwy.services')
         var me=this;
 
         var options = angular.extend({},me.PictureDefaultOption,option);
+        console.info("------------picture option----------")
+        console.info(JSON.stringify(options));
 
         $ionicActionSheet.show({
           titleText: '请选择',

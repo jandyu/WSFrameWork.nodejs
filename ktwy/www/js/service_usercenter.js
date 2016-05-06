@@ -11,6 +11,15 @@ angular.module('ktwy.services', [])
     nickname:'',
     deviceid:'',
     platform:'',
+    sex:'男',
+    birthday:new Date('1900-01-01'),
+    photo:'',
+    photo_url:'',
+
+    //设置时的标题
+    title:'个人头像',
+    type:'photo',
+
     //判断是否登录成功
     checkLogin:function() {
       var _this=this;
@@ -21,7 +30,67 @@ angular.module('ktwy.services', [])
       {
         return true;
       }
-    }
+    },
+    //保持用户信息
+    saveUser:function(succ,fail)
+    {
+      var me=this;
+      var dat = {
+        iid:me.userid,
+        name:me.name,
+        appnickname:me.nickname,
+        sex:me.sex,
+        birthday:me.birthday,
+        photo:me.photo,
+        roomid:me.roomid
+      };
+      jsondal.Insert("app_master", dat, function(rtn){
+        rtn=jsondal.AnaRtn(rtn);
+        succ(rtn);
+      }, fail);
+    },
+    changepassword:function(m,succ,err)
+    {
+      var _this=this;
+      m.iid=_this.userid;
+
+      jsondal.Exec("sp_user_upd_pwd", {iid: m.iid,oldpwd: m.oldpwd,newpwd: m.newpwd }, function (rtn) {
+        var rtn = jsondal.AnaRtn(rtn);
+        succ(rtn);
+      }, function (rtn) {
+        console.info(rtn);
+        err(rtn);
+      });
+    },
+
+    getCheckCode_updphone:function(m,succ,err)
+    {
+      var _this=this;
+      var ls_phone= m.newphone;
+      jsondal.Exec("sp_sms_get_message", { phone: ls_phone }, function (rtn) {
+        var checkcode_number = jsondal.AnaRtn(rtn);
+        jsondal.DealMessage();
+        succ(checkcode_number);
+      }, function (rtn) {
+        console.info(rtn);
+        err(rtn);
+      });
+    },
+
+    changephone:function(m,succ,err)
+    {
+      var _this=this;
+      m.iid=_this.userid;
+
+      jsondal.Exec("sp_user_upd_phone", {number: m.checkcode_number,code: m.code,phone: m.newphone,iid: m.iid}, function (rtn) {
+        var rtn = jsondal.AnaRtn(rtn);
+        succ(rtn);
+      }, function (rtn) {
+        console.info(rtn);
+        err(rtn);
+      });
+    },
+
   });
   return usercenter;
 })

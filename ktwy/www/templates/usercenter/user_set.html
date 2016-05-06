@@ -7,41 +7,41 @@
   <ion-content scroll="true">
     <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="change_photo()">
         <div class="col">头像</div>
-        <div class="col-25" align="left">
-            <image src="img/person_photo_default.png" style="border:1px solid #ff9933;width:43px;height: 43px;border-radius: 50%;"></image>
+        <div class="col-34" align="left">
+            <image src="{{usercenter.photo_url}}" style="border:0px solid #ff9933;width:63px;height: 63px;border-radius: 50%;"></image>
         </div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="open_wnd_user_set_detail('name','更改姓名')">
         <div class="col">真实姓名</div>
-        <div class="col-25">{{usercenter.name}}</div>
+        <div class="col-40">{{usercenter.name}}</div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="open_wnd_user_set_detail('nickname','我的昵称')">
         <div class="col">我的昵称</div>
-        <div class="col-25">{{usercenter.nickname}}</div>
+        <div class="col-40">{{usercenter.nickname}}</div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="open_wnd_user_set_detail('phone','手机号')">
         <div class="col">手机号码</div>
         <div class="col-40">{{usercenter.phone}}</div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="open_wnd_user_set_detail('birthday','生日')">
         <div class="col">出生日期</div>
-        <div class="col-40">1981-12-13</div>
+        <div class="col-40">{{usercenter.birthday|to_dateformat:"yyyy-MM-dd"}}</div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right" ng-click="open_wnd_user_set_detail('sex','性别')">
         <div class="col">性别</div>
-        <div class="col-25">男</div>
+        <div class="col-25">{{usercenter.sex}}</div>
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
@@ -51,7 +51,7 @@
         <i class="icon ion-ios-arrow-right"></i>
       </div>
 
-      <div class="item item-input-inset item-icon-right">
+      <div class="item item-input-inset item-icon-right"  ng-click="open_wnd_user_set_detail('password','修改密码')">
         <div class="col">修改密码</div>
         <div class="col-25"></div>
         <i class="icon ion-ios-arrow-right"></i>

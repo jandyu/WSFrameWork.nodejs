@@ -21,6 +21,19 @@ angular.module('ktwy.controllers')
             service_usercenter.name=arr_rtn[4];
             service_usercenter.phone=arr_rtn[5];
             service_usercenter.nickname=arr_rtn[6];
+            service_usercenter.sex=arr_rtn[7];
+            service_usercenter.birthday=new Date(arr_rtn[8]);
+            service_usercenter.photo=arr_rtn[9];
+            var purl=arr_rtn[10];
+            if(purl=="")
+            {
+              purl="img/person_photo_default.png";
+            }
+            else
+            {
+              purl=wwwurl+purl.substr(1);
+            }
+            service_usercenter.photo_url=purl;
 
             console.info("自动登录成功!");
             return;
