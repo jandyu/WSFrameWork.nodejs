@@ -5,8 +5,9 @@
   </ion-header-bar>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="item in roomselect.units" type="item-text-wrap" ng-click="getChildUnit('{{item.uid}}','{{item.unit_title}}')">
+      <ion-item class="item item-icon-right" ng-repeat="item in roomselect.units" type="item-text-wrap" ng-click="getChildUnit('{{item.uid}}','{{item.unit_title}}')">
         {{item.unit_title}}
+        <i class="icon ion-ios-arrow-right"></i>
       </ion-item>
     </ion-list>
 

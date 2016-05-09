@@ -3,12 +3,13 @@ angular.module('ktwy.services')
     var expres=angular.extend({},IService,{
       tablename_list:"v_m_app_wy_expres",
       tablename:"app_wy_expres",
-      order_list:{col:'create_dt',sort:'desc'},
+      order_list:[{col:'iid',sort:'desc'}],
       save_fileds:['iid','create_dt','creater','roomid','md','bg','receive_dt','receiver','status','memo'],
-      ini_model: function () {
+      ini_model: function (gl) {
+        var me=this;
         me.model.iid='0';
-        me.model.create_dt=util.today('-');
-        me.model.creater='';
+        me.model.create_dt=util.DateFormat(new Date(),'yyyy-MM-dd hh:mm');
+        me.model.creater=gl.name;
         me.model.roomid='';
         me.model.md='';
         me.model.bg='';
@@ -17,8 +18,8 @@ angular.module('ktwy.services')
         me.model.status='0';
         me.model.memo='';
         me.model.roompath='';
-        me.model.md_url='';
-        me.model.bg_url='';
+        me.model.md_url='img/photo_camar.png';
+        me.model.bg_url='img/photo_camar.png';
         me.model.statusname='未签收';
       }
     });

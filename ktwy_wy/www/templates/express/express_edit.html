@@ -1,7 +1,8 @@
-<ion-modal-view ng-controller="user_suggestion_edit" >
-  <ion-header-bar class="orange-bg light" align-title="center">
-    <button class="button button-clear" ng-click="closeWithReturn()">返回</button>
-    <h1 class="title light">维修</h1>
+<ion-modal-view ng-controller="express_edit" >
+  <ion-header-bar class="blue-bg light" align-title="center">
+    <button class="button button-clear" ng-click="close_wnd_express_edit()">返回</button>
+    <h1 class="title light">{{express.model.iid=='0'?'新增快递':'快递详情'}}</h1>
+    <button class="button button-clear button-light" ng-show="express.model.iid!='0' && express.model.status=='0'" ng-click="saveexpress()">保存</button>
   </ion-header-bar>
 
 
@@ -9,81 +10,57 @@
     <form name="my_form">
       <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
 
-        <ion-item class="item item-input item-icon-left">
-          <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
-
-          <input class="col-40" type="text" placeholder="联系人" ng-model="user_suggestion.model.report_person"
-                 ng-disabled="(user_suggestion.model.status=='' || user_suggestion.model.status=='0')?false:true">
-
-          <input class="col-50" type="tel" placeholder="联系电话" ng-model="user_suggestion.model.phone"
-                 ng-disabled="(user_suggestion.model.status=='' || user_suggestion.model.status=='0')?false:true"
-                 required name="phone">
-
-          <div class="error-messages" ng-messages="my_form.phone.$error">
-            <div ng-message="required">手机号不能为空</div>
-          </div>
-
-        </ion-item>
-
         <ion-item class="item item-input">
-          <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
-          <input class="col-90" type="text" placeholder="房号" ng-model="user_suggestion.model.roompath" ng-click="openModal()"
-                 ng-disabled="(user_suggestion.model.status=='' || user_suggestion.model.status=='0')?false:true">
+          <i class="col-10 kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-location_small"></i>
+          <input class="col-90" type="text" placeholder="选择房号" ng-model="express.model.roompath" ng-readonly="true" ng-click="openSelectRoomWnd()">
         </ion-item>
 
-
-        <div class="item item-input item-divider">
-          <div class="col" align="left">选择类型</div>
+        <div class=" item item-input-inset">
+          <div class="col" align="left">录入时间: {{express.model.create_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+          <div class="col-40" align="center">录入人: {{express.model.creater}}</div>
         </div>
 
-
-        <ion-item class="item item-input">
-          <div class="col-50" align="center" ng-click="changeCategory('0')">
-            <h4 style="color:{{user_suggestion.model.category=='0'?'#ff9933':'black'}} ">投诉</h4>
-            <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_suggestion.model.category=='0'?'kwwy-icon-512-checked-active':'kwwy-icon-512-checked'}} "></i>
-          </div>
-          <div class="col-50" align="center" style="border-left:1px solid #b2b2b2;"  ng-click="changeCategory('1')">
-            <h4 style="color:{{user_suggestion.model.category=='0'?'black':'#ff9933'}} ">建议</h4>
-            <i class="kwwy-icon-url-orange kwwy-icon-512 {{user_suggestion.model.category=='0'?'kwwy-icon-512-checked':'kwwy-icon-512-checked-active'}} "></i>
-          </div>
-        </ion-item>
-
-
+        <div class=" item item-input-inset" ng-show="express.model.status=='1'">
+          <div class="col" align="left">签收时间: {{express.model.receive_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+          <div class="col-40" align="center">签收人: {{express.model.receiver}}</div>
+        </div>
 
         <div class="item item-input item-divider">
-          <div class="col" align="left">有图有真相,上传照片</div>
+          <div class="col" align="left">上传面单照片</div>
         </div>
 
 
         <div class="item item-input-inset item-text-wrap">
-          <div class="col" align="left"  style="height:80px;">
-            <img src="{{itm.url}}" ng-repeat="itm in user_suggestion.model.imagelist_url"
-                 style="width:24%;height:98%;margin-left:2px;"
-                 ng-click="add_viewPhoto(itm.url,itm.id,$index)"
-                 on-hold="replacePhoto(itm.url,itm.id,$index)">
+          <div class="col" align="center">
+            <img src="{{express.model.md_url==''?'img/photo_camar.png':express.model.md_url}}"
+                 style="width:30%;margin-left:2px;"
+                 ng-click="add_viewPhoto('md')"
+                 on-hold="replacePhoto('md')">
+          </div>
+        </div>
+
+        <div class="item item-input item-divider">
+          <div class="col" align="left">上传包裹照片</div>
+        </div>
+
+
+        <div class="item item-input-inset item-text-wrap">
+          <div class="col" align="center" >
+            <img src="{{express.model.bg_url==''?'img/photo_camar.png':express.model.bg_url}}"
+                 style="width:30%;margin-left:2px;"
+                 ng-click="add_viewPhoto('bg')"
+                 on-hold="replacePhoto('bg')">
           </div>
         </div>
 
 
-        <div class="item item-input">
-          <div class="col" align="left">
-          <textarea rows=5 placeholder="请输入问题的描述,以便于我们准去定位,尽快处理" ng-model="user_suggestion.model.reason"
-                    name="reason"
-                    ng-disabled="(user_suggestion.model.status=='' || user_suggestion.model.status=='0')?false:true"
-                    required ng-minlength="2" ng-maxlength="50"></textarea>
-
-            <div class="error-messages" ng-messages="my_form.reason.$error">
-              <div ng-message="required">不能为空</div>
-              <div ng-message="minlength">问题描述太短</div>
-              <div ng-message="maxlength">不能超过50字</div>
-            </div>
-
-          </div>
+        <div class="row item item-input item-divider" align="center" ng-show="express.model.iid=='0'">
+          <button class="button button-block button-blue" ng-disabled="my_form.$invalid" ng-click="saveexpress()">填好了</button>
+        </div>
+        <div class="row item item-input item-divider" align="center" ng-show="express.model.iid!='0' && express.model.status=='0'">
+          <button class="button button-block button-blue" ng-disabled="my_form.$invalid" ng-click="receiveexpress()">签收</button>
         </div>
 
-        <div class="row item item-input item-divider" align="center">
-          <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="savesuggestion()">填好了</button>
-        </div>
       </div>
     </form>
   </ion-content>
@@ -91,7 +68,7 @@
 
 
 
-  <div class="suggestion_edit pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="express_edit pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe.
          It's a separate element as animating opacity is faster than rgba(). -->

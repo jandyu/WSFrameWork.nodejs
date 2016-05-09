@@ -129,7 +129,7 @@ angular.module('ktwy.services')
 
   .factory('service_wy_resource',function(){
     var wy_resource={
-      model:{iid:'0',category:'',url:'',memo:''},
+      model:{iid:'0',category:'',url:'',memo:'',objid:''},
       SaveResource:function(succ,fail)
       {
         var me = this;
@@ -137,6 +137,7 @@ angular.module('ktwy.services')
           category: me.model.category,
           url: me.model.url,
           memo: me.model.memo,
+          objid:me.objid,
           iid:me.iid
         };
         jsondal.Insert("app_wy_resource", dat, succ, fail);
