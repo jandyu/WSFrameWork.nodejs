@@ -185,40 +185,65 @@ angular.module('ktwy.services', [])
 
 .factory('service_roomselect', function($q) {
 
-  var roomselect= $.extend( IService,{
-    units:[
+  var roomselect = $.extend(IService, {
+    navlist: [{id:'0',title:'社区'}],
+    //添加一个导航
+    addnavlist:function(id,title)
+    {
+      var me=this;
+      if(_.isUndefined(_.find(me.navlist,function(itm){return itm.id==id;})))
       {
-        pid:'0',
-        p_title:'',
-        uid:'',
-        unit_title:'',
-        child:0,//子个数
-        p_pid:'0'//父的父id
+        me.navlist.push({id:id,title:title});
+      }
+    },
+    //截断
+    interceptnavlist: function (id) {
+      var me=this;
+      var idx=-1;
+      idx= _.findIndex(me.navlist,function(itm){return itm.id==id;});
+      if(idx>=0)
+      {
+        me.navlist.splice(idx+1,me.navlist.length - idx -1);
+      }
+    },
+    units: [
+      {
+        pid: '0',
+        p_title: '',
+        uid: '',
+        unit_title: '',
+        child: 0,//子个数
+        p_pid: '0',//父的父id
+        title:''
       }
     ],
-    getUnits:function(pid)
-    {
+    getUnits: function (pid) {
 
-      return jsondal.doPromise(jsondal.Query,"v_room_select",{'col':'pid','logic':'=','val':pid,'andor':''}, 1,99999,{'col':'unit_title','sort':'asc'});
+      return jsondal.doPromise(jsondal.Query, "v_room_select", {
+        'col': 'pid',
+        'logic': '=',
+        'val': pid,
+        'andor': ''
+      }, 1, 99999, {'col': 'unit_title', 'sort': 'asc'});
     },
-    getFirst:function() {
-      var _this=this;
-      if(this.units.length>0) {
+    getFirst: function () {
+      var _this = this;
+      if (this.units.length > 0) {
         return _this.units[0];
       }
-      else
-      {
+      else {
         return {
-          pid:'',
-          p_title:'',
-          uid:'',
-          unit_title:'',
-          child:0,//子个数
-          p_pid:''
+          pid: '',
+          p_title: '',
+          uid: '',
+          unit_title: '',
+          child: 0,//子个数
+          p_pid: ''
         }
       }
     }
   });
+
 
   return roomselect;
 })

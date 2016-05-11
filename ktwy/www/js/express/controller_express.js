@@ -18,7 +18,9 @@ angular.module('ktwy.controllers')
     //refresh
     $scope.refresh = function (qry,clearflag) {
       if (qry == undefined || qry == "" || qry == null) {
-        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
+        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+          {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': 'and'},
+          {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
 
       //查询数据
@@ -41,7 +43,9 @@ angular.module('ktwy.controllers')
     $scope.loadMore = function (qry) {
       if (qry == undefined || qry == "" || qry == null) {
         //qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
-        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
+        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+          {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': 'and'},
+          {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
       //查询数据
       $scope.express.getlist(qry,"1").then(function (rtn) {
@@ -157,7 +161,7 @@ angular.module('ktwy.controllers')
       {
         $ionicPopup.alert({
           title: '提醒',
-          okType:'button-blue',
+          okType:'button-orange',
           template: '请选择房号!'
         });
         return;
@@ -168,7 +172,7 @@ angular.module('ktwy.controllers')
       {
         $ionicPopup.alert({
           title: '提醒',
-          okType:'button-blue',
+          okType:'button-orange',
           template: '状态不正确,不能修改!'
         });
         return;
@@ -179,9 +183,9 @@ angular.module('ktwy.controllers')
         title: '确认',
         template: '确定要修改吗?',
         cancelText: '取消',
-        cancelType: 'button-blue',
+        cancelType: 'button-orange',
         okText: '确定',
-        okType: 'button-blue'
+        okType: 'button-orange'
       });
       confirmPopup.then(function(res) {
         if(res) {
@@ -191,7 +195,7 @@ angular.module('ktwy.controllers')
             //保存完成
             $ionicPopup.alert({
               title: '提醒',
-              okType:'button-blue',
+              okType:'button-orange',
               template: '成功!'
             });
 
@@ -218,7 +222,7 @@ angular.module('ktwy.controllers')
       {
         $ionicPopup.alert({
           title: '提醒',
-          okType:'button-blue',
+          okType:'button-orange',
           template: '已签收,不能再次签收!'
         });
         return;
@@ -228,9 +232,9 @@ angular.module('ktwy.controllers')
         title: '确认',
         template: '确定要签收吗?',
         cancelText: '取消',
-        cancelType: 'button-blue',
+        cancelType: 'button-orange',
         okText: '确定',
-        okType: 'button-blue'
+        okType: 'button-orange'
       });
       confirmPopup.then(function(res) {
         if(res) {
@@ -244,7 +248,7 @@ angular.module('ktwy.controllers')
             //保存完成
             $ionicPopup.alert({
               title: '提醒',
-              okType:'button-blue',
+              okType:'button-orange',
               template: '成功!'
             });
 

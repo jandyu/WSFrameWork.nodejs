@@ -1,0 +1,141 @@
+<ion-view view-title="{{express.model.iid=='0'?'新增快递':'快递详情'}}" >
+
+  <!--<ion-header-bar class="blue-bg light" align-title="center">-->
+    <!--<button class="button button-clear" ng-click="close_wnd_express_edit()">返回</button>-->
+    <!--<h1 class="title light">{{express.model.iid=='0'?'新增快递':'快递详情'}}</h1>-->
+    <!--<button class="button button-clear button-light" ng-show="express.model.iid!='0' && express.model.status=='0'" ng-click="saveexpress()">保存</button>-->
+  <!--</ion-header-bar>-->
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-show="false" ng-click="saveexpress()">保存</button>
+  </ion-nav-buttons>
+
+
+  <ion-content scroll="true" ng-show="true">
+    <form name="my_form">
+      <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+
+        <ion-item class="item item-input">
+          <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
+          <input class="col-90" type="text" placeholder="选择房号" ng-model="express.model.roompath" ng-readonly="true">
+        </ion-item>
+
+        <div class=" item item-input-inset">
+          <div class="col" align="left">录入时间: {{express.model.create_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+          <div class="col-40" align="center">录入人: {{express.model.creater}}</div>
+        </div>
+
+        <div class=" item item-input-inset" ng-show="express.model.status=='1'">
+          <div class="col" align="left">签收时间: {{express.model.receive_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+          <div class="col-40" align="center">签收人: {{express.model.receiver}}</div>
+        </div>
+
+        <div class="item item-input item-divider">
+          <div class="col" align="left">上传面单照片</div>
+        </div>
+
+
+        <div class="item item-input-inset item-text-wrap">
+          <div class="col" align="center">
+            <img src="{{express.model.md_url==''?'img/photo_camar.png':express.model.md_url}}"
+                 style="width:30%;margin-left:2px;"
+                 ng-click="add_viewPhoto('md')">
+          </div>
+        </div>
+
+        <div class="item item-input item-divider">
+          <div class="col" align="left">上传包裹照片</div>
+        </div>
+
+
+        <div class="item item-input-inset item-text-wrap">
+          <div class="col" align="center" >
+            <img src="{{express.model.bg_url==''?'img/photo_camar.png':express.model.bg_url}}"
+                 style="width:30%;margin-left:2px;"
+                 ng-click="add_viewPhoto('bg')">
+          </div>
+        </div>
+
+
+        <div class="row item item-input item-divider" align="center" ng-show="express.model.iid=='0'">
+          <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="saveexpress()">填好了</button>
+        </div>
+        <div class="row item item-input item-divider" align="center" ng-show="express.model.iid!='0' && express.model.status=='0'">
+          <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="receiveexpress()">签收</button>
+        </div>
+
+      </div>
+    </form>
+  </ion-content>
+
+
+
+
+  <div class="express_edit pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+          PhotoSwipe keeps only 3 of them in the DOM to save memory.
+          Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-view>

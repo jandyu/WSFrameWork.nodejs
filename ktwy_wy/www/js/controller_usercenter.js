@@ -157,7 +157,7 @@ angular.module('ktwy.controllers', [])
   })
 
 
-  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log, service_usercenter, service_roomselect) {
+  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log,$ionicScrollDelegate, service_usercenter, service_roomselect) {
     $scope.usercenter = service_usercenter;
 
     var roomselect = service_roomselect;
@@ -167,10 +167,14 @@ angular.module('ktwy.controllers', [])
     $scope.roomid = "0";
     $scope.roomname = "";
 
-    $scope.getChildUnit = function (pid, p_title) {
+    $scope.getChildUnit = function (pid, p_title,title) {
+
       $scope.roomselect.getUnits(pid).then(function (rtn) {
 
-          if (rtn.d != undefined) {
+          if (rtn.d != undefined)
+          {
+            $scope.roomselect.addnavlist(pid,title);
+
             $scope.roomselect.units = [];
             $.each(rtn.d, function (k, v) {
               var itm = {
@@ -179,13 +183,15 @@ angular.module('ktwy.controllers', [])
                 uid: v.uid,
                 unit_title: v.unit_title,
                 child: v.child,//子个数
-                p_pid: v.parentid
+                p_pid: v.parentid,
+                title: v.title
               };
               $scope.roomselect.units.push(itm);
+              $ionicScrollDelegate.resize();
             });
           } else {
-            //$scope.usercenter_reg.unit=pid;
-            //$scope.usercenter_reg.unitname=p_title;
+            $scope.roomselect.navlist=[];
+            $scope.roomselect.units=[];
             $scope.closeSelectRoomWnd(pid, p_title);
           }
           var s_txt = $scope.roomselect.getFirst().p_title;
@@ -210,7 +216,30 @@ angular.module('ktwy.controllers', [])
       }
     };
 
+    //点击导航
+    $scope.nav = function (id,title) {
+      $scope.roomselect.interceptnavlist(id);
+      $scope.getChildUnit(id, '',title);
+    };
+
+    //返回
+    $scope.closewnd = function () {
+      $scope.roomselect.navlist=[];
+      $scope.roomselect.units=[];
+      $scope.closeSelectRoomWnd("", "");
+    };
+
     //first open exec ini
-    $scope.getChildUnit('0', '');
+    $scope.getChildUnit('0', '','社区');
+
+    $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
+      console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
+      if (newval=="0") {
+        //查询数据
+        $scope.getChildUnit('0', '','社区');
+      }
+
+    });
+
   })
 ;

@@ -192,64 +192,30 @@ angular.module('ktwy.controllers')
       animation: 'slide-in-up'
     }).then(function (modal) {
 
-      $scope.modal = modal;
+      $scope.SelectRoomWnd = modal;
     });
 
-    $scope.getChildUnit = function (pid, p_title) {
-      $scope.roomselect.getUnits(pid).then(function (rtn) {
 
-          if (rtn.d != undefined) {
-            $scope.roomselect.units = [];
-            $.each(rtn.d, function (k, v) {
-              var itm = {
-                pid: v.pid,
-                p_title: v.p_title,
-                uid: v.uid,
-                unit_title: v.unit_title,
-                child: v.child,//子个数
-                p_pid: v.parentid
-              };
-              $scope.roomselect.units.push(itm);
-            });
-          } else {
-            $scope.user_repair.roomid = pid;
-            $scope.user_repair.roompath = p_title;
-            $scope.closeModal();
-          }
-          var s_txt = $scope.roomselect.getFirst().p_title;
-          if (s_txt == "") {
-            s_txt = "选择房号";
-          }
-          $scope.return_text = s_txt;
-          $scope.$apply();
-        },
-        function (rtn) {
-        });
-    }
-
-    //返回
-    $scope.getParentUnit = function () {
-      var first = $scope.roomselect.getFirst();
-      if (first.p_title == "") {
-        $scope.closeModal();
-      }
-      else {
-        $scope.getChildUnit(first.p_pid);
-      }
+    $scope.openSelectRoomWnd = function () {
+      //execute inistall information
+      $scope.SelectRoomWnd.show();
     };
 
+    $scope.closeSelectRoomWnd = function (roomid, roompath) {
 
-    $scope.openModal = function () {
-      $scope.getChildUnit(0);
-      $scope.modal.show();
-    };
+      console.info("----closeSelectRoomWnd---roomid:"+roomid+";roompath:"+roompath+"--------");
 
-    $scope.closeModal = function () {
-      $scope.modal.hide();
+      if(roomid!='') {
+        $scope.user_repair.model.roomid = roomid;
+        $scope.user_repair.model.roompath = roompath;
+      }
+
+      $scope.SelectRoomWnd.hide();
     };
     $scope.$on('$destroy', function () {
-      $scope.modal.remove();
+      $scope.SelectRoomWnd.remove();
     });
+
 
     //数据保存
     $scope.saveRepair = function () {

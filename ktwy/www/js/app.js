@@ -128,6 +128,18 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+
+      //快递-------------------
+      .state('express_list', {
+        url: '/express_list',
+        templateUrl: 'templates/express/express_list.html',
+        controller: 'express_list'
+      })
+      .state('express_edit', {
+        url: '/express_edit',
+        templateUrl: 'templates/express/express_edit.html',
+        controller: 'express_edit'
+      })
     ;
 
 

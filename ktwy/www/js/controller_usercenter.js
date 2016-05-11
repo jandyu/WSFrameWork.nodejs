@@ -348,51 +348,28 @@ angular.module('ktwy.controllers', [])
       animation: 'slide-in-up'
     }).then(function (modal) {
 
-      $scope.modal = modal;
+      $scope.SelectRoomWnd = modal;
     });
 
-    $scope.getChildUnit = function (pid, p_title) {
-      $scope.roomselect.getUnits(pid).then(function (rtn) {
-
-          if (rtn.d != undefined) {
-            $scope.roomselect.units = [];
-            $.each(rtn.d, function (k, v) {
-              var itm = {
-                pid: v.pid,
-                p_title: v.p_title,
-                uid: v.uid,
-                unit_title: v.unit_title,
-                child: v.child,//子个数
-                p_pid: v.parentid
-              };
-              $scope.roomselect.units.push(itm);
-            });
-          } else {
-            $scope.usercenter_reg.unit = pid;
-            $scope.usercenter_reg.unitname = p_title;
-            $scope.closeModal();
-          }
-          var s_txt = $scope.roomselect.getFirst().p_title;
-          if (s_txt == "") {
-            s_txt = "选择房号";
-          }
-          $scope.return_text = s_txt;
-          $scope.$apply();
-        },
-        function (rtn) {
-        });
-    }
-
-    //返回
-    $scope.getParentUnit = function () {
-      var first = $scope.roomselect.getFirst();
-      if (first.p_title == "") {
-        $scope.closeModal();
-      }
-      else {
-        $scope.getChildUnit(first.p_pid);
-      }
+    $scope.openSelectRoomWnd = function () {
+      //execute inistall information
+      $scope.SelectRoomWnd.show();
     };
+
+    $scope.closeSelectRoomWnd = function (roomid, roompath) {
+
+      if(roomid!='') {
+        $scope.usercenter_reg.unit = roomid;
+        $scope.usercenter_reg.unitname = roompath;
+      }
+
+      $scope.SelectRoomWnd.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.SelectRoomWnd.remove();
+    });
+
+
 
     $scope.regUser = function () {
 
@@ -654,14 +631,15 @@ angular.module('ktwy.controllers', [])
     };
 
 
-    $scope.InterValObj=null; //timer变量，控制时间
-    $scope.m_phone_model={oldphone:'',
-      newphone:'',
-      code:'',
-      btn_getcode_disabled:'',//获取验证码
-      btn_reg_disabled:'disabled',//确认提交
-      btn_getcode_txt:'获取验证码',//获取验证码文本
-      checkcode_number:''//短信编号
+    $scope.InterValObj = null; //timer变量，控制时间
+    $scope.m_phone_model = {
+      oldphone: '',
+      newphone: '',
+      code: '',
+      btn_getcode_disabled: '',//获取验证码
+      btn_reg_disabled: 'disabled',//确认提交
+      btn_getcode_txt: '获取验证码',//获取验证码文本
+      checkcode_number: ''//短信编号
     };
 
     //获取短信验证码
@@ -691,9 +669,9 @@ angular.module('ktwy.controllers', [])
       var curCount;//当前剩余秒数
       var msg_number = "";
 
-      $scope.usercenter.getCheckCode_updphone($scope.m_phone_model,function (rtn) {
+      $scope.usercenter.getCheckCode_updphone($scope.m_phone_model, function (rtn) {
           curCount = count;
-          $scope.m_phone_model.checkcode_number=rtn;
+          $scope.m_phone_model.checkcode_number = rtn;
           $scope.m_phone_model.btn_getcode_disabled = "disabled";
           $scope.m_phone_model.btn_reg_disabled = "";
           $scope.m_phone_model.btn_getcode_txt = curCount + "秒内输入验证码(" + $scope.m_phone_model.checkcode_number + ")";
@@ -741,7 +719,7 @@ angular.module('ktwy.controllers', [])
         return;
       }
 
-      if ($scope.m_phone_model.code =="") {
+      if ($scope.m_phone_model.code == "") {
         $ionicPopup.alert({
           title: '提醒',
           okType: 'button-orange',
@@ -763,13 +741,14 @@ angular.module('ktwy.controllers', [])
           });
           $scope.close_wnd_user_set_detail();
 
-          $scope.m_phone_model={oldphone:'',
-            newphone:'',
-            code:'',
-            btn_getcode_disabled:'',//获取验证码
-            btn_reg_disabled:'disabled',//确认提交
-            btn_getcode_txt:'获取验证码',//获取验证码文本
-            checkcode_number:''//短信编号
+          $scope.m_phone_model = {
+            oldphone: '',
+            newphone: '',
+            code: '',
+            btn_getcode_disabled: '',//获取验证码
+            btn_reg_disabled: 'disabled',//确认提交
+            btn_getcode_txt: '获取验证码',//获取验证码文本
+            checkcode_number: ''//短信编号
           };
         }
         else {
@@ -791,6 +770,93 @@ angular.module('ktwy.controllers', [])
 
     };
 
+
+  })
+
+
+  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log,$ionicScrollDelegate, service_usercenter, service_roomselect) {
+    $scope.usercenter = service_usercenter;
+
+    var roomselect = service_roomselect;
+    $scope.roomselect = roomselect;
+    $scope.return_text = "";
+
+    $scope.roomid = "0";
+    $scope.roomname = "";
+
+    $scope.getChildUnit = function (pid, p_title,title) {
+
+      $scope.roomselect.getUnits(pid).then(function (rtn) {
+
+          if (rtn.d != undefined)
+          {
+            $scope.roomselect.addnavlist(pid,title);
+
+            $scope.roomselect.units = [];
+            $.each(rtn.d, function (k, v) {
+              var itm = {
+                pid: v.pid,
+                p_title: v.p_title,
+                uid: v.uid,
+                unit_title: v.unit_title,
+                child: v.child,//子个数
+                p_pid: v.parentid,
+                title: v.title
+              };
+              $scope.roomselect.units.push(itm);
+              $ionicScrollDelegate.resize();
+            });
+          } else {
+            $scope.roomselect.navlist=[];
+            $scope.roomselect.units=[];
+            $scope.closeSelectRoomWnd(pid, p_title);
+          }
+          var s_txt = $scope.roomselect.getFirst().p_title;
+          if (s_txt == "") {
+            s_txt = "选择房号";
+          }
+          $scope.return_text = s_txt;
+          $scope.$apply();
+        },
+        function (rtn) {
+        });
+    }
+
+    //返回
+    $scope.getParentUnit = function () {
+      var first = $scope.roomselect.getFirst();
+      if (first.p_title == "") {
+        $scope.closeSelectRoomWnd("", "");
+      }
+      else {
+        $scope.getChildUnit(first.p_pid);
+      }
+    };
+
+    //点击导航
+    $scope.nav = function (id,title) {
+      $scope.roomselect.interceptnavlist(id);
+      $scope.getChildUnit(id, '',title);
+    };
+
+    //返回
+    $scope.closewnd = function () {
+      $scope.roomselect.navlist=[];
+      $scope.roomselect.units=[];
+      $scope.closeSelectRoomWnd("", "");
+    };
+
+    //first open exec ini
+    $scope.getChildUnit('0', '','社区');
+
+    $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
+      console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
+      if (newval=="0") {
+        //查询数据
+        $scope.getChildUnit('0', '','社区');
+      }
+
+    });
 
   })
 ;

@@ -1,14 +1,28 @@
-<ion-modal-view>
+<ion-modal-view ng-controller="ctr_selectroom" >
   <ion-header-bar class="orange-bg light" align-title="center">
-    <button class="button button-clear" ng-click="getParentUnit()">返回</button>
-    <h1 class="title light">{{return_text}}</h1>
+    <button class="button button-clear" ng-click="closewnd()">返回</button>
+    <h1 class="title light">选择房号</h1>
   </ion-header-bar>
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="item in roomselect.units" type="item-text-wrap" ng-click="getChildUnit('{{item.uid}}','{{item.unit_title}}')">
-        {{item.unit_title}}
+
+
+  <div class="bar bar-subheader" style="padding:0px;margin-top: 0px;">
+    <div class="item item-input-inset item-divider" style="margin:0px;">
+      <i class="col-15" ng-repeat="itm in roomselect.navlist" ng-click="nav('{{itm.id}}','{{itm.title}}')">
+        <i style="margin-left: 3px;">{{$index==0?"":"/"}}</i>
+        <i style="margin-left:3px;{{($index==roomselect.navlist.length - 1)?'color:#006796;':''}}">{{itm.title}}</i>
+      </i>
+    </div>
+  </div>
+
+  <ion-content style="margin-top:42px;">
+
+    <div class="list">
+      <ion-item class="item item-icon-right" align="center" ng-repeat="item in roomselect.units" ng-click="getChildUnit('{{item.uid}}','{{item.unit_title}}','{{item.title}}')">
+        {{item.title}}
+
+        <i class="icon {{item.child==0?'':'ion-ios-arrow-right'}}"></i>
       </ion-item>
-    </ion-list>
+    </div>
 
   </ion-content>
 </ion-modal-view>
