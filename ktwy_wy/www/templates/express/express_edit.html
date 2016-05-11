@@ -1,9 +1,14 @@
-<ion-modal-view ng-controller="express_edit" >
-  <ion-header-bar class="blue-bg light" align-title="center">
-    <button class="button button-clear" ng-click="close_wnd_express_edit()">返回</button>
-    <h1 class="title light">{{express.model.iid=='0'?'新增快递':'快递详情'}}</h1>
+<ion-view view-title="{{express.model.iid=='0'?'新增快递':'快递详情'}}" >
+
+  <!--<ion-header-bar class="blue-bg light" align-title="center">-->
+    <!--<button class="button button-clear" ng-click="close_wnd_express_edit()">返回</button>-->
+    <!--<h1 class="title light">{{express.model.iid=='0'?'新增快递':'快递详情'}}</h1>-->
+    <!--<button class="button button-clear button-light" ng-show="express.model.iid!='0' && express.model.status=='0'" ng-click="saveexpress()">保存</button>-->
+  <!--</ion-header-bar>-->
+
+  <ion-nav-buttons side="right">
     <button class="button button-clear button-light" ng-show="express.model.iid!='0' && express.model.status=='0'" ng-click="saveexpress()">保存</button>
-  </ion-header-bar>
+  </ion-nav-buttons>
 
 
   <ion-content scroll="true" ng-show="true">
@@ -135,4 +140,4 @@
   </div>
 
 
-</ion-modal-view>
+</ion-view>

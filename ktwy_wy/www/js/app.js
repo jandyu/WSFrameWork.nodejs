@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource'])
+angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResource'])
 
-  .run(function ($ionicPlatform,$rootScope,service_usercenter) {
+  .run(function ($ionicPlatform, $rootScope, service_usercenter) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -22,11 +22,10 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         StatusBar.styleDefault();
       }
 
-      if(device)
-      {
-        service_usercenter.deviceid=device.uuid;
-        service_usercenter.platform=device.platform.toLowerCase();
-        $rootScope.$broadcast("kwsq-device-on-ready", {"deviceid":device.uuid});
+      if (device) {
+        service_usercenter.deviceid = device.uuid;
+        service_usercenter.platform = device.platform.toLowerCase();
+        $rootScope.$broadcast("kwsq-device-on-ready", {"deviceid": device.uuid});
       }
     });
   })
@@ -47,11 +46,11 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       return $sce.trustAsHtml(text);
     }
   }])
-  .filter('to_dateformat',function(){
-    return function (sdt,ff){
-      if(sdt=="") return "";
-      var dt=new Date(sdt);
-      return util.DateFormat(dt,ff);
+  .filter('to_dateformat', function () {
+    return function (sdt, ff) {
+      if (sdt == "") return "";
+      var dt = new Date(sdt);
+      return util.DateFormat(dt, ff);
     };
   })
 
@@ -65,8 +64,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
     $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
     $ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
-    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+    //$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+    //$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
 
     $ionicConfigProvider.platform.ios.views.transition('ios');
     $ionicConfigProvider.platform.android.views.transition('android');
@@ -91,7 +90,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         views: {
           'tab-home': {
             templateUrl: 'templates/tab-home-wy.html',
-            controller:'home_wy'
+            controller: 'home_wy'
           }
         }
       })
@@ -110,7 +109,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         views: {
           'tab-home': {
             templateUrl: 'templates/usercenter/master_query.html',
-            controller:'master_query'
+            controller: 'master_query'
           }
         }
       })
@@ -119,7 +118,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         views: {
           'tab-home': {
             templateUrl: 'templates/usercenter/vehicle_query.html',
-            controller:'vehicle_query'
+            controller: 'vehicle_query'
           }
         }
       })
@@ -128,18 +127,31 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         views: {
           'tab-home': {
             templateUrl: 'templates/usercenter/user_repair.html',
-            controller:'user_repair'
+            controller: 'user_repair'
           }
         }
       })
-      .state('tab.express_list', {
+
+      //.state('tab.express_list', {
+      //  url: '/express_list',
+      //  views: {
+      //    'tab-home': {
+      //      templateUrl: 'templates/express/express_list.html',
+      //      controller:'express_list'
+      //    }
+      //  }
+      //})
+
+      //快递-------------------
+      .state('express_list', {
         url: '/express_list',
-        views: {
-          'tab-home': {
-            templateUrl: 'templates/express/express_list.html',
-            controller:'express_list'
-          }
-        }
+        templateUrl: 'templates/express/express_list.html',
+        controller: 'express_list'
+      })
+      .state('express_edit', {
+        url: '/express_edit',
+        templateUrl: 'templates/express/express_edit.html',
+        controller: 'express_edit'
       })
     ;
 

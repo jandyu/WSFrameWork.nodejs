@@ -1,11 +1,13 @@
 angular.module('ktwy.controllers')
 
-  .controller('express_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_express) {
+  .controller('express_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_express) {
     $scope.usercenter = service_usercenter;
     $scope.express = service_express;
 
+    //ionNavBackButton.showBackButton
 
-    $scope.qeryfilters={status:'0'};
+
+    $scope.qeryfilters={status:'0',roomid:'0'};
     //修改过滤条件
     $scope.changequeryfilter=function(status)
     {
@@ -14,13 +16,17 @@ angular.module('ktwy.controllers')
 
     //通用功能-------------------------------
     //refresh
-    $scope.refresh = function (qry) {
+    $scope.refresh = function (qry,clearflag) {
       if (qry == undefined || qry == "" || qry == null) {
         qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
 
       //查询数据
-      $scope.express.getlist(qry,"0").then(function (rtn) {
+      if(clearflag==undefined)
+      {
+        clearflag='0';
+      }
+      $scope.express.getlist(qry,clearflag).then(function (rtn) {
         //刷新完成
         $scope.$broadcast('scroll.refreshComplete');
         $scope.$apply();
@@ -38,7 +44,7 @@ angular.module('ktwy.controllers')
         qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
       //查询数据
-      $scope.express.getlist(qry).then(function (rtn) {
+      $scope.express.getlist(qry,"1").then(function (rtn) {
         //加载更多完成
         $scope.$broadcast('scroll.infiniteScrollComplete');
         $scope.$apply();
@@ -60,21 +66,54 @@ angular.module('ktwy.controllers')
         }
 
       });
+
+
+      $scope.$watch('qeryfilters.roomid', function (newval, oldval) {
+
+          console.info('--------qeryfilters.roomid---------')
+        if (newval !='0') {
+          //查询数据
+          var qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+            {'col': 'roomid', 'logic': '=', 'val': newval, 'andor': 'and'},
+            {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
+          $scope.refresh(qry, "0");
+
+        }
+      });
+
       $scope.refresh();
     };
 
-    //execute init function
-    $scope.init();
-
-    //修改---------------------------------------------------------------
-    //编辑窗口-----------------------------
-    $ionicModal.fromTemplateUrl('templates/express/express_edit.html', {
-      scope: $scope
-      //animation: 'slide-in-up'
+    //按照房号查询
+    //选择房号
+    $ionicModal.fromTemplateUrl('templates/usercenter/selectroom.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
     }).then(function (modal) {
-      $scope.wnd_express_edit = modal;
+
+      $scope.SelectRoomWnd = modal;
     });
 
+    $scope.openSelectRoomWnd = function () {
+      //execute inistall information
+      $scope.SelectRoomWnd.show();
+    };
+
+    $scope.closeSelectRoomWnd = function (roomid, roompath) {
+
+      $scope.qeryfilters.roomid = roomid;
+
+
+      $scope.SelectRoomWnd.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.SelectRoomWnd.remove();
+    });
+
+
+
+
+    //
     $scope.open_wnd_express_edit = function (iid) {
       if (iid == "0") {
         $scope.express.ini_model($scope.usercenter);
@@ -90,21 +129,23 @@ angular.module('ktwy.controllers')
 
         });
       }
-      $scope.wnd_express_edit.show();
+      $state.go("express_edit");
     };
 
-    $scope.close_wnd_express_edit = function () {
-
-      $scope.wnd_express_edit.hide();
-      $scope.refresh();
+    //向右滑动
+    $scope.onSwipeRight=function()
+    {
+      console.info("-------onSwipeRight-------");
+      $ionicHistory.goBack();
     };
-    $scope.$on('$destroy', function () {
-      $scope.wnd_express_edit.remove();
-    });
 
+
+
+    //execute init function
+    $scope.init();
   })
 
-  .controller('express_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_express) {
+  .controller('express_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_express) {
     $scope.usercenter = service_usercenter;
     $scope.express = service_express;
 
@@ -153,7 +194,8 @@ angular.module('ktwy.controllers')
               template: '成功!'
             });
 
-            $scope.close_wnd_express_edit();
+            $ionicHistory.goBack();
+
           }, function (rtn) {
 
           });
@@ -205,7 +247,7 @@ angular.module('ktwy.controllers')
               template: '成功!'
             });
 
-            $scope.close_wnd_express_edit();
+            $ionicHistory.goBack();
           }, function (rtn) {
 
           });
