@@ -3,13 +3,15 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
-
+<ion-view></ion-view>
 
 <ion-tabs class="tabs-icon-top tabs-background-light tabs-color-blue">
 
   <ion-tab title="首页" icon-off="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-home"
            icon-on="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-home-active_blue"  href="#/tab/home">
+
     <ion-nav-view name="tab-home"></ion-nav-view>
+
   </ion-tab>
 
   <ion-tab title="消息" icon-off="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-message"

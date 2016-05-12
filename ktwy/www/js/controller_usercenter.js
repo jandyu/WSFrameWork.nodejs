@@ -847,13 +847,13 @@ angular.module('ktwy.controllers', [])
     };
 
     //first open exec ini
-    $scope.getChildUnit('0', '','社区');
+    $scope.getChildUnit('0', '','社区:');
 
     $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
       console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
       if (newval=="0") {
         //查询数据
-        $scope.getChildUnit('0', '','社区');
+        $scope.getChildUnit('0', '','社区:');
       }
 
     });

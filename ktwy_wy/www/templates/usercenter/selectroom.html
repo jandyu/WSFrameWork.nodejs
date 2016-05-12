@@ -7,8 +7,8 @@
 
   <div class="bar bar-subheader" style="padding:0px;margin-top: 0px;">
     <div class="item item-input-inset item-divider" style="margin:0px;">
-      <i class="col-15" ng-repeat="itm in roomselect.navlist" ng-click="nav('{{itm.id}}','{{itm.title}}')">
-        <i style="margin-left: 3px;">{{$index==0?"":"/"}}</i>
+      <i class="col-15" ng-repeat="itm in roomselect.navlist" ng-click="nav('{{itm.id}}','{{itm.title}}','{{itm.pid}}')">
+        <i style="margin-left: 3px;">{{$index==0?"":($index==1?"":"/")}}</i>
         <i style="margin-left:3px;{{($index==roomselect.navlist.length - 1)?'color:#006796;':''}}">{{itm.title}}</i>
       </i>
     </div>
@@ -17,7 +17,7 @@
   <ion-content style="margin-top:42px;">
 
     <div class="list">
-      <ion-item class="item item-icon-right" align="center" ng-repeat="item in roomselect.units" ng-click="getChildUnit('{{item.uid}}','{{item.unit_title}}','{{item.title}}')">
+      <ion-item class="item item-icon-right" align="center" ng-repeat="item in roomselect.units" ng-click="navtable('{{item.uid}}','{{item.title}}','{{item.pid}}','{{item.unit_title}}')">
         {{item.title}}
 
         <i class="icon {{item.child==0?'':'ion-ios-arrow-right'}}"></i>

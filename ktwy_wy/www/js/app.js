@@ -94,6 +94,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
+
       //用户中心
       .state('tab.usercenter', {
         url: '/usercenter',
@@ -145,8 +146,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
       //快递-------------------
       .state('express_list', {
         url: '/express_list',
-        templateUrl: 'templates/express/express_list.html',
-        controller: 'express_list'
+            templateUrl: 'templates/express/express_list.html',
+            controller: 'express_list'
       })
       .state('express_edit', {
         url: '/express_edit',

@@ -186,7 +186,7 @@ angular.module('ktwy.services', [])
 .factory('service_roomselect', function($q) {
 
   var roomselect = $.extend(IService, {
-    navlist: [{id:'0',title:'社区'}],
+    navlist: [{id:'0',title:'社区:'}],
     //添加一个导航
     addnavlist:function(id,title)
     {
