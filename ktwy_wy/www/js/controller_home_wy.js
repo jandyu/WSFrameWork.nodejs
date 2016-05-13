@@ -1,5 +1,15 @@
 angular.module('ktwy.controllers')
 
+  .controller('maintab', function ($scope, $ionicTabsDelegate,$ionicNavBarDelegate) {
+    $scope.tab ={currtitle:'首页'};
+    $scope.clicktab = function (u) {
+      //$ionicNavBarDelegate.title($ionicTabsDelegate._instances[0].tabs[u].title);
+      $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[u].title;
+      $ionicTabsDelegate.select(u);
+      return true;
+    }
+  })
+
     .controller('home_wy', function ($scope, $stateParams, $state, $log,$ionicModal, service_usercenter,service_usercenter_login) {
         $scope.usercenter = service_usercenter;
         $scope.usercenter_login=service_usercenter_login;

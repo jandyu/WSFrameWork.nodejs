@@ -1,16 +1,13 @@
 
-<ion-view view-title="首页">
-  <ion-content scroll="true" class="home">
-
     <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
 
 
     <div class="row nav"  align="center">
-      <div class="col col-25 col1" ng-click="goAfterLogin('tab.vehicle_query')">
+      <div class="col col-25 col1" ng-click="goAfterLogin('root.vehicle_query')">
         <img src="img/1clcx.png">
         <div>车辆查询</div>
       </div>
-      <div class="col col-25 col2" ng-click="goAfterLogin('tab.master_query')">
+      <div class="col col-25 col2" ng-click="goAfterLogin('root.master_query')">
         <img src="img/2yzcx.png">
         <div>业主查询</div>
       </div>
@@ -24,16 +21,16 @@
       </div>
     </div>
     <div class="row nav"  align="center">
-      <div class="col col-25 col5" ng-click="goAfterLogin('express_list')">
+      <div class="col col-25 col5" ng-click="goAfterLogin('root.express_list')">
       <!--<div class="col col-25 col5" ui-sref="express_list">-->
         <img src="img/5kdds.png">
         <div>快递代收</div>
       </div>
-      <div class="col col-25 col6" ng-click="goAfterLogin('tab.user_repair')">
+      <div class="col col-25 col6" ng-click="goAfterLogin('root.user_repair')">
         <img src="img/6wxgl.png">
         <div>维修管理</div>
       </div>
-      <div class="col col-25 col7" ng-click="goAfterLogin('tab.user_suggestion')">
+      <div class="col col-25 col7" ng-click="goAfterLogin('root.user_suggestion')">
         <img src="img/7tsjy.png">
         <div>投诉建议</div>
       </div>
@@ -105,6 +102,3 @@
         <div class="col-20">2016-04-06</div>
       </a>
     </ion-list>
-
-  </ion-content>
-</ion-view>

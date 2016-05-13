@@ -42,7 +42,7 @@
       </div>
 
       <div class="item item-divider">
-        <button class="button button-block button-orange" ng-click="open_wnd_user_repair_edit(user_repair.model.iid)">
+        <button class="button button-block button-orange" ng-disabled="!(user_repair.model.status=='' || user_repair.model.status=='0')" ng-click="open_wnd_user_repair_edit(user_repair.model.iid)">
           修改
         </button>
       </div>
@@ -131,6 +131,7 @@
 
       <div class="item item-divider" align="center">
         <button class="button button-block button-orange"
+                ng-disabled="!(user_repair.model.status=='6' || user_repair.model.status=='7')"
                 ng-click="open_wnd_user_repair_visit(user_repair.model.iid)">评价
         </button>
       </div>

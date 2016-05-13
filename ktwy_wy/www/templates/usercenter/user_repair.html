@@ -1,4 +1,4 @@
-<ion-view view-title="维修" >
+<ion-view view-title="维修">
   <ion-nav-buttons side="right">
   </ion-nav-buttons>
   <ion-content scroll="true">
@@ -11,42 +11,75 @@
 
     <ion-refresher pulling-text="下拉刷新" on-refresh="getRepairList()"></ion-refresher>
 
-    <div class="list">
+    <div class="list list_full_row" align="center">
 
-      <ion-item class="item-input item-button-right">
-        <input type="text" placeholder="选择房号" ng-click="openSelectRoomWnd()" ng-model="qeryfilters.roompath" >
-        <button class="button" ng-click="querybyroomid()">查询</button>
-      </ion-item>
+      <div class="item-input-inset">
+        <div class="col {{qeryfilters.status=='0'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('0')" style="height:39px;">
+          已受理
+        </div>
+        <div class="col {{qeryfilters.status=='3'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('3')" style="height:39px;">
+          已派工
+        </div>
+        <div class="col {{(qeryfilters.status!='0' && qeryfilters.status!='3')?'tab-define-active':'tab-define'}}" style="height:39px;">
 
-      <div class="item row" align="center">
-        <div class="col">房号</div>
-        <div class="col item-select">
           <select ng-model="qeryfilters.status">
             <option value="" selected>全部</option>
-            <option value="0" >已受理</option>
-            <option value="1" >已退回</option>
+            <option value="0">已受理</option>
+            <option value="1">已退回</option>
 
-            <option value="2" >业主撤回</option>
-            <option value="3" >已派工</option>
-            <option value="5" >再派工</option>
+            <option value="2">业主撤回</option>
+            <option value="3">已派工</option>
+            <option value="5">再派工</option>
 
-            <option value="7" >维修结束</option>
+            <option value="7">维修结束</option>
 
-            <option value="6" >已回访/评价</option>
-            <option value="4" >已完成</option>
+            <option value="6">已回访/评价</option>
+            <option value="4">已完成</option>
           </select>
         </div>
       </div>
 
-      <div class="item row" align="center" ng-repeat="itm in user_repair.model_list" ng-click="open_wnd_user_repair_detail(itm.iid)">
-        <div class="item-text-wrap col-67">{{itm.roompath}}</div>
-        <div class="col">{{dict.getTxtById(itm.status)}}</div>
+      <div class="row item-input-inset item-divider" align="center">
+        <div class="col-10 "><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-ring_pin" style="width:38px;"></i>
+        </div>
+        <div class="col-25">报修时间</div>
+        <div class="col-66">房号</div>
+        <!--<div class="col item-select">-->
+        <!--<select ng-model="qeryfilters.status">-->
+        <!--<option value="" selected>全部</option>-->
+        <!--<option value="0" >已受理</option>-->
+        <!--<option value="1" >已退回</option>-->
+
+        <!--<option value="2" >业主撤回</option>-->
+        <!--<option value="3" >已派工</option>-->
+        <!--<option value="5" >再派工</option>-->
+
+        <!--<option value="7" >维修结束</option>-->
+
+        <!--<option value="6" >已回访/评价</option>-->
+        <!--<option value="4" >已完成</option>-->
+        <!--</select>-->
+        <!--</div>-->
+      </div>
+
+      <div class="item item-input-inset" align="center" ng-repeat="itm in user_repair.model_list"
+           ng-click="open_wnd_user_repair_detail(itm.iid)">
+        <div class="col-10"><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i>
+        </div>
+        <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy-MM-dd"}}</div>
+        <div class="col-66">{{itm.roompath}}</div>
       </div>
     </div>
 
-    <ion-infinite-scroll  icon="ion-loading-c" ng-if="user_repair.load_more"
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="user_repair.load_more"
                          on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
 
   </ion-content>
+
+  <ion-footer-bar>
+    <div class="button-bar">
+      <a class="button button-blue" ng-click="openSelectRoomWnd()">按房号查询</a>
+    </div>
+  </ion-footer-bar>
 </ion-view>
 

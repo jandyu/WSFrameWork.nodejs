@@ -84,58 +84,45 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
     $stateProvider
 
     // setup an abstract state for the tabs directive
-      .state('root', {
-        url: '/root',
-        templateUrl: 'templates/root.html',
-        abstract:true
-      })
-
-
-      .state('root.tab', {
+      .state('tab', {
         url: '/tab',
-        views: {
-          'rootContent': {
-            templateUrl: 'templates/tabs.html',
-            controller: 'maintab'
-          }
-        }
+        templateUrl: 'templates/tabs.html'
       })
 
       // Each tab has its own nav history stack:
 
-      //.state('tab.home', {
-      //  url: '/home',
-      //  views: {
-      //    'tab-home': {
-      //      templateUrl: 'templates/tab-home.html',
-      //      controller:'home'
-      //    }
-      //  }
-      //})
-      ////用户中心
-      //.state('tab.usercenter', {
-      //  url: '/usercenter',
-      //  views: {
-      //    'tab-usercenter': {
-      //      templateUrl: 'templates/tab-usercenter.html',
-      //      controller: 'usercenter'
-      //    }
-      //  }
-      //})
-
-      .state('root.user_repair', {
+      .state('tab.home', {
+        url: '/home',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/tab-home.html',
+            controller:'home'
+          }
+        }
+      })
+      //用户中心
+      .state('tab.usercenter', {
+        url: '/usercenter',
+        views: {
+          'tab-usercenter': {
+            templateUrl: 'templates/tab-usercenter.html',
+            controller: 'usercenter'
+          }
+        }
+      })
+      .state('tab.user_repair', {
         url: '/user_repair',
         views: {
-          'rootContent': {
+          'tab-home': {
             templateUrl: 'templates/usercenter/user_repair.html',
             controller:'user_repair'
           }
         }
       })
-      .state('root.user_suggestion', {
+      .state('tab.user_suggestion', {
         url: '/user_suggestion',
         views: {
-          'rootContent': {
+          'tab-home': {
             templateUrl: 'templates/suggestions/user_suggestion.html',
             controller:'user_suggestion'
           }
@@ -143,29 +130,21 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       })
 
       //快递-------------------
-      .state('root.express_list', {
+      .state('express_list', {
         url: '/express_list',
-        views: {
-          'rootContent': {
-            templateUrl: 'templates/express/express_list.html',
-            controller: 'express_list'
-          }
-        }
+        templateUrl: 'templates/express/express_list.html',
+        controller: 'express_list'
       })
-      .state('root.express_edit', {
+      .state('express_edit', {
         url: '/express_edit',
-        views: {
-          'rootContent': {
-            templateUrl: 'templates/express/express_edit.html',
-            controller: 'express_edit'
-          }
-        }
+        templateUrl: 'templates/express/express_edit.html',
+        controller: 'express_edit'
       })
     ;
 
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/root/tab');
+    $urlRouterProvider.otherwise('/tab/home');
     //$urlRouterProvider.otherwise('/tab/user_repair');
 
   });

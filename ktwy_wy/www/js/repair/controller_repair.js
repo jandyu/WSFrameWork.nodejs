@@ -37,7 +37,7 @@ angular.module('ktwy.controllers')
     };
 
 
-    $scope.qeryfilters={roomid:'0',roompath:'',status:''};
+    $scope.qeryfilters={roomid:'0',roompath:'',status:'0'};
 
     //按房号查询
     $scope.querybyroomid=function()
@@ -47,6 +47,11 @@ angular.module('ktwy.controllers')
     };
 
     $scope.init=function() {
+
+      $scope.changequeryfilter=function(status)
+      {
+        $scope.qeryfilters.status=status;
+      };
 
       $scope.$watch('qeryfilters.status', function (newval, oldval) {
         //console.log("newval:"+newval+";oldval:"+oldval);
@@ -167,13 +172,13 @@ angular.module('ktwy.controllers')
       //$scope.master_query.roompath=roompath;
       $scope.qeryfilters.roomid=roomid;
       $scope.qeryfilters.roompath=roompath;
+      $scope.querybyroomid();
 
       $scope.SelectRoomWnd.hide();
     };
     $scope.$on('$destroy', function() {
       $scope.SelectRoomWnd.remove();
     });
-
 
     $scope.init();
 

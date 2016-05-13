@@ -56,19 +56,19 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
 
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    //$ionicConfigProvider.platform.ios.tabs.style('standard');
-    //$ionicConfigProvider.platform.ios.tabs.position('bottom');
+    $ionicConfigProvider.platform.ios.tabs.style('standard');
+    $ionicConfigProvider.platform.ios.tabs.position('bottom');
     $ionicConfigProvider.platform.android.tabs.style('standard');
     $ionicConfigProvider.platform.android.tabs.position('standard');
 
-    //$ionicConfigProvider.platform.ios.navBar.alignTitle('center');
-    //$ionicConfigProvider.platform.android.navBar.alignTitle('left');
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    $ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
     //$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
     //$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
 
-    //$ionicConfigProvider.platform.ios.views.transition('ios');
-    //$ionicConfigProvider.platform.android.views.transition('android');
+    $ionicConfigProvider.platform.ios.views.transition('ios');
+    $ionicConfigProvider.platform.android.views.transition('android');
 
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -78,69 +78,55 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
     $stateProvider
 
     // setup an abstract state for the tabs directive
-
-      .state('root', {
-        url: '/root',
-        templateUrl: 'templates/root.html',
-        abstract:true
-      })
-
-
-      .state('root.tab', {
+      .state('tab', {
         url: '/tab',
-        views: {
-          'rootContent': {
-            templateUrl: 'templates/tabs.html',
-            controller: 'maintab'
-          }
-        }
+        templateUrl: 'templates/tabs.html'
       })
 
       // Each tab has its own nav history stack:
 
-      //.state('tab.home', {
-      //  url: '/home',
-      //  views: {
-      //    'tab-home': {
-      //      templateUrl: 'templates/tab-home-wy.html',
-      //      controller: 'home_wy'
-      //    }
-      //  }
-      //})
-      //
-      ////用户中心
-      //.state('tab.usercenter', {
-      //  url: '/usercenter',
-      //  views: {
-      //    'tab-usercenter': {
-      //      templateUrl: 'templates/tab-usercenter.html',
-      //      controller: 'usercenter'
-      //    }
-      //  }
-      //})
-      //
-      .state('root.master_query', {
+      .state('tab.home', {
+        url: '/home',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/tab-home-wy.html',
+            controller: 'home_wy'
+          }
+        }
+      })
+
+      //用户中心
+      .state('tab.usercenter', {
+        url: '/usercenter',
+        views: {
+          'tab-usercenter': {
+            templateUrl: 'templates/tab-usercenter.html',
+            controller: 'usercenter'
+          }
+        }
+      })
+      .state('tab.master_query', {
         url: '/master_query',
         views: {
-          'rootContent': {
+          'tab-home': {
             templateUrl: 'templates/usercenter/master_query.html',
             controller: 'master_query'
           }
         }
       })
-      .state('root.vehicle_query', {
+      .state('tab.vehicle_query', {
         url: '/vehicle_query',
         views: {
-          'rootContent': {
+          'tab-home': {
             templateUrl: 'templates/usercenter/vehicle_query.html',
             controller: 'vehicle_query'
           }
         }
       })
-      .state('root.user_repair', {
+      .state('tab.user_repair', {
         url: '/user_repair',
         views: {
-          'rootContent': {
+          'tab-home': {
             templateUrl: 'templates/usercenter/user_repair.html',
             controller: 'user_repair'
           }
@@ -158,27 +144,19 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
       //})
 
       //快递-------------------
-      .state('root.express_list', {
+      .state('express_list', {
         url: '/express_list',
-        views: {
-          'rootContent': {
             templateUrl: 'templates/express/express_list.html',
             controller: 'express_list'
-          }
-        }
       })
-      .state('root.express_edit', {
+      .state('express_edit', {
         url: '/express_edit',
-        views: {
-          'rootContent': {
-            templateUrl: 'templates/express/express_edit.html',
-            controller: 'express_edit'
-          }
-        }
+        templateUrl: 'templates/express/express_edit.html',
+        controller: 'express_edit'
       })
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/root/tab');
+    $urlRouterProvider.otherwise('/tab/home');
 
   });

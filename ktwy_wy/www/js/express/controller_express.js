@@ -130,7 +130,7 @@ angular.module('ktwy.controllers')
 
         });
       }
-      $state.go("express_edit");
+      $state.go("root.express_edit");
     };
 
     //向右滑动
