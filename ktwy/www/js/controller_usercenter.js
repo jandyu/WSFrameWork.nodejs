@@ -118,6 +118,8 @@ angular.module('ktwy.controllers', [])
             //$rootScope.$ionicGoBack();
             if ($scope.usercenter_login.willGoUrl != '') {
 
+              console.info($scope.usercenter_login.willGoUrl);
+
               $state.go($scope.usercenter_login.willGoUrl);
               $scope.usercenter_login.willGoUrl = "";
               $scope.closeLoginWnd();
@@ -358,7 +360,7 @@ angular.module('ktwy.controllers', [])
 
     $scope.closeSelectRoomWnd = function (roomid, roompath) {
 
-      if(roomid!='') {
+      if (roomid != '') {
         $scope.usercenter_reg.unit = roomid;
         $scope.usercenter_reg.unitname = roompath;
       }
@@ -368,7 +370,6 @@ angular.module('ktwy.controllers', [])
     $scope.$on('$destroy', function () {
       $scope.SelectRoomWnd.remove();
     });
-
 
 
     $scope.regUser = function () {
@@ -773,8 +774,7 @@ angular.module('ktwy.controllers', [])
 
   })
 
-
-  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log,$ionicScrollDelegate, service_usercenter, service_roomselect) {
+  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log, $ionicScrollDelegate, service_usercenter, service_roomselect) {
     $scope.usercenter = service_usercenter;
 
     var roomselect = service_roomselect;
@@ -784,14 +784,13 @@ angular.module('ktwy.controllers', [])
     $scope.roomid = "0";
     $scope.roomname = "";
 
-    $scope.getChildUnit = function (pid, p_title,title) {
-
+    $scope.getChildUnit = function (pid, p_title) {
+      if (pid == "-1") {
+        pid = "0";
+      }
       $scope.roomselect.getUnits(pid).then(function (rtn) {
 
-          if (rtn.d != undefined)
-          {
-            $scope.roomselect.addnavlist(pid,title);
-
+          if (rtn.d != undefined) {
             $scope.roomselect.units = [];
             $.each(rtn.d, function (k, v) {
               var itm = {
@@ -807,57 +806,49 @@ angular.module('ktwy.controllers', [])
               $ionicScrollDelegate.resize();
             });
           } else {
-            $scope.roomselect.navlist=[];
-            $scope.roomselect.units=[];
-            $scope.closeSelectRoomWnd(pid, p_title);
+
+            //$scope.roomselect.navlist=[];
+            //$scope.roomselect.units=[];
+            //$scope.closeSelectRoomWnd(pid, p_title);
+
+            $scope.closewnd(pid, p_title);
           }
-          var s_txt = $scope.roomselect.getFirst().p_title;
-          if (s_txt == "") {
-            s_txt = "选择房号";
-          }
-          $scope.return_text = s_txt;
+
           $scope.$apply();
         },
         function (rtn) {
         });
-    }
-
-    //返回
-    $scope.getParentUnit = function () {
-      var first = $scope.roomselect.getFirst();
-      if (first.p_title == "") {
-        $scope.closeSelectRoomWnd("", "");
-      }
-      else {
-        $scope.getChildUnit(first.p_pid);
-      }
     };
 
-    //点击导航
-    $scope.nav = function (id,title) {
+    //点击导航--顶部
+    $scope.nav = function (id, title, pid) {
       $scope.roomselect.interceptnavlist(id);
-      $scope.getChildUnit(id, '',title);
+      $scope.getChildUnit(pid, '');
+    };
+
+    //点击表格--表格
+    $scope.navtable = function (id, title, pid, roompath) {
+      $scope.roomselect.addnavlist(id, title, pid);
+      $scope.getChildUnit(id, roompath);
     };
 
     //返回
-    $scope.closewnd = function () {
-      $scope.roomselect.navlist=[];
-      $scope.roomselect.units=[];
-      $scope.closeSelectRoomWnd("", "");
+    $scope.closewnd = function (roomid, roompath) {
+
+      $scope.roomselect.navlist = [];
+      $scope.roomselect.units = [];
+
+      $scope.getChildUnit('0', '');
+      $scope.roomselect.addnavlist('0', '房号:', '-1');
+
+      $scope.closeSelectRoomWnd(roomid, roompath);
     };
 
     //first open exec ini
-    $scope.getChildUnit('0', '','社区:');
-
-    $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
-      console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
-      if (newval=="0") {
-        //查询数据
-        $scope.getChildUnit('0', '','社区:');
-      }
-
-    });
+    $scope.getChildUnit('0', '');
+    $scope.roomselect.addnavlist('0', '房号:', '-1');
 
   })
+
 ;
 

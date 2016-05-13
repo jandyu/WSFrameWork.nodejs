@@ -186,15 +186,18 @@ angular.module('ktwy.services', [])
 .factory('service_roomselect', function($q) {
 
   var roomselect = $.extend(IService, {
-    navlist: [{id:'0',title:'社区:'}],
+    navlist: [{id:'0',title:'房号:',pid:'-1'}],
     //添加一个导航
-    addnavlist:function(id,title)
+    addnavlist:function(id,title,pid)
     {
       var me=this;
-      if(_.isUndefined(_.find(me.navlist,function(itm){return itm.id==id;})))
+
+      var idx= _.findIndex(me.navlist,function(itm){return itm.pid==pid;});
+      if(idx>=0)
       {
-        me.navlist.push({id:id,title:title});
+        me.navlist.splice(idx,1);
       }
+      me.navlist.push({id:id,title:title,pid:pid});
     },
     //截断
     interceptnavlist: function (id) {
