@@ -18,10 +18,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fb7ec51-fb68-48a4-8696-4018cac18b34" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/controller_usercenter.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/controller_usercenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/service_usercenter.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/service_usercenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/tab-home.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/tab-home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/selectroom.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/selectroom.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/IService.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/IService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/repair/controller_repair.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/repair/controller_repair.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/repair/service_repair.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/repair/service_repair.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/suggestions/controller_suggestion.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/suggestions/controller_suggestion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/suggestions/service_suggestion.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/suggestions/service_suggestion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/suggestions/user_suggestion.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/suggestions/user_suggestion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair.html" afterPath="$PROJECT_DIR$/../ktwy/www/templates/usercenter/user_repair.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/IService.js" afterPath="$PROJECT_DIR$/www/js/IService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/repair/controller_repair.js" afterPath="$PROJECT_DIR$/www/js/repair/controller_repair.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/repair/service_repair.js" afterPath="$PROJECT_DIR$/www/js/repair/service_repair.js" />
     </list>
     <ignored path="ktwy_wy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,118 +49,7 @@
     <favorites_list name="ktwy_wy" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.833333">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.708334">
-              <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_express.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/express/controller_express.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
-              <folding>
-                <element signature="e#4204#5243#0" expanded="false" />
-                <element signature="e#4255#4404#0" expanded="false" />
-                <element signature="e#4283#4378#0" expanded="false" />
-                <element signature="e#4457#4611#0" expanded="false" />
-                <element signature="e#4485#4585#0" expanded="false" />
-                <element signature="e#5296#6342#0" expanded="false" />
-                <element signature="e#5349#5503#0" expanded="false" />
-                <element signature="e#5377#5477#0" expanded="false" />
-                <element signature="e#6102#6210#0" expanded="false" />
-                <element signature="e#6278#6292#0" expanded="false" />
-                <element signature="e#6428#6487#0" expanded="false" />
-                <element signature="e#6511#6555#0" expanded="false" />
-                <element signature="e#6602#6733#0" expanded="false" />
-                <element signature="e#6796#6932#0" expanded="false" />
-                <element signature="e#6973#7017#0" expanded="false" />
-                <element signature="e#7074#8061#0" expanded="false" />
-                <element signature="e#7140#8016#0" expanded="false" />
-                <element signature="e#7241#7929#0" expanded="false" />
-                <element signature="e#7389#7468#0" expanded="false" />
-                <element signature="e#7494#7573#0" expanded="false" />
-                <element signature="e#7632#7885#0" expanded="false" />
-                <element signature="e#7662#7738#0" expanded="false" />
-                <element signature="e#7768#7844#0" expanded="false" />
-                <element signature="e#7946#8001#0" expanded="false" />
-                <element signature="e#8037#8047#0" expanded="false" />
-                <element signature="e#8119#8375#0" expanded="false" />
-                <element signature="e#8209#8267#0" expanded="false" />
-                <element signature="e#8441#8808#0" expanded="false" />
-                <element signature="e#8489#8539#0" expanded="false" />
-                <element signature="e#8557#8607#0" expanded="false" />
-                <element signature="e#8649#8692#0" expanded="false" />
-                <element signature="e#8704#8801#0" expanded="false" />
-                <element signature="e#8867#8906#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_usercenter.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/controller_usercenter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12710567">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selectroom.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/usercenter/selectroom.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.875">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#i#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#1;n#i#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_home_wy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controller_home_wy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service_usercenter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/service_usercenter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -176,13 +72,10 @@
         <option value="$PROJECT_DIR$/www/js/native-plugin.js" />
         <option value="$PROJECT_DIR$/www/css/appicon.css" />
         <option value="$PROJECT_DIR$/www/templates/usercenter/userlogin.html" />
-        <option value="$PROJECT_DIR$/www/js/repair/controller_repair.js" />
-        <option value="$PROJECT_DIR$/www/js/repair/service_repair.js" />
         <option value="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" />
         <option value="$PROJECT_DIR$/www/js/service_home_wy.js" />
         <option value="$PROJECT_DIR$/www/js/jsdal.js" />
         <option value="$PROJECT_DIR$/www/js/express/service_express.js" />
-        <option value="$PROJECT_DIR$/www/js/IService.js" />
         <option value="$PROJECT_DIR$/www/js/controller_home_wy.js" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/templates/express/express_edit.html" />
@@ -197,6 +90,9 @@
         <option value="$PROJECT_DIR$/www/js/controller_usercenter.js" />
         <option value="$PROJECT_DIR$/www/templates/usercenter/selectroom.html" />
         <option value="$PROJECT_DIR$/www/js/service_usercenter.js" />
+        <option value="$PROJECT_DIR$/www/js/repair/service_repair.js" />
+        <option value="$PROJECT_DIR$/www/js/IService.js" />
+        <option value="$PROJECT_DIR$/www/js/repair/controller_repair.js" />
       </list>
     </option>
   </component>
@@ -216,8 +112,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="6" />
-    <option name="y" value="28" />
+    <option name="x" value="1" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
@@ -246,6 +142,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -422,9 +320,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -938,11 +834,12 @@
       <workItem from="1462760792571" duration="20474000" />
       <workItem from="1462805566587" duration="1161000" />
       <workItem from="1462843463375" duration="71412000" />
+      <workItem from="1463102413559" duration="5570000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230913000" />
+    <option name="totallyTimeSpent" value="236483000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -954,8 +851,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="28" width="1280" height="773" extended-state="6" />
-    <editor active="true" />
+    <frame x="1" y="23" width="1280" height="773" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32599118" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
@@ -969,9 +866,8 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6573939" sideWeight="0.49676898" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26655897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26655897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -982,6 +878,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1008,8 +905,13 @@
           <line>173</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/www/js/repair/service_repair.js</url>
+          <line>84</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1134,32 +1036,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/repair/service_repair.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2633997">
-          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/ionic/css/ionic.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40570524">
           <caret line="9706" column="28" selection-start-line="9706" selection-start-column="28" selection-end-line="9706" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/jsdal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="182" column="35" selection-start-line="182" selection-start-column="35" selection-end-line="182" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/repair/controller_repair.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5254777">
-          <caret line="58" column="9" selection-start-line="49" selection-start-column="5" selection-end-line="58" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14263074">
           <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="9" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.118858956">
           <caret line="5" column="0" selection-start-line="2" selection-start-column="2" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,7 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.90839696">
           <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,15 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6335878">
           <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/IService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55130166">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.045941807">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,7 +1097,6 @@
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.19138756">
             <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1284,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.333334">
           <caret line="161" column="13" selection-start-line="161" selection-start-column="13" selection-end-line="161" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1292,7 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.033690657">
           <caret line="54740" column="2" selection-start-line="54740" selection-start-column="2" selection-end-line="54740" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,26 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.023847377">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/express/service_express.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3560831">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="n#platform#0;n#widget#0;n#!!top" expanded="false" />
-            <element signature="n#platform#1;n#widget#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1335,7 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21462639">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,25 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4308426">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/usercenter/user_repair.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5007949">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/express/express_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding>
-            <element signature="n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,7 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07154213">
           <caret line="3" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,13 +1199,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27565083">
           <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.833333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
@@ -1391,16 +1212,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.708334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controller_home_wy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7633588">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/service_usercenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.5419848">
+          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controller_usercenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63206106">
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/express/express_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73692554">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/usercenter/selectroom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6418384">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19017433">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="n#platform#0;n#widget#0;n#!!top" expanded="false" />
+            <element signature="n#platform#1;n#widget#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/jsdal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="182" column="35" selection-start-line="182" selection-start-column="35" selection-end-line="182" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/IService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2290076">
+          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/express/controller_express.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.48091602">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
           <folding>
             <element signature="e#4204#5243#0" expanded="false" />
             <element signature="e#4255#4404#0" expanded="false" />
@@ -1439,40 +1327,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/usercenter/selectroom.html">
+    <entry file="file://$PROJECT_DIR$/www/js/express/service_express.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.18320611">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/repair/service_repair.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="11" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#i#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#1;n#i#0;n#div#0;n#div#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+            <element signature="e#3449#6674#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controller_home_wy.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/usercenter/user_repair.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.110935025">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/service_usercenter.js">
+    <entry file="file://$PROJECT_DIR$/www/js/repair/controller_repair.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controller_usercenter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12710567">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2977099">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>

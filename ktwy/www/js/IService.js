@@ -11,6 +11,13 @@ var IService = {
   //qry:查询条件;op:0表示刷新,1表示加载更多
   getlist: function (qry, op) {
     var me = this;
+    if (op == undefined || op == "0") {
+      me.page.currpage=0;
+    }
+    else
+    {
+      me.page.currpage=me.page.currpage +1;
+    }
     return jsondal.doPromise(jsondal.Query, me.tablename_list, qry, me.page.currpage, me.page.pagesize, me.order_list)
       .then(function (rtn) {
         //
@@ -28,7 +35,7 @@ var IService = {
 
         //数据加载完毕后,执行一次检查是否还有未加载的数据
         console.info('---------me.model_list.length:' + me.model_list.length + ';rtn.p.totalrows:' + rtn.p.totalrows + '---------');
-        if (me.model_list.length >= rtn.p.totalrows) {
+        if (me.model_list.length >=  parseInt(rtn.p.totalrows)) {
           me.load_more = false;
         }
         else {

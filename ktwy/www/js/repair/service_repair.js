@@ -49,7 +49,8 @@ angular.module('ktwy.services')
       },
       model_list: [],
       show_list: true,
-      currpage: 0,
+      page:{currpage:0,pagesize:10,totalpages:0,totalrows:0},//分页信息
+      load_more:false,//是否还有更多数据
       getRepairList: function (userid, succ, fail) {
         var me = this;
         var qry = {'col': 'creater', 'logic': '=', 'val': userid, 'andor': ''};
@@ -79,8 +80,18 @@ angular.module('ktwy.services')
               me.model_list.push(itm);
             });
 
-            me.currpage = rtn.p.currpage;
           }
+
+          if(me.model_list.length>= parseInt(rtn.p.totalrows))
+          {
+            me.load_more=false;
+          }
+          else
+          {
+            me.load_more=true;
+          }
+
+          me.page=rtn.p;
 
           if (me.model_list.length == 0) {
             me.show_list = false;

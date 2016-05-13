@@ -9,6 +9,11 @@ angular.module('ktwy.controllers')
 
     //$scope.dict.getDcit('suggestion_status',function(rtn){ });
     $scope.getsuggestionList = function () {
+
+      //清空数据
+      $scope.user_suggestion.model_list=[];
+      $scope.user_suggestion.page.currpage=0;
+
       $scope.user_suggestion.getsuggestionList($scope.usercenter.userid, function (rtn) {
         console.info($scope.user_suggestion.model_list);
         //初始化字
@@ -22,14 +27,35 @@ angular.module('ktwy.controllers')
         $ionicPopup.alert({
           title: '提醒',
           okType:'button-orange',
-          template: '提交有误!' + rtn
+          template: '有误!' + rtn
         });
         return;
       });
     };
 
     $scope.loadMore = function () {
-      $scope.$broadcast('scroll.infiniteScrollComplete');
+
+
+      $scope.user_suggestion.page.currpage=$scope.user_suggestion.page.currpage+1;
+      $scope.user_suggestion.getsuggestionList($scope.usercenter.userid, function (rtn) {
+        console.info($scope.user_suggestion.model_list);
+        //初始化字
+        service_dict.getDcit('activity_status', function (rtn) {
+
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.$apply();
+        });
+        //$scope.$apply();
+      }, function (rtn) {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType:'button-orange',
+          template: '有误!' + rtn
+        });
+        return;
+      });
+
+
     };
 
     $scope.getsuggestionList();

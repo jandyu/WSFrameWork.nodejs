@@ -17,6 +17,7 @@ angular.module('ktwy.controllers')
       }
       //清空数据
       $scope.user_repair.model_list=[];
+      $scope.user_repair.page.currpage=0;
 
       $scope.user_repair.getRepairList(qry,function(rtn){
         //初始化字典
@@ -62,7 +63,7 @@ angular.module('ktwy.controllers')
         console.log("--1111111111111111");
 
         var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
-
+        $scope.user_repair.page.currpage=$scope.user_repair.page.currpage+1;
         $scope.user_repair.getRepairList(qry, function (rtn) {
           console.info($scope.user_repair.model_list);
           //初始化字

@@ -57,7 +57,8 @@ angular.module('ktwy.services')
         jsondal.Query("v_m_app_wy_repair", qry, me.page.currpage, me.page.pagesize, ord, function (rtn) {
           console.info(rtn);
 
-          if (rtn.d != undefined) {
+          if (rtn.d != undefined)
+          {
             $.each(rtn.d, function (k, v) {
               var itm = {
                 creater: v.creater,
@@ -76,17 +77,21 @@ angular.module('ktwy.services')
               };
               //还有数据
               me.model_list.push(itm);
-              if(me.model_list.length>=rtn.p.totalrows)
-              {
-                me.load_more=false;
-              }
-              else
-              {
-                me.load_more=true;
-              }
+
             });
-            me.page=rtn.p;
+
           }
+
+          if(me.model_list.length>= parseInt(rtn.p.totalrows))
+          {
+            me.load_more=false;
+          }
+          else
+          {
+            me.load_more=true;
+          }
+
+          me.page=rtn.p;
 
           if (me.model_list.length == 0) {
             me.show_list = false;
