@@ -59,22 +59,19 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
   }])*/
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    $ionicConfigProvider.backButton.text("");
-    $ionicConfigProvider.backButton.previousTitleText(false);
-
-    $ionicConfigProvider.platform.ios.tabs.style('standard');
-    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+    //$ionicConfigProvider.platform.ios.tabs.style('standard');
+    //$ionicConfigProvider.platform.ios.tabs.position('bottom');
     $ionicConfigProvider.platform.android.tabs.style('standard');
     $ionicConfigProvider.platform.android.tabs.position('standard');
 
-    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
-    $ionicConfigProvider.platform.android.navBar.alignTitle('left');
+    //$ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    //$ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
-    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+    //$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+    //$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
 
-    $ionicConfigProvider.platform.ios.views.transition('ios');
-    $ionicConfigProvider.platform.android.views.transition('android');
+    //$ionicConfigProvider.platform.ios.views.transition('ios');
+    //$ionicConfigProvider.platform.android.views.transition('android');
 
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -158,6 +155,26 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           'rootContent': {
             templateUrl: 'templates/express/express_edit.html',
             controller: 'express_edit'
+          }
+        }
+      })
+
+      //访客-------------------
+      .state('root.visitor_list', {
+        url: '/visitor_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/visitor/visitor_list.html',
+            controller: 'visitor_list'
+          }
+        }
+      })
+      .state('root.visitor_edit', {
+        url: '/visitor_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/visitor/visitor_edit.html',
+            controller: 'visitor_edit'
           }
         }
       })

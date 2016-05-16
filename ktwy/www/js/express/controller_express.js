@@ -15,7 +15,6 @@ angular.module('ktwy.controllers')
     };
 
     //通用功能-------------------------------
-    //加载更多的查询条件
     $scope.loadMore_qry={};
     //refresh
     $scope.refresh = function (qry,clearflag) {

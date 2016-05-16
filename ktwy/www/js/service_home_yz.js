@@ -1,7 +1,7 @@
 angular.module('ktwy.services')
   .factory('service_master_query', function () {
 
-    var master_query = $.extend(IService, {
+    var master_query = $.extend({},IService, {
       roomid: '0',
       roompath: '',
       name: '',

@@ -1,0 +1,68 @@
+<ion-view view-title="{{visitor.model.iid=='0'?'新增访客':'修改访客'}}" >
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-show="false" ng-click="savevisitor()">保存</button>
+  </ion-nav-buttons>
+
+
+  <ion-content scroll="true" ng-show="true">
+    <form name="my_form">
+      <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+
+        <ion-item class="item item-input">
+          <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
+          <input class="col-90" type="text" placeholder="选择房号" ng-model="visitor.model.roompath" ng-readonly="true">
+        </ion-item>
+
+        <ion-item class="item item-input item-icon-left">
+          <i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
+          <input class="col-40" type="text" placeholder="联系人" ng-model="visitor.model.creater"
+                 ng-disabled="visitor.model.status!='0'">
+
+          <input class="col-50" type="tel" placeholder="联系电话" ng-model="visitor.model.phone"
+                 ng-disabled="visitor.model.status!='0'"
+                 required name="phone">
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">访客:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="m_model.fkname">
+          </div>
+        </ion-item>
+        <ion-item class="item item-input-inset">
+          <div class="col">性别:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="m_model.fkname">
+          </div>
+        </ion-item>
+        <ion-item class="item item-input-inset">
+          <div class="col">驾车来访:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="m_model.fkname">
+          </div>
+        </ion-item>
+        <ion-item class="item item-input-inset">
+          <div class="col">车牌号:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="m_model.fkname">
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">到访时间:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="m_model.fkname">
+          </div>
+        </ion-item>
+
+
+        <div class="row item item-input item-divider" align="center" ng-show="visitor.model.iid=='0'">
+          <button class="button button-block button-orange" ng-disabled="my_form.$invalid" ng-click="savevisitor()">填好了</button>
+        </div>
+
+      </div>
+    </form>
+  </ion-content>
+
+</ion-view>
