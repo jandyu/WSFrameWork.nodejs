@@ -14,21 +14,21 @@
     <div class="list list_full_row" align="center">
 
       <div class="item-input-inset">
-        <div class="col {{qeryfilters.status=='0'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('0')" style="height:39px;">
+        <div class="col {{qeryfilters.selectidx=='0'?'tab-define-active':'tab-define'}}" ng-click="changeselectidx('0')" style="height:39px;">
           已受理
         </div>
-        <div class="col {{qeryfilters.status=='3'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('3')" style="height:39px;">
+        <div class="col {{qeryfilters.selectidx=='1'?'tab-define-active':'tab-define'}}" ng-click="changeselectidx('1')" style="height:39px;">
           已派工
         </div>
-        <div class="col {{(qeryfilters.status!='0' && qeryfilters.status!='3')?'tab-define-active':'tab-define'}}" style="height:39px;">
+        <div class="col {{(qeryfilters.selectidx=='2')?'tab-define-active':'tab-define'}}" ng-click="changeselectidx('2')" style="height:39px;">
 
           <select ng-model="qeryfilters.status">
             <option value="" selected>全部</option>
-            <option value="0">已受理</option>
+            <!--<option value="0">已受理</option>-->
             <option value="1">已退回</option>
 
             <option value="2">业主撤回</option>
-            <option value="3">已派工</option>
+            <!--<option value="3">已派工</option>-->
             <option value="5">再派工</option>
 
             <option value="7">维修结束</option>

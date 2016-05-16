@@ -1,0 +1,30 @@
+<ion-view view-title="我的投诉建议" >
+
+
+  <ion-content scroll="true" >
+    <ion-refresher pulling-text="下拉刷新" on-refresh="getsuggestionList()"></ion-refresher>
+
+    <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+      <div class="row item-input-inset item-divider">
+        <div class="col-10 "><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-ring_pin" style="width:38px;"></i></div>
+        <div class="col-25">时间</div>
+        <div class="col-33">类型</div>
+        <div class="col-34">处理进度</div>
+      </div>
+
+      <div class="item item-input-inset" ng-repeat="itm in user_suggestion.model_list" ng-click="open_wnd_user_suggestion_detail(itm.iid)">
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i></div>
+        <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy年MM月dd"}}</div>
+        <div class="col-33">{{itm.category=='0'?"投诉":"建议"}}</div>
+        <div class="col-34">{{dict.getTxtById(itm.status)}}</div>
+      </div>
+
+    </div>
+
+    <ion-infinite-scroll  icon="ion-loading-c" ng-if="user_repair.load_more"
+                          on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+
+</ion-view>
+

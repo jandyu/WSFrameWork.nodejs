@@ -54,9 +54,9 @@ angular.module('ktwy.services')
       show_list: true,
       page:{currpage:0,pagesize:10,totalpages:0,totalrows:0},//分页信息
       load_more:false,//是否还有更多数据
-      getsuggestionList: function (userid, succ, fail) {
+      getsuggestionList: function (qry, succ, fail) {
         var me = this;
-        var qry = {'col': 'creater', 'logic': '=', 'val': userid, 'andor': ''};
+        //var qry = {'col': 'creater', 'logic': '=', 'val': userid, 'andor': ''};
         var ord = {'col': 'iid', 'sort': 'desc'};
         jsondal.Query("v_m_app_wy_activity", qry, me.page.currpage, me.page.pagesize, ord, function (rtn) {
           console.info(rtn);

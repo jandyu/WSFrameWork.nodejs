@@ -137,6 +137,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
+
       .state('root.user_repair', {
         url: '/user_repair',
         views: {
@@ -146,16 +147,25 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
-
-      //.state('tab.express_list', {
-      //  url: '/express_list',
-      //  views: {
-      //    'tab-home': {
-      //      templateUrl: 'templates/express/express_list.html',
-      //      controller:'express_list'
-      //    }
-      //  }
-      //})
+      .state('root.user_repair_detail', {
+        url: '/user_repair_detail',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/usercenter/user_repair_detail.html',
+            controller: 'user_repair_detail'
+          }
+        }
+      })
+      //投诉建议------------------
+      .state('root.user_suggestion', {
+        url: '/user_suggestion',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/suggestions/user_suggestion.html',
+            controller:'user_suggestion'
+          }
+        }
+      })
 
       //快递-------------------
       .state('root.express_list', {
