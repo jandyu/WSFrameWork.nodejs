@@ -64,8 +64,7 @@
 
       <div class="item item-input-inset" align="center" ng-repeat="itm in user_repair.model_list"
            ng-click="open_wnd_user_repair_detail(itm.iid)">
-        <div class="col-10"><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i>
-        </div>
+        <div class="col-10"><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i></div>
         <div class="col-25">{{itm.report_dt | to_dateformat:"yyyy-MM-dd"}}</div>
         <div class="col-66">{{itm.roompath}}</div>
       </div>

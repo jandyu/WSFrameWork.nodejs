@@ -6,7 +6,8 @@ angular.module('ktwy.controllers')
 
 
     $scope.dict=service_dict;
-
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
     //$scope.dict.getDcit('repair_status',function(rtn){ });
     $scope.getRepairList=function(qry)
     {
@@ -15,6 +16,7 @@ angular.module('ktwy.controllers')
       {
         qry = $scope.getRefreshFilter();
       }
+      $scope.loadMore_qry=qry;
       //清空数据
       $scope.user_repair.model_list=[];
       $scope.user_repair.page.currpage=0;
@@ -131,7 +133,7 @@ angular.module('ktwy.controllers')
       $scope.loadMore = function () {
         console.log("--1111111111111111");
 
-        var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+        var qry=$scope.loadMore_qry;
         $scope.user_repair.page.currpage=$scope.user_repair.page.currpage+1;
         $scope.user_repair.getRepairList(qry, function (rtn) {
           console.info($scope.user_repair.model_list);
@@ -195,7 +197,6 @@ angular.module('ktwy.controllers')
 
 
     //详情窗口------------------------------
-
     $scope.open_wnd_user_repair_detail = function (iid) {
       //此处初始化
       $scope.eidt_repair(iid,"1");

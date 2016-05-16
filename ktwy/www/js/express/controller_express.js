@@ -15,6 +15,8 @@ angular.module('ktwy.controllers')
     };
 
     //通用功能-------------------------------
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
     //refresh
     $scope.refresh = function (qry,clearflag) {
       if (qry == undefined || qry == "" || qry == null) {
@@ -22,7 +24,7 @@ angular.module('ktwy.controllers')
           {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': 'and'},
           {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
-
+      $scope.loadMore_qry=qry;
       //查询数据
       if(clearflag==undefined)
       {

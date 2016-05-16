@@ -4,8 +4,6 @@ angular.module('ktwy.controllers')
     $scope.usercenter = service_usercenter;
     $scope.express = service_express;
 
-    //ionNavBackButton.showBackButton
-
 
     $scope.qeryfilters={status:'0',roomid:'0'};
     //修改过滤条件
@@ -15,12 +13,15 @@ angular.module('ktwy.controllers')
     };
 
     //通用功能-------------------------------
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
     //refresh
     $scope.refresh = function (qry,clearflag) {
       if (qry == undefined || qry == "" || qry == null) {
         qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
       }
 
+      $scope.loadMore_qry=qry;
       //查询数据
       if(clearflag==undefined)
       {
@@ -39,10 +40,7 @@ angular.module('ktwy.controllers')
 
     //loadmore
     $scope.loadMore = function (qry) {
-      if (qry == undefined || qry == "" || qry == null) {
-        //qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
-        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},{'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
-      }
+      var qry=$scope.loadMore_qry;
       //查询数据
       $scope.express.getlist(qry,"1").then(function (rtn) {
         //加载更多完成

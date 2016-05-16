@@ -166,6 +166,15 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
+      .state('root.user_suggestion_detail', {
+        url: '/user_suggestion_detail',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/suggestions/user_suggestion_detail.html',
+            controller:'user_suggestion_detail'
+          }
+        }
+      })
 
       //快递-------------------
       .state('root.express_list', {

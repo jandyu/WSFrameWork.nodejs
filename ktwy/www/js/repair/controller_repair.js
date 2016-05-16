@@ -6,7 +6,8 @@ angular.module('ktwy.controllers')
 
 
     $scope.dict = service_dict;
-
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
     //$scope.dict.getDcit('repair_status',function(rtn){ });
     $scope.getRepairList = function () {
 

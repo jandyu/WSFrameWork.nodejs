@@ -6,15 +6,17 @@ angular.module('ktwy.controllers')
 
 
     $scope.dict = service_dict;
-
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
     //$scope.dict.getDcit('suggestion_status',function(rtn){ });
     $scope.getsuggestionList = function (qry) {
 
 
       if(qry==undefined || qry=="" || qry==null) {
-        var qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+        //qry = {'col': 'iid', 'logic': '>', 'val': '0', 'andor': ''};
+        qry=$scope.getRefreshFilter();
       }
-
+      $scope.loadMore_qry=qry;
       //清空数据
       $scope.user_suggestion.model_list=[];
       $scope.user_suggestion.page.currpage=0;
@@ -40,9 +42,10 @@ angular.module('ktwy.controllers')
 
     $scope.loadMore = function () {
 
-
+      //var qry=$scope.getRefreshFilter();
+      var qry=$scope.loadMore_qry;
       $scope.user_suggestion.page.currpage=$scope.user_suggestion.page.currpage+1;
-      $scope.user_suggestion.getsuggestionList($scope.usercenter.userid, function (rtn) {
+      $scope.user_suggestion.getsuggestionList(qry, function (rtn) {
         console.info($scope.user_suggestion.model_list);
         //初始化字
         service_dict.getDcit('activity_status', function (rtn) {
@@ -63,7 +66,98 @@ angular.module('ktwy.controllers')
 
     };
 
-    $scope.getsuggestionList();
+
+    $scope.qeryfilters={roomid:'0',roompath:'',category:'0',status:''};
+
+    $scope.ini=function() {
+
+      $scope.querybyroomid=function() {
+        var qry = {};
+        if($scope.qeryfilters.status=="")
+        {
+          qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+            {'col': 'category', 'logic': '=', 'val': $scope.qeryfilters.category, 'andor': 'and'}
+          ];
+        }
+        else
+        {
+          qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+            {'col': 'category', 'logic': '=', 'val': $scope.qeryfilters.category, 'andor': 'and'},
+            {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': 'and'}
+          ];
+        }
+
+        qry.push({'col': 'roomid', 'logic': '=', 'val':$scope.qeryfilters.roomid, 'andor': ''});
+
+        $scope.getsuggestionList(qry);
+      };
+
+      $scope.changeselectidx = function (idx) {
+        $scope.qeryfilters.category = idx;
+        $scope.qeryfilters.status="";
+        var qry = $scope.getRefreshFilter();
+        $scope.getsuggestionList(qry);
+      };
+
+      $scope.getRefreshFilter = function () {
+        var qry = {};
+        if($scope.qeryfilters.status=="")
+        {
+          qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+            {'col': 'category', 'logic': '=', 'val': $scope.qeryfilters.category, 'andor': ''}
+          ];
+        }
+        else
+        {
+          qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
+            {'col': 'category', 'logic': '=', 'val': $scope.qeryfilters.category, 'andor': 'and'},
+            {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}
+          ];
+        }
+
+        return qry;
+      };
+
+      $scope.$watch('qeryfilters.status', function (newval, oldval) {
+        //查询数据
+        var qry=$scope.getRefreshFilter();
+        $scope.getsuggestionList(qry);
+      });
+    };
+
+
+
+    //选择房号
+    $ionicModal.fromTemplateUrl('templates/usercenter/selectroom.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+
+      $scope.SelectRoomWnd = modal;
+    });
+
+    $scope.openSelectRoomWnd = function() {
+      //execute inistall information
+      $scope.SelectRoomWnd .show();
+    };
+
+    $scope.closeSelectRoomWnd = function(roomid,roompath) {
+      //$scope.master_query.roomid=roomid;
+      //$scope.master_query.roompath=roompath;
+      $scope.qeryfilters.roomid=roomid;
+      $scope.qeryfilters.roompath=roompath;
+      $scope.querybyroomid();
+
+      $scope.SelectRoomWnd.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.SelectRoomWnd.remove();
+    });
+
+    $scope.ini();
+
+
+
 
     //维修编辑或者申请
     //cate:
@@ -100,76 +194,17 @@ angular.module('ktwy.controllers')
     };
 
 
-    //编辑窗口-----------------------------
-    $ionicModal.fromTemplateUrl('templates/suggestions/user_suggestion_edit.html', {
-      scope: $scope
-      //animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.wnd_user_suggestion_edit = modal;
-    });
-
-    $scope.open_wnd_user_suggestion_edit = function (iid) {
-      //此处初始化
-      if (iid == "0") {
-        $scope.eidt_suggestion(iid);
-
-        $scope.wnd_user_suggestion_edit.show();
-      }
-      else {
-        if ($scope.user_suggestion.model.status == "" || $scope.user_suggestion.model.status == "0") {
-
-          $scope.eidt_suggestion(iid);
-
-          $scope.wnd_user_suggestion_edit.show();
-        }
-        else {
-          $ionicPopup.alert({
-            title: '提醒',
-            okType:'button-orange',
-            template: '当前状态不能修改!'
-          });
-          return;
-        }
-      }
-    };
-
-    $scope.close_wnd_user_suggestion_edit = function () {
-
-      $scope.user_suggestion.model.imagelist_url =
-        _.reject($scope.user_suggestion.model.imagelist_url, function (itm) {
-          return itm.url == "img/photo_add.png";
-        });
-
-      $scope.wnd_user_suggestion_edit.hide();
-    };
-    $scope.$on('$destroy', function () {
-      $scope.wnd_user_suggestion_edit.remove();
-    });
-
-
     //详情窗口------------------------------
-    $ionicModal.fromTemplateUrl('templates/suggestions/user_suggestion_detail.html', {
-      scope: $scope
-      //animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.wnd_user_suggestion_detail = modal;
-    });
+
 
     $scope.open_wnd_user_suggestion_detail = function (iid) {
       //此处初始化
 
       $scope.eidt_suggestion(iid, "1");
 
-      $scope.wnd_user_suggestion_detail.show();
+      $state.go("root.user_suggestion_detail");
     };
 
-    $scope.close_wnd_user_suggestion_detail = function () {
-
-      $scope.wnd_user_suggestion_detail.hide();
-    };
-    $scope.$on('$destroy', function () {
-      $scope.wnd_user_suggestion_detail.remove();
-    });
 
 
     //评价------------------------------
