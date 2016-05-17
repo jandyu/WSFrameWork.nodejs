@@ -49,6 +49,7 @@ var IService = {
         console.info(rtn);
       });
   },
+
   //获取单个数据模型------------------------------
   getmodel: function (iid) {
     var me = this;
@@ -64,6 +65,8 @@ var IService = {
         if (rtn.d != undefined) {
           me.model = rtn.d[0];
         }
+        //通过getmodel_after处理获取的数据
+        me.getmodel_after();
         return me.model;
       }, function (rtn) {
         console.info('---------get [' + me.tablename_list + '-' + iid + '] data error---------');
@@ -71,10 +74,19 @@ var IService = {
         return rtn;
       });
   },
+  //获取单个数据模型后,对数据模型进行预处理
+  getmodel_after:function(){
+    var me=this;
+    return me.model;
+  },
 
   //保存数据-------------------------------------
   tablename: '',//保存数据时用到的表名称
   save_fileds: [],//保存的字段
+  //保存之前对保存的数据进行预处理
+  savemodel_before:function(dat) {
+    return dat;
+  },
   savemodel: function () {
     var me = this;
     var dat = {};
@@ -82,7 +94,13 @@ var IService = {
     $.each(me.save_fileds, function (k, v) {
       dat[v] = me.model[v];
     });
+
     console.info('---------before save data [' + me.tablename + ']---------');
+    console.info(dat);
+
+    //经过save_before处理
+    dat=me.savemodel_before(dat);
+    console.info('---------save_before deal data [' + me.tablename + ']---------');
     console.info(dat);
 
 

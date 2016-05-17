@@ -5,7 +5,7 @@ angular.module('ktwy.services')
       tablename:"app_wy_visitor",
       order_list:[{col:'iid',sort:'desc'}],
       save_fileds:['iid','create_dt','creater','phone','roomid','fkname','fksex','dtm_yj','vehicle_flag','vehicle_num',
-        'dtm_real','status','memo'],
+        'dtm_real','status','memo','receiver'],
       ini_model: function (gl) {
         var me=this;
         me.model.iid='0';
@@ -24,6 +24,8 @@ angular.module('ktwy.services')
         me.model.roompath=gl.roompath;
         me.model.statusname='未到访';
         me.model.statusname_='未到访';
+        me.model.receiver="";
+        me.model.expird="";
       },
       //获取单个数据模型后,对数据模型进行预处理
       getmodel_after:function(){
@@ -41,6 +43,12 @@ angular.module('ktwy.services')
         {
           me.model.vehicle_num='浙A';
         }
+
+        if(util.DateFormat(new Date(me.model.dtm_real),'yyyy-MM-dd')=='1900-01-01')
+        {
+          me.model.dtm_real="";
+        }
+
         return me.model;
       },
       //保存之前对保存的数据进行预处理

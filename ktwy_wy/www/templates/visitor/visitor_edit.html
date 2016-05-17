@@ -1,0 +1,85 @@
+<ion-view view-title="访客详情" >
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-show="false" ng-click="savevisitor()">保存</button>
+  </ion-nav-buttons>
+
+
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+    <form name="my_form">
+      <div class="list list_full_row" align="left" style="padding:5px 5px 0px 5px;">
+
+        <ion-item class="item item-input">
+          <i class="col-10 kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-location_small"></i>
+          <!--<input class="col-90" type="text" placeholder="选择房号" ng-model="visitor.model.roompath">-->
+          <div class="col-90">{{visitor.model.roompath}}</div>
+        </ion-item>
+
+        <ion-item class="item item-input item-icon-left">
+          <i class="col-10 kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-person_small"></i>
+          <div class="col-40">{{visitor.model.creater}}</div>
+
+          <div class="col-50">{{visitor.model.phone}}</div>
+        </ion-item>
+
+        <ion-item class="item item-divider">
+          访客信息
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">访客:</div>
+          <div class="col-66">
+            {{visitor.model.fkname}}
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">性别:</div>
+          <div class="col-66">{{visitor.model.fksex}}</div>
+        </ion-item>
+
+
+        <ion-item class="item item-input-inset">
+          <div class="col">驾车来访:</div>
+          <div class="col-66">{{visitor.model.vehicle_flag==true?visitor.model.vehicle_num:'否'}}</div>
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">预计时间:</div>
+          <div class="col-66">
+            {{visitor.model.dtm_yj | to_dateformat:"yyyy-MM-dd"}}
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input-inset" ng-show="false">
+          <div class="col">接待人:</div>
+          <div class="col-66">
+            {{visitor.model.receiver}}
+          </div>
+        </ion-item>
+        <ion-item class="item item-divider">
+          到访信息
+        </ion-item>
+        <ion-item class="item item-input-inset">
+          <div class="col">到访时间:</div>
+          <div class="col-66">
+            {{visitor.model.dtm_real | to_dateformat:"yyyy-MM-dd"}}
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input-inset">
+          <div class="col">状态:</div>
+          <div class="col-66">
+            {{visitor.model.expird=="未过期"?visitor.model.statusname:visitor.model.expird}}
+          </div>
+        </ion-item>
+
+        <div class="row" align="center">
+          <button class="button button-block button-blue" ng-disabled="!(visitor.model.status=='0' && visitor.model.expird=='未过期')" ng-click="receivevisitor()">确认达到</button>
+        </div>
+
+      </div>
+    </form>
+  </ion-content>
+
+</ion-view>

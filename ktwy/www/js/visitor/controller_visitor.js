@@ -21,8 +21,7 @@ angular.module('ktwy.controllers')
     $scope.refresh = function (qry,clearflag) {
       if (qry == undefined || qry == "" || qry == null) {
         qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
-          {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': 'and'},
-          {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
+          {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': ''}];
       }
       $scope.loadMore_qry=qry;
       //查询数据
@@ -68,50 +67,8 @@ angular.module('ktwy.controllers')
 
       });
 
-
-      $scope.$watch('qeryfilters.roomid', function (newval, oldval) {
-
-        console.info('--------qeryfilters.roomid---------')
-        if (newval !='0') {
-          //查询数据
-          var qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
-            {'col': 'roomid', 'logic': '=', 'val': newval, 'andor': 'and'},
-            {'col': 'status', 'logic': '=', 'val': $scope.qeryfilters.status, 'andor': ''}];
-          $scope.refresh(qry, "0");
-
-        }
-      });
-
       $scope.refresh();
     };
-
-    //按照房号查询
-    //选择房号
-    $ionicModal.fromTemplateUrl('templates/usercenter/selectroom.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-
-      $scope.SelectRoomWnd = modal;
-    });
-
-    $scope.openSelectRoomWnd = function () {
-      //execute inistall information
-      $scope.SelectRoomWnd.show();
-    };
-
-    $scope.closeSelectRoomWnd = function (roomid, roompath) {
-
-      if(roomid!='') {
-        $scope.qeryfilters.roomid = roomid;
-      }
-
-      $scope.SelectRoomWnd.hide();
-    };
-    $scope.$on('$destroy', function () {
-      $scope.SelectRoomWnd.remove();
-    });
-
 
     //修改
     $scope.open_wnd_visitor_edit = function (iid) {
@@ -166,7 +123,7 @@ angular.module('ktwy.controllers')
 
       var confirmPopup = $ionicPopup.confirm({
         title: '确认',
-        template: '确定要修改吗?',
+        template: '确定要保存吗?',
         cancelText: '取消',
         cancelType: 'button-orange',
         okText: '确定',

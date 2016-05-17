@@ -195,6 +195,27 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
+
+      //访客-------------------
+      .state('root.visitor_list', {
+        url: '/visitor_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/visitor/visitor_list.html',
+            controller: 'visitor_list'
+          }
+        }
+      })
+      .state('root.visitor_edit', {
+        url: '/visitor_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/visitor/visitor_edit.html',
+            controller: 'visitor_edit'
+          }
+        }
+      })
+
     ;
 
     // if none of the above states are matched, use this as the fallback
