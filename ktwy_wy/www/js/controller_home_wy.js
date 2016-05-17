@@ -18,7 +18,8 @@ angular.module('ktwy.controllers')
       //自动登录
       $scope.$on("kwsq-device-on-ready",function(event,msg){
         console.info("service_usercenter:"+service_usercenter.deviceid);
-
+        service_usercenter_login.deviceid=service_usercenter.deviceid;
+        service_usercenter_login.platform=service_usercenter.platform;
         $scope.usercenter_login.userLoginDevice().then(
           function(rtn){
             rtn=jsondal.AnaRtn(rtn);

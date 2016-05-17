@@ -1,6 +1,6 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $ionicModal, $log, service_usercenter, service_usercenter_login) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $ionicModal, $log,$ionicPopup, service_usercenter, service_usercenter_login) {
     $scope.usercenter = service_usercenter;
     $scope.usercenter_login = service_usercenter_login;
     //登录窗口
@@ -11,18 +11,36 @@ angular.module('ktwy.controllers', [])
     };
 
     $scope.userExit = function () {
+      service_usercenter_login.deviceid=service_usercenter.deviceid;
+      service_usercenter_login.platform=service_usercenter.platform;
 
-      service_usercenter.userid = "0";
-      service_usercenter.enumber = "";
-      service_usercenter.name = "";
-      service_usercenter.phone = "";
-      service_usercenter.dpetid = "";
-      service_usercenter.deptname = "";
+      var confirmPopup = $ionicPopup.confirm({
+        title: '确认',
+        template: '确定要退出吗?',
+        cancelText: '取消',
+        cancelType: 'button-blue',
+        okText: '确定',
+        okType: 'button-blue'
+      });
+      confirmPopup.then(function (res) {
+        if (res) {
 
-      $scope.usercenter_login.userLoginOut().then(
-        function (rtn) {
-        }, function (rtn) {
-        });
+          service_usercenter.userid = "0";
+          service_usercenter.enumber = "";
+          service_usercenter.name = "";
+          service_usercenter.phone = "";
+          service_usercenter.dpetid = "";
+          service_usercenter.deptname = "";
+
+          $scope.usercenter_login.userLoginOut().then(
+            function (rtn) {
+            }, function (rtn) {
+            });
+
+        } else {
+          console.log('You are not sure');
+        }
+      });
     };
 
     //登陆窗口
@@ -56,6 +74,9 @@ angular.module('ktwy.controllers', [])
 
 
     $scope.login = function () {
+      service_usercenter_login.deviceid=service_usercenter.deviceid;
+      service_usercenter_login.platform=service_usercenter.platform;
+
       $scope.usercenter_login.userLogin(function (rtn) {
         rtn = jsondal.AnaRtn(rtn);
         var arr_rtn = rtn.split(',');

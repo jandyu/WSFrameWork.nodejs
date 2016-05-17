@@ -112,6 +112,8 @@ angular.module('ktwy.services', [])
       userLoginDevice:function()
       {
         var _this=this;
+        console.info('----------------deviceid--------------------');
+        console.info(_this.deviceid);
         return jsondal.doPromise(jsondal.Exec,"sp_user_login_device", { deviceid:_this.deviceid});
       },
       userLoginOut:function()

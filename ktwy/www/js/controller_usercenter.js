@@ -10,6 +10,9 @@ angular.module('ktwy.controllers', [])
     };
     $scope.userExit = function () {
 
+      service_usercenter_login.deviceid=service_usercenter.deviceid;
+      service_usercenter_login.platform=service_usercenter.platform;
+
       var confirmPopup = $ionicPopup.confirm({
         title: '确认',
         template: '确定要退出吗?',
@@ -90,6 +93,9 @@ angular.module('ktwy.controllers', [])
 
 
     $scope.login = function () {
+
+      service_usercenter_login.deviceid=service_usercenter.deviceid;
+      service_usercenter_login.platform=service_usercenter.platform;
 
       $scope.usercenter_login.userLogin().then(
         function (rtn) {
