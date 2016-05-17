@@ -3,7 +3,7 @@ angular.module('ktwy.services')
 
   .factory('service_master_query', function () {
 
-    var master_query = $.extend(IService, {
+    var master_query = $.extend({},IService, {
       roomid:'0',
       roompath:'',
       name:'',
@@ -37,7 +37,7 @@ angular.module('ktwy.services')
   })
   .factory('service_vehicle_query', function () {
 
-    var vehicle_query = $.extend(IService, {
+    var vehicle_query = $.extend({},IService, {
       plate:'浙A',
       models:'',
       roomid:'',

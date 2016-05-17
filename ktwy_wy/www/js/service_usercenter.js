@@ -2,7 +2,7 @@ angular.module('ktwy.services', [])
 
   .factory('service_usercenter', function () {
 
-    var usercenter = $.extend(IService, {
+    var usercenter = $.extend({},IService, {
       userid: '0',
       enumber: '',
       name: '',
@@ -26,7 +26,7 @@ angular.module('ktwy.services', [])
   })
   //login service
   .factory('service_usercenter_login', function () {
-    var usercenter_login = $.extend(IService, {
+    var usercenter_login = $.extend({},IService, {
       username: '15606526620',
       password: '',
       deviceid: '',
@@ -90,7 +90,7 @@ angular.module('ktwy.services', [])
 
   .factory('service_roomselect', function ($q) {
 
-    var roomselect = $.extend(IService, {
+    var roomselect = $.extend({},IService, {
       navlist: [{id:'0',title:'房号:',pid:'-1'}],
       //添加一个导航
       addnavlist:function(id,title,pid)
