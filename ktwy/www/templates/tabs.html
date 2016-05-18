@@ -9,6 +9,7 @@
 
     <ion-view ng-controller="home" cache-view="false">
       <ion-content class="home">
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <div ng-include="'templates/tab-home.html'"></div>
       </ion-content>
     </ion-view>

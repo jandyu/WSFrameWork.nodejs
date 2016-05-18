@@ -16,7 +16,8 @@ var IService = {
     }
     else
     {
-      me.page.currpage=me.page.currpage +1;
+      //me.page.currpage=me.page.currpage +1;
+      me.page.currpage=parseInt(me.page.currpage) +1;
     }
     return jsondal.doPromise(jsondal.Query, me.tablename_list, qry, me.page.currpage, me.page.pagesize, me.order_list)
       .then(function (rtn) {

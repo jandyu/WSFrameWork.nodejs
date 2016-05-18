@@ -45,11 +45,10 @@
 
 
     <div class="list list_full_row" ng-show="usercenter.type=='birthday'?true:false" style="margin:0px 5px 0px 5px;">
-      <ion-item class="item item-input-inset ">
+
+      <ion-item class="row item item-input">
         <div class="col">生日:</div>
-
-        <input class="col-80" type="date" ng-model="usercenter.birthday"/>
-
+        <input class="col-66" type="date" placeholder="请输入预计到访日期" ng-model="usercenter.birthday">
       </ion-item>
 
       <div style="padding:5px;">

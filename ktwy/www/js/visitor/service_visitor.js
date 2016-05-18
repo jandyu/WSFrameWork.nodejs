@@ -15,7 +15,7 @@ angular.module('ktwy.services')
         me.model.roomid=gl.roomid;
         me.model.fkname='';
         me.model.fksex='男';
-        me.model.dtm_yj=new Date(util.DateFormat(new Date(),'yyyy-MM-dd'));
+        me.model.dtm_yj=new Date();
         me.model.vehicle_flag=false;
         me.model.vehicle_num='浙A';
         me.model.dtm_real='';
@@ -24,6 +24,7 @@ angular.module('ktwy.services')
         me.model.roompath=gl.roompath;
         me.model.statusname='未到访';
         me.model.statusname_='未到访';
+        me.model.expird="未过期";
       },
       //获取单个数据模型后,对数据模型进行预处理
       getmodel_after:function(){
@@ -37,6 +38,7 @@ angular.module('ktwy.services')
           me.model.vehicle_flag=true;
         }
         me.model.dtm_yj=new Date(me.model.dtm_yj);
+
         if(me.model.vehicle_num=="")
         {
           me.model.vehicle_num='浙A';
@@ -53,6 +55,9 @@ angular.module('ktwy.services')
         {
           dat.vehicle_flag="1";
         }
+
+        dat.dtm_yj=util.DateFormat(new Date(dat.dtm_yj),'yyyy-MM-dd');
+
 
         if(dat.vehicle_num=="浙A")
         {

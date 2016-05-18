@@ -1,5 +1,3 @@
-
-
 <ion-view view-title="访客登记">
   <ion-nav-buttons side="right">
     <button class="button button-clear button-light" ng-click="open_wnd_visitor_edit(0)">新增</button>
@@ -7,11 +5,13 @@
 
   <ion-content scroll="true">
 
+
     <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
 
-    <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+    <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;" ng-show="visitor.model_list.length>0">
       <div class="row item-input-inset item-divider">
-        <div class="col-10 "><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-ring_pin" style="width:38px;"></i>
+        <div class="col-10 "><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-ring_pin"
+                                style="width:38px;"></i>
         </div>
         <div class="col-25">到访日期</div>
         <div class="col">访客姓名</div>
@@ -20,7 +20,7 @@
 
       <div class="item item-input-inset" ng-repeat="itm in visitor.model_list"
            ng-click="open_wnd_visitor_edit(itm.iid)">
-        <div class="col-10"><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i>
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i>
         </div>
         <div class="col-25">{{itm.dtm_yj | to_dateformat:"yyyy-MM-dd"}}
         </div>
@@ -30,8 +30,22 @@
 
     </div>
 
-    <ion-infinite-scroll icon="ion-loading-c" ng-if="express.load_more"
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="visitor.load_more"
                          on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+  <div ng-show="visitor.model_list.length==0" align="center">
+      <div class="row" style="margin-top: 150px;">
+        <div class="col" ng-click="open_wnd_visitor_edit(0)">
+          <img src="img/add.png"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          您暂时没有访客登记信息.
+        </div>
+      </div>
+  </div>
 
   </ion-content>
 

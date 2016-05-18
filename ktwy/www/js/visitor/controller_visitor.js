@@ -51,9 +51,7 @@ angular.module('ktwy.controllers')
       }, function (rtn) {
 
       });
-
     };
-
 
     //init
     $scope.init = function () {
@@ -86,6 +84,16 @@ angular.module('ktwy.controllers')
       }
       $state.go("root.visitor_edit");
     };
+
+    //导航
+    $scope.$on('$stateChangeSuccess',
+      function (event, toState, toParams, fromState, fromParams) {
+        //event.preventDefault();
+        console.info(fromState);
+        if (fromState.name == "root.visitor_edit") {
+          $scope.refresh();
+        }
+      });
 
     //execute init function
     $scope.init();
@@ -141,7 +149,8 @@ angular.module('ktwy.controllers')
               template: '成功!'
             });
 
-            $ionicHistory.goBack();
+            //$ionicHistory.goBack();
+            $state.go("root.visitor_list", {}, {notify: true});
 
           }, function (rtn) {
 
