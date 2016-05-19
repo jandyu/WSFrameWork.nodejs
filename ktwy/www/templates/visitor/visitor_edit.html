@@ -48,15 +48,9 @@
           </select>
         </ion-item>
 
-        <ion-item class="item item-toggle">
+        <ion-toggle toggle-class="toggle-energized" ng-model="visitor.model.vehicle_flag">
           驾车来访:
-          <label class="toggle toggle-energized">
-            <input type="checkbox" ng-model="visitor.model.vehicle_flag">
-            <div class="track">
-              <div class="handle"></div>
-            </div>
-          </label>
-        </ion-item>
+        </ion-toggle>
 
         <ion-item class="item item-input" ng-show="visitor.model.vehicle_flag">
           <ion-label>车牌号:</ion-label>
