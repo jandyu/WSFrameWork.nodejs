@@ -104,4 +104,20 @@ angular.module('ktwy.controllers')
       window.location.reload();
     }
   })
+
+
+  .directive('rjPositionMiddle', ['$window', function($window){
+    return{
+      replace: false,
+      link: function(scope, iElm, iAttrs, controller){
+        var height = $window.innerHeight - 44 - 49 - iElm[0].offsetHeight;
+        if (height >= 0) {
+          iElm[0].style.top = (height / 2 + 44) + 'px';
+        }else{
+          iElm[0].style.top = 44 + 'px';
+        }
+      }
+    }
+  }])
+
 ;

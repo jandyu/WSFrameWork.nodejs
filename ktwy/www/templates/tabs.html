@@ -1,4 +1,5 @@
 <ion-view cache-view="false" view-title="{{tab.currtitle}}">
+
 </ion-view>
 
 
@@ -23,6 +24,52 @@
 
   <ion-tab title="通信录" icon-off="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-contact"
            icon-on="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-contact-active" ng-click="clicktab(2)" >
+
+    <ion-view ng-controller="friend_list" cache-view="false">
+      <ion-content overflow-scroll="false">
+        <div ng-include="'templates/friend/friend_list.html'"></div>
+      </ion-content>
+
+      <div class="rj-contacts-right-bar {{right_bar_ui.bg}}" rj-position-middle
+           on-touch="right_bar_touch($event)" on-release="right_bar_release($event)">
+        <div on-touch="right_bar_item_enter('1')">&uarr;</div>
+        <div ng-repeat="itm in right_bar_ui.items" on-touch="right_bar_item_enter(itm.id)">{{itm.txt}}</div>
+        <!--<div ng-mouseenter="right_bar_item_enter('&uarr;')">&uarr;</div>-->
+        <!--<div>☆</div>-->
+        <!--<div>A</div>-->
+        <!--<div>B</div>-->
+        <!--<div>C</div>-->
+        <!--<div>D</div>-->
+        <!--<div>E</div>-->
+        <!--<div>F</div>-->
+        <!--<div>G</div>-->
+        <!--<div>H</div>-->
+        <!--<div>I</div>-->
+        <!--<div>J</div>-->
+        <!--<div>K</div>-->
+        <!--<div>L</div>-->
+        <!--<div>M</div>-->
+        <!--<div>N</div>-->
+        <!--<div>O</div>-->
+        <!--<div>P</div>-->
+        <!--<div>Q</div>-->
+        <!--<div>R</div>-->
+        <!--<div>S</div>-->
+        <!--<div>T</div>-->
+        <!--<div>U</div>-->
+        <!--<div>V</div>-->
+        <!--<div>W</div>-->
+        <!--<div>X</div>-->
+        <!--<div>Y</div>-->
+        <!--<div>Z</div>-->
+        <!--<div>#</div>-->
+      </div>
+      <div class="rj-contacts-middle-bar" ng-show="right_bar_ui.navshowhide">
+        {{right_bar_ui.navtitle}}
+      </div>
+
+
+    </ion-view>
 
   </ion-tab>
 

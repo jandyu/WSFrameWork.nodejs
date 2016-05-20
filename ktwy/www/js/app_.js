@@ -137,7 +137,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       })
       .state('express_edit', {
         url: '/express_edit',
-        templateUrl: 'templates/express/visitor_edit.html',
+        templateUrl: 'templates/express/friend_edit.html',
         controller: 'express_edit'
       })
     ;

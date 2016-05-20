@@ -1,0 +1,117 @@
+<ion-view view-title="{{visitor.model.iid=='0'?'新增访客':'修改访客'}}" >
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-show="false" ng-click="savevisitor()">保存</button>
+  </ion-nav-buttons>
+
+
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+    <form name="my_form">
+      <ion-list class="list" align="left" style="padding:5px 5px 0px 5px;">
+
+        <ion-item class="item item-input">
+          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"></i>
+          <!--<input class="col-90" type="text" placeholder="选择房号" ng-model="visitor.model.roompath">-->
+          <div class="col-90">{{visitor.model.roompath}}</div>
+        </ion-item>
+
+        <!--<ion-item class="item item-input item-icon-left">-->
+          <!--<i class="col-10 kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>-->
+          <!--<input class="col-40" type="text" placeholder="联系人" ng-model="visitor.model.creater"-->
+                 <!--ng-disabled="visitor.model.status!='0'">-->
+
+          <!--<input class="col-50" type="tel" placeholder="联系电话" ng-model="visitor.model.phone"-->
+                 <!--ng-disabled="visitor.model.status!='0'"-->
+                 <!--required name="phone">-->
+        <!--</ion-item>-->
+
+        <ion-item class="item item-input item-icon-left">
+          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"></i>
+          <div class="col-40">{{visitor.model.creater}}</div>
+
+         <div class="col-50">{{visitor.model.phone}}</div>
+        </ion-item>
+
+        <ion-item class="item item-divider">
+          访客信息
+        </ion-item>
+        <ion-item class="item item-input" >
+          <ion-label>访客:</ion-label>
+          <input type="text" placeholder="请输入访客姓名" ng-model="visitor.model.fkname">
+        </ion-item>
+
+        <ion-item class="item item-input item-select">
+          <ion-label>性别:</ion-label>
+          <select class="col-66" ng-model="visitor.model.fksex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+        </ion-item>
+
+        <ion-toggle toggle-class="toggle-energized" ng-model="visitor.model.vehicle_flag">
+          驾车来访:
+        </ion-toggle>
+
+        <ion-item class="item item-input" ng-show="visitor.model.vehicle_flag">
+          <ion-label>车牌号:</ion-label>
+          <input type="text" placeholder="请输入车牌号" ng-model="visitor.model.vehicle_num">
+        </ion-item>
+
+        <ion-item class="item item-input item-icon-right">
+          <ion-label>到访时间:</ion-label>
+          <input type="date" placeholder="请输入预计到访日期" ng-model="visitor.model.dtm_yj">
+          <i class="icon ion-ios-arrow-right"></i>
+        </ion-item>
+<!--
+        <ion-item class="item item-input" >
+          <div class="col">访客:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入访客姓名" ng-model="visitor.model.fkname">
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input item-select">
+          <div class="col">性别:</div>
+          <select class="col-66" ng-model="visitor.model.fksex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+        </ion-item>
+
+        <ion-item class="item item-input">
+          <div class="col">驾车来访:</div>
+
+          <label class="toggle toggle-energized">
+            <input type="checkbox" ng-model="visitor.model.vehicle_flag">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+
+        </ion-item>
+
+        <ion-item class="item item-input" ng-show="visitor.model.vehicle_flag">
+          <div class="col">车牌号:</div>
+          <div class="col-66">
+            <input type="text" placeholder="请输入车牌号" ng-model="visitor.model.vehicle_num">
+          </div>
+        </ion-item>
+
+        <ion-item class="item item-input item-icon-right">
+          <div class="col">到访时间:</div>
+
+          <input class="col-66" type="date" placeholder="请输入预计到访日期" ng-model="visitor.model.dtm_yj">
+
+          <i class="icon ion-ios-arrow-right"></i>
+        </ion-item>
+
+        -->
+        <div class="row" align="center">
+          <button class="button button-block button-orange" ng-disabled="!(visitor.model.statusname_=='未到访')" ng-click="savevisitor()">保存</button>
+        </div>
+
+      </ion-list>
+    </form>
+  </ion-content>
+
+</ion-view>
