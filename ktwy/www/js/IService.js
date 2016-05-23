@@ -42,15 +42,19 @@ var IService = {
         else {
           me.load_more = true;
         }
-
         me.page = rtn.p;
+        //数据解析完成后,做一些处理
+        me.getlist_after();
 
       }, function (rtn) {
         console.info('---------get [' + me.tablename_list + '] data error---------');
         console.info(rtn);
       });
   },
-
+  //数据解析完成后,做一些处理
+  getlist_after:function()
+  {
+  },
   //获取单个数据模型------------------------------
   getmodel: function (iid) {
     var me = this;
@@ -77,8 +81,6 @@ var IService = {
   },
   //获取单个数据模型后,对数据模型进行预处理
   getmodel_after:function(){
-    var me=this;
-    return me.model;
   },
 
   //保存数据-------------------------------------

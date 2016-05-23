@@ -121,18 +121,15 @@ angular.module('ktwy.controllers', [])
             service_usercenter.photo_url = purl;
 
             //登录成功则返回
-            //$rootScope.$ionicGoBack();
-            if ($scope.usercenter_login.willGoUrl != '') {
-
+            if ($scope.usercenter_login.willGoUrl != '')
+            {
               console.info($scope.usercenter_login.willGoUrl);
-
               $state.go($scope.usercenter_login.willGoUrl);
               $scope.usercenter_login.willGoUrl = "";
               $scope.closeLoginWnd();
             }
             else {
               $scope.closeLoginWnd();
-              //$rootScope.$ionicGoBack();
             }
           }
           else {

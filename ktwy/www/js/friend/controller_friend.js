@@ -1,54 +1,104 @@
 angular.module('ktwy.controllers')
 
-  .controller('friend_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_friend) {
+  .controller('friend_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource,
+                                       service_friend,service_employee) {
     $scope.usercenter = service_usercenter;
     $scope.friend = service_friend;
+    $scope.employee = service_employee;
 
     //ionNavBackButton.showBackButton
-    $scope.qeryfilters={status:'0',roomid:'0'};
+    $scope.qeryfilters={selectidx:'0'};
     //修改过滤条件
-    $scope.changequeryfilter=function(status)
+    $scope.changeselectidx=function(idx)
     {
-      $scope.qeryfilters.status=status;
+      $scope.qeryfilters.selectidx=idx;
     };
 
     //通用功能-------------------------------
     //加载更多的查询条件
     $scope.loadMore_qry={};
+    $scope.loadMore_qry_emp={};
     //refresh
-    $scope.refresh = function (qry,clearflag) {
-      if (qry == undefined || qry == "" || qry == null) {
-        qry = [{'col': 'iid', 'logic': '>', 'val': '0', 'andor': 'and'},
-          {'col': 'roomid', 'logic': '=', 'val': $scope.usercenter.roomid, 'andor': ''}];
-      }
-      $scope.loadMore_qry=qry;
-      //查询数据
-      if(clearflag==undefined)
+    $scope.refresh = function (idx)
+    {
+      var qry="",clearflag="0";
+      if (idx == undefined || idx == "" || idx == null)
       {
-        clearflag='0';
+        idx=$scope.qeryfilters.selectidx;
       }
-      $scope.friend.getlist(qry,clearflag).then(function (rtn) {
-        //刷新完成
-        $scope.$broadcast('scroll.refreshComplete');
-        $scope.$apply();
-      }, function (rtn) {
 
-      });
+      if(idx=="0") {
+
+        if (qry == undefined || qry == "" || qry == null) {
+          qry = [{'col': 'category', 'logic': '=', 'val': '0', 'andor': 'and'},
+            {'col': 'mid', 'logic': '=', 'val': $scope.usercenter.userid, 'andor': 'and'},
+            {'col': 'status', 'logic': '=', 'val': '1', 'andor': ''}];
+        }
+        $scope.loadMore_qry = qry;
+        //查询数据
+        if (clearflag == undefined) {
+          clearflag = '0';
+        }
+        $scope.friend.getlist(qry, clearflag).then(function (rtn) {
+          //刷新完成
+          $scope.$broadcast('scroll.refreshComplete');
+          $scope.$apply();
+        }, function (rtn) {
+
+        });
+
+      }
+      else
+      {
+        if (qry == undefined || qry == "" || qry == null) {
+          qry = [{'col': 'category', 'logic': '=', 'val': '1', 'andor': 'and'},
+            {'col': 'status', 'logic': '=', 'val': '1', 'andor': ''}];
+        }
+        $scope.loadMore_qry_emp = qry;
+        //查询数据
+        if (clearflag == undefined) {
+          clearflag = '0';
+        }
+        $scope.employee.getlist(qry, clearflag).then(function (rtn) {
+          //刷新完成
+          $scope.$broadcast('scroll.refreshComplete');
+          $scope.$apply();
+        }, function (rtn) {
+
+        });
+      }
+
 
     };
 
 
     //loadmore
     $scope.loadMore = function () {
-      var qry=$scope.loadMore_qry;
-      //查询数据
-      $scope.friend.getlist(qry,"1").then(function (rtn) {
-        //加载更多完成
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-        $scope.$apply();
-      }, function (rtn) {
 
-      });
+      if($scope.qeryfilters.selectidx=="0") {
+
+        var qry = $scope.loadMore_qry;
+        //查询数据
+        $scope.friend.getlist(qry, "1").then(function (rtn) {
+          //加载更多完成
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.$apply();
+        }, function (rtn) {
+
+        });
+      }
+      else
+      {
+        var qry = $scope.loadMore_qry_emp;
+        //查询数据
+        $scope.employee.getlist(qry, "1").then(function (rtn) {
+          //加载更多完成
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.$apply();
+        }, function (rtn) {
+
+        });
+      }
     };
 
     //init
@@ -87,33 +137,47 @@ angular.module('ktwy.controllers')
 
 
 
-      $scope.$watch('qeryfilters.status', function (newval, oldval) {
+      $scope.refresh('0');
+      $scope.refresh('1');
+    };
 
-        if (newval != oldval) {
-          //查询数据
-          $scope.refresh();
-        }
-
-      });
-
-      $scope.refresh();
+    //添加新朋友
+    $scope.newfriend=function()
+    {
+      $state.go("root.newfriend_list");
     };
 
     //修改
     $scope.open_wnd_friend_edit = function (iid) {
-      if (iid == "0") {
-        $scope.friend.ini_model($scope.usercenter);
+      if($scope.qeryfilters.selectidx=="0") {
+        if (iid == "0") {
+          $scope.friend.ini_model($scope.usercenter);
+        }
+        else {
+          $scope.friend.getmodel(iid).then(function (rtn) {
+            console.info("----------getmodel----------------");
+            console.info(rtn);
+          }, function (rtn) {
+
+          });
+        }
+        $state.go("root.friend_edit");
       }
       else
       {
-        $scope.friend.getmodel(iid).then(function(rtn){
-          console.info("----------getmodel----------------");
-          console.info(rtn);
-        },function(rtn){
+        if (iid == "0") {
+          $scope.employee.ini_model($scope.usercenter);
+        }
+        else {
+          $scope.employee.getmodel(iid).then(function (rtn) {
+            console.info("----------getmodel----------------");
+            console.info(rtn);
+          }, function (rtn) {
 
-        });
+          });
+        }
+        $state.go("root.employee_edit");
       }
-      $state.go("root.friend_edit");
     };
 
     //导航
@@ -122,7 +186,10 @@ angular.module('ktwy.controllers')
         //event.preventDefault();
         console.info(fromState);
         if (fromState.name == "root.friend_edit") {
-          $scope.refresh();
+          $scope.refresh('0');
+        }
+        if (fromState.name == "root.employee_edit") {
+          $scope.refresh('1');
         }
       });
 
@@ -134,96 +201,97 @@ angular.module('ktwy.controllers')
     $scope.usercenter = service_usercenter;
     $scope.friend = service_friend;
 
+  })
 
-    //保存
-    $scope.savefriend=function()
-    {
-      if($scope.friend.model.roomid=="" )
-      {
-        $ionicPopup.alert({
-          title: '提醒',
-          okType:'button-orange',
-          template: '请选择房号!'
-        });
-        return;
+  .controller('employee_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_employee) {
+    $scope.usercenter = service_usercenter;
+    $scope.employee = service_employee;
+
+  })
+
+
+  .controller('newfriend_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource,
+                                       service_newfriend) {
+    $scope.usercenter = service_usercenter;
+    $scope.newfriend = service_newfriend;
+
+    //通用功能-------------------------------
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
+    //refresh
+    $scope.refresh = function (qry,clearflag) {
+
+      if (qry == undefined || qry == "" || qry == null) {
+        qry = [{'col': 'category', 'logic': '=', 'val': '0', 'andor': 'and'},
+          {'col': 'mid', 'logic': '=', 'val': $scope.usercenter.userid, 'andor': ''}];
       }
-
-
-      if($scope.friend.model.status!="0" )
-      {
-        $ionicPopup.alert({
-          title: '提醒',
-          okType:'button-orange',
-          template: '状态不正确,不能修改!'
-        });
-        return;
+      $scope.loadMore_qry = qry;
+      //查询数据
+      if (clearflag == undefined) {
+        clearflag = '0';
       }
-
-
-      var confirmPopup = $ionicPopup.confirm({
-        title: '确认',
-        template: '确定要保存吗?',
-        cancelText: '取消',
-        cancelType: 'button-orange',
-        okText: '确定',
-        okType: 'button-orange'
-      });
-      confirmPopup.then(function(res) {
-        if(res) {
-
-
-          $scope.friend.savemodel().then(function (rtn) {
-            //保存完成
-            $ionicPopup.alert({
-              title: '提醒',
-              okType:'button-orange',
-              template: '成功!'
-            });
-
-            //$ionicHistory.goBack();
-            $state.go("root.friend_list", {}, {notify: true});
-
-          }, function (rtn) {
-
-          });
-
-
-        }},function(rtn){
-
+      $scope.newfriend.getlist(qry, clearflag).then(function (rtn) {
+        //刷新完成
+        $scope.$broadcast('scroll.refreshComplete');
+        $scope.$apply();
+      }, function (rtn) {
       });
 
-
-
     };
 
 
-    //选择房号
-    $ionicModal.fromTemplateUrl('templates/usercenter/selectroom.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-
-      $scope.SelectRoomWnd = modal;
-    });
-
-    $scope.openSelectRoomWnd = function () {
-      //execute inistall information
-
-      if($scope.friend.model.status=='1')return;
-
-      $scope.SelectRoomWnd.show();
+    //loadmore
+    $scope.loadMore = function () {
+        var qry = $scope.loadMore_qry;
+        //查询数据
+        $scope.newfriend.getlist(qry, "1").then(function (rtn) {
+          //加载更多完成
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.$apply();
+        }, function (rtn) {
+        });
     };
 
-    $scope.closeSelectRoomWnd = function (roomid, roompath) {
-
-      $scope.friend.model.roomid = roomid;
-      $scope.friend.model.roompath = roompath;
-
-      $scope.SelectRoomWnd.hide();
+    //init
+    $scope.init = function () {
+      $scope.refresh();
     };
-    $scope.$on('$destroy', function () {
-      $scope.SelectRoomWnd.remove();
-    });
+
+    //修改
+    $scope.open_wnd_newfriend_edit = function (iid) {
+      if (iid == "0") {
+        $scope.newfriend.ini_model($scope.usercenter);
+      }
+      else {
+        $scope.newfriend.getmodel(iid).then(function (rtn) {
+          console.info("----------getmodel----------------");
+          console.info(rtn);
+        }, function (rtn) {
+
+        });
+      }
+      $state.go("root.newfriend_edit");
+    };
+
+    //导航
+    $scope.$on('$stateChangeSuccess',
+      function (event, toState, toParams, fromState, fromParams) {
+        //event.preventDefault();
+        console.info(fromState);
+        if (fromState.name == "root.newfriend_edit") {
+          $scope.refresh();
+        }
+      });
+
+    //execute init function
+    $scope.init();
+  })
+
+
+
+  .controller('newfriend_edit', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_newfriend) {
+    $scope.usercenter = service_usercenter;
+    $scope.newfriend = service_newfriend;
 
   })
 ;

@@ -1,13 +1,68 @@
 angular.module('ktwy.controllers')
 
-  .controller('maintab', function ($scope, $ionicTabsDelegate,$ionicNavBarDelegate) {
-    $scope.tab ={currtitle:'首页'};
-    $scope.clicktab = function (u) {
-      //$ionicNavBarDelegate.title($ionicTabsDelegate._instances[0].tabs[u].title);
-      $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[u].title;
-      $ionicTabsDelegate.select(u);
-      return true;
-    }
+  .controller('maintab', function ($scope, $ionicTabsDelegate,$ionicNavBarDelegate, $ionicModal,service_usercenter, service_usercenter_login) {
+
+    $scope.usercenter = service_usercenter;
+    $scope.usercenter_login = service_usercenter_login;
+
+
+    $scope.tab ={currtitle:'首页',idx:0};
+    $scope.clicktab = function (u)
+    {
+      if(u!=2) {
+        //$ionicNavBarDelegate.title($ionicTabsDelegate._instances[0].tabs[u].title);
+        $scope.tab.currtitle = $ionicTabsDelegate._instances[0].tabs[u].title;
+        $ionicTabsDelegate.select(u);
+        return true;
+      }
+      else {
+        $scope.tab.idx = u;
+        $scope.goAfterLogin(u);
+      }
+    };
+
+    //登陆后跳转到指定页面,未登陆则跳转到登陆页面,登陆完成后再跳转到要跳转到页面
+    $scope.goAfterLogin = function (u) {
+      if ($scope.usercenter.checkLogin() == true) {
+        $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[u].title;
+        $ionicTabsDelegate.select(u);
+        return true;
+      }
+      else {
+        $scope.usercenter_login.willGoUrl = "";
+        $scope.openLoginWnd();
+      }
+
+    };
+
+    //登陆窗口
+    $ionicModal.fromTemplateUrl('templates/usercenter/userlogin.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function (modal) {
+
+      $scope.LoginWnd = modal;
+    });
+
+
+    $scope.openLoginWnd = function () {
+      //此处初始化
+      $scope.LoginWnd.show();
+    };
+
+    $scope.closeLoginWnd = function () {
+      $scope.LoginWnd.hide();
+
+      if ($scope.usercenter.checkLogin() == true) {
+        $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[$scope.tab.idx].title;
+        $ionicTabsDelegate.select($scope.tab.idx);
+        return true;
+      }
+
+    };
+    $scope.$on('$destroy', function () {
+      $scope.LoginWnd.remove();
+    });
   })
 
 
@@ -71,6 +126,7 @@ angular.module('ktwy.controllers')
         $scope.usercenter_login.willGoUrl = url;
         $scope.openLoginWnd();
       }
+
     };
 
     //登陆窗口

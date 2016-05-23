@@ -1,0 +1,29 @@
+<ion-view view-title="新的朋友">
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+
+    <ion-list>
+
+      <ion-item class="item-divider">
+        新的朋友
+      </ion-item>
+
+      <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend.model_list"
+                ng-click="open_wnd_newfriend_edit(fitm.iid)">
+
+        <img ng-src="{{itm.photourl}}">
+        <h2 ng-bind="itm.appnickname"></h2>
+        <p ng-bind="itm.memo==''?'我是'+itm.name:itm.memo"></p>
+
+        <i class="icon">
+          <p ng-show="itm.status=='1'">已添加</p>
+          <button class="button button-orange button-small" ng-show="itm.status=='0'">接受</button>
+        </i>
+      </ion-item>
+
+
+    </ion-list>
+
+
+  </ion-content>
+
+</ion-view>

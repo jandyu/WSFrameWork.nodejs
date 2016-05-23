@@ -1,143 +1,52 @@
 
-<ion-list>
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">A</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">B</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">C</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
+<div class="row item-input-inset">
+  <div class="col {{qeryfilters.selectidx=='0'?'tab-define-active':'tab-define'}}" ng-click="changeselectidx('0')">
+    朋友
+  </div>
+  <div class="col {{qeryfilters.selectidx=='1'?'tab-define-active':'tab-define'}}" ng-click="changeselectidx('1')">
+    物业
+  </div>
+</div>
 
+<div ng-show="qeryfilters.selectidx=='0'">
+  <ion-list class="rj-list">
+    <ion-item class="rj-item" ng-click="newfriend()">
+      <div class="rj-contacts-pic rj-orange-bgc">
+        <i class="ion-person-add"></i>
+      </div>
+      <h2>新的朋友</h2>
+    </ion-item>
 
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">D</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">E</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
-  <ion-item class="rj-contacts-item">
-    <div class="rj-contacts-index-bar">F</div>
-    <ion-list class="rj-list">
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-      <ion-item class="rj-item">
-        <div class="rj-contacts-pic">
-          <img src="img/adam.jpg">
-        </div>
-        <h2>李明</h2>
-      </ion-item>
-    </ion-list>
-  </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item class="rj-contacts-item" ng-repeat="itm in friend.model_list_deal">
+      <div class="rj-contacts-index-bar">{{itm.key}}</div>
+      <ion-list class="rj-list">
+        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid)">
+          <div class="rj-contacts-pic">
+            <img src="{{fitm.photourl}}">
+          </div>
+          <h2>{{fitm.name}}</h2>
+        </ion-item>
+      </ion-list>
+    </ion-item>
 </ion-list>
+</div>
+
+<div ng-show="qeryfilters.selectidx=='1'">
+  <ion-list>
+
+    <ion-item class="rj-contacts-item" ng-repeat="itm in employee.model_list_deal">
+      <div class="rj-contacts-index-bar">{{itm.key}}</div>
+      <ion-list class="rj-list">
+        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid)">
+          <div class="rj-contacts-pic">
+            <img src="{{fitm.photourl}}">
+          </div>
+          <h2>{{fitm.name}}</h2>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+  </ion-list>
+</div>

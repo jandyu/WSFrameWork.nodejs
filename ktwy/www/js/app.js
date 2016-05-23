@@ -178,6 +178,45 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+      //通讯录-------------------
+      .state('root.friend_edit', {
+        url: '/friend_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/friend_edit.html',
+            controller: 'friend_edit'
+          }
+        }
+      })
+      .state('root.employee_edit', {
+        url: '/employee_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/employee_edit.html',
+            controller: 'employee_edit'
+          }
+        }
+      })
+
+      //添加朋友-------------------
+      .state('root.newfriend_list', {
+        url: '/newfriend_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/newfriend_list.html',
+            controller: 'newfriend_list'
+          }
+        }
+      })
+      .state('root.newfriend_edit', {
+        url: '/newfriend_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/newfriend_edit.html',
+            controller: 'newfriend_edit'
+          }
+        }
+      })
     ;
 
 

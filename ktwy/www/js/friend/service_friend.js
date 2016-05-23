@@ -3,69 +3,202 @@ angular.module('ktwy.services')
     var friend=angular.extend({},IService,{
       tablename_list:"v_m_app_wy_friend",
       tablename:"app_wy_friend",
-      order_list:[{col:'iid',sort:'desc'}],
-      save_fileds:['iid','create_dt','creater','phone','roomid','fkname','fksex','dtm_yj','vehicle_flag','vehicle_num',
-        'dtm_real','status','memo'],
+      order_list:[{col:'namec',sort:'asc'}],
+      save_fileds:['iid','category','mid','fid','memo','status','lastdtm'],
       ini_model: function (gl) {
         var me=this;
         me.model.iid='0';
-        me.model.create_dt=util.DateFormat(new Date(),'yyyy-MM-dd');
-        me.model.creater=gl.name;
-        me.model.phone=gl.phone;
-        me.model.roomid=gl.roomid;
-        me.model.fkname='';
-        me.model.fksex='男';
-        me.model.dtm_yj=new Date();
-        me.model.vehicle_flag=false;
-        me.model.vehicle_num='浙A';
-        me.model.dtm_real='';
-        me.model.status='0';
-        me.model.memo='';
-        me.model.roompath=gl.roompath;
-        me.model.statusname='未到访';
-        me.model.statusname_='未到访';
-        me.model.expird="未过期";
+        me.model.category='0';
+        me.model.mid="0";
+        me.model.fid="0";
+        me.model.memo="";
+        me.model.name="";
+        me.model.phone="";
+        me.model.appnickname="";
+        me.model.sex="男";
+        me.model.birthday=util.DateFormat(new Date(),'yyyy-MM-dd');
+        me.model.deptid="0";
+        me.model.deptname="";
+        me.model.photourl="";
+        me.model.post="0";
+        me.model.postname="";
+        me.model.namec="";
+        me.model.categoryname="业主";
+        me.model.status="0";
+        me.model.statusname="未通过";
+        me.model.lastdtm=util.DateFormat(new Date(),'yyyy-MM-dd hh:mm');
       },
-      //获取单个数据模型后,对数据模型进行预处理
-      getmodel_after:function(){
+      model_list_deal:[],
+      add_model_list_deal:function(itm)
+      {
         var me=this;
-        if(me.model.vehicle_flag=="0")
+        var result= _.find(me.model_list_deal,function(titm){return titm.key==itm.namec;});
+        if(result==undefined)
         {
-          me.model.vehicle_flag=false;
+          me.model_list_deal.push({key:itm.namec,val:[itm]});
         }
         else
         {
-          me.model.vehicle_flag=true;
+          result.val.push(itm);
         }
-        me.model.dtm_yj=new Date(me.model.dtm_yj);
-
-        if(me.model.vehicle_num=="")
-        {
-          me.model.vehicle_num='浙A';
-        }
-        return me.model;
       },
-      //保存之前对保存的数据进行预处理
-      savemodel_before:function(dat) {
-        if(dat.vehicle_flag==false)
+      getlist_after:function()
+      {
+        var me=this;
+        me.model_list_deal=[];
+        $.each(me.model_list,function(k,v){
+          if(v.photourl!='') {
+            v.photourl=wwwurl + v.photourl.substr(1);
+          }
+          else
+          {
+            v.photourl="img/txwdl.png";
+          }
+          me.add_model_list_deal(v);
+        });
+        console.info("------------------me.model_list_deal------------------");
+        console.info(me.model_list_deal);
+      },
+      getmodel_after:function() {
+        var me = this;
+        if (me.model.photourl != '') {
+          me.model.photourl= wwwurl + me.model.photourl.substr(1);
+        }
+        else {
+          me.model.photourl = "img/txwdl.png";
+        }
+      }
+    });
+    return friend;
+  })
+
+
+  .factory('service_newfriend', function () {
+    var friend=angular.extend({},IService,{
+      tablename_list:"v_m_app_wy_friend",
+      tablename:"app_wy_friend",
+      order_list:[{col:'namec',sort:'asc'}],
+      save_fileds:['iid','category','mid','fid','memo','status','lastdtm'],
+      ini_model: function (gl) {
+        var me=this;
+        me.model.iid='0';
+        me.model.category='0';
+        me.model.mid="0";
+        me.model.fid="0";
+        me.model.memo="";
+        me.model.name="";
+        me.model.phone="";
+        me.model.appnickname="";
+        me.model.sex="男";
+        me.model.birthday=util.DateFormat(new Date(),'yyyy-MM-dd');
+        me.model.deptid="0";
+        me.model.deptname="";
+        me.model.photourl="";
+        me.model.post="0";
+        me.model.postname="";
+        me.model.namec="";
+        me.model.categoryname="业主";
+        me.model.status="0";
+        me.model.statusname="未通过";
+        me.model.lastdtm=util.DateFormat(new Date(),'yyyy-MM-dd hh:mm');
+      },
+      getlist_after:function()
+      {
+        var me=this;
+        $.each(me.model_list,function(k,v){
+          if(v.photourl!='') {
+            v.photourl=wwwurl + v.photourl.substr(1);
+          }
+          else
+          {
+            v.photourl="img/txwdl.png";
+          }
+        });
+        console.info("------------------me.model_list_deal------------------");
+        console.info(me.model_list_deal);
+      },
+      getmodel_after:function() {
+        var me = this;
+        if (me.model.photourl != '') {
+          me.model.photourl= wwwurl + me.model.photourl.substr(1);
+        }
+        else {
+          me.model.photourl = "img/txwdl.png";
+        }
+      }
+    });
+    return friend;
+  })
+
+
+  .factory('service_employee', function () {
+    var friend=angular.extend({},IService,{
+      tablename_list:"v_m_app_wy_friend",
+      tablename:"app_wy_friend",
+      order_list:[{col:'namec',sort:'asc'}],
+      save_fileds:['iid','category','mid','fid','memo'],
+      ini_model: function (gl) {
+        var me=this;
+        me.model.iid='0';
+        me.model.category='1';
+        me.model.mid="0";
+        me.model.fid="0";
+        me.model.memo="";
+        me.model.name="";
+        me.model.phone="";
+        me.model.appnickname="";
+        me.model.sex="男";
+        me.model.birthday=util.DateFormat(new Date(),'yyyy-MM-dd');
+        me.model.deptid="0";
+        me.model.deptname="";
+        me.model.photourl="";
+        me.model.post="0";
+        me.model.postname="";
+        me.model.namec="";
+        me.model.categoryname="物业";
+        me.model.status="0";
+        me.model.statusname="未通过";
+      },
+      model_list_deal:[],
+      add_model_list_deal:function(itm)
+      {
+        var me=this;
+        var result= _.find(me.model_list_deal,function(titm){return titm.key==itm.namec;});
+        if(result==undefined)
         {
-          dat.vehicle_flag="0";
+          me.model_list_deal.push({key:itm.namec,val:[itm]});
         }
         else
         {
-          dat.vehicle_flag="1";
+          result.val.push(itm);
         }
+      },
+      getlist_after:function()
+      {
+        var me=this;
+        me.model_list_deal=[];
+        $.each(me.model_list,function(k,v){
+          if(v.photourl!='') {
+            v.photourl=wwwurl + v.photourl.substr(1);
+          }
+          else
+          {
+            v.photourl="img/txwdl.png";
+          }
+          me.add_model_list_deal(v);
+        });
+        console.info("------------------me.model_list_deal------------------");
+        console.info(me.model_list_deal);
+      },
+      getmodel_after:function() {
+        var me = this;
 
-        dat.dtm_yj=util.DateFormat(new Date(dat.dtm_yj),'yyyy-MM-dd');
-
-
-        if(dat.vehicle_num=="浙A")
-        {
-          dat.vehicle_num='';
+        if (me.model.photourl != '') {
+          me.model.photourl = wwwurl + me.model.photourl.substr(1);
         }
-
-
-        return dat;
+        else {
+          me.model.photourl = "img/txwdl.png";
+        }
       }
     });
     return friend;
