@@ -214,6 +214,7 @@ angular.module('ktwy.controllers')
                                        service_newfriend) {
     $scope.usercenter = service_usercenter;
     $scope.newfriend = service_newfriend;
+    $scope.newfriend_list={meaddlist:[],otherlist:[]};
 
     //通用功能-------------------------------
     //加载更多的查询条件
@@ -231,6 +232,20 @@ angular.module('ktwy.controllers')
         clearflag = '0';
       }
       $scope.newfriend.getlist(qry, clearflag).then(function (rtn) {
+
+        $scope.newfriend_list.meaddlist=[];
+        $scope.newfriend_list.otherlist=[];
+        $.each($scope.newfriend.model_list,function(k,v){
+          if(v.ftype=='0')
+          {
+            $scope.newfriend_list.meaddlist.push(v);
+          }
+          else
+          {
+            $scope.newfriend_list.otherlist.push(v);
+          }
+        });
+
         //刷新完成
         $scope.$broadcast('scroll.refreshComplete');
         $scope.$apply();
@@ -245,6 +260,20 @@ angular.module('ktwy.controllers')
         var qry = $scope.loadMore_qry;
         //查询数据
         $scope.newfriend.getlist(qry, "1").then(function (rtn) {
+
+          $scope.newfriend_list.meaddlist=[];
+          $scope.newfriend_list.otherlist=[];
+          $.each($scope.newfriend.model_list,function(k,v){
+            if(v.ftype=='0')
+            {
+              $scope.newfriend_list.meaddlist.push(v);
+            }
+            else
+            {
+              $scope.newfriend_list.otherlist.push(v);
+            }
+          });
+
           //加载更多完成
           $scope.$broadcast('scroll.infiniteScrollComplete');
           $scope.$apply();
@@ -257,13 +286,20 @@ angular.module('ktwy.controllers')
       $scope.refresh();
     };
 
+    $scope.addFriend=function()
+    {
+      $state.go("root.master_list");
+    };
+
     //修改
-    $scope.open_wnd_newfriend_edit = function (iid) {
+    $scope.open_wnd_newfriend_edit = function (iid,ftype) {
       if (iid == "0") {
         $scope.newfriend.ini_model($scope.usercenter);
       }
       else {
-        $scope.newfriend.getmodel(iid).then(function (rtn) {
+        var qry=[{'col': 'iid', 'logic': '=', 'val': iid, 'andor': 'and'},
+          {'col': 'ftype', 'logic': '=', 'val': ftype, 'andor': ''}]
+        $scope.newfriend.getmodel(qry).then(function (rtn) {
           console.info("----------getmodel----------------");
           console.info(rtn);
         }, function (rtn) {
@@ -294,4 +330,100 @@ angular.module('ktwy.controllers')
     $scope.newfriend = service_newfriend;
 
   })
+
+
+
+
+  .controller('master_list', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet,$ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource,
+                                       service_master) {
+    $scope.usercenter = service_usercenter;
+    $scope.master = service_master;
+
+    $scope.qeryfilters={search_txt:'15606526620'};
+    //通用功能-------------------------------
+    //加载更多的查询条件
+    $scope.loadMore_qry={};
+    //refresh
+    $scope.refresh = function (qry,clearflag) {
+
+      if (qry == undefined || qry == "" || qry == null) {
+        qry = [{'col': 'phone', 'logic': '=', 'val': $scope.qeryfilters.search_txt, 'andor': ''}];
+      }
+      $scope.loadMore_qry = qry;
+      //查询数据
+      if (clearflag == undefined) {
+        clearflag = '0';
+      }
+      $scope.master.getlist(qry, clearflag).then(function (rtn) {
+        //刷新完成
+        $scope.$broadcast('scroll.refreshComplete');
+        $scope.$apply();
+      }, function (rtn) {
+      });
+
+    };
+
+
+    //loadmore
+    $scope.loadMore = function () {
+      var qry = $scope.loadMore_qry;
+      //查询数据
+      $scope.master.getlist(qry, "1").then(function (rtn) {
+        //加载更多完成
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$apply();
+      }, function (rtn) {
+      });
+    };
+
+    $scope.dealmodel=function(md) {
+      var qry = [{'col': 'category', 'logic': '=', 'val': '0', 'andor': 'and '},
+        {'col': 'fid', 'logic': '=', 'val': md.fid, 'andor': 'and'},
+        {'col': 'mid', 'logic': '=', 'val': $scope.usercenter.userid, 'andor': ''}];
+
+      var ord = {col: 'iid', sort: 'asc'};
+      jsondal.doPromise(jsondal.Query, 'v_m_app_wy_friend', qry, 1, 1, ord)
+        .then(function (rtn) {
+
+          if (rtn.d != undefined) {
+            var rn=rtn.d[0];
+
+
+
+          }
+          //通过getmodel_after处理获取的数据
+
+        }, function (rtn) {
+          return rtn;
+        });
+    };
+
+    //修改
+    $scope.open_wnd_master_edit = function (iid) {
+      if (iid == "0") {
+        $scope.master.ini_model($scope.usercenter);
+      }
+      else {
+        var qry=[{'col': 'iid', 'logic': '=', 'val': iid, 'andor': ''}]
+        $scope.master.getmodel(qry).then(function (rtn) {
+          console.info("----------getmodel----------------");
+          console.info(rtn);
+        }, function (rtn) {
+
+        });
+      }
+      $state.go("root.master_edit");
+    };
+
+    //导航
+    $scope.$on('$stateChangeSuccess',
+      function (event, toState, toParams, fromState, fromParams) {
+        //event.preventDefault();
+        console.info(fromState);
+        if (fromState.name == "root.master_edit") {
+          $scope.refresh();
+        }
+      });
+  })
+
 ;

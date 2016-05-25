@@ -56,15 +56,23 @@ var IService = {
   {
   },
   //获取单个数据模型------------------------------
-  getmodel: function (iid) {
+  getmodel: function (vqry) {
     var me = this;
-    var qry = {'col': 'iid', 'logic': '=', 'val': iid, 'andor': ''};
+    var qry ={};
+    if($.isNumeric(vqry)==true) {
+      qry = {'col': 'iid', 'logic': '=', 'val': vqry, 'andor': ''};
+    }
+    else
+    {
+      qry=vqry;
+    }
+
     var ord = {'col': 'iid', 'sort': 'desc'};
 
     return jsondal.doPromise(jsondal.Query, me.tablename_list, qry, 1, 1, ord)
       .then(function (rtn) {
         //
-        console.info('---------get [' + me.tablename_list + '-' + iid + '] data succ---------');
+        console.info('---------get [' + me.tablename_list + '-] data succ---------');
         console.info(rtn);
 
         if (rtn.d != undefined) {
@@ -74,7 +82,7 @@ var IService = {
         me.getmodel_after();
         return me.model;
       }, function (rtn) {
-        console.info('---------get [' + me.tablename_list + '-' + iid + '] data error---------');
+        console.info('---------get [' + me.tablename_list + '-] data error---------');
         console.info(rtn);
         return rtn;
       });

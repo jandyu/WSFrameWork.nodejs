@@ -101,6 +101,7 @@ angular.module('ktwy.services')
         me.model.status="0";
         me.model.statusname="未通过";
         me.model.lastdtm=util.DateFormat(new Date(),'yyyy-MM-dd hh:mm');
+        me.model.ftype="0";
       },
       getlist_after:function()
       {
@@ -203,4 +204,54 @@ angular.module('ktwy.services')
     });
     return friend;
   })
+
+
+  .factory('service_master', function () {
+    var friend=angular.extend({},IService,{
+      tablename_list:"v_app_master",
+      tablename:"v_app_master",
+      order_list:[{col:'iid',sort:'asc'}],
+      save_fileds:['iid'],
+      ini_model: function (gl) {
+        var me=this;
+        me.model.iid='0';
+        me.model.name="";
+        me.model.phone="";
+        me.model.appnickname="";
+        me.model.sex="";
+        me.model.birthday="";
+        me.model.roomid="0";
+        me.model.roompath="";
+        me.model.photourl="";
+        me.fstatus="0";//0:未通过,1:已通过,2:等待对方验证
+      },
+      getlist_after:function()
+      {
+        var me=this;
+        $.each(me.model_list,function(k,v){
+          if(v.photourl!='') {
+            v.photourl=wwwurl + v.photourl.substr(1);
+          }
+          else
+          {
+            v.photourl="img/txwdl.png";
+          }
+        });
+        console.info("------------------me.model_list_deal------------------");
+        console.info(me.model_list_deal);
+      },
+      getmodel_after:function() {
+        var me = this;
+        if (me.model.photourl != '') {
+          me.model.photourl= wwwurl + me.model.photourl.substr(1);
+        }
+        else {
+          me.model.photourl = "img/txwdl.png";
+        }
+      }
+    });
+    return friend;
+  })
+
+
 ;

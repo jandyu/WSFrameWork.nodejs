@@ -27,9 +27,15 @@
         <ion-label>房号:</ion-label>
         <div class="col">{{newfriend.model.deptname}}</div>
       </ion-item>
-      <div class="row" align="center">
-        <button class="button button-block button-orange" >发消息</button>
+      <div class="row" align="center" ng-show="newfriend.model.ftype=='1'">
+        <button class="button button-block button-orange" ng-show="newfriend.model.status=='1'" >发消息</button>
+        <button class="button button-block button-orange" ng-show="newfriend.model.status=='0'" >通过验证</button>
       </div>
+
+      <div class="row" align="center" ng-show="newfriend.model.ftype=='0'">
+        <button class="button button-block button-orange" ng-show="newfriend.model.status=='1'" >发消息</button>
+      </div>
+
 
     </ion-list>
   </ion-content>

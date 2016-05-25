@@ -1,0 +1,35 @@
+<ion-view view-title="添加朋友">
+
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+
+    <ion-list>
+
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="手机号" ng-model="qeryfilters.search_txt">
+        </label>
+        <button class="button button-orange button-small" ng-click="refresh()">
+          查找
+        </button>
+      </div>
+
+      <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in master.model_list"
+                ng-click="open_wnd_newfriend_edit(itm.iid)">
+
+        <img ng-src="{{itm.photourl}}">
+        <h2 ng-bind="itm.appnickname"></h2>
+        <p ng-bind="itm.name"></p>
+
+        <i class="icon">
+          <p ng-show="itm.status=='1'">已添加</p>
+          <button class="button button-orange button-small" ng-show="itm.status=='0'">接受</button>
+        </i>
+
+      </ion-item>
+
+    </ion-list>
+
+
+  </ion-content>
+
+</ion-view>

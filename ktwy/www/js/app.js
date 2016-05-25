@@ -217,6 +217,17 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+      //添加朋友-------------------
+      .state('root.master_list', {
+        url: '/master_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/master_list.html',
+            controller: 'master_list'
+          }
+        }
+      })
+
     ;
 
 
