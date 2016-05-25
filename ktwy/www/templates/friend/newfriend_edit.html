@@ -29,7 +29,7 @@
       </ion-item>
       <div class="row" align="center" ng-show="newfriend.model.ftype=='1'">
         <button class="button button-block button-orange" ng-show="newfriend.model.status=='1'" >发消息</button>
-        <button class="button button-block button-orange" ng-show="newfriend.model.status=='0'" >通过验证</button>
+        <button class="button button-block button-orange" ng-show="newfriend.model.status=='0'" ng-click="audite()" >通过验证</button>
       </div>
 
       <div class="row" align="center" ng-show="newfriend.model.ftype=='0'">

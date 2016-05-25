@@ -22,7 +22,7 @@
     <ion-item class="rj-contacts-item" ng-repeat="itm in friend.model_list_deal">
       <div class="rj-contacts-index-bar">{{itm.key}}</div>
       <ion-list class="rj-list">
-        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid)">
+        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid,fitm.fid,fitm.ftype)">
           <div class="rj-contacts-pic">
             <img src="{{fitm.photourl}}">
           </div>
@@ -39,7 +39,7 @@
     <ion-item class="rj-contacts-item" ng-repeat="itm in employee.model_list_deal">
       <div class="rj-contacts-index-bar">{{itm.key}}</div>
       <ion-list class="rj-list">
-        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid)">
+        <ion-item class="rj-item" ng-repeat="fitm in itm.val" ng-click="open_wnd_friend_edit(fitm.iid,fitm.fid,fitm.ftype)">
           <div class="rj-contacts-pic">
             <img src="{{fitm.photourl}}">
           </div>

@@ -14,15 +14,18 @@
       </div>
 
       <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in master.model_list"
-                ng-click="open_wnd_newfriend_edit(itm.iid)">
+                ng-click="open_wnd_master_edit($index)">
 
         <img ng-src="{{itm.photourl}}">
         <h2 ng-bind="itm.appnickname"></h2>
         <p ng-bind="itm.name"></p>
 
         <i class="icon">
-          <p ng-show="itm.status=='1'">已添加</p>
-          <button class="button button-orange button-small" ng-show="itm.status=='0'">接受</button>
+          <button class="button button-orange button-small" ng-show="itm.fstatus=='0'">添加</button>
+          <button class="button button-orange button-small" ng-show="itm.fstatus=='1'">通过</button>
+          <p ng-show="itm.fstatus=='2'">已添加</p>
+          <p ng-show="itm.fstatus=='3'">等待对方验证</p>
+          <p ng-show="itm.fstatus=='4'">已添加</p>
         </i>
 
       </ion-item>

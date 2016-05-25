@@ -11,6 +11,10 @@
         添加我的朋友
       </ion-item>
 
+      <ion-item ng-show="newfriend_list.otherlist.length==0">
+        暂无好友
+      </ion-item>
+
       <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.otherlist"
                 ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">
 
@@ -28,6 +32,12 @@
       <ion-item class="item-divider">
         我添加的朋友
       </ion-item>
+
+      <ion-item ng-show="newfriend_list.meaddlist.length==0">
+        暂无好友
+      </ion-item>
+
+
       <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.meaddlist"
                 ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">
 

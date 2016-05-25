@@ -227,6 +227,15 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
           }
         }
       })
+      .state('root.master_edit', {
+        url: '/master_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/friend/master_edit.html',
+            controller: 'master_edit'
+          }
+        }
+      })
 
     ;
 

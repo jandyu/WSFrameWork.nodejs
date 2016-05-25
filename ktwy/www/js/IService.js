@@ -45,10 +45,11 @@ var IService = {
         me.page = rtn.p;
         //数据解析完成后,做一些处理
         me.getlist_after();
-
+        return me.model_list;
       }, function (rtn) {
         console.info('---------get [' + me.tablename_list + '] data error---------');
         console.info(rtn);
+        return rtn;
       });
   },
   //数据解析完成后,做一些处理

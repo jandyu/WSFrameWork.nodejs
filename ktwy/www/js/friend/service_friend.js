@@ -115,8 +115,6 @@ angular.module('ktwy.services')
             v.photourl="img/txwdl.png";
           }
         });
-        console.info("------------------me.model_list_deal------------------");
-        console.info(me.model_list_deal);
       },
       getmodel_after:function() {
         var me = this;
@@ -126,6 +124,15 @@ angular.module('ktwy.services')
         else {
           me.model.photourl = "img/txwdl.png";
         }
+      },
+      save_friend: function (md) {
+        var dat=md;
+        return jsondal.doPromise(jsondal.Update,"app_wy_friend", dat)
+          .then(function (rtn) {
+            return rtn;
+          }, function (rtn) {
+            return rtn;
+          });
       }
     });
     return friend;
@@ -209,7 +216,7 @@ angular.module('ktwy.services')
   .factory('service_master', function () {
     var friend=angular.extend({},IService,{
       tablename_list:"v_app_master",
-      tablename:"v_app_master",
+      tablename:"app_wy_friend",
       order_list:[{col:'iid',sort:'asc'}],
       save_fileds:['iid'],
       ini_model: function (gl) {
@@ -248,6 +255,15 @@ angular.module('ktwy.services')
         else {
           me.model.photourl = "img/txwdl.png";
         }
+      },
+      save_friend: function (md) {
+        var dat=md;
+        return jsondal.doPromise(jsondal.Update,"app_wy_friend", dat)
+          .then(function (rtn) {
+            return rtn;
+          }, function (rtn) {
+            return rtn;
+          });
       }
     });
     return friend;

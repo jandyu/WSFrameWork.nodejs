@@ -1,0 +1,39 @@
+<ion-view view-title="详细资料">
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+    <ion-list class="list" align="left" style="padding:2px 5px 0px 5px;">
+
+      <ion-item class="item item-thumbnail-left">
+        <img src="{{master.model.photourl}}">
+
+        <h2>{{master.model.appnickname}}</h2>
+
+        <p>{{master.model.name}}</p>
+      </ion-item>
+
+      <ion-item class="item item-input-inset" style="margin-top:18px;">
+        <ion-label>性别:</ion-label>
+        <div class="col">{{master.model.sex}}</div>
+      </ion-item>
+      <ion-item class="item item-input-inset" >
+        <ion-label>出生日期:</ion-label>
+        <div class="col">{{master.model.birthday}}</div>
+      </ion-item>
+
+      <ion-item class="item item-input-inset" style="margin-top:18px;">
+        <ion-label>电话号码:</ion-label>
+        <div class="col">{{master.model.phone}}</div>
+      </ion-item>
+      <ion-item class="item item-input-inset">
+        <ion-label>房号:</ion-label>
+        <div class="col">{{master.model.roompath}}</div>
+      </ion-item>
+      <div class="row" align="center" ng-show="usercenter.userid!=master.model.iid">
+        <button class="button button-block button-orange" ng-show="master.model.fstatus=='0'" ng-click="addfriend()">添加</button>
+        <button class="button button-block button-orange" ng-show="master.model.fstatus=='1'" ng-click="audite()">通过验证</button>
+        <button class="button button-block button-orange" ng-show="master.model.fstatus=='2' || master.model.fstatus=='4'">发消息</button>
+        <p ng-show="master.model=='3'">等待对方验证</p>
+      </div>
+    </ion-list>
+  </ion-content>
+
+</ion-view>
