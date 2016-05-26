@@ -1,58 +1,93 @@
 <ion-view view-title="新的朋友">
 
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-light" ng-click="addFriend()">添加朋友</button>
+    <button class="button button-clear button-light" ng-click="addFriend()">添加</button>
   </ion-nav-buttons>
 
   <ion-content scroll="true" ng-show="true" class="item-divider">
 
+    <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
     <ion-list>
-      <ion-item class="item-divider">
-        添加我的朋友
-      </ion-item>
+      <!--<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="itm in newfriend.model_list"-->
+      <!--ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">-->
 
-      <ion-item ng-show="newfriend_list.otherlist.length==0">
-        暂无好友
-      </ion-item>
-
-      <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.otherlist"
+      <ion-item class="item-avatar item-icon-right" ng-repeat="itm in newfriend.model_list"
                 ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">
 
-        <img ng-src="{{itm.photourl}}">
-        <h2 ng-bind="itm.appnickname"></h2>
-        <p ng-bind="itm.memo==''?'我是'+itm.name:itm.memo"></p>
+          <img ng-src="{{itm.photourl}}">
+          <h2 ng-bind="itm.appnickname"></h2>
+          <p ng-bind="itm.memo==''?'我是'+itm.name:itm.memo"></p>
 
-        <i class="icon">
-          <p ng-show="itm.status=='1'">已添加</p>
-          <button class="button button-orange button-small" ng-show="itm.status=='0'">接受</button>
-        </i>
+          <i class="icon">
+            <p ng-show="itm.ftype=='1' && itm.status=='1'">已添加</p>
+            <button class="button button-orange button-small" ng-show="itm.ftype=='1' && itm.status=='0'"
+                    ng-click="auditeFriend($index,$event)">接受
+            </button>
+
+            <p ng-show="itm.ftype=='0' && itm.status=='0'">等待对方验证</p>
+
+            <p ng-show="itm.ftype=='0' && itm.status=='1'">已添加</p>
+          </i>
+
+        <ion-option-button class="button-assertive" ng-click="deleterequestinfo(itm.iid)">
+          删除
+        </ion-option-button>
 
       </ion-item>
 
-      <ion-item class="item-divider">
-        我添加的朋友
-      </ion-item>
-
-      <ion-item ng-show="newfriend_list.meaddlist.length==0">
+      <ion-item ng-show="newfriend.model_list.length==0">
         暂无好友
       </ion-item>
-
-
-      <ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.meaddlist"
-                ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">
-
-        <img ng-src="{{itm.photourl}}">
-        <h2 ng-bind="itm.appnickname"></h2>
-        <p ng-bind="itm.memo==''?''+itm.name:itm.memo"></p>
-
-        <i class="icon">
-          <p ng-show="itm.status=='0'">等待对方验证</p>
-          <p ng-show="itm.status=='1'">已通过</p>
-        </i>
-
-      </ion-item>
-
     </ion-list>
+
+    <!---->
+    <!--<ion-list>-->
+    <!--<ion-item class="item-divider">-->
+    <!--添加我的朋友-->
+    <!--</ion-item>-->
+
+    <!--<ion-item ng-show="newfriend_list.otherlist.length==0">-->
+    <!--暂无好友-->
+    <!--</ion-item>-->
+
+    <!--<ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.otherlist"-->
+    <!--ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">-->
+
+    <!--<img ng-src="{{itm.photourl}}">-->
+    <!--<h2 ng-bind="itm.appnickname"></h2>-->
+    <!--<p ng-bind="itm.memo==''?'我是'+itm.name:itm.memo"></p>-->
+
+    <!--<i class="icon">-->
+    <!--<p ng-show="itm.status=='1'">已添加</p>-->
+    <!--<button class="button button-orange button-small" ng-show="itm.status=='0'">接受</button>-->
+    <!--</i>-->
+
+    <!--</ion-item>-->
+
+    <!--<ion-item class="item-divider">-->
+    <!--我添加的朋友-->
+    <!--</ion-item>-->
+
+    <!--<ion-item ng-show="newfriend_list.meaddlist.length==0">-->
+    <!--暂无好友-->
+    <!--</ion-item>-->
+
+
+    <!--<ion-item class="item item-avatar item-icon-right" ng-repeat="itm in newfriend_list.meaddlist"-->
+    <!--ng-click="open_wnd_newfriend_edit(itm.iid,itm.ftype)">-->
+
+    <!--<img ng-src="{{itm.photourl}}">-->
+    <!--<h2 ng-bind="itm.appnickname"></h2>-->
+    <!--<p ng-bind="itm.memo==''?''+itm.name:itm.memo"></p>-->
+
+    <!--<i class="icon">-->
+    <!--<p ng-show="itm.status=='0'">等待对方验证</p>-->
+    <!--<p ng-show="itm.status=='1'">已通过</p>-->
+    <!--</i>-->
+
+    <!--</ion-item>-->
+
+    <!--</ion-list>-->
 
 
   </ion-content>

@@ -1,5 +1,4 @@
 <ion-view cache-view="false" view-title="{{tab.currtitle}}">
-
 </ion-view>
 
 
@@ -26,7 +25,9 @@
            icon-on="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-contact-active" ng-click="clicktab(2)" >
 
     <ion-view ng-controller="friend_list" cache-view="false">
+
       <ion-content overflow-scroll="false">
+        <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
         <div ng-include="'templates/friend/friend_list.html'"></div>
       </ion-content>
 
@@ -67,7 +68,6 @@
       <div class="rj-contacts-middle-bar" ng-show="right_bar_ui.navshowhide">
         {{right_bar_ui.navtitle}}
       </div>
-
 
     </ion-view>
 

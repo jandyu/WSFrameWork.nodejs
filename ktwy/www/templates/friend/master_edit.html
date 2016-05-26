@@ -27,6 +27,7 @@
         <ion-label>房号:</ion-label>
         <div class="col">{{master.model.roompath}}</div>
       </ion-item>
+
       <div class="row" align="center" ng-show="usercenter.userid!=master.model.iid">
         <button class="button button-block button-orange" ng-show="master.model.fstatus=='0'" ng-click="addfriend()">添加</button>
         <button class="button button-block button-orange" ng-show="master.model.fstatus=='1'" ng-click="audite()">通过验证</button>

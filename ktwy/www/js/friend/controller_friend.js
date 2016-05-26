@@ -293,19 +293,73 @@ angular.module('ktwy.controllers')
       $state.go("root.master_list");
     };
 
+    $scope.auditeFriend=function(idx,$event)
+    {
+
+      var m_friend = {iid: $scope.newfriend.model_list[idx].iid, status: '1'};
+
+      $scope.newfriend.save_friend(m_friend).then(function (rtn) {
+        $scope.refresh();
+      }, function (rtn) {
+
+      });
+
+
+
+      $event.stopPropagation();
+    };
+
     //修改
     $scope.open_wnd_newfriend_edit = function (iid, ftype) {
 
-        var qry = [{'col': 'iid', 'logic': '=', 'val': iid, 'andor': 'and'},
-          {'col': 'ftype', 'logic': '=', 'val': ftype, 'andor': ''}]
-        $scope.newfriend.getmodel(qry).then(function (rtn) {
-          console.info("----------getmodel----------------");
-          console.info(rtn);
-        }, function (rtn) {
+      var qry = [{'col': 'iid', 'logic': '=', 'val': iid, 'andor': 'and'},
+        {'col': 'ftype', 'logic': '=', 'val': ftype, 'andor': ''}]
+      $scope.newfriend.getmodel(qry).then(function (rtn) {
+        console.info("----------getmodel----------------");
+        console.info(rtn);
+      }, function (rtn) {
 
-        });
+      });
 
       $state.go("root.newfriend_edit");
+    };
+
+    $scope.deleterequestinfo = function (iid) {
+
+      var confirmPopup = $ionicPopup.confirm({
+        title: '确认',
+        template: '确定要删除吗?',
+        cancelText: '取消',
+        cancelType: 'button-orange',
+        okText: '确定',
+        okType: 'button-orange'
+      });
+      confirmPopup.then(function (res) {
+        if (res) {
+
+
+          jsondal.Delete("app_wy_friend", iid, function (rtn) {
+            //保存完成
+            $ionicPopup.alert({
+              title: '提醒',
+              okType: 'button-orange',
+              template: '成功!'
+            });
+
+            $scope.refresh();
+            //$ionicHistory.clearHistory();
+            //$state.go("root.master_list", {}, {notify: true});
+
+          }, function (rtn) {
+            console.info(rtn);
+          });
+
+
+        }
+      }, function (rtn) {
+        console.info(rtn);
+      });
+
     };
 
     //导航
@@ -313,7 +367,7 @@ angular.module('ktwy.controllers')
       function (event, toState, toParams, fromState, fromParams) {
         //event.preventDefault();
         console.info(fromState);
-        if (fromState.name == "root.newfriend_edit" || fromState.name == "root.master_list") {
+        if (fromState.name == "root.newfriend_edit" || fromState.name == "root.master_list" || fromState.name == "root.master_edit_add") {
           $scope.refresh();
         }
       });
@@ -332,38 +386,17 @@ angular.module('ktwy.controllers')
 
       var m_friend = {iid: $scope.newfriend.model.iid, status: '1'};
 
-      var confirmPopup = $ionicPopup.confirm({
-        title: '确认',
-        template: '确定要通过验证吗?',
-        cancelText: '取消',
-        cancelType: 'button-orange',
-        okText: '确定',
-        okType: 'button-orange'
-      });
-      confirmPopup.then(function (res) {
-        if (res) {
+
+      $scope.newfriend.save_friend(m_friend).then(function (rtn) {
 
 
-          $scope.newfriend.save_friend(m_friend).then(function (rtn) {
-            //保存完成
-            $ionicPopup.alert({
-              title: '提醒',
-              okType: 'button-orange',
-              template: '成功!'
-            });
+        //$ionicHistory.goBack();
+        $state.go("root.newfriend_list", {}, {notify: true});
 
-            //$ionicHistory.goBack();
-            $state.go("root.newfriend_list", {}, {notify: true});
-
-          }, function (rtn) {
-
-          });
-
-
-        }
       }, function (rtn) {
 
       });
+
 
     };
 
@@ -491,7 +524,7 @@ angular.module('ktwy.controllers')
       function (event, toState, toParams, fromState, fromParams) {
         //event.preventDefault();
         console.info(fromState);
-        if (fromState.name == "root.master_edit") {
+        if (fromState.name == "root.master_edit" || fromState.name == "root.master_edit_add") {
           $scope.refresh();
         }
       });
@@ -542,54 +575,47 @@ angular.module('ktwy.controllers')
     };
 
     //添加朋友
-    $scope.addfriend = function (idx) {
+    $scope.addfriend = function () {
       //
-      var m_friend = {
-        iid: '0', category: '0',
-        mid: $scope.usercenter.userid,
-        fid: $scope.master.model.iid,
-        memo: '',
-        status: '0',
-        lastdtm: util.DateFormat(new Date(), 'yyyy-MM-dd hh:mm')
-      };
-
-      var confirmPopup = $ionicPopup.confirm({
-        title: '确认',
-        template: '确定要添加好友吗?',
-        cancelText: '取消',
-        cancelType: 'button-orange',
-        okText: '确定',
-        okType: 'button-orange'
-      });
-      confirmPopup.then(function (res) {
-        if (res) {
-
-
-          $scope.master.save_friend(m_friend).then(function (rtn) {
-            //保存完成
-            $ionicPopup.alert({
-              title: '提醒',
-              okType: 'button-orange',
-              template: '成功!'
-            });
-
-            //$ionicHistory.goBack();
-            $state.go("root.master_list", {}, {notify: true});
-
-          }, function (rtn) {
-            console.info(rtn);
-          });
-
-
-        }
-      }, function (rtn) {
-        console.info(rtn);
-      });
-
+      //$scope.master.model.memo=$scope.master.model.appnickname;
+      $state.go("root.master_edit_add");
     };
 
 
   })
 
+  .controller('master_edit_add', function ($scope, $stateParams, $state, $log, $ionicPopup, $ionicModal, $ionicActionSheet, $ionicHistory, service_roomselect, service_usercenter, service_dict, NativePlugin, service_wy_resource, service_master) {
+    $scope.usercenter = service_usercenter;
+    $scope.master = service_master;
 
+
+    //添加朋友
+    $scope.addfriend = function () {
+      //
+      var m_friend = {
+        iid: '0', category: '0',
+        mid: $scope.usercenter.userid,
+        fid: $scope.master.model.iid,
+        memo: $scope.master.model.memo,
+        status: '0',
+        lastdtm: util.DateFormat(new Date(), 'yyyy-MM-dd hh:mm')
+      };
+
+
+      $scope.master.save_friend(m_friend).then(function (rtn) {
+
+
+        $ionicHistory.goBack(-3);
+        //$ionicHistory.clearHistory();
+        //$state.go("root.master_list", {}, {notify: true});
+
+      }, function (rtn) {
+        console.info(rtn);
+      });
+
+
+    };
+
+
+  })
 ;

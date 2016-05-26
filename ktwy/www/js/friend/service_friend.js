@@ -77,7 +77,7 @@ angular.module('ktwy.services')
     var friend=angular.extend({},IService,{
       tablename_list:"v_m_app_wy_friend",
       tablename:"app_wy_friend",
-      order_list:[{col:'namec',sort:'asc'}],
+      order_list:[{col:'iid',sort:'desc'}],
       save_fileds:['iid','category','mid','fid','memo','status','lastdtm'],
       ini_model: function (gl) {
         var me=this;
