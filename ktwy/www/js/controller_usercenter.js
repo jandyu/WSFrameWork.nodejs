@@ -1,8 +1,9 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $log, $ionicModal, $ionicPopup, service_usercenter, service_usercenter_login) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $log, $ionicModal, $ionicPopup,NativePlugin, service_usercenter, service_usercenter_login) {
     $scope.usercenter = service_usercenter;
     $scope.usercenter_login = service_usercenter_login;
+
     //登录窗口
     $scope.login = function () {
       $scope.openLoginWnd();
@@ -83,6 +84,32 @@ angular.module('ktwy.controllers', [])
     $scope.$on('$destroy', function () {
       $scope.wnd_user_set.remove();
     });
+
+    //位置信息
+    $scope.locationinfo={info:""};
+    $scope.getcurrlocation=function()
+    {
+      NativePlugin.GetCurrLocation(function(position){
+        $scope.locationinfo.info=JSON.stringify(position);
+      },function(error){
+        $scope.locationinfo.info=JSON.stringify(error);
+      },{});
+    };
+
+    $scope.watchlocation=function()
+    {
+      NativePlugin.WatchLocation(function(position){
+        $scope.locationinfo.info=JSON.stringify(position);
+      },function(error){
+        $scope.locationinfo.info=JSON.stringify(error);
+      },{});
+    };
+    $scope.stopwatchlocation=function()
+    {
+      NativePlugin.WatchLocationClear();
+    };
+
+
 
   })
 

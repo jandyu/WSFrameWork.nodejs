@@ -25,7 +25,11 @@
     "cordova-plugin-file-transfer",
     "cordova-plugin-filepath",
     "com-sarriaroman-photoviewer",
-    "cordova-plugin-geolocation"
+    "phonegap-plugin-barcodescanner",
+    {
+      "locator": "https://github.com/apache/cordova-plugin-geolocation.git",
+      "id": "cordova-plugin-geolocation"
+    }
   ],
   "cordovaPlatforms": [
     "ios",

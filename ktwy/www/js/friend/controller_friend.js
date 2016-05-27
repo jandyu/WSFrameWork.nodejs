@@ -6,6 +6,7 @@ angular.module('ktwy.controllers')
     $scope.friend = service_friend;
     $scope.employee = service_employee;
 
+
     //ionNavBackButton.showBackButton
     $scope.qeryfilters = {selectidx: '0'};
     //修改过滤条件
@@ -519,6 +520,20 @@ angular.module('ktwy.controllers')
       $state.go("root.master_edit");
     };
 
+    $scope.barcodesan=function()
+    {
+      NativePlugin.BacodeSacn(function(result){
+
+        //result.cancelled为true表示取消了扫码
+        if(result.cancelled==false) {
+          $scope.qeryfilters.search_txt = result.text;
+          $scope.refresh();
+        }
+
+      },function(err){
+
+      },{});
+    };
     //导航
     $scope.$on('$stateChangeSuccess',
       function (event, toState, toParams, fromState, fromParams) {

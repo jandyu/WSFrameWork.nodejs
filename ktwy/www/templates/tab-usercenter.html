@@ -1,134 +1,151 @@
+<i ng-show="usercenter.userid=='0'?false:true">
 
-  <i ng-show="usercenter.userid=='0'?false:true">
+  <div class="row item item-icon-left item-icon-right" style="background-color: rgb(255,202,77);">
+    <i class="icon">
+      <image src="{{usercenter.photo_url}}"
+             style="background-color:#FFFFFF;width:61px;height: 61px;border-radius: 50%;"></image>
+    </i>
 
-    <div class="row item item-icon-left item-icon-right" style="background-color: rgb(255,202,77);">
-      <i class="icon">
-        <image src="{{usercenter.photo_url}}" style="background-color:#FFFFFF;width:61px;height: 61px;border-radius: 50%;"></image>
-      </i>
-
-      <div class="col-80 col-offset-20" >
-        <div class="row">
-          <div class="col">{{usercenter.nickname}}</div>
-        </div>
-        <div class="row item-input" style="font-size: 12px;">
-          <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small" style="width:25px;height:25px;margin-left:-8px;margin-top:-17px;"></i></div>
-          <div class="col-20" align="left">{{usercenter.name}}</div>
-          <div class="col-34" align="left">{{usercenter.phone}}</div>
-        </div>
-        <div class="row item-input" style="font-size: 12px;">
-          <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small" style="width:25px;height:25px;margin-left:-8px;margin-top:-17px;"></i></div>
-          <div class="col-90" align="left">{{usercenter.roompath}}</div>
-        </div>
+    <div class="col-80 col-offset-20">
+      <div class="row">
+        <div class="col">{{usercenter.nickname}}</div>
       </div>
-
-      <i class="icon width:20%;" ng-click="open_wnd_user_set()">
-        <image src="img/array_right_circle.png" style="background-color:#FFFFFF;width:27px;height: 27px;border-radius: 50%;"></image>
-      </i>
-    </div>
-
-
-    <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myhouse"></i>
-        </div>
-        <div class="col-85">我的房屋</div>
-        <i class="icon ion-ios-arrow-right"></i>
+      <div class="row item-input" style="font-size: 12px;">
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-person_small"
+                               style="width:25px;height:25px;margin-left:-8px;margin-top:-17px;"></i></div>
+        <div class="col-20" align="left">{{usercenter.name}}</div>
+        <div class="col-34" align="left">{{usercenter.phone}}</div>
       </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_childaccount"></i>
-        </div>
-        <div class="col-85">子账号管理</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myorder"></i>
-        </div>
-        <div class="col-85">我的订单</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_advance"></i>
-        </div>
-        <div class="col-85">意见反馈</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_version"></i>
-        </div>
-        <div class="col-85">版本信息</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
-
-      <button class="button button-block button-orange" ng-click="userExit()">退出当前账号</button>
-
-    </div>
-
-  </i>
-
-  <i ng-show="usercenter.userid=='0'?true:false" >
-
-    <div class="row" style="background-color: rgb(255,202,77);">
-      <div class="col" align="center">
-        <image src="img/person_photo_default.png" style="background-color:#FFFFFF;width:61px;height: 61px;border-radius: 50%;"></image>
-      </div>
-    </div>
-    <div class="row" style="background-color: rgb(255,202,77);">
-      <div class="col" align="center">
-        <div style="background-color: rgb(255,151,68);line-height:32px;width:81px;height:32px;border:2px solid #FFFFFF;border-radius: 50px;" ng-click="login()">立即登录</div>
+      <div class="row item-input" style="font-size: 12px;">
+        <div class="col-10"><i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-location_small"
+                               style="width:25px;height:25px;margin-left:-8px;margin-top:-17px;"></i></div>
+        <div class="col-90" align="left">{{usercenter.roompath}}</div>
       </div>
     </div>
 
-    <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myhouse"></i>
-        </div>
-        <div class="col-85">我的房屋</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
+    <i class="icon width:20%;" ng-click="open_wnd_user_set()">
+      <image src="img/array_right_circle.png"
+             style="background-color:#FFFFFF;width:27px;height: 27px;border-radius: 50%;"></image>
+    </i>
+  </div>
 
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_childaccount"></i>
-        </div>
-        <div class="col-85">子账号管理</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
 
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myorder"></i>
-        </div>
-        <div class="col-85">我的订单</div>
-        <i class="icon ion-ios-arrow-right"></i>
+  <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myhouse"></i>
       </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_advance"></i>
-        </div>
-        <div class="col-85">意见反馈</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
-      <div class="item item-input item-icon-right">
-        <div class="col-15">
-          <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_version"></i>
-        </div>
-        <div class="col-85">版本信息</div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </div>
-
+      <div class="col-85">我的房屋</div>
+      <i class="icon ion-ios-arrow-right"></i>
     </div>
-  </i>
 
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_childaccount"></i>
+      </div>
+      <div class="col-85">子账号管理</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myorder"></i>
+      </div>
+      <div class="col-85">我的订单</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_advance"></i>
+      </div>
+      <div class="col-85">意见反馈</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_version"></i>
+      </div>
+      <div class="col-85">版本信息</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+
+    <button class="button button-block button-orange" ng-click="userExit()">退出当前账号</button>
+
+  </div>
+
+</i>
+
+<i ng-show="usercenter.userid=='0'?true:false">
+
+  <div class="row" style="background-color: rgb(255,202,77);">
+    <div class="col" align="center">
+      <image src="img/person_photo_default.png"
+             style="background-color:#FFFFFF;width:61px;height: 61px;border-radius: 50%;"></image>
+    </div>
+  </div>
+  <div class="row" style="background-color: rgb(255,202,77);">
+    <div class="col" align="center">
+      <div
+        style="background-color: rgb(255,151,68);line-height:32px;width:81px;height:32px;border:2px solid #FFFFFF;border-radius: 50px;"
+        ng-click="login()">立即登录
+      </div>
+    </div>
+  </div>
+
+  <div class="list list_full_row" style="margin:0px 5px 0px 5px;">
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myhouse"></i>
+      </div>
+      <div class="col-85">我的房屋</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_childaccount"></i>
+      </div>
+      <div class="col-85">子账号管理</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_myorder"></i>
+      </div>
+      <div class="col-85">我的订单</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_advance"></i>
+      </div>
+      <div class="col-85">意见反馈</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div class="item item-input item-icon-right">
+      <div class="col-15">
+        <i class="kwwy-icon-url-orange kwwy-icon-512 kwwy-icon-512-usercenter_version"></i>
+      </div>
+      <div class="col-85">版本信息</div>
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+  </div>
+</i>
+
+<ion-list>
+  <ion-item class="button-bar">
+    <button class="button button-orange" ng-click="getcurrlocation()">获取位置</button>
+    <button class="button" ng-click="watchlocation()">监听位置</button>
+    <button class="button button-orange" ng-click="stopwatchlocation()">停止监听</button>
+  </ion-item>
+  <ion-item class="item-content">
+    <i ng-bind="locationinfo.info"></i>
+  </ion-item>
+</ion-list>
