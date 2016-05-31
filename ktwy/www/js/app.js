@@ -246,6 +246,17 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         }
       })
 
+      //百度地图-------------------
+      .state('root.bmap_list', {
+        url: '/bmap_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/bmap/bmap_list.html',
+            controller: 'bmap_list'
+          }
+        }
+      })
+
     ;
 
 

@@ -1,0 +1,19 @@
+<ion-view view-title="地图测试">
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-clear button-light" ng-click="open_wnd_visitor_edit(0)">新增</button>-->
+  <!--</ion-nav-buttons>-->
+
+  <ion-content scroll="true">
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="地址" ng-model="qeryfilters.search_txt">
+      </label>
+      <button class="button button-orange button-small" ng-click="searchAddress()">
+        查找
+      </button>
+    </div>
+    <div id="allmap" style="width:100%;height:500px;"></div>
+  </ion-content>
+
+</ion-view>
+

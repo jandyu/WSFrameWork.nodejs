@@ -86,22 +86,25 @@ angular.module('ktwy.controllers', [])
     });
 
     //位置信息
-    $scope.locationinfo={info:""};
+    $scope.locationinfo={test:[]};
     $scope.getcurrlocation=function()
     {
       NativePlugin.GetCurrLocation(function(position){
-        $scope.locationinfo.info=JSON.stringify(position);
+        //$scope.locationinfo.info=JSON.stringify(position);
+        $scope.locationinfo.test.push({info:JSON.stringify(position)});
       },function(error){
-        $scope.locationinfo.info=JSON.stringify(error);
+        $scope.locationinfo.test.push({info:JSON.stringify(error)});
       },{});
     };
 
     $scope.watchlocation=function()
     {
+      $scope.locationinfo.test=[];
       NativePlugin.WatchLocation(function(position){
-        $scope.locationinfo.info=JSON.stringify(position);
+        $scope.locationinfo.test.push({info:JSON.stringify(position)});
+        $scope.$apply();
       },function(error){
-        $scope.locationinfo.info=JSON.stringify(error);
+        $scope.locationinfo.test.push({info:JSON.stringify(error)});
       },{});
     };
     $scope.stopwatchlocation=function()

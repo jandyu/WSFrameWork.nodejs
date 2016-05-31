@@ -29,10 +29,17 @@
     {
       "locator": "https://github.com/apache/cordova-plugin-geolocation.git",
       "id": "cordova-plugin-geolocation"
+    },
+    {
+      "variables": {
+        "API_KEY": "1c49f46f333a675919df74001d057f09"
+      },
+      "locator": "https://github.com/ETENG-OSP/cordova-plugin-baidu-geolocation.git",
+      "id": "cordova-plugin-baidu-geolocation"
     }
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }

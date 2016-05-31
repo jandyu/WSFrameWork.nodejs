@@ -204,28 +204,13 @@ angular.module('ktwy.services')
       LocationDefaultOption: {
         timeout: 30000,//30秒内读取不到位置信息,则报超时错误
         enableHighAccuracy: true,//高精度(启用卫星定位,默认是网络定位)
-        maximumAge: 3000//如果是watch,则3秒钟触发一次
+        maximumAge: 3000,//如果是watch,则3秒钟触发一次
+        coorType:'bd09ll'//GCJ02\BD09LL
       },
       //获取当前位置信息,超时或者出错都调用err函数,通过error.code判断
       GetCurrLocation: function (succ, err, option) {
         var me = this;
         var options = angular.extend({}, me.LocationDefaultOption, option);
-
-        //var onSuccess = function (position) {
-        //  console.info('-----------GetCurrLocation succ info------------------');
-        //  console.info(position);
-        //  succ(position);
-        //};
-        //
-        //// onError Callback receives a PositionError object
-        ////
-        //var onError = function (error) {
-        //  console.info('-----------GetCurrLocation error info------------------');
-        //  console.info(error);
-        //  err(error);
-        //};
-        //navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-
 
         navigator.geolocation.getCurrentPosition(
           function (position) {
@@ -244,23 +229,6 @@ angular.module('ktwy.services')
       WatchLocation: function (succ, err, option) {
         var me = this;
         var options = angular.extend({}, me.LocationDefaultOption, option);
-
-        //var onSuccess = function (position) {
-        //  console.info('-----------watchlocation succ info------------------');
-        //  console.info(position);
-        //  succ(position);
-        //};
-        //
-        //// onError Callback receives a PositionError object
-        ////
-        //var onError = function (error) {
-        //  console.info('-----------watchlocation error info------------------');
-        //  console.info(error);
-        //  err(error);
-        //};
-        //// Options: throw an error if no update is received every 30 seconds.
-        //var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-
 
         var watchID = navigator.geolocation.watchPosition(
           function (position) {

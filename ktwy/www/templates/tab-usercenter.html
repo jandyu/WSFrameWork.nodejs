@@ -140,12 +140,16 @@
 </i>
 
 <ion-list>
+  <ion-item ui-sref="root.bmap_list">
+    地图测试
+  </ion-item>
   <ion-item class="button-bar">
     <button class="button button-orange" ng-click="getcurrlocation()">获取位置</button>
     <button class="button" ng-click="watchlocation()">监听位置</button>
     <button class="button button-orange" ng-click="stopwatchlocation()">停止监听</button>
   </ion-item>
-  <ion-item class="item-content">
-    <i ng-bind="locationinfo.info"></i>
+  <ion-item class="item-content" ng-repeat="itm in locationinfo.test">
+    <i ng-bind="itm.info"></i>
   </ion-item>
+
 </ion-list>
