@@ -1,0 +1,121 @@
+<ion-view view-title="通告编辑" >
+
+  <ion-content scroll="true" ng-show="true" class="item-divider">
+    <form name="my_form">
+      <ion-list class="list" align="left" style="padding:5px 5px 0px 5px;">
+
+
+        <ion-item class="item item-input" >
+          <i class="col-10">标题: </i>
+          <i class="col">
+            <input type="text" placeholder="请输入标题" ng-model="news_wy.model.title">
+          </i>
+        </ion-item>
+
+        <ion-item class=" item item-input-inset">
+          <div class="col" align="left">录入时间: {{news_wy.model.create_dt|to_dateformat:'yyyy-MM-dd'}}</div>
+          <div class="col-40" align="center">录入人: {{news_wy.model.creatername}}</div>
+        </ion-item>
+
+
+
+        <ion-item class="item item-input">
+             <textarea rows=9 placeholder="请输入通知内容" ng-model="news_wy.model.ctext"
+                       name="ctext"></textarea>
+        </ion-item>
+
+
+
+
+        <div class="item stable item-text-wrap">
+          <ion-label>上传图片:</ion-label>
+          <div class="col" align="left"  style="height:80px;">
+            <img src="{{itm.url}}" ng-repeat="itm in news_wy.model.imagelist_url"
+                 style="width:24%;height:98%;margin-left:2px;"
+                 ng-click="add_viewPhoto(itm.url,itm.id,$index)"
+                 on-hold="replacePhoto(itm.url,itm.id,$index)">
+          </div>
+        </div>
+
+
+
+
+        <div class="button-bar item-input-inset">
+          <a class="button button-blue" ng-click="savenews_wy()">保存</a>
+        </div>
+
+      </ion-list>
+    </form>
+  </ion-content>
+
+
+
+
+  <div class="news_wy_edit pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+          PhotoSwipe keeps only 3 of them in the DOM to save memory.
+          Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-view>

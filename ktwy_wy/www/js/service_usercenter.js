@@ -11,6 +11,10 @@ angular.module('ktwy.services', [])
       phone: '',
       deviceid: '',
       platform: '',
+      sex:'男',
+      birthday:new Date('1900-01-01'),
+      photo:'',
+      photo_url:'',
       //判断是否登录成功
       checkLogin: function () {
         var _this = this;

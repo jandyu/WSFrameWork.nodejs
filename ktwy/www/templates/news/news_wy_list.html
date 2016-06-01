@@ -1,0 +1,56 @@
+
+
+<ion-view view-title="公司通告" hide-back-button="true">
+  <!--<ion-nav-bar>-->
+  <!--<button ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item"><i class="icon ion-ios-arrow-back"></i> <span class="back-text" style="transform: translate3d(0px, 0px, 0px);"><span class="default-title hide">Back</span><span class="previous-title">首页</span></span></button>-->
+  <!--</ion-nav-bar>-->
+
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear" ng-click="$ionicGoBack()">
+      <i class="icon ion-ios-arrow-back"></i> 返回
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-show="false" ng-click="open_wnd_news_wy_edit(0)">新增</button>
+  </ion-nav-buttons>
+
+  <ion-content scroll="true">
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
+
+    <div class="list list_full_row" align="center" style="padding:5px 5px 0px 5px;">
+      <div class="row item-input-inset">
+        <div class="col {{qeryfilters.status=='0'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('0')">
+          未签收
+        </div>
+        <div class="col {{qeryfilters.status=='1'?'tab-define-active':'tab-define'}}" ng-click="changequeryfilter('1')">
+          已签收
+        </div>
+      </div>
+      <div class="row item-input-inset item-divider">
+        <div class="col-10 "><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-ring_pin" style="width:38px;"></i>
+        </div>
+        <div class="col-25">{{qeryfilters.status=='0'?'录入时间':'签收时间'}}</div>
+        <div class="col-75">房号</div>
+      </div>
+
+      <div class="item item-input-inset" ng-repeat="itm in news_wy.model_list"
+           ng-click="open_wnd_news_wy_edit(itm.iid)">
+        <div class="col-10"><i class="kwwy-icon-url-blue kwwy-icon-512 kwwy-icon-512-thumbtack" style="width:38px;"></i>
+        </div>
+        <div class="col-25">{{qeryfilters.status=='0'?(itm.create_dt | to_dateformat:"yyyy-MM-dd"):(itm.receive_dt |
+          to_dateformat:"yyyy-MM-dd")}}
+        </div>
+        <div class="col-75">{{itm.roompath}}</div>
+      </div>
+
+    </div>
+
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="news_wy.load_more"
+                         on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+
+</ion-view>
+

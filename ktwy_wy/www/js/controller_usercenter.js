@@ -31,6 +31,10 @@ angular.module('ktwy.controllers', [])
           service_usercenter.phone = "";
           service_usercenter.dpetid = "";
           service_usercenter.deptname = "";
+          service_usercenter.sex = "";
+          service_usercenter.birthday = "";
+          service_usercenter.photo = "";
+          service_usercenter.photo_url = "";
 
           $scope.usercenter_login.userLoginOut().then(
             function (rtn) {
@@ -87,6 +91,19 @@ angular.module('ktwy.controllers', [])
           service_usercenter.dpetid = arr_rtn[4];
           service_usercenter.deptname = arr_rtn[5];
           service_usercenter.phone = arr_rtn[6];
+
+          service_usercenter.sex = arr_rtn[7];
+          service_usercenter.birthday = new Date(arr_rtn[8]);
+          service_usercenter.photo = arr_rtn[9];
+          var purl = arr_rtn[10];
+          if (purl == "") {
+            purl = "img/person_photo_default.png";
+          }
+          else {
+            purl = wwwurl + purl.substr(1);
+          }
+          service_usercenter.photo_url = purl;
+
 
 
           window.clearInterval($scope.InterValObj);//停止计时器

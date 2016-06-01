@@ -257,6 +257,25 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         }
       })
 
+      //通知-------------------
+      .state('root.news_wy_list', {
+        url: '/news_wy_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_wy_list.html',
+            controller: 'news_wy_list'
+          }
+        }
+      })
+      .state('root.news_wy_edit', {
+        url: '/news_wy_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_wy_edit.html',
+            controller: 'news_wy_edit'
+          }
+        }
+      })
     ;
 
 

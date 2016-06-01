@@ -128,6 +128,38 @@ var IService = {
 
         return rtn;
       });
+  },
+  //删除数据---------------------------------
+  delmodel: function (deldat) {
+    var me = this;
+    return jsondal.doPromise(jsondal.Delete, me.tablename, deldat)
+      .then(function (rtn) {
+        console.info('---------del [' + me.tablename + '] data succ---------');
+        console.info(rtn);
+
+        return rtn;
+      }, function (rtn) {
+        console.info('---------del [' + me.tablename + '] data error---------');
+        console.info(rtn);
+
+        return rtn;
+      });
+  },
+  //执行过程---------------------------------
+  //过程名称\参数
+  exec: function (procname,procparams) {
+    var me = this;
+    return jsondal.doPromise(jsondal.Exec,procname, procparams)
+      .then(function (rtn) {
+        console.info('---------exec [' + procname + '] data succ---------');
+        console.info(rtn);
+        return rtn;
+      }, function (rtn) {
+        console.info('---------exec [' + procname + '] data error---------');
+        console.info(rtn);
+
+        return rtn;
+      });
   }
 };
 

@@ -1,0 +1,40 @@
+<ion-view view-title="评论信息">
+
+  <ion-content scroll="true">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
+
+
+    <div class="list">
+      <ion-item class="item item-avatar" ng-repeat="itm in news_reply_wy.model_list">
+        <img src="{{itm.photourl}}">
+        <h2>{{itm.uname}}</h2>
+        <p>
+          {{itm.rtext}}
+        </p>
+        <p>
+          时间:{{itm.rep_dt}}
+          <a href="#" class="subdued" style="margin-left:20px;" ng-show="itm.uid==usercenter.userid"
+          ng-click="delreply(itm.iid)">删除</a>
+        </p>
+      </ion-item>
+    </div>
+
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="news_reply_wy.load_more"
+                         on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+  </ion-content>
+
+  <ion-footer-bar>
+
+      <div class="item item-input-inset item-borderless" style="width:100%;">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="评论内容" ng-model="sendReply.message">
+        </label>
+        <button class="button button-blue button-small" ng-click="sendMessage()">
+          发送
+        </button>
+      </div>
+
+
+  </ion-footer-bar>
+
+</ion-view>
