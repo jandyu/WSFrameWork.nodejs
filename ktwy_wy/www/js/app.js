@@ -216,7 +216,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
         }
       })
 
-      //通知-------------------
+      //公司通告-------------------
       .state('root.news_wy_list', {
         url: '/news_wy_list',
         views: {
@@ -255,6 +255,47 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
           }
         }
       })
+
+      //社区通知-------------------
+      .state('root.news_yz_list', {
+        url: '/news_yz_list',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_yz_list.html',
+            controller: 'news_yz_list'
+          }
+        }
+      })
+      .state('root.news_yz_edit', {
+        url: '/news_yz_edit',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_yz_edit.html',
+            controller: 'news_yz_edit'
+          }
+        }
+      })
+
+      .state('root.news_yz_detail', {
+        url: '/news_yz_detail',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_yz_detail.html',
+            controller: 'news_yz_detail'
+          }
+        }
+      })
+
+      .state('root.news_yz_detail_reply', {
+        url: '/news_yz_detail_reply',
+        views: {
+          'rootContent': {
+            templateUrl: 'templates/news/news_yz_detail_reply.html',
+            controller: 'news_yz_detail_reply'
+          }
+        }
+      })
+
 
 
     ;

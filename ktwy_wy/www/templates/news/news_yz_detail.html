@@ -1,24 +1,24 @@
-<ion-view view-title="通告详情">
+<ion-view view-title="通知详情">
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-light" ng-click="reply()">({{news_wy.model.repcnt}})评论</button>
+    <button class="button button-clear button-light" ng-click="reply()">({{news_yz.model.repcnt}})评论</button>
   </ion-nav-buttons>
 
   <ion-content scroll="true">
     <div class="list">
       <ion-item class="item item-body item-borderless" align="center">
-        <h2>{{news_wy.model.title}}</h2>
+        <h2>{{news_yz.model.title}}</h2>
 
         <p>
-          发布时间:{{news_wy.model.publish_dt|to_dateformat:'yyyy-MM-dd'}}
-          <a href="#" class="subdued" ng-click="settop(1)" ng-show="news_wy.model.topnumber==0">置顶</a>
-          <a href="#" class="subdued" ng-click="settop(0)" ng-show="news_wy.model.topnumber==1">取消置顶</a>
+          发布日期:{{news_yz.model.publish_dt|to_dateformat:'yyyy-MM-dd'}}
+          <a href="#" class="subdued" ng-click="settop(1)" ng-show="news_yz.model.topnumber==0">置顶</a>
+          <a href="#" class="subdued" ng-click="settop(0)" ng-show="news_yz.model.topnumber==1">取消置顶</a>
           <a href="#" class="subdued" ng-click="delnews()">删除</a>
-          <a href="#" class="subdued" ng-click="open_wnd_news_wy_edit(news_wy.model.iid)">编辑</a>
+          <a href="#" class="subdued" ng-click="open_wnd_news_yz_edit(news_yz.model.iid)">编辑</a>
         </p>
 
-        <p align="left">{{news_wy.model.ctext}}</p>
-        <img class="full-image" src="{{itm.url}}" ng-repeat="itm in news_wy.model.imagelist_url_real"
-             ng-click="photoview(news_wy.model.imagelist_url_real,$index)">
+        <p align="left">{{news_yz.model.ctext}}</p>
+        <img class="full-image" src="{{itm.url}}" ng-repeat="itm in news_yz.model.imagelist_url_real"
+             ng-click="photoview(news_yz.model.imagelist_url_real,$index)">
       </ion-item>
 
 
@@ -28,8 +28,7 @@
 
 
 
-
-  <div class="news_wy_detail pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="news_yz_detail pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe.
          It's a separate element as animating opacity is faster than rgba(). -->
@@ -94,6 +93,7 @@
     </div>
 
   </div>
+
 
 
 </ion-view>

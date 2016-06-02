@@ -1,0 +1,24 @@
+
+
+<ion-view view-title="社区通知">
+
+  <ion-content scroll="true">
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="refresh()"></ion-refresher>
+
+    <ion-list>
+      <a class="item item-input notify" align="center" ng-repeat="itm in news_yz.model_list" ng-click="open_wnd_news_yz_edit(itm.iid,$event)">
+        <div class="col-18 button button-calm button-small" style="padding:0px 5px;font-size:12px;">通知</div>
+        <div class="col" align="left">{{itm.title}}</div>
+        <div class="col-15">{{(itm.publish_dt | to_dateformat:"MM-dd")}}</div>
+      </a>
+    </ion-list>
+
+
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="news_yz.load_more"
+                         on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+
+</ion-view>
+
