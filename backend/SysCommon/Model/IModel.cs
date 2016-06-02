@@ -553,55 +553,55 @@ namespace ws.data.jsonDal//ws.data.jsonDal
         /// <summary>
         /// defid
         /// </summary>
-        private string eidt_Grid_defid;
+        private string edit_Grid_defid;
 
-        public string Eidt_Grid_defid
+        public string Edit_Grid_defid
         {
-            get { return eidt_Grid_defid; }
-            set { eidt_Grid_defid = value; }
+            get { return edit_Grid_defid; }
+            set { edit_Grid_defid = value; }
         }
         /// <summary>
         /// frmid
         /// </summary>
-        private string eidt_Grid_frmid = "json";
+        private string edit_Grid_frmid = "json";
 
-        public string Eidt_Grid_frmid
+        public string Edit_Grid_frmid
         {
-            get { return eidt_Grid_frmid; }
-            set { eidt_Grid_frmid = value; }
+            get { return edit_Grid_frmid; }
+            set { edit_Grid_frmid = value; }
         }
         /// <summary>
         /// 排序信息
         /// {'col':'iid','sort':'asc'}或者[{'col':'iid','sort':'asc'},{'col':'name','sort':'asc'}]
         /// </summary>
-        private string eidt_Grid_Sort = "{'col':'iid','sort':'asc'}";
+        private string edit_Grid_Sort = "{'col':'iid','sort':'asc'}";
 
-        public string Eidt_Grid_Sort
+        public string Edit_Grid_Sort
         {
-            get { return eidt_Grid_Sort; }
-            set { eidt_Grid_Sort = value; }
+            get { return edit_Grid_Sort; }
+            set { edit_Grid_Sort = value; }
         }
 
         /// <summary>
         /// 每页显示的行数
         /// </summary>
-        private int eidt_Grid_PageSize = 50;
+        private int edit_Grid_PageSize = 50;
 
-        public int Eidt_Grid_PageSize
+        public int Edit_Grid_PageSize
         {
-            get { return eidt_Grid_PageSize; }
-            set { eidt_Grid_PageSize = value; }
+            get { return edit_Grid_PageSize; }
+            set { edit_Grid_PageSize = value; }
         }
 
         /// <summary>
         /// 是否显示分页信息
         /// </summary>
-        private bool eidt_Grid_ShowPager = true;
+        private bool edit_Grid_ShowPager = true;
 
-        public bool Eidt_Grid_ShowPager
+        public bool Edit_Grid_ShowPager
         {
-            get { return eidt_Grid_ShowPager; }
-            set { eidt_Grid_ShowPager = value; }
+            get { return edit_Grid_ShowPager; }
+            set { edit_Grid_ShowPager = value; }
         }
 
 

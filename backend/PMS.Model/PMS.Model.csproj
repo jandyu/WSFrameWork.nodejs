@@ -51,6 +51,8 @@
     <Compile Include="Model\M_RoomStruct.cs" />
     <Compile Include="Model\M_User.cs" />
     <Compile Include="Model\M_Vehicle.cs" />
+    <Compile Include="Model\M_Expres.cs" />
+    <Compile Include="Model\M_Visitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

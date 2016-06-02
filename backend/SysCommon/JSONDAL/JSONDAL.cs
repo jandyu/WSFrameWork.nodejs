@@ -38,6 +38,7 @@ namespace ws.data.jsonDal
                 }
 
                 string order_key = "";
+                defid = defid.ToLower();
 
                 if (defid.IndexOf('.') > -1)
                 {
