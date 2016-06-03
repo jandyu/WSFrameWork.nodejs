@@ -74,6 +74,15 @@ angular.module('ktwy.services')
           return itm.rid != "";
         });
 
+
+        if(me.model.topnumber=="" ||me.model.topnumber=="0")
+        {
+          me.model.topnumber=false;
+        }
+        else {
+          me.model.topnumber=true;
+        }
+
       },
       savemodel_before: function (dat) {
         var me = this;
@@ -87,6 +96,14 @@ angular.module('ktwy.services')
           ls_img = ls_img.substr(0, ls_img.length - 1);
         }
         dat.imagelist_img = ls_img;
+
+        if(dat.topnumber==true)
+        {
+          dat.topnumber='1';
+        }
+        else {
+          dat.topnumber = "0";
+        }
 
         dat.ctext = dat.ctext.replace(/\n/g, '');
 
@@ -135,6 +152,8 @@ angular.module('ktwy.services')
         }
       },
       savemodel_before: function (dat) {
+
+
         return dat;
       },
     });
@@ -217,6 +236,16 @@ angular.module('ktwy.services')
           return itm.rid != "";
         });
 
+
+
+        if(me.model.topnumber=="" ||me.model.topnumber=="0")
+        {
+          me.model.topnumber=false;
+        }
+        else {
+          me.model.topnumber=true;
+        }
+
       },
       savemodel_before: function (dat) {
         var me = this;
@@ -230,6 +259,14 @@ angular.module('ktwy.services')
           ls_img = ls_img.substr(0, ls_img.length - 1);
         }
         dat.imagelist_img = ls_img;
+
+        if(dat.topnumber==true)
+        {
+          dat.topnumber='1';
+        }
+        else {
+          dat.topnumber = "0";
+        }
 
         dat.ctext = dat.ctext.replace(/\n/g, '');
 

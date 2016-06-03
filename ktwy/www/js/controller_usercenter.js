@@ -112,6 +112,15 @@ angular.module('ktwy.controllers', [])
       NativePlugin.WatchLocationClear();
     };
 
+    $scope.vibratet=function()
+    {
+      NativePlugin.Vibrate([0,1000,1000]);
+    };
+
+    $scope.beep=function()
+    {
+      navigator.notification.beep();
+    };
 
 
   })

@@ -36,7 +36,9 @@
       },
       "locator": "https://github.com/ETENG-OSP/cordova-plugin-baidu-geolocation.git",
       "id": "cordova-plugin-baidu-geolocation"
-    }
+    },
+    "cordova-plugin-vibration",
+    "cordova-plugin-dialogs"
   ],
   "cordovaPlatforms": [
     "android",

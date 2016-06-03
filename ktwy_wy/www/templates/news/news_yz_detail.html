@@ -10,8 +10,8 @@
 
         <p>
           发布日期:{{news_yz.model.publish_dt|to_dateformat:'yyyy-MM-dd'}}
-          <a href="#" class="subdued" ng-click="settop(1)" ng-show="news_yz.model.topnumber==0">置顶</a>
-          <a href="#" class="subdued" ng-click="settop(0)" ng-show="news_yz.model.topnumber==1">取消置顶</a>
+          <a href="#" class="subdued" ng-click="settop(1)" ng-show="news_yz.model.topnumber==false">置顶</a>
+          <a href="#" class="subdued" ng-click="settop(0)" ng-show="news_yz.model.topnumber==true">取消置顶</a>
           <a href="#" class="subdued" ng-click="delnews()">删除</a>
           <a href="#" class="subdued" ng-click="open_wnd_news_yz_edit(news_yz.model.iid)">编辑</a>
         </p>

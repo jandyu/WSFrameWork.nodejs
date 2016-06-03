@@ -8,7 +8,7 @@
       Your Name Here
     </author>
   <content src="http://wy.zjy8.cn/wy/www_wy/index.html"/>
-  <content src="index.html"/>
+  <!--<content src="index.html"/>-->
   <access origin="*"/>
   <allow-navigation href="http://wy.zjy8.cn/*"/>
   <preference name="webviewbounce" value="false"/>

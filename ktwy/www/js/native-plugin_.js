@@ -158,12 +158,12 @@ angular.module('ktwy.services')
 
         ft.upload(fileURL, uri, onsucc, fail, options);
       },
-      //3图片浏览photoview-----------------------------------------------------------------------------------------------------
+      //photoview------------------------
       //PhotoViewer.show('http://my_site.com/my_image.jpg', 'Optional Title')
       PhotoView: function (url, title) {
         PhotoViewer.show(url, title)
       },
-      //多图片浏览
+      //3多图片浏览--------------------------------------------------------------------------------------------------
       //urls:图片地址数组
       //idx:打开之后默认显示数组中的第几个图片;
       //cls:浏览图片窗口的类,例如:.repair_detail.pswp
@@ -200,29 +200,38 @@ angular.module('ktwy.services')
         gallery.init();
 
       },
-      //4定位信息--------------------------------------------------------------------------------------------------------------
+      //4定位信息--------------------------------------------------------------------------------------------------
       LocationDefaultOption: {
         timeout: 30000,//30秒内读取不到位置信息,则报超时错误
         enableHighAccuracy: true,//高精度(启用卫星定位,默认是网络定位)
-        maximumAge: 3000,//如果是watch,则3秒钟触发一次
-        coorType:'bd09ll'//GCJ02\BD09LL
+        maximumAge: 3000//如果是watch,则3秒钟触发一次
       },
       //获取当前位置信息,超时或者出错都调用err函数,通过error.code判断
       GetCurrLocation: function (succ, err, option) {
         var me = this;
         var options = angular.extend({}, me.LocationDefaultOption, option);
 
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            console.info('-----------GetCurrLocation succ info------------------');
-            console.info(position);
-            succ(position);
-          }, function (error) {
-            console.info('-----------GetCurrLocation error info------------------');
-            console.info(error);
-            err(error);
-          }, options);
+        var onSuccess = function (position) {
+          console.info('Latitude: ' + position.coords.latitude + '\n' +
+            'Longitude: ' + position.coords.longitude + '\n' +
+            'Altitude: ' + position.coords.altitude + '\n' +
+            'Accuracy: ' + position.coords.accuracy + '\n' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+            'Heading: ' + position.coords.heading + '\n' +
+            'Speed: ' + position.coords.speed + '\n' +
+            'Timestamp: ' + position.timestamp + '\n');
 
+          succ(position);
+        };
+
+        // onError Callback receives a PositionError object
+        //
+        var onError = function (error) {
+          console.info('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+          err(error);
+        };
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
       },
       //位置信息变化触发的事件
       //
@@ -230,61 +239,38 @@ angular.module('ktwy.services')
         var me = this;
         var options = angular.extend({}, me.LocationDefaultOption, option);
 
-        var watchID = navigator.geolocation.watchPosition(
-          function (position) {
-            console.info('-----------watchlocation succ info------------------');
-            console.info(position);
-            succ(position);
-          }, function (error) {
-            console.info('-----------watchlocation error info------------------');
-            console.info(error);
-            err(error);
-          }, options);
-        me.WatchID = watchID;
+        var onSuccess = function (position) {
+          console.info('Latitude: ' + position.coords.latitude + '\n' +
+            'Longitude: ' + position.coords.longitude + '\n' +
+            'Altitude: ' + position.coords.altitude + '\n' +
+            'Accuracy: ' + position.coords.accuracy + '\n' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+            'Heading: ' + position.coords.heading + '\n' +
+            'Speed: ' + position.coords.speed + '\n' +
+            'Timestamp: ' + position.timestamp + '\n');
+          succ(position);
+        };
+
+        // onError Callback receives a PositionError object
+        //
+        var onError = function (error) {
+          console.info('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+          err(error);
+        };
+
+        // Options: throw an error if no update is received every 30 seconds.
+        var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        return watchID;
       },
       //如果使用WatchLocation,不用时,要调用此函数关闭监听
-      WatchLocationClear: function () {
-        var me = this;
-        navigator.geolocation.clearWatch(me.WatchID);
-      },
-      //5扫码--------------------------------------------------------------------------------------------------------------
-      BacodeSacnDefaultOption: {
-        "preferFrontCamera": true, // iOS and Android
-        "showFlipCameraButton": true, // iOS and Android
-        "prompt": "请将二维码调整到方框内", // supported on Android only
-        "formats": "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
-        "orientation": "landscape" // Android only (portrait|landscape), default unset so it rotates with the device
-      },
-      BacodeSacn: function (succ, err, option) {
-        var me = this;
-
-        var options = angular.extend({}, me.BacodeSacnDefaultOption, option);
-
-        cordova.plugins.barcodeScanner.scan(
-          function (result) {
-            console.info("-------scan succ result----------");
-            console.info(result);
-            succ(result);
-          },
-          function (error) {
-            console.info("-------scan succ result----------");
-            console.info(error)
-            err(error);
-          }, options
-        );
-
-      },
-      //6震动--------------------------------------------------------------------------------------------------------------
-      //time是数字或者数字数组
-      //1000或者[1000,2000,3000]
-      Vibrate: function (time) {
-        navigator.vibrate(time);
-      },
-      //7提示音--------------------------------------------------------------------------------------------------------------
-      Beep: function () {
-        navigator.notification.beep();
+      WatchLocationClear: function (watchid) {
+        navigator.geolocation.clearWatch(watchid);
       }
     };
 
     return Native_Plugin;
   });
+
+
+
