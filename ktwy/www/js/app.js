@@ -26,7 +26,7 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         service_usercenter.deviceid=device.uuid;
         service_usercenter.platform=device.platform.toLowerCase();
         $rootScope.$broadcast("kwsq-device-on-ready", {"deviceid":device.uuid});
-        NativePlugin.JPush_Init();
+        //NativePlugin.JPush_Init();
       }
     });
 

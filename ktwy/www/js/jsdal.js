@@ -23,6 +23,8 @@ var jsondal = {
     }
     return rtn;
   },
+
+  //字符转换--------------------
   TransStrToDB:function(strold)
   {
     var strnew=strold;
@@ -39,6 +41,44 @@ var jsondal = {
       strnew = strnew.replace(/@lt;br\/@gt;/g, '\r\n');
     }
     return strnew;
+  },
+  //字符串转换tags
+  transTagsReal:function(str,prefix)
+  {
+     //return _.map(str.split('-'),function(itm){return });
+    var rtn=[];
+    var arr=str.split('-');
+    var tmp="";
+    for(var i=0;i<arr.length;i++)
+    {
+      if(i==0) {
+        rtn.push(prefix+arr[0]);
+      }
+      else
+      {
+        tmp=rtn[i-1]+'_'+arr[i];
+        rtn.push(tmp);
+      }
+    }
+    console.info(rtn);
+    return rtn;
+  },
+  TransTagsYZ:function(str) {
+    var me=this;
+    return me.transTagsReal(str,'YZ');
+  },
+  TransTagsWY:function(str) {
+    var me=this;
+    return me.transTagsReal(str,'WY');
+  },
+  //字符串转换alias
+  TransAliasYZ:function(str)
+  {
+    return 'YZ'+str;
+  },
+  TransAliasWY:function(str)
+  {
+    return 'WY'+str;
   },
   //使用方法:
   //1、jsondal.Insert("app_resource_message",{priority:'9',target_type:'4',target:'15606526620',info:'注册,验证码54321,短信编号12345。【科腾社区】',status:'0'})

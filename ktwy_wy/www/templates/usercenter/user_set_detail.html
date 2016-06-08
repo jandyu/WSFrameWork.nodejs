@@ -1,0 +1,164 @@
+<ion-modal-view ng-controller="user_set_detail">
+  <ion-header-bar class="blue-bg light" align-title="center">
+    <button class="button button-clear" ng-click="close_wnd_user_set_detail()">返回</button>
+    <h1 class="title light">{{usercenter.title}}</h1>
+    <!--
+    <button class="button button-clear button-light" ng-click="saveUser()">保存</button>
+    -->
+  </ion-header-bar>
+
+
+  <ion-content scroll="true">
+
+    <div class="list list_full_row" ng-show="usercenter.type=='name'?true:false" style="margin:0px 5px 0px 5px;">
+      <ion-item class="item item-input-inset">
+        <div class="col">姓名:</div>
+        <div class="col-80">
+          <input class="col-80" type="text" placeholder="请输入姓名" ng-model="usercenter.name">
+        </div>
+      </ion-item>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue" ng-click="saveUser()">修改</button>
+      </div>
+
+    </div>
+
+
+    <div class="list list_full_row" ng-show="usercenter.type=='nickname'?true:false" style="margin:0px 5px 0px 5px;">
+      <ion-item class="item item-input-inset">
+        <div class="col">昵称:</div>
+        <div class="col-80">
+          <input class="col-80" type="text" placeholder="请输入昵称" ng-model="usercenter.nickname">
+        </div>
+      </ion-item>
+
+      <div class="item item-text-wrap" style="border-bottom: 0px;">
+        为了保护个人隐私,在与邻居交互过程中,将使用昵称.
+      </div>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue" ng-click="saveUser()">修改</button>
+      </div>
+
+    </div>
+
+
+    <div class="list list_full_row" ng-show="usercenter.type=='birthday'?true:false" style="margin:0px 5px 0px 5px;">
+
+      <ion-item class="row item item-input">
+        <div class="col">生日:</div>
+        <input class="col-66" type="date" placeholder="请输入预计到访日期" ng-model="usercenter.birthday">
+      </ion-item>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue" ng-click="saveUser()">修改</button>
+      </div>
+
+    </div>
+
+
+    <div class="list list_full_row" ng-show="usercenter.type=='sex'?true:false" style="margin:0px 5px 0px 5px;">
+      <ion-item class="item item-input-inset item-select">
+
+        <span class="input-label">性别:</span>
+        <select ng-model="usercenter.sex">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+
+      </ion-item>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue" ng-click="saveUser()">修改</button>
+      </div>
+
+    </div>
+
+    <div class="list list_full_row" ng-show="usercenter.type=='password'?true:false" style="margin:0px 5px 0px 5px;">
+      <ion-item class="item item-input-inset">
+        <div class="col">原密码:</div>
+        <div class="col-66">
+          <input type="password" placeholder="输入原密码" ng-model="m_model.oldpwd">
+        </div>
+      </ion-item>
+
+      <ion-item class="item item-input-inset">
+        <div class="col">新密码:</div>
+        <div class="col-66">
+          <input type="password" placeholder="输入新密码" ng-model="m_model.newpwd">
+        </div>
+      </ion-item>
+
+      <ion-item class="item item-input-inset">
+        <div class="col">确认新密码:</div>
+        <div class="col-66">
+          <input type="password" placeholder="再输入一次新密码" ng-model="m_model.reppwd">
+        </div>
+      </ion-item>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue" ng-click="changepassword()">确认提交</button>
+      </div>
+
+    </div>
+
+
+    <div class="list list_full_row" ng-show="usercenter.type=='phone'?true:false" style="margin:0px 5px 0px 5px;">
+      <ion-item class="item item-input-inset">
+        <div class="col">原号码:</div>
+        <div class="col-80">
+          <input type="text" placeholder="输入原号码" ng-model="usercenter.phone">
+        </div>
+      </ion-item>
+
+      <ion-item class="item item-input-inset item-button-right">
+        <div class="col">新号码:</div>
+        <div class="col-80">
+          <input type="tel" placeholder="输入新号码" ng-model="m_phone_model.newphone">
+        </div>
+
+        <button class="button button-blue button-small {{m_phone_model.btn_getcode_disabled}}"  style="font-size: 12px;" ng-click="getCheckCode_changephone()">{{m_phone_model.btn_getcode_txt}}</button>
+
+      </ion-item>
+
+      <ion-item class="item item-input-inset">
+        <div class="col">验证码:</div>
+        <div class="col-80">
+          <input type="text" placeholder="输入短信验证码" ng-model="m_phone_model.code">
+        </div>
+      </ion-item>
+
+      <div style="padding:5px;">
+        <button class="button button-block button-blue {{m_phone_model.btn_reg_disabled}}" ng-click="changephone()" >确认提交</button>
+      </div>
+
+    </div>
+
+
+    <div class="list list_full_row" ng-show="false" style="margin:0px 5px 0px 5px;">
+
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col">手机号码</div>
+        <div class="col-40">{{usercenter.phone}}</div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col">我的标签</div>
+        <div class="col-25"></div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+      <div class="item item-input-inset item-icon-right">
+        <div class="col">修改密码</div>
+        <div class="col-25"></div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-modal-view>

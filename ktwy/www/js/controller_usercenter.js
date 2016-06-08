@@ -126,7 +126,7 @@ angular.module('ktwy.controllers', [])
   })
 
   //登录
-  .controller('userlogin', function ($scope, $stateParams, $state, $log, $rootScope, $ionicPopup, $ionicModal, service_usercenter, service_usercenter_login) {
+  .controller('userlogin', function ($scope, $stateParams, $state, $log, $rootScope, $ionicPopup, $ionicModal, service_usercenter, service_usercenter_login,NativePlugin) {
 
     $scope.usercenter_login = service_usercenter_login;
 
@@ -158,6 +158,11 @@ angular.module('ktwy.controllers', [])
               purl = wwwurl + purl.substr(1);
             }
             service_usercenter.photo_url = purl;
+            service_usercenter.tags=arr_rtn[11];//获取tags
+
+            //注册推送信息
+            NativePlugin.JPush_Init({Tags:jsondal.TransTagsYZ(service_usercenter.tags),
+              Alias:jsondal.TransAliasYZ(service_usercenter.userid)});
 
             //登录成功则返回
             if ($scope.usercenter_login.willGoUrl != '')

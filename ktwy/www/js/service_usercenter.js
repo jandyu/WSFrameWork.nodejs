@@ -15,6 +15,7 @@ angular.module('ktwy.services', [])
     birthday:new Date('1900-01-01'),
     photo:'',
     photo_url:'',
+    tags:'',
 
     //设置时的标题
     title:'个人头像',
@@ -31,7 +32,7 @@ angular.module('ktwy.services', [])
         return true;
       }
     },
-    //保持用户信息
+    //保存用户信息
     saveUser:function(succ,fail)
     {
       var me=this;

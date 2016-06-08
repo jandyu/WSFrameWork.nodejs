@@ -102,8 +102,14 @@ angular.module('ktwy.controllers')
               purl=wwwurl+purl.substr(1);
             }
             service_usercenter.photo_url=purl;
+            service_usercenter.tags=arr_rtn[11];//获取tags
 
             console.info("自动登录成功!");
+
+            //注册推送信息
+            NativePlugin.JPush_Init({Tags:jsondal.TransTagsYZ(service_usercenter.tags),
+              Alias:jsondal.TransAliasYZ(service_usercenter.userid)});
+
             return;
           }
           console.info("自动登失败!");

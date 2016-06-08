@@ -15,6 +15,8 @@ angular.module('ktwy.services', [])
       birthday:new Date('1900-01-01'),
       photo:'',
       photo_url:'',
+      tags:'',
+
       //判断是否登录成功
       checkLogin: function () {
         var _this = this;
@@ -24,7 +26,24 @@ angular.module('ktwy.services', [])
         else {
           return true;
         }
+      },
+      //保存用户信息
+      saveUser:function(succ,fail)
+      {
+        var me=this;
+        var dat = {
+          iid:me.userid,
+          name:me.name,
+          sex:(me.sex=="男"?"0":"1"),
+          birthday:me.birthday,
+          employee_image:me.photo
+        };
+        jsondal.Update("sys_employee", dat, function(rtn){
+          rtn=jsondal.AnaRtn(rtn);
+          succ(rtn);
+        }, fail);
       }
+
     });
     return usercenter;
   })

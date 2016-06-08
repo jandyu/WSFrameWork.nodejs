@@ -69,10 +69,32 @@ angular.module('ktwy.controllers', [])
       $scope.LoginWnd.remove();
     });
 
+
+    //账号设置
+    $ionicModal.fromTemplateUrl('templates/usercenter/user_set.html', {
+      scope: $scope
+      //animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.wnd_user_set = modal;
+    });
+
+    $scope.open_wnd_user_set = function (iid) {
+      //此处初始化
+      $scope.wnd_user_set.show();
+    };
+
+    $scope.close_wnd_user_set = function () {
+
+      $scope.wnd_user_set.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.wnd_user_set.remove();
+    });
+
   })
 
   //登录
-  .controller('userlogin', function ($scope, $stateParams, $state, $log, service_usercenter, service_usercenter_login, $rootScope, $ionicPopup) {
+  .controller('userlogin', function ($scope, $stateParams, $state, $log, service_usercenter, service_usercenter_login, $rootScope, $ionicPopup,NativePlugin) {
 
     $scope.usercenter_login = service_usercenter_login;
 
@@ -103,6 +125,11 @@ angular.module('ktwy.controllers', [])
             purl = wwwurl + purl.substr(1);
           }
           service_usercenter.photo_url = purl;
+          service_usercenter.tags=arr_rtn[11];//获取tags
+
+          //注册推送信息
+          NativePlugin.JPush_Init({Tags:jsondal.TransTagsWY(service_usercenter.tags),
+            Alias:jsondal.TransAliasWY(service_usercenter.userid)});
 
 
 
@@ -284,4 +311,308 @@ angular.module('ktwy.controllers', [])
     */
 
   })
+
+
+  .controller('user_set', function ($scope, $stateParams, $state, $log, $ionicModal, $ionicPopup, NativePlugin, service_usercenter, service_usercenter_login, service_wy_resource) {
+    $scope.usercenter = service_usercenter;
+
+    //修改图像
+    $scope.change_photo = function () {
+      //获取图片
+      NativePlugin.GetPicture(function (imageData) {
+
+        console.log(NativePlugin.PictureModel.image_url);
+
+        //上传图片
+        NativePlugin.FileTrans(NativePlugin.PictureModel.image_url, function (rtn) {
+
+          console.info('--------uploadfile callback------------');
+          console.info(rtn);
+
+          //保存资源
+          service_wy_resource.model.category = '业主个人头像';
+          service_wy_resource.model.url = rtn;
+          service_wy_resource.objid = $scope.usercenter.userid;
+
+          $scope.usercenter.photo_url = wwwurl + rtn.substr(1);
+
+          service_wy_resource.SaveResource(function (rtn) {
+            console.info('--------save resource callback------------');
+            console.info(rtn);
+
+            $scope.usercenter.photo = jsondal.AnaRtn(rtn);
+            //保持照片信息
+            $scope.usercenter.saveUser(function (rtn) {
+              console.info('--------save user callback------------');
+              console.info(rtn);
+
+              $scope.$apply();
+            }, function (rtn) {
+              console.info('--------save user fail callback------------');
+              console.info(rtn);
+            });
+
+          }, function (rtn) {
+          });
+
+
+        }, function (rtn) {
+          console.log(JSON.stringify(rtn));
+        }, {});
+
+      }, function (message) {
+
+      }, {allowEdit: true});
+    };
+
+    $scope.saveUser = function () {
+      $scope.usercenter.saveUser(function (rtn) {
+      }, function (rtn) {
+        console.info(rtn);
+      });
+    };
+
+    //账号设置详情页
+    $ionicModal.fromTemplateUrl('templates/usercenter/user_set_detail.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.wnd_user_set_detail = modal;
+    });
+
+    $scope.open_wnd_user_set_detail = function (type, title) {
+      //此处初始化
+      $scope.usercenter.type = type;
+      $scope.usercenter.title = title;
+      $scope.wnd_user_set_detail.show();
+    };
+
+    $scope.close_wnd_user_set_detail = function () {
+
+      $scope.wnd_user_set_detail.hide();
+    };
+    $scope.$on('$destroy', function () {
+      $scope.wnd_user_set_detail.remove();
+    });
+  })
+
+  .controller('user_set_detail', function ($scope, $stateParams, $state, $log, $ionicModal, $ionicPopup, service_usercenter) {
+    $scope.usercenter = service_usercenter;
+    $scope.saveUser = function () {
+      $scope.usercenter.saveUser(function (rtn) {
+        $scope.close_wnd_user_set_detail();
+      }, function (rtn) {
+        console.info(rtn);
+      });
+    };
+
+    $scope.m_model = {oldpwd: '', newpwd: '', reppwd: ''};
+
+    $scope.changepassword = function () {
+      if ($scope.m_model.oldpwd == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '原密码不能为空!'
+        });
+
+        return;
+      }
+
+      if ($scope.m_model.newpwd == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '新密码不能为空!'
+        });
+
+        return;
+      }
+
+      if ($scope.m_model.newpwd != $scope.m_model.reppwd) {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '两次输入的密码不一致!'
+        });
+
+        return;
+      }
+
+      $scope.usercenter.changepassword($scope.m_model, function (rtn) {
+
+        rtn = jsondal.AnaRtn(rtn);
+        var arr_rtn = rtn.split(',');
+        if (arr_rtn[0] == "0") {
+          $ionicPopup.alert({
+            title: '提醒',
+            okType: 'button-orange',
+            template: '修改成功!'
+          });
+          $scope.close_wnd_user_set_detail();
+
+          $scope.m_model = {oldpwd: '', newpwd: '', reppwd: ''};
+        }
+        else {
+          $ionicPopup.alert({
+            title: '提醒',
+            okType: 'button-orange',
+            template: '原密码不正确!'
+          });
+        }
+
+      }, function (rtn) {
+        console.info(rtn);
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: rtn
+        });
+      });
+
+    };
+
+
+    $scope.InterValObj = null; //timer变量，控制时间
+    $scope.m_phone_model = {
+      oldphone: '',
+      newphone: '',
+      code: '',
+      btn_getcode_disabled: '',//获取验证码
+      btn_reg_disabled: 'disabled',//确认提交
+      btn_getcode_txt: '获取验证码',//获取验证码文本
+      checkcode_number: ''//短信编号
+    };
+
+    //获取短信验证码
+    $scope.getCheckCode_changephone = function () {
+
+      //向后台发送处理数据
+      var ls_phone = $scope.m_phone_model.newphone;//接受短信的手机
+      if (!util.IsPhone(ls_phone)) {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '手机号输入有误!'
+        });
+        return;
+      }
+      if (ls_phone == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '手机号不能为空!'
+        });
+        return;
+      }
+
+      //var InterValObj; //timer变量，控制时间
+      var count = 120; //间隔函数，1秒执行
+      var curCount;//当前剩余秒数
+      var msg_number = "";
+
+      $scope.usercenter.getCheckCode_updphone($scope.m_phone_model, function (rtn) {
+          curCount = count;
+          $scope.m_phone_model.checkcode_number = rtn;
+          $scope.m_phone_model.btn_getcode_disabled = "disabled";
+          $scope.m_phone_model.btn_reg_disabled = "";
+          $scope.m_phone_model.btn_getcode_txt = curCount + "秒内输入验证码(" + $scope.m_phone_model.checkcode_number + ")";
+          $scope.InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+        },
+        function (rtn) {
+
+        });
+
+      function SetRemainTime() {
+        console.info(curCount);
+        if (curCount == 0) {
+          window.clearInterval($scope.InterValObj);//停止计时器
+          $scope.m_phone_model.btn_getcode_disabled = "";
+          $scope.m_phone_model.btn_getcode_txt = "重新发送验证码";
+          $scope.m_phone_model.btn_reg_disabled = "disabled";
+        }
+        else {
+          curCount--;
+          $scope.m_phone_model.btn_getcode_txt = curCount + "秒内输入验证码(" + $scope.m_phone_model.checkcode_number + ")";
+        }
+        $scope.$apply();
+      }
+    };
+
+
+    $scope.changephone = function () {
+      if ($scope.usercenter.phone == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '原手机号不能为空!'
+        });
+
+        return;
+      }
+
+      if ($scope.m_phone_model.newphone == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '新手机号不能为空!'
+        });
+
+        return;
+      }
+
+      if ($scope.m_phone_model.code == "") {
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: '验证码不能为空!'
+        });
+
+        return;
+      }
+
+      $scope.usercenter.changephone($scope.m_phone_model, function (rtn) {
+
+        rtn = jsondal.AnaRtn(rtn);
+        var arr_rtn = rtn.split(',');
+        if (arr_rtn[0] == "0") {
+          $ionicPopup.alert({
+            title: '提醒',
+            okType: 'button-orange',
+            template: '修改成功!'
+          });
+          $scope.close_wnd_user_set_detail();
+
+          $scope.m_phone_model = {
+            oldphone: '',
+            newphone: '',
+            code: '',
+            btn_getcode_disabled: '',//获取验证码
+            btn_reg_disabled: 'disabled',//确认提交
+            btn_getcode_txt: '获取验证码',//获取验证码文本
+            checkcode_number: ''//短信编号
+          };
+        }
+        else {
+          $ionicPopup.alert({
+            title: '提醒',
+            okType: 'button-orange',
+            template: arr_rtn[1]
+          });
+        }
+
+      }, function (rtn) {
+        console.info(rtn);
+        $ionicPopup.alert({
+          title: '提醒',
+          okType: 'button-orange',
+          template: rtn
+        });
+      });
+
+    };
+
+
+  })
+
 ;
