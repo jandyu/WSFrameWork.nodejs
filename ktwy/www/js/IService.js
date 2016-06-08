@@ -30,6 +30,7 @@ var IService = {
 
         if (rtn.d != undefined) {
           $.each(rtn.d, function (k, v) {
+            $.each(v,function(k1,v1){v[k1]=jsondal.TransDBToStr(v1);});
             me.model_list.push(v);
           });
         }
@@ -79,6 +80,9 @@ var IService = {
         if (rtn.d != undefined) {
           me.model = rtn.d[0];
         }
+        $.each(me.model,function(k,v){
+          me.model[k]=jsondal.TransDBToStr(v);
+        });
         //通过getmodel_after处理获取的数据
         me.getmodel_after();
         return me.model;
@@ -105,6 +109,7 @@ var IService = {
     //处理保存的字段
     $.each(me.save_fileds, function (k, v) {
       dat[v] = me.model[v];
+      dat[v]=jsondal.TransStrToDB(dat[v]);
     });
 
     console.info('---------before save data [' + me.tablename + ']---------');
@@ -112,6 +117,7 @@ var IService = {
 
     //经过save_before处理
     dat=me.savemodel_before(dat);
+
     console.info('---------save_before deal data [' + me.tablename + ']---------');
     console.info(dat);
 
@@ -120,7 +126,6 @@ var IService = {
       .then(function (rtn) {
         console.info('---------save [' + me.tablename + '] data succ---------');
         console.info(rtn);
-
         return rtn;
       }, function (rtn) {
         console.info('---------save [' + me.tablename + '] data error---------');

@@ -53,6 +53,12 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
       return util.DateFormat(dt, ff);
     };
   })
+  .filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+      text=text.replace(/\n/g,'<br>');
+      return $sce.trustAsHtml(text);
+    }
+  }])
 
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 

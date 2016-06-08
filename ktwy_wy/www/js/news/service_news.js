@@ -82,6 +82,7 @@ angular.module('ktwy.services')
         else {
           me.model.topnumber=true;
         }
+
       },
       savemodel_before: function (dat) {
         var me = this;

@@ -8,6 +8,7 @@
 var wwwurl_message = "http://msg.zjy8.cn";
 
 var jsondal = {
+  debug:"true",//调试阶段,false:正式阶段
   database: "db_app",
   DealMessage: function () {
     $.getJSON(wwwurl_message + "/DealMsg.asmx/DealMessage?jsoncallback=?", {}, function (rtn) {
@@ -21,6 +22,23 @@ var jsondal = {
       rtn = rtn.substring(0, rtn.indexOf("'/>"));
     }
     return rtn;
+  },
+  TransStrToDB:function(strold)
+  {
+    var strnew=strold;
+    if(typeof(strnew)=="string") {
+      strnew = strnew.replace(/'/g, '’');
+      strnew = strnew.replace(/\n/g, '@lt;br/@gt;');
+    }
+    return strnew;
+  },
+  TransDBToStr:function(strold)
+  {
+    var strnew=strold;
+    if(typeof(strnew)=="string") {
+      strnew = strnew.replace(/@lt;br\/@gt;/g, '\r\n');
+    }
+    return strnew;
   },
   //使用方法:
   //1、jsondal.Insert("app_resource_message",{priority:'9',target_type:'4',target:'15606526620',info:'注册,验证码54321,短信编号12345。【科腾社区】',status:'0'})

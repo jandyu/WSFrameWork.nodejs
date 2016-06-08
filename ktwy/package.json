@@ -38,10 +38,17 @@
       "id": "cordova-plugin-baidu-geolocation"
     },
     "cordova-plugin-vibration",
-    "cordova-plugin-dialogs"
+    "cordova-plugin-dialogs",
+    {
+      "variables": {
+        "API_KEY": "c0c753c28b20b7a4a2f2c963"
+      },
+      "locator": "jpush-phonegap-plugin",
+      "id": "cn.jpush.phonegap.JPushPlugin"
+    }
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

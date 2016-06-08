@@ -16,7 +16,7 @@
           <a href="#" class="subdued" ng-click="open_wnd_news_wy_edit(news_wy.model.iid)">编辑</a>
         </p>
 
-        <p align="left">{{news_wy.model.ctext}}</p>
+        <p align="left" ng-bind-html="news_wy.model.ctext|to_trusted"></p>
         <img class="full-image" src="{{itm.url}}" ng-repeat="itm in news_wy.model.imagelist_url_real"
              ng-click="photoview(news_wy.model.imagelist_url_real,$index)">
       </ion-item>

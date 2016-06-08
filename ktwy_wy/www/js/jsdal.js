@@ -23,6 +23,23 @@ var jsondal = {
     }
     return rtn;
   },
+  TransStrToDB:function(strold)
+  {
+    var strnew=strold;
+    if(typeof(strnew)=="string") {
+      strnew = strnew.replace(/'/g, '’');
+      strnew = strnew.replace(/\n/g, '@lt;br/@gt;');
+    }
+    return strnew;
+  },
+  TransDBToStr:function(strold)
+  {
+    var strnew=strold;
+    if(typeof(strnew)=="string") {
+      strnew = strnew.replace(/@lt;br\/@gt;/g, '\n');
+    }
+    return strnew;
+  },
   //使用方法:
   //1、jsondal.Insert("app_resource_message",{priority:'9',target_type:'4',target:'15606526620',info:'注册,验证码54321,短信编号12345。【科腾社区】',status:'0'})
   //2、jsondal.Insert("app_resource_message",[{priority:'9',target_type:'4',target:'15606526620',info:'注册,验证码54321,短信编号12345。【科腾社区】',status:'0'}])

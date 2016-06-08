@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource','ngMessages'])
 
-  .run(function ($ionicPlatform,$rootScope,service_usercenter) {
+  .run(function ($ionicPlatform,$rootScope,service_usercenter,NativePlugin) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -26,8 +26,10 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
         service_usercenter.deviceid=device.uuid;
         service_usercenter.platform=device.platform.toLowerCase();
         $rootScope.$broadcast("kwsq-device-on-ready", {"deviceid":device.uuid});
+        NativePlugin.JPush_Init();
       }
     });
+
   })
   .filter('Imgurl', function (srvRESTfulAPI) {
     return function (imgurl) {
@@ -53,6 +55,12 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       return util.DateFormat(dt,ff);
     };
   })
+  .filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+      text=text.replace(/\n/g,'<br>');
+      return $sce.trustAsHtml(text);
+    }
+  }])
   /*
   .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('templateInjector');

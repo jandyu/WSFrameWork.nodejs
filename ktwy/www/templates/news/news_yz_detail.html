@@ -12,7 +12,7 @@
           发布时间:{{news_yz.model.publish_dt|to_dateformat:'yyyy-MM-dd'}}
         </p>
 
-        <p align="left">{{news_yz.model.ctext}}</p>
+        <p align="left" ng-bind-html="news_yz.model.ctext|to_trusted"></p>
         <img class="full-image" src="{{itm.url}}" ng-repeat="itm in news_yz.model.imagelist_url_real"
              ng-click="photoview(news_yz.model.imagelist_url_real,$index)">
       </ion-item>

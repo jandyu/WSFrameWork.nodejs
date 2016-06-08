@@ -283,7 +283,141 @@ angular.module('ktwy.services')
       //7提示音--------------------------------------------------------------------------------------------------------------
       Beep: function () {
         navigator.notification.beep();
+      },
+      //8极光推送--------------------------------------------------------------------------------------------------------------
+      JPush_DefaultOptions:{
+        Tags:[],//标签
+        Alias:""//别名
+      },
+      JPush_Init:function(option)
+      {
+        try {
+          var me=this;
+
+          if(option)
+          {
+            me.JPush_DefaultOptions= angular.extend({}, me.JPush_DefaultOptions, option);
+          }
+
+          window.plugins.jPushPlugin.init();
+          Native_Plugin.JPush_GetRegistrationID();
+
+          if (device.platform != "Android") {
+            window.plugins.jPushPlugin.setDebugModeFromIos();
+            window.plugins.jPushPlugin.setApplicationIconBadgeNumber(0);
+          } else {
+            window.plugins.jPushPlugin.setDebugMode(true);
+            window.plugins.jPushPlugin.setStatisticsOpen(false);
+          }
+
+        } catch (exception) {
+          console.info("----------jpush----------");
+          console.info(exception);
+        }
+      },
+      //8.1注册获取token
+      JPush_GetRegistrationID:function()
+      {
+        console.info("----------jpush----------");
+        window.plugins.jPushPlugin.getRegistrationID(Native_Plugin.JPush_OnGetRegistrationID);
+      },
+      JPush_OnGetRegistrationID:function(data)
+      {
+        try {
+          var me=this;
+          if (data.length == 0) {
+            var t1 = window.setTimeout(Native_Plugin.JPush_GetRegistrationID, 1000);
+          }
+          else {
+            Native_Plugin.JPush_BindEvent();
+          }
+        } catch (exception) {
+          console.info(exception);
+        }
+      },
+      //8.2绑定事件
+      JPush_BindEvent:function()
+      {
+        document.addEventListener("jpush.setTagsWithAlias", Native_Plugin.JPush_OnSetTagsWithAlias, false);
+        document.addEventListener("jpush.openNotification", Native_Plugin.JPush_OnOpenNotification, false);
+        document.addEventListener("jpush.receiveNotification", Native_Plugin.JPush_OnReceiveNotification, false);
+        document.addEventListener("jpush.receiveMessage", Native_Plugin.JPush_OnReceiveMessage, false);
+
+        window.plugins.jPushPlugin.setTagsWithAlias(Native_Plugin.JPush_DefaultOptions.Tags, Native_Plugin.JPush_DefaultOptions.Alias);
+      },
+      //8.2设置标签别名
+      JPush_SetTagsWithAlias:function(tagsWithalias)
+      {
+        var arr_tags=[];
+        var salias="";
+        if(!tagsWithalias)
+        {
+          tagsWithalias=Native_Plugin.JPush_DefaultOptions;
+        }
+        else
+        {
+          Native_Plugin.JPush_DefaultOptions.Tags=tagsWithalias.Tags;
+          Native_Plugin.JPush_DefaultOptions.Alias=tagsWithalias.Alias;
+        }
+        arr_tags=tagsWithalias.Tags;
+        salias=tagsWithalias.Alias;
+        console.info("----------jpush set tags alias----------");
+        window.plugins.jPushPlugin.setTagsWithAlias(arr_tags, salias);
+      },
+      JPush_OnSetTagsWithAlias:function(event)
+      {
+        try {
+          var requestCode=event.resultCode;
+          if (requestCode !='0') {
+            var t1 = window.setTimeout(Native_Plugin.JPush_SetTagsWithAlias, 1000);
+          }
+        } catch (exception) {
+          console.info(exception);
+        }
+      },
+      //8.3接收消息
+      JPush_OnReceiveMessage:function(event) {
+        try {
+          var message;
+          if (device.platform == "Android") {
+            message = window.plugins.jPushPlugin.receiveMessage.message;
+          } else {
+            message = event.content;
+          }
+        } catch (exception) {
+          console.log("JPushPlugin:onReceiveMessage-->" + exception);
+        }
+      },
+      //8.4接收通知
+      JPush_OnReceiveNotification:function(event) {
+        try {
+          var alertContent;
+          if (device.platform == "Android") {
+            alertContent = window.plugins.jPushPlugin.receiveNotification.alert;
+          } else {
+            alertContent = event.aps.alert;
+          }
+        } catch (exception) {
+          console.log(exception)
+        }
+      },
+      //8.5打开通知,在通知栏里打开时
+      JPush_OnOpenNotification:function(event) {
+        try {
+          //{title: "科湾社区", alert: "111", extras: Object}
+          //window.plugins.jPushPlugin.openNotification
+          var alertContent;
+          if (device.platform == "Android") {
+            alertContent = window.plugins.jPushPlugin.openNotification.alert;
+          } else {
+            alertContent = event.aps.alert;
+          }
+          alert("open Notification:" + alertContent);
+        } catch (exception) {
+          console.log("JPushPlugin:onOpenNotification" + exception);
+        }
       }
+
     };
 
     return Native_Plugin;
