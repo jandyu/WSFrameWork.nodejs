@@ -67,7 +67,7 @@ angular.module('ktwy.controllers')
 
 
 
-  .controller('home_wy', function ($scope, $stateParams, $state, $log,$ionicModal, service_usercenter,service_usercenter_login) {
+  .controller('home_wy', function ($scope, $stateParams, $state, $log,$ionicModal, service_usercenter,service_usercenter_login,NativePlugin) {
         $scope.usercenter = service_usercenter;
         $scope.usercenter_login=service_usercenter_login;
 

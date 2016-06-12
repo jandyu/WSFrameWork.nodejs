@@ -26,10 +26,17 @@
       "id": "cordova-plugin-camera"
     },
     "cordova-plugin-file-transfer",
-    "cordova-plugin-filepath"
+    "cordova-plugin-filepath",
+    {
+      "variables": {
+        "API_KEY": "454fcc38ad56fc9f0b0ef1b6"
+      },
+      "locator": "jpush-phonegap-plugin",
+      "id": "cn.jpush.phonegap.JPushPlugin"
+    }
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

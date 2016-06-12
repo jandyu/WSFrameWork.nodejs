@@ -52,11 +52,11 @@ var jsondal = {
     for(var i=0;i<arr.length;i++)
     {
       if(i==0) {
-        rtn.push(prefix+':'+arr[0]);
+        rtn.push(prefix+arr[0]);
       }
       else
       {
-        tmp=rtn[i-1]+'-'+arr[i];
+        tmp=rtn[i-1]+'_'+arr[i];
         rtn.push(tmp);
       }
     }
@@ -65,20 +65,20 @@ var jsondal = {
   },
   TransTagsYZ:function(str) {
     var me=this;
-    return me.transTagsReal(str,'yz');
+    return me.transTagsReal(str,'YZ');
   },
   TransTagsWY:function(str) {
     var me=this;
-    return me.transTagsReal(str,'wy');
+    return me.transTagsReal(str,'WY');
   },
   //字符串转换alias
   TransAliasYZ:function(str)
   {
-    return 'yz:'+str;
+    return 'YZ'+str;
   },
   TransAliasWY:function(str)
   {
-    return 'wy:'+str;
+    return 'WY'+str;
   },
   //使用方法:
   //1、jsondal.Insert("app_resource_message",{priority:'9',target_type:'4',target:'15606526620',info:'注册,验证码54321,短信编号12345。【科腾社区】',status:'0'})

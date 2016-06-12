@@ -287,7 +287,25 @@ angular.module('ktwy.services')
       //8极光推送--------------------------------------------------------------------------------------------------------------
       JPush_DefaultOptions:{
         Tags:[],//标签
-        Alias:""//别名
+        Alias:"",//别名
+        //程序在运行时接收到通知后调用的方法
+        //rtn:{"title":"科湾物管","alert":"通知","extras":{"key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
+        ReceiveNotificationCallBack:function(rtn){
+          console.info("-----------------ReceiveNotificationCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        },
+        //点击通知栏里的通知时调用的方法
+        //rtn:{"title":"科湾物管","alert":"通知","extras":{"cn.jpush.android.NOTIFICATION_TYPE":"0","key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"app":"cn.zjy8.kwwy","cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
+        OpenNotificationCallBack:function(rtn){
+          console.info("-----------------OpenNotificationCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        },
+        //接收到消息时调用的方法
+        //rtn:{"message":"自定义消息","extras":{"cn.jpush.android.CONTENT_TYPE":"","key1":"val1","cn.jpush.android.EXTRA":{"key1":"val1"},"cn.jpush.android.MSG_ID":"2010307257"}}
+        ReceiveMessageCallBack:function(rtn){
+          console.info("-----------------ReceiveMessageCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        }
       },
       JPush_Init:function(option)
       {
@@ -324,7 +342,7 @@ angular.module('ktwy.services')
       JPush_OnGetRegistrationID:function(data)
       {
         try {
-          var me=this;
+          console.info(data);
           if (data.length == 0) {
             var t1 = window.setTimeout(Native_Plugin.JPush_GetRegistrationID, 1000);
           }
@@ -378,24 +396,36 @@ angular.module('ktwy.services')
       //8.3接收消息
       JPush_OnReceiveMessage:function(event) {
         try {
-          var message;
+          var msg={};
           if (device.platform == "Android") {
-            message = window.plugins.jPushPlugin.receiveMessage.message;
+            msg=window.plugins.jPushPlugin.receiveMessage;
           } else {
-            message = event.content;
+            msg=event;
           }
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.ReceiveMessageCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.ReceiveMessageCallBack(msg);
+          }
+
         } catch (exception) {
           console.log("JPushPlugin:onReceiveMessage-->" + exception);
         }
       },
       //8.4接收通知
       JPush_OnReceiveNotification:function(event) {
+        console.info("------JPush_OnOpenNotification-------");
         try {
-          var alertContent;
+          var msg={};
           if (device.platform == "Android") {
-            alertContent = window.plugins.jPushPlugin.receiveNotification.alert;
+            msg=window.plugins.jPushPlugin.receiveNotification;
           } else {
-            alertContent = event.aps.alert;
+            msg=event.aps;
+          }
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.ReceiveNotificationCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.ReceiveNotificationCallBack(msg);
           }
         } catch (exception) {
           console.log(exception)
@@ -403,16 +433,19 @@ angular.module('ktwy.services')
       },
       //8.5打开通知,在通知栏里打开时
       JPush_OnOpenNotification:function(event) {
+        console.info("------JPush_OnOpenNotification-------");
         try {
-          //{title: "科湾社区", alert: "111", extras: Object}
-          //window.plugins.jPushPlugin.openNotification
-          var alertContent;
+          var msg={};
           if (device.platform == "Android") {
-            alertContent = window.plugins.jPushPlugin.openNotification.alert;
+            msg=window.plugins.jPushPlugin.openNotification;
           } else {
-            alertContent = event.aps.alert;
+            msg=event.aps;
           }
-          alert("open Notification:" + alertContent);
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBack(msg);
+          }
         } catch (exception) {
           console.log("JPushPlugin:onOpenNotification" + exception);
         }
