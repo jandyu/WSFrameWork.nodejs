@@ -107,7 +107,7 @@ angular.module('ktwy.controllers')
             console.info("自动登录成功!");
 
             //注册推送信息
-            NativePlugin.JPush_Init({Tags:jsondal.TransTagsYZ(service_usercenter.tags),
+            NativePlugin.JPush_SetTagsWithAlias({Tags:jsondal.TransTagsYZ(service_usercenter.tags),
               Alias:jsondal.TransAliasYZ(service_usercenter.userid)});
 
             return;

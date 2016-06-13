@@ -128,8 +128,10 @@ angular.module('ktwy.controllers', [])
           service_usercenter.tags=arr_rtn[11];//获取tags
 
           //注册推送信息
-          NativePlugin.JPush_Init({Tags:jsondal.TransTagsWY(service_usercenter.tags),
-            Alias:jsondal.TransAliasWY(service_usercenter.userid)});
+          var pushinfo={Tags:jsondal.TransTagsWY(service_usercenter.tags),
+            Alias:jsondal.TransAliasWY(service_usercenter.userid)};
+          console.info(pushinfo);
+          NativePlugin.JPush_SetTagsWithAlias(pushinfo);
 
 
 

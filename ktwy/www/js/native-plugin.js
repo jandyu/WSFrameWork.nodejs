@@ -280,27 +280,58 @@ angular.module('ktwy.services')
       Vibrate: function (time) {
         navigator.vibrate(time);
       },
-      //7提示音--------------------------------------------------------------------------------------------------------------
+      //7.提示音--------------------------------------------------------------------------------------------------------------
       Beep: function () {
         navigator.notification.beep();
       },
-      //8极光推送--------------------------------------------------------------------------------------------------------------
+      //8.极光推送--------------------------------------------------------------------------------------------------------------
       JPush_DefaultOptions:{
-        Tags:[],//标签
-        Alias:""//别名
+        Tags:["noregister"],//标签
+        Alias:"noregister",//别名
+        RegistrationID:'',//注册成功后返回的ID
+        //程序在运行时接收到通知后调用的方法
+        //返回值:
+        //android:{"title":"通知标题","alert":"通知内容","extras":{"key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
+        //ios:{"key1":"val1","key2":"val2","_j_msgid":3740634428,"aps":{"alert":"通知内容","badge":1,"sound":"default"}}
+        ReceiveNotificationCallBack:function(rtn){
+          console.info("-----------------ReceiveNotificationCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        },
+        //点击通知栏里的通知时调用的方法
+        //android:{"title":"通知标题","alert":"通知内容","extras":{"cn.jpush.android.NOTIFICATION_TYPE":"0","key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"app":"cn.zjy8.kwwy","cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
+        //ios:{"key1":"val1","key2":"val2","_j_msgid":3740634428,"aps":{"alert":"通知内容","badge":1,"sound":"default"}}
+        OpenNotificationCallBack:function(rtn){
+          console.info("-----------------OpenNotificationCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        },
+        //接收到消息时调用的方法
+        //android:{"message":"消息内容","extras":{"cn.jpush.android.CONTENT_TYPE":"","key1":"val1","cn.jpush.android.EXTRA":{"key1":"val1"},"cn.jpush.android.MSG_ID":"2010307257"}}
+        //ios:{"extras":{"key1":"val1","key2":"val2"},"content":"消息内容"}
+        ReceiveMessageCallBack:function(rtn){
+          console.info("-----------------ReceiveMessageCallBack----------------------");
+          console.info(JSON.stringify(rtn));
+        }
       },
       JPush_Init:function(option)
       {
         try {
-          var me=this;
 
-          if(option)
+          if(option && option!=undefined)
           {
-            me.JPush_DefaultOptions= angular.extend({}, me.JPush_DefaultOptions, option);
+            Native_Plugin.JPush_DefaultOptions= angular.extend({}, Native_Plugin.JPush_DefaultOptions, option);
           }
 
+          //初始化
           window.plugins.jPushPlugin.init();
+          //注册
           Native_Plugin.JPush_GetRegistrationID();
+
+          //注册监听事件
+          document.addEventListener("jpush.setTagsWithAlias",Native_Plugin.JPush_OnSetTagsWithAlias, false);
+          document.addEventListener("jpush.openNotification", Native_Plugin.JPush_OnOpenNotification, false);
+          document.addEventListener("jpush.receiveNotification", Native_Plugin.JPush_OnReceiveNotification, false);
+          document.addEventListener("jpush.receiveMessage", Native_Plugin.JPush_OnReceiveMessage, false);
+
 
           if (device.platform != "Android") {
             window.plugins.jPushPlugin.setDebugModeFromIos();
@@ -311,7 +342,7 @@ angular.module('ktwy.services')
           }
 
         } catch (exception) {
-          console.info("----------jpush----------");
+          console.info("----------jpush 异常----------");
           console.info(exception);
         }
       },
@@ -324,33 +355,31 @@ angular.module('ktwy.services')
       JPush_OnGetRegistrationID:function(data)
       {
         try {
-          var me=this;
+          console.info(data);
           if (data.length == 0) {
             var t1 = window.setTimeout(Native_Plugin.JPush_GetRegistrationID, 1000);
           }
-          else {
-            Native_Plugin.JPush_BindEvent();
+          else
+          {
+
+            //注册成功,设置注册ID到JPush_DefaultOptions
+            Native_Plugin.JPush_DefaultOptions.RegistrationID=data;
+            console.info("----------jpush RegistrationID----------");
+            console.info(Native_Plugin.JPush_DefaultOptions.RegistrationID);
+            //设置别名
+            Native_Plugin.JPush_SetTagsWithAlias();//设置默认别名和默认标签(noregister)
           }
         } catch (exception) {
           console.info(exception);
         }
       },
-      //8.2绑定事件
-      JPush_BindEvent:function()
-      {
-        document.addEventListener("jpush.setTagsWithAlias", Native_Plugin.JPush_OnSetTagsWithAlias, false);
-        document.addEventListener("jpush.openNotification", Native_Plugin.JPush_OnOpenNotification, false);
-        document.addEventListener("jpush.receiveNotification", Native_Plugin.JPush_OnReceiveNotification, false);
-        document.addEventListener("jpush.receiveMessage", Native_Plugin.JPush_OnReceiveMessage, false);
 
-        window.plugins.jPushPlugin.setTagsWithAlias(Native_Plugin.JPush_DefaultOptions.Tags, Native_Plugin.JPush_DefaultOptions.Alias);
-      },
       //8.2设置标签别名
       JPush_SetTagsWithAlias:function(tagsWithalias)
       {
         var arr_tags=[];
         var salias="";
-        if(!tagsWithalias)
+        if(!tagsWithalias || tagsWithalias==undefined)
         {
           tagsWithalias=Native_Plugin.JPush_DefaultOptions;
         }
@@ -368,8 +397,33 @@ angular.module('ktwy.services')
       {
         try {
           var requestCode=event.resultCode;
+          console.info("----------jpush set tags and alias----------");
+          console.info(requestCode);
           if (requestCode !='0') {
             var t1 = window.setTimeout(Native_Plugin.JPush_SetTagsWithAlias, 1000);
+          }
+          else
+          {
+            //别名设置成功,修改后台app安装信息表中,如果为注册则添加到app_install_info表中
+            //Native_Plugin.JPush_DefaultOptions.RegistrationID
+            //Alias-用户id(YZ100或者WY999),如果未注册则为noregister
+            // TODO:未完成的方法
+            //添加安装信息
+            var procname="sp_app_install_info";
+            var procparams= {
+              registerid: Native_Plugin.JPush_DefaultOptions.RegistrationID,
+              alias: Native_Plugin.JPush_DefaultOptions.Alias,
+              deviceid:device.uuid
+            };
+
+            jsondal.doPromise(jsondal.Exec,procname, procparams)
+              .then(function (rtn) {
+                console.info('---------exec [' + procname + '] data succ---------');
+                console.info(rtn);
+              }, function (rtn) {
+                console.info('---------exec [' + procname + '] data error---------');
+                console.info(rtn);
+              });
           }
         } catch (exception) {
           console.info(exception);
@@ -378,12 +432,18 @@ angular.module('ktwy.services')
       //8.3接收消息
       JPush_OnReceiveMessage:function(event) {
         try {
-          var message;
+          var msg={};
           if (device.platform == "Android") {
-            message = window.plugins.jPushPlugin.receiveMessage.message;
+            msg=window.plugins.jPushPlugin.receiveMessage;
           } else {
-            message = event.content;
+            msg=event;
           }
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.ReceiveMessageCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.ReceiveMessageCallBack(msg);
+          }
+
         } catch (exception) {
           console.log("JPushPlugin:onReceiveMessage-->" + exception);
         }
@@ -391,11 +451,16 @@ angular.module('ktwy.services')
       //8.4接收通知
       JPush_OnReceiveNotification:function(event) {
         try {
-          var alertContent;
+          var msg={};
           if (device.platform == "Android") {
-            alertContent = window.plugins.jPushPlugin.receiveNotification.alert;
+            msg=window.plugins.jPushPlugin.receiveNotification;
           } else {
-            alertContent = event.aps.alert;
+            msg=event;
+          }
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.ReceiveNotificationCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.ReceiveNotificationCallBack(msg);
           }
         } catch (exception) {
           console.log(exception)
@@ -404,20 +469,27 @@ angular.module('ktwy.services')
       //8.5打开通知,在通知栏里打开时
       JPush_OnOpenNotification:function(event) {
         try {
-          //{title: "科湾社区", alert: "111", extras: Object}
-          //window.plugins.jPushPlugin.openNotification
-          var alertContent;
+          var msg={};
           if (device.platform == "Android") {
-            alertContent = window.plugins.jPushPlugin.openNotification.alert;
+            msg=window.plugins.jPushPlugin.openNotification;
           } else {
-            alertContent = event.aps.alert;
+            msg=event;
           }
-          alert("open Notification:" + alertContent);
+
+          if(typeof(Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBack)=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBack(msg);
+          }
         } catch (exception) {
           console.log("JPushPlugin:onOpenNotification" + exception);
         }
+      },
+      //8.6在ios上直接设置角标的值
+      //badge: 整形，例如 0，1，2（当 badge 为 0 时，角标被清除
+      JPush_SetBadge:function(badge)
+      {
+        window.plugins.jPushPlugin.setApplicationIconBadgeNumber(badge);
       }
-
     };
 
     return Native_Plugin;
