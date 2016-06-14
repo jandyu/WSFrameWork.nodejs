@@ -155,6 +155,19 @@ angular.module('ktwy.controllers')
     $scope.usercenter = service_usercenter;
     $scope.express = service_express;
 
+    //接收参数初始化对象------------------------------------
+    var express_IID=$stateParams.iid||"";
+    if(express_IID!="")
+    {
+      $scope.express.getmodel(express_IID).then(function(rtn){
+        console.info("----------getmodel----------------");
+        console.info(rtn);
+        $scope.express.model.md_url = wwwurl + rtn.md_url.substr(1);
+        $scope.express.model.bg_url = wwwurl + rtn.bg_url.substr(1);
+      },function(rtn){
+      });
+    }
+
     //保存
     $scope.saveexpress=function()
     {

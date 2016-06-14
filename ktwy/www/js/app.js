@@ -43,11 +43,6 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       return rtnurl;
     }
   })
-  .filter('to_trusted', ['$sce', function ($sce) {
-    return function (text) {
-      return $sce.trustAsHtml(text);
-    }
-  }])
   .filter('to_dateformat',function(){
     return function (sdt,ff){
       if(sdt=="") return "";
@@ -56,9 +51,12 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
     };
   })
   .filter('to_trusted', ['$sce', function ($sce) {
-    return function (text) {
-      text=text.replace(/\n/g,'<br>');
-      return $sce.trustAsHtml(text);
+    return function (txt) {
+      if(txt==undefined) {
+        txt = "";
+      }
+      txt=txt.replace(/\n/g,'<br>');
+      return $sce.trustAsHtml(txt);
     }
   }])
   /*
@@ -159,6 +157,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
       })
       .state('root.express_edit', {
         url: '/express_edit',
+        params:{iid:""},//传递的参数
+        cache:false,//禁用掉缓存
         views: {
           'rootContent': {
             templateUrl: 'templates/express/express_edit.html',
@@ -287,6 +287,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services','ngResource
 
       .state('root.news_yz_detail', {
         url: '/news_yz_detail',
+        params:{iid:""},//传递的参数
+        cache:false,//禁用掉缓存
         views: {
           'rootContent': {
             templateUrl: 'templates/news/news_yz_detail.html',

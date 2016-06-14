@@ -1,15 +1,14 @@
 angular.module('ktwy.controllers')
 
-  .controller('maintab', function ($scope, $ionicTabsDelegate,$ionicNavBarDelegate, $ionicModal,service_usercenter, service_usercenter_login) {
+  .controller('maintab', function ($scope, $ionicTabsDelegate, $ionicNavBarDelegate, $ionicModal, service_usercenter, service_usercenter_login) {
 
     $scope.usercenter = service_usercenter;
     $scope.usercenter_login = service_usercenter_login;
 
 
-    $scope.tab ={currtitle:'首页',idx:0};
-    $scope.clicktab = function (u)
-    {
-      if(u!=2) {
+    $scope.tab = {currtitle: '首页', idx: 0};
+    $scope.clicktab = function (u) {
+      if (u != 2) {
         //$ionicNavBarDelegate.title($ionicTabsDelegate._instances[0].tabs[u].title);
         $scope.tab.currtitle = $ionicTabsDelegate._instances[0].tabs[u].title;
         $ionicTabsDelegate.select(u);
@@ -24,7 +23,7 @@ angular.module('ktwy.controllers')
     //登陆后跳转到指定页面,未登陆则跳转到登陆页面,登陆完成后再跳转到要跳转到页面
     $scope.goAfterLogin = function (u) {
       if ($scope.usercenter.checkLogin() == true) {
-        $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[u].title;
+        $scope.tab.currtitle = $ionicTabsDelegate._instances[0].tabs[u].title;
         $ionicTabsDelegate.select(u);
         return true;
       }
@@ -54,7 +53,7 @@ angular.module('ktwy.controllers')
       $scope.LoginWnd.hide();
 
       if ($scope.usercenter.checkLogin() == true) {
-        $scope.tab.currtitle =  $ionicTabsDelegate._instances[0].tabs[$scope.tab.idx].title;
+        $scope.tab.currtitle = $ionicTabsDelegate._instances[0].tabs[$scope.tab.idx].title;
         $ionicTabsDelegate.select($scope.tab.idx);
         return true;
       }
@@ -66,55 +65,95 @@ angular.module('ktwy.controllers')
   })
 
 
-  .controller('home', function ($scope, $stateParams, $state, $log, $ionicModal,service_usercenter, service_usercenter_login,NativePlugin) {
+  .controller('home', function ($scope, $stateParams, $state, $log, $ionicModal, service_usercenter, service_usercenter_login, NativePlugin) {
     $scope.usercenter = service_usercenter;
     $scope.usercenter_login = service_usercenter_login;
 
 
     //自动登录
-    $scope.$on("kwsq-device-on-ready",function(event,msg){
+    $scope.$on("kwsq-device-on-ready", function (event, msg) {
 
-      console.info("service_usercenter:"+service_usercenter.deviceid);
-      service_usercenter_login.deviceid=service_usercenter.deviceid;
-      service_usercenter_login.platform=service_usercenter.platform;
-      $scope.usercenter_login.userLoginDevice().then(
-        function(rtn){
-          rtn=jsondal.AnaRtn(rtn);
-          var arr_rtn=rtn.split(',');
-          if(arr_rtn[0]=="0")
+      console.info("service_usercenter:" + service_usercenter.deviceid);
+      service_usercenter_login.deviceid = service_usercenter.deviceid;
+      service_usercenter_login.platform = service_usercenter.platform;
+
+      //初始化jpush
+      var jpush_option = {
+        //点击通知栏里的通知时调用的方法
+        //android:{"title":"通知标题","alert":"通知内容","extras":{"cn.jpush.android.NOTIFICATION_TYPE":"0","key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"app":"cn.zjy8.kwwy","cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
+        //ios:{"key1":"val1","key2":"val2","_j_msgid":3740634428,"aps":{"alert":"通知内容","badge":1,"sound":"default"}}
+        OpenNotificationCallBack: function (rtn) {
+          //解析rtn
+          var notify={url:'',iid:'',checklogin:true};
+          if(service_usercenter.platform=="ios")
           {
-            service_usercenter.userid=arr_rtn[1];
-            service_usercenter.roomid=arr_rtn[2];
-            service_usercenter.roompath=arr_rtn[3];
-            service_usercenter.name=arr_rtn[4];
-            service_usercenter.phone=arr_rtn[5];
-            service_usercenter.nickname=arr_rtn[6];
-            service_usercenter.sex=arr_rtn[7];
-            service_usercenter.birthday=new Date(arr_rtn[8]);
-            service_usercenter.photo=arr_rtn[9];
-            var purl=arr_rtn[10];
-            if(purl=="")
-            {
-              purl="img/person_photo_default.png";
+            notify={url:(rtn.url||""),iid:(rtn.iid||"")};
+          }
+          else
+          {
+            notify={url:(rtn.extras.url||""),iid:(rtn.extras.iid||"")};
+          }
+
+          //业主通知时不需要验证是否登陆
+          if(notify.url=="root.news_yz_detail"){
+            notify.checklogin=false;
+          }
+
+          if(notify.url!="") {
+            //登陆成功后才能看到
+            if(notify.checklogin==true) {
+              $scope.goAfterLogin(
+                function () {
+                  $state.go(notify.url, {iid: notify.iid});
+                }
+              );
             }
-            else
+            else//不需要登陆
             {
-              purl=wwwurl+purl.substr(1);
+              $state.go(notify.url, {iid: notify.iid});
             }
-            service_usercenter.photo_url=purl;
-            service_usercenter.tags=arr_rtn[11];//获取tags
+          }
+        }
+      };
+      NativePlugin.JPush_Init(jpush_option);
+
+      $scope.usercenter_login.userLoginDevice().then(
+        function (rtn) {
+          rtn = jsondal.AnaRtn(rtn);
+          var arr_rtn = rtn.split(',');
+          if (arr_rtn[0] == "0") {
+            service_usercenter.userid = arr_rtn[1];
+            service_usercenter.roomid = arr_rtn[2];
+            service_usercenter.roompath = arr_rtn[3];
+            service_usercenter.name = arr_rtn[4];
+            service_usercenter.phone = arr_rtn[5];
+            service_usercenter.nickname = arr_rtn[6];
+            service_usercenter.sex = arr_rtn[7];
+            service_usercenter.birthday = new Date(arr_rtn[8]);
+            service_usercenter.photo = arr_rtn[9];
+            var purl = arr_rtn[10];
+            if (purl == "") {
+              purl = "img/person_photo_default.png";
+            }
+            else {
+              purl = wwwurl + purl.substr(1);
+            }
+            service_usercenter.photo_url = purl;
+            service_usercenter.tags = arr_rtn[11];//获取tags
 
             console.info("自动登录成功!");
 
             //注册推送信息
-            NativePlugin.JPush_SetTagsWithAlias({Tags:jsondal.TransTagsYZ(service_usercenter.tags),
-              Alias:jsondal.TransAliasYZ(service_usercenter.userid)});
+            NativePlugin.JPush_SetTagsWithAlias({
+              Tags: jsondal.TransTagsYZ(service_usercenter.tags),
+              Alias: jsondal.TransAliasYZ(service_usercenter.userid)
+            });
 
             return;
           }
           console.info("自动登失败!");
-        },function(rtn){
-          console.info("自动登录失败!"+rtn);
+        }, function (rtn) {
+          console.info("自动登录失败!" + rtn);
         });
 
     });
@@ -122,11 +161,17 @@ angular.module('ktwy.controllers')
 
     //登录窗口
     //登陆后跳转到指定页面,未登陆则跳转到登陆页面,登陆完成后再跳转到要跳转到页面
+    //参数说明:url
+    //字符串:表示url,如果登陆成功,则系统会调用$state.go(url)
+    //function:表示回调函数,如果登陆成功,则系统执行该回调函数
     $scope.goAfterLogin = function (url) {
-      //$state.go(url);
-
       if ($scope.usercenter.checkLogin() == true) {
-        $state.go(url);
+        if (typeof(url) == "string") {
+          $state.go(url);
+        }
+        if (typeof(url) == "function") {
+          url();
+        }
       }
       else {
         $scope.usercenter_login.willGoUrl = url;
@@ -157,30 +202,27 @@ angular.module('ktwy.controllers')
       $scope.LoginWnd.remove();
     });
 
-    $scope.doRefresh=function()
-    {
+    $scope.doRefresh = function () {
       $scope.$broadcast('scroll.refreshComplete');
     };
-    $scope.reload=function()
-    {
+    $scope.reload = function () {
       window.location.reload();
     };
 
-    $scope.inijpush=function()
-    {
+    $scope.inijpush = function () {
       NativePlugin.JPush_Init();
     }
   })
 
 
-  .directive('rjPositionMiddle', ['$window', function($window){
-    return{
+  .directive('rjPositionMiddle', ['$window', function ($window) {
+    return {
       replace: false,
-      link: function(scope, iElm, iAttrs, controller){
+      link: function (scope, iElm, iAttrs, controller) {
         var height = $window.innerHeight - 44 - 49 - iElm[0].offsetHeight;
         if (height >= 0) {
           iElm[0].style.top = (height / 2 + 44) + 'px';
-        }else{
+        } else {
           iElm[0].style.top = 44 + 'px';
         }
       }

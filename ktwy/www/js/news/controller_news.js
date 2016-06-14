@@ -660,6 +660,19 @@ angular.module('ktwy.controllers')
     $scope.news_yz = service_news_yz;
     $scope.news_reply_yz = service_news_reply_yz;
 
+
+    //如果接收到参数,则初始化对象------------------------------------
+    var news_yz_IID=$stateParams.iid||"";
+    if(news_yz_IID!="")
+    {
+      $scope.news_yz.getmodel(news_yz_IID).then(function (rtn) {
+        $scope.$apply();
+      }, function (rtn) {
+
+      });
+    }
+
+
     $scope.open_wnd_news_yz_edit = function (iid) {
       $scope.news_yz.getmodel(iid).then(function (rtn) {
         $scope.$apply();

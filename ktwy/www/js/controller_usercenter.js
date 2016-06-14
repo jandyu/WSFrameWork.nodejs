@@ -167,9 +167,14 @@ angular.module('ktwy.controllers', [])
             //登录成功则返回
             if ($scope.usercenter_login.willGoUrl != '')
             {
-              console.info($scope.usercenter_login.willGoUrl);
-              $state.go($scope.usercenter_login.willGoUrl);
+              if(typeof($scope.usercenter_login.willGoUrl)=="string") {
+                $state.go($scope.usercenter_login.willGoUrl);
+              }
+              if(typeof($scope.usercenter_login.willGoUrl )=="function") {
+                $scope.usercenter_login.willGoUrl();
+              }
               $scope.usercenter_login.willGoUrl = "";
+
               $scope.closeLoginWnd();
             }
             else {
