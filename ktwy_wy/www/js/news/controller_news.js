@@ -236,6 +236,17 @@ angular.module('ktwy.controllers')
     $scope.news_wy = service_news_wy;
     $scope.news_reply_wy = service_news_reply_wy;
 
+    //如果接收到参数,则初始化对象------------------------------------
+    var news_wy_IID=$stateParams.iid||"";
+    if(news_wy_IID!="")
+    {
+      $scope.news_wy.getmodel(news_wy_IID).then(function (rtn) {
+        $scope.$apply();
+      }, function (rtn) {
+
+      });
+    }
+
     $scope.open_wnd_news_wy_edit = function (iid) {
       $scope.news_wy.getmodel(iid).then(function (rtn) {
         $scope.$apply();
@@ -348,14 +359,19 @@ angular.module('ktwy.controllers')
     //导航
     $scope.$on('$stateChangeSuccess',
       function (event, toState, toParams, fromState, fromParams) {
-        //if (fromState.name == "root.employee_edit") {}
-        $scope.news_wy.getmodel($scope.news_wy.model.iid).then(function (rtn) {
-          console.info("----------getmodel----------------");
-          console.info(rtn);
-          $scope.$apply();
-        }, function (rtn) {
 
-        });
+        //if (fromState.name == "root.employee_edit")
+        if(news_wy_IID=="")
+        {
+          $scope.news_wy.getmodel($scope.news_wy.model.iid).then(function (rtn) {
+            console.info("----------getmodel----------------");
+            console.info(rtn);
+            $scope.$apply();
+          }, function (rtn) {
+
+          });
+        }
+
       });
 
   })

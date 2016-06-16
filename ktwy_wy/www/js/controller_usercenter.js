@@ -1,6 +1,6 @@
 angular.module('ktwy.controllers', [])
 
-  .controller('usercenter', function ($scope, $stateParams, $state, $ionicModal, $log,$ionicPopup, service_usercenter, service_usercenter_login) {
+  .controller('usercenter', function ($scope, $stateParams, $state, $ionicModal, $log, $ionicPopup, service_usercenter, service_usercenter_login) {
     $scope.usercenter = service_usercenter;
     $scope.usercenter_login = service_usercenter_login;
     //登录窗口
@@ -11,8 +11,8 @@ angular.module('ktwy.controllers', [])
     };
 
     $scope.userExit = function () {
-      service_usercenter_login.deviceid=service_usercenter.deviceid;
-      service_usercenter_login.platform=service_usercenter.platform;
+      service_usercenter_login.deviceid = service_usercenter.deviceid;
+      service_usercenter_login.platform = service_usercenter.platform;
 
       var confirmPopup = $ionicPopup.confirm({
         title: '确认',
@@ -94,14 +94,14 @@ angular.module('ktwy.controllers', [])
   })
 
   //登录
-  .controller('userlogin', function ($scope, $stateParams, $state, $log, service_usercenter, service_usercenter_login, $rootScope, $ionicPopup,NativePlugin) {
+  .controller('userlogin', function ($scope, $stateParams, $state, $log, service_usercenter, service_usercenter_login, $rootScope, $ionicPopup, NativePlugin) {
 
     $scope.usercenter_login = service_usercenter_login;
 
 
     $scope.login = function () {
-      service_usercenter_login.deviceid=service_usercenter.deviceid;
-      service_usercenter_login.platform=service_usercenter.platform;
+      service_usercenter_login.deviceid = service_usercenter.deviceid;
+      service_usercenter_login.platform = service_usercenter.platform;
 
       $scope.usercenter_login.userLogin(function (rtn) {
         rtn = jsondal.AnaRtn(rtn);
@@ -125,14 +125,15 @@ angular.module('ktwy.controllers', [])
             purl = wwwurl + purl.substr(1);
           }
           service_usercenter.photo_url = purl;
-          service_usercenter.tags=arr_rtn[11];//获取tags
+          service_usercenter.tags = arr_rtn[11];//获取tags
 
           //注册推送信息
-          var pushinfo={Tags:jsondal.TransTagsWY(service_usercenter.tags),
-            Alias:jsondal.TransAliasWY(service_usercenter.userid)};
+          var pushinfo = {
+            Tags: jsondal.TransTagsWY(service_usercenter.tags),
+            Alias: jsondal.TransAliasWY(service_usercenter.userid)
+          };
           console.info(pushinfo);
           NativePlugin.JPush_SetTagsWithAlias(pushinfo);
-
 
 
           window.clearInterval($scope.InterValObj);//停止计时器
@@ -144,9 +145,14 @@ angular.module('ktwy.controllers', [])
           //$rootScope.$ionicGoBack();
 
           if ($scope.usercenter_login.willGoUrl != '') {
-
-            $state.go($scope.usercenter_login.willGoUrl);
+            if (typeof($scope.usercenter_login.willGoUrl) == "string") {
+              $state.go($scope.usercenter_login.willGoUrl);
+            }
+            if (typeof($scope.usercenter_login.willGoUrl ) == "function") {
+              $scope.usercenter_login.willGoUrl();
+            }
             $scope.usercenter_login.willGoUrl = "";
+
             $scope.closeLoginWnd();
           }
           else {
@@ -224,7 +230,7 @@ angular.module('ktwy.controllers', [])
   })
 
 
-  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log,$ionicScrollDelegate, service_usercenter, service_roomselect) {
+  .controller('ctr_selectroom', function ($scope, $stateParams, $state, $log, $ionicScrollDelegate, service_usercenter, service_roomselect) {
     $scope.usercenter = service_usercenter;
 
     var roomselect = service_roomselect;
@@ -235,13 +241,12 @@ angular.module('ktwy.controllers', [])
     $scope.roomname = "";
 
     $scope.getChildUnit = function (pid, p_title) {
-      if(pid=="-1"){
-        pid="0";
+      if (pid == "-1") {
+        pid = "0";
       }
       $scope.roomselect.getUnits(pid).then(function (rtn) {
 
-          if (rtn.d != undefined)
-          {
+          if (rtn.d != undefined) {
             $scope.roomselect.units = [];
             $.each(rtn.d, function (k, v) {
               var itm = {
@@ -272,45 +277,44 @@ angular.module('ktwy.controllers', [])
     };
 
     //点击导航--顶部
-    $scope.nav = function (id,title,pid) {
+    $scope.nav = function (id, title, pid) {
       $scope.roomselect.interceptnavlist(id);
       $scope.getChildUnit(pid, '');
     };
 
     //点击表格--表格
-    $scope.navtable=function(id,title,pid,roompath)
-    {
-      $scope.roomselect.addnavlist(id,title,pid);
+    $scope.navtable = function (id, title, pid, roompath) {
+      $scope.roomselect.addnavlist(id, title, pid);
       $scope.getChildUnit(id, roompath);
     };
 
     //返回
-    $scope.closewnd = function (roomid,roompath) {
+    $scope.closewnd = function (roomid, roompath) {
 
-      $scope.roomselect.navlist=[];
-      $scope.roomselect.units=[];
+      $scope.roomselect.navlist = [];
+      $scope.roomselect.units = [];
 
       $scope.getChildUnit('0', '');
-      $scope.roomselect.addnavlist('0','房号:','-1');
+      $scope.roomselect.addnavlist('0', '房号:', '-1');
 
-      $scope.closeSelectRoomWnd(roomid,roompath);
+      $scope.closeSelectRoomWnd(roomid, roompath);
     };
 
     //first open exec ini
     $scope.getChildUnit('0', '');
-    $scope.roomselect.addnavlist('0','房号:','-1');
+    $scope.roomselect.addnavlist('0', '房号:', '-1');
 
     /*
-    $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
-      console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
-      if (newval=="0") {
-        //查询数据
-        $scope.getChildUnit('0', '');
-        $scope.roomselect.addnavlist('0','房号:','-1');
-      }
+     $scope.$watch('roomselect.navlist.length', function (newval, oldval) {
+     console.info("-------------$scope.roomselect.navlist.length----------------"+newval);
+     if (newval=="0") {
+     //查询数据
+     $scope.getChildUnit('0', '');
+     $scope.roomselect.addnavlist('0','房号:','-1');
+     }
 
-    });
-    */
+     });
+     */
 
   })
 

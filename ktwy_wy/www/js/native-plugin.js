@@ -303,6 +303,35 @@ angular.module('ktwy.services')
         OpenNotificationCallBack:function(rtn){
           console.info("-----------------OpenNotificationCallBack----------------------");
           console.info(JSON.stringify(rtn));
+          var type="";
+          var params={};
+          if(device.platform=="ios")
+          {
+            //notify={url:(rtn.url||""),iid:(rtn.iid||"")};
+            type=(rtn.type||"text").toLowerCase();
+            //params=JSON.parse(rtn.params||"{}");
+            eval("params=("+rtn.params+"||{})");
+            params.alert=rtn.aps.alert;
+          }
+          else
+          {
+            //notify={url:(rtn.extras.url||""),iid:(rtn.extras.iid||"")};
+            type=(rtn.extras.type||"text").toLowerCase();
+            //params=JSON.parse(rtn.extras.params||"{}");
+            eval("params=("+rtn.extras.params+"||{})");
+            params.alert=rtn.alert;
+          }
+
+          if(Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBackOption[type] && typeof(Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBackOption[type])=="function")
+          {
+            Native_Plugin.JPush_DefaultOptions.OpenNotificationCallBackOption[type](params);
+          }
+          else
+          {
+            console.error("type '"+type+"' undefined");
+          }
+        },
+        OpenNotificationCallBackOption:{
         },
         //接收到消息时调用的方法
         //android:{"message":"消息内容","extras":{"cn.jpush.android.CONTENT_TYPE":"","key1":"val1","cn.jpush.android.EXTRA":{"key1":"val1"},"cn.jpush.android.MSG_ID":"2010307257"}}

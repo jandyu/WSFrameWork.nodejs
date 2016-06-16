@@ -782,14 +782,18 @@ angular.module('ktwy.controllers')
 
     $scope.$on('$stateChangeSuccess',
       function (event, toState, toParams, fromState, fromParams) {
-        //if (fromState.name == "root.employee_edit") {}
-        $scope.news_yz.getmodel($scope.news_yz.model.iid).then(function (rtn) {
-          console.info("----------getmodel----------------");
-          console.info(rtn);
-          $scope.$apply();
-        }, function (rtn) {
+        //if (fromState.name == "root.news_yz_detail_reply") {
+        if(news_yz_IID=="")
+        {
+          $scope.news_yz.getmodel($scope.news_yz.model.iid).then(function (rtn) {
+            console.info("----------getmodel----------------");
+            console.info(rtn);
+            $scope.$apply();
+          }, function (rtn) {
 
-        });
+          });
+        }
+
       });
 
   })

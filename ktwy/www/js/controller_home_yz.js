@@ -79,38 +79,41 @@ angular.module('ktwy.controllers')
 
       //初始化jpush
       var jpush_option = {
-        //点击通知栏里的通知时调用的方法
-        //android:{"title":"通知标题","alert":"通知内容","extras":{"cn.jpush.android.NOTIFICATION_TYPE":"0","key2":"val2","key1":"val1","cn.jpush.android.EXTRA":{"key2":"val2","key1":"val1"},"app":"cn.zjy8.kwwy","cn.jpush.android.MSG_ID":"3858919693","cn.jpush.android.ALERT":"通知","cn.jpush.android.NOTIFICATION_ID":195428894}}
-        //ios:{"key1":"val1","key2":"val2","_j_msgid":3740634428,"aps":{"alert":"通知内容","badge":1,"sound":"default"}}
-        OpenNotificationCallBack: function (rtn) {
-          //解析rtn
-          var notify={url:'',iid:'',checklogin:true};
-          if(service_usercenter.platform=="ios")
+        OpenNotificationCallBackOption:{
+          link:function(params)
           {
-            notify={url:(rtn.url||""),iid:(rtn.iid||"")};
-          }
-          else
-          {
-            notify={url:(rtn.extras.url||""),iid:(rtn.extras.iid||"")};
-          }
+            var notify=params;
+            notify.checklogin=true;
 
-          //业主通知时不需要验证是否登陆
-          if(notify.url=="root.news_yz_detail"){
-            notify.checklogin=false;
-          }
-
-          if(notify.url!="") {
-            //登陆成功后才能看到
-            if(notify.checklogin==true) {
-              $scope.goAfterLogin(
-                function () {
-                  $state.go(notify.url, {iid: notify.iid});
-                }
-              );
-            }
-            else//不需要登陆
+            if(!notify.url)
             {
-              $state.go(notify.url, {iid: notify.iid});
+              console.error('params url undefined');
+              return;
+            }
+            if(!notify.iid)
+            {
+              console.error('params iid undefined');
+              return;
+            }
+
+            //业主通知时不需要验证是否登陆
+            if(notify.url=="root.news_yz_detail"){
+              notify.checklogin=false;
+            }
+
+            if(notify.url!="") {
+              //登陆成功后才能看到
+              if(notify.checklogin==true) {
+                $scope.goAfterLogin(
+                  function () {
+                    $state.go(notify.url, {iid: notify.iid});
+                  }
+                );
+              }
+              else//不需要登陆
+              {
+                $state.go(notify.url, {iid: notify.iid});
+              }
             }
           }
         }

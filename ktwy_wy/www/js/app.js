@@ -244,6 +244,8 @@ angular.module('ktwy', ['ionic', 'ktwy.controllers', 'ktwy.services', 'ngResourc
 
       .state('root.news_wy_detail', {
         url: '/news_wy_detail',
+        params:{iid:""},//传递的参数
+        cache:false,//禁用掉缓存
         views: {
           'rootContent': {
             templateUrl: 'templates/news/news_wy_detail.html',

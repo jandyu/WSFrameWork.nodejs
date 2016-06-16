@@ -77,8 +77,48 @@ angular.module('ktwy.controllers')
       service_usercenter_login.deviceid = service_usercenter.deviceid;
       service_usercenter_login.platform = service_usercenter.platform;
 
-      //初始化
-      NativePlugin.JPush_Init();
+      //初始化jpush
+      var jpush_option = {
+        OpenNotificationCallBackOption:{
+          link:function(params)
+          {
+            var notify=params;
+            notify.checklogin=true;
+
+            if(!notify.url)
+            {
+              console.error('params url undefined');
+              return;
+            }
+            if(!notify.iid)
+            {
+              console.error('params iid undefined');
+              return;
+            }
+
+            //业主通知时不需要验证是否登陆
+            if(notify.url=="root.news_yz_detail"){
+              notify.checklogin=false;
+            }
+
+            if(notify.url!="") {
+              //登陆成功后才能看到
+              if(notify.checklogin==true) {
+                $scope.goAfterLogin(
+                  function () {
+                    $state.go(notify.url, {iid: notify.iid});
+                  }
+                );
+              }
+              else//不需要登陆
+              {
+                $state.go(notify.url, {iid: notify.iid});
+              }
+            }
+          }
+        }
+      };
+      NativePlugin.JPush_Init(jpush_option);
 
       $scope.usercenter_login.userLoginDevice().then(
         function (rtn) {
@@ -125,16 +165,23 @@ angular.module('ktwy.controllers')
 
     //登录窗口
     //登陆后跳转到指定页面,未登陆则跳转到登陆页面,登陆完成后再跳转到要跳转到页面
+    //参数说明:url
+    //字符串:表示url,如果登陆成功,则系统会调用$state.go(url)
+    //function:表示回调函数,如果登陆成功,则系统执行该回调函数
     $scope.goAfterLogin = function (url) {
-      //$state.go(url);
-
       if ($scope.usercenter.checkLogin() == true) {
-        $state.go(url);
+        if (typeof(url) == "string") {
+          $state.go(url);
+        }
+        if (typeof(url) == "function") {
+          url();
+        }
       }
       else {
         $scope.usercenter_login.willGoUrl = url;
         $scope.openLoginWnd();
       }
+
     };
 
 
