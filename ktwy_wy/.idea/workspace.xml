@@ -18,16 +18,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fb7ec51-fb68-48a4-8696-4018cac18b34" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/controller_home_yz.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/controller_home_yz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/native-plugin.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/native-plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ktwy/www/js/news/controller_news.js" afterPath="$PROJECT_DIR$/../ktwy/www/js/news/controller_news.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ktwy_wy.iml" afterPath="$PROJECT_DIR$/.idea/ktwy_wy.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controller_home_wy.js" afterPath="$PROJECT_DIR$/www/js/controller_home_wy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controller_usercenter.js" afterPath="$PROJECT_DIR$/www/js/controller_usercenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/native-plugin.js" afterPath="$PROJECT_DIR$/www/js/native-plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/news/controller_news.js" afterPath="$PROJECT_DIR$/www/js/news/controller_news.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home-wy.html" afterPath="$PROJECT_DIR$/www/templates/tab-home-wy.html" />
     </list>
     <ignored path="ktwy_wy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +40,128 @@
     <favorites_list name="ktwy_wy" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="selectroom.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/usercenter/selectroom.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="45" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller_usercenter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/controller_usercenter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="233" column="43" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="43" />
+              <folding>
+                <element signature="e#436#1503#0" expanded="false" />
+                <element signature="e#2134#2176#0" expanded="false" />
+                <element signature="e#2328#2370#0" expanded="false" />
+                <element signature="e#2411#2454#0" expanded="false" />
+                <element signature="e#9527#10896#0" expanded="false" />
+                <element signature="e#9593#10838#0" expanded="false" />
+                <element signature="e#9753#10751#0" expanded="false" />
+                <element signature="e#10162#10707#0" expanded="false" />
+                <element signature="e#10402#10552#0" expanded="false" />
+                <element signature="e#10569#10692#0" expanded="false" />
+                <element signature="e#10724#10737#0" expanded="false" />
+                <element signature="e#10768#10823#0" expanded="false" />
+                <element signature="e#10859#10869#0" expanded="false" />
+                <element signature="e#10933#11053#0" expanded="false" />
+                <element signature="e#10983#10992#0" expanded="false" />
+                <element signature="e#11009#11045#0" expanded="false" />
+                <element signature="e#11147#11206#0" expanded="false" />
+                <element signature="e#11230#11279#0" expanded="false" />
+                <element signature="e#11344#11482#0" expanded="false" />
+                <element signature="e#11536#11585#0" expanded="false" />
+                <element signature="e#11626#11676#0" expanded="false" />
+                <element signature="e#12157#13561#0" expanded="false" />
+                <element signature="e#12198#12353#0" expanded="false" />
+                <element signature="e#12226#12326#0" expanded="false" />
+                <element signature="e#12394#12549#0" expanded="false" />
+                <element signature="e#12422#12522#0" expanded="false" />
+                <element signature="e#12609#12767#0" expanded="false" />
+                <element signature="e#12637#12740#0" expanded="false" />
+                <element signature="e#12839#13377#0" expanded="false" />
+                <element signature="e#12946#13205#0" expanded="false" />
+                <element signature="e#12976#13081#0" expanded="false" />
+                <element signature="e#13219#13368#0" expanded="false" />
+                <element signature="e#13249#13356#0" expanded="false" />
+                <element signature="e#13394#13552#0" expanded="false" />
+                <element signature="e#13449#13542#0" expanded="false" />
+                <element signature="e#13638#13856#0" expanded="false" />
+                <element signature="e#13923#15597#0" expanded="false" />
+                <element signature="e#14040#14194#0" expanded="false" />
+                <element signature="e#14068#14168#0" expanded="false" />
+                <element signature="e#14221#14375#0" expanded="false" />
+                <element signature="e#14249#14349#0" expanded="false" />
+                <element signature="e#14591#15010#0" expanded="false" />
+                <element signature="e#15035#15047#0" expanded="false" />
+                <element signature="e#15082#15591#0" expanded="false" />
+                <element signature="e#15143#15393#0" expanded="false" />
+                <element signature="e#15407#15558#0" expanded="false" />
+                <element signature="e#15709#15810#0" expanded="false" />
+                <element signature="e#15886#16042#0" expanded="false" />
+                <element signature="e#15914#16015#0" expanded="false" />
+                <element signature="e#16087#16242#0" expanded="false" />
+                <element signature="e#16115#16215#0" expanded="false" />
+                <element signature="e#16317#17092#0" expanded="false" />
+                <element signature="e#16424#16919#0" expanded="false" />
+                <element signature="e#16454#16559#0" expanded="false" />
+                <element signature="e#16642#16908#0" expanded="false" />
+                <element signature="e#16933#17083#0" expanded="false" />
+                <element signature="e#16963#17071#0" expanded="false" />
+                <element signature="e#17109#17267#0" expanded="false" />
+                <element signature="e#17164#17257#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsdal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/jsdal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="140" column="20" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.srv.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/data.srv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="66" column="10" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service_repair.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/repair/service_repair.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/IService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -131,10 +244,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1475" />
-    <option name="y" value="-246" />
-    <option name="width" value="1280" />
-    <option name="height" value="773" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-298" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -161,7 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -226,6 +339,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="usercenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ktwy_wy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ktwy_wy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -248,13 +383,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
+              <option name="myItemId" value="repair" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -821,12 +956,13 @@
       <workItem from="1465779951761" duration="16308000" />
       <workItem from="1465871434104" duration="625000" />
       <workItem from="1465969089922" duration="717000" />
-      <workItem from="1466039321503" duration="2603000" />
+      <workItem from="1466039321503" duration="3090000" />
+      <workItem from="1468806075710" duration="1708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369930000" />
+    <option name="totallyTimeSpent" value="372125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -838,8 +974,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1475" y="-246" width="1280" height="773" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1920" y="-298" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
@@ -848,23 +984,23 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.4911147" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43484625" sideWeight="0.7342488" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.655636" sideWeight="0.49676898" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33441034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22044729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -912,28 +1048,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/js/repair/controller_repair.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48091602">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/visitor/service_visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/visitor/controller_visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/visitor/visitor_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9270998">
@@ -1100,20 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/data.srv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38931298">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/jsdal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49618322">
-          <caret line="253" column="21" selection-start-line="253" selection-start-column="21" selection-end-line="253" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/service_usercenter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5954198">
@@ -1205,13 +1305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/IService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="166" column="9" selection-start-line="156" selection-start-column="11" selection-end-line="166" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cn.jpush.phonegap.JPushPlugin/doc/Android_detail_api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SECOND">
@@ -1236,7 +1329,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48396948">
           <caret line="247" column="27" selection-start-line="247" selection-start-column="27" selection-end-line="247" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,16 +1521,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controller_home_wy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/native-plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="499" column="13" selection-start-line="499" selection-start-column="13" selection-end-line="499" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5467512">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-home-wy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7606973">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/usercenter/selectroom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="45" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/repair/service_repair.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/IService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/build/device/科湾物管.app/www/js/service_usercenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3290735">
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controller_usercenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32824427">
-          <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="233" column="43" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="43" />
           <folding>
             <element signature="e#436#1503#0" expanded="false" />
             <element signature="e#2134#2176#0" expanded="false" />
             <element signature="e#2328#2370#0" expanded="false" />
             <element signature="e#2411#2454#0" expanded="false" />
-            <element signature="e#7013#9248#0" expanded="false" />
             <element signature="e#9527#10896#0" expanded="false" />
             <element signature="e#9593#10838#0" expanded="false" />
             <element signature="e#9753#10751#0" expanded="false" />
@@ -1498,34 +1653,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controller_home_wy.js">
+    <entry file="file://$PROJECT_DIR$/www/js/jsdal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <caret line="140" column="20" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/native-plugin.js">
+    <entry file="file://$PROJECT_DIR$/www/js/data.srv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="499" column="13" selection-start-line="499" selection-start-column="13" selection-end-line="499" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5467512">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-home-wy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7606973">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="10" />
           <folding />
         </state>
       </provider>
