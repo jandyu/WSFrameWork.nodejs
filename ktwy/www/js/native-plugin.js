@@ -420,7 +420,10 @@ angular.module('ktwy.services')
         arr_tags=tagsWithalias.Tags;
         salias=tagsWithalias.Alias;
         console.info("----------jpush set tags and alias----------");
-        window.plugins.jPushPlugin.setTagsWithAlias(arr_tags, salias);
+
+        if(window.plugins && window.plugins.jPushPlugin) {
+          window.plugins.jPushPlugin.setTagsWithAlias(arr_tags, salias);
+        }
       },
       JPush_OnSetTagsWithAlias:function(event)
       {
